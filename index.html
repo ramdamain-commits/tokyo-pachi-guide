@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>東京パチ・スロ特定日ガイド</title>
+  <style>
+    :root {
+      --bg: #0f172a; --card-bg: #1e293b; --accent: #3b82f6;
+      --text: #f1f5f9; --text-muted: #94a3b8; --radius: 12px;
+      --warn-bg: #3f2d0a; --warn-border: #d97706;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: -apple-system, "Hiragino Sans", "Noto Sans JP", sans-serif;
+      line-height: 1.7; padding: 1.5rem; max-width: 860px; margin: 0 auto;
+    }
+    h1 { font-size: 1.5rem; margin-bottom: .5rem; }
+    .disclaimer {
+      background: var(--warn-bg); border: 1px solid var(--warn-border);
+      border-radius: var(--radius); padding: .7rem 1rem; margin-bottom: 1rem;
+      font-size: .85rem; color: #fcd34d;
+    }
+    .updated { color: var(--text-muted); font-size: .85rem; margin-bottom: 1rem; }
+    .tabs {
+      display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.2rem;
+      position: sticky; top: 0; background: var(--bg); padding: .5rem 0; z-index: 1;
+    }
+    .tab-btn {
+      background: transparent; color: var(--accent); border: 1px solid var(--accent);
+      border-radius: 999px; padding: .4rem .9rem; font-size: .9rem; cursor: pointer;
+    }
+    .tab-btn.active { background: var(--accent); color: #fff; }
+    .tab-panel[hidden] { display: none; }
+    .date-picker { margin-bottom: 1rem; }
+    .date-picker input[type="date"] {
+      background: var(--card-bg); color: var(--text); border: 1px solid var(--text-muted);
+      border-radius: 6px; padding: .4rem .6rem; font-size: 1rem;
+    }
+    .date-heading { font-size: 1rem; color: var(--text-muted); margin-bottom: .8rem; }
+    .area-heading {
+      font-size: 1.15rem; margin: 1.2rem 0 .75rem; border-left: 4px solid var(--accent);
+      padding-left: .6rem;
+    }
+    .area-heading:first-of-type { margin-top: 0; }
+    .none-notice { color: var(--text-muted); font-size: .95rem; padding: 1rem 0; }
+    .store-card {
+      background: var(--card-bg); border-radius: var(--radius); padding: .9rem 1.1rem;
+      margin-bottom: .8rem;
+    }
+    .store-card--closed { opacity: .55; }
+    .store-card__head {
+      display: flex; justify-content: space-between; gap: .5rem;
+      flex-wrap: wrap; align-items: baseline;
+    }
+    .store-card__name { font-weight: 700; }
+    .store-card__area { color: var(--text-muted); font-size: .82rem; }
+    .store-card__meta { color: var(--text-muted); font-size: .85rem; margin-top: .2rem; }
+    .store-card__badges { margin-top: .5rem; display: flex; flex-wrap: wrap; gap: .35rem; }
+    .store-card__desc { font-size: .88rem; margin-top: .4rem; }
+    .store-card__memo { font-size: .85rem; margin-top: .4rem; color: var(--text-muted); }
+    .store-card__links { font-size: .8rem; margin-top: .4rem; }
+    .store-card__links a { color: var(--accent); }
+    .badge {
+      display: inline-block; font-size: .72rem; padding: .12rem .5rem;
+      border-radius: 999px; white-space: nowrap;
+    }
+    .badge--rule { background: #334155; color: #e2e8f0; }
+    .badge--closed { background: #7f1d1d; color: #fecaca; }
+    footer {
+      color: var(--text-muted); font-size: .8rem; margin-top: 2rem;
+      border-top: 1px solid #334155; padding-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>東京パチ・スロ特定日ガイド</h1>
+  <p class="disclaimer">
+    特定日の情報は第三者サイト由来の過去傾向推定であり、公式情報ではありません。
+  </p>
+  <p class="updated" id="updated"></p>
+
+  <nav class="tabs" id="tabs">
+    <button class="tab-btn active" data-tab="today">今日</button>
+    <button class="tab-btn" data-tab="tomorrow">明日</button>
+    <button class="tab-btn" data-tab="custom">日付指定</button>
+    <button class="tab-btn" data-tab="area">エリア別一覧</button>
+  </nav>
+
+  <section id="tab-today" class="tab-panel"></section>
+
+  <section id="tab-tomorrow" class="tab-panel" hidden></section>
+
+  <section id="tab-custom" class="tab-panel" hidden>
+    <div class="date-picker">
+      <label for="date-input">日付を選択: </label>
+      <input type="date" id="date-input" />
+    </div>
+    <div id="custom-result"></div>
+  </section>
+
+  <section id="tab-area" class="tab-panel" hidden></section>
+
+  <footer>
+    データ出典は各店カード内リンクを参照。非公開ローカルツール（GitHub非掲載）。
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

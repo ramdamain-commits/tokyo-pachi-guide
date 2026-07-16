@@ -4,12 +4,21 @@
 
 **非公開PJ**: ギャンブル関連＋行動圏情報を含むため、GitHubには上げない（ローカルgitのみ）。portal・life-ops-export にも掲載しない。
 
-## 構成（予定）
+## 構成
 
 - `data/stores.json` — 店舗マスタ（エリア・台数・特定日ルール・抽選方式・閉店時刻・換金率・概要・出典・確認日）。2026-07-16 に全32店で生成・詳細補完まで完了（上野4/秋葉原5/新宿6/渋谷4/池袋8/新橋3/京橋銀座2）
-- `index.html` / `app.js` — ビューワ（今日/明日/日付指定の該当店＋エリア別一覧）。`python3 -m http.server` で閲覧
-- `test/` — 日付マッチングロジックのユニットテスト
+- `match.mjs` — 日付マッチングロジック本体（`rules[].type` 全7種の判定・`ruleLabel` によるバッジ用日本語ラベル生成）
+- `index.html` / `app.js` — ビューワ（今日/明日/日付指定/エリア別一覧の4タブ）。`app.js` は `<script type="module">` として `match.mjs` を import する
+- `test/match.test.mjs` — `match.mjs` のユニットテスト（`node --test` で実行、境界ケース網羅・全18件pass）
 - `docs/superpowers/specs/` — 設計書
+
+## 閲覧方法
+
+ES module + fetch を使うため `file://` では動作しない。リポジトリルートで以下を実行してブラウザから `http://localhost:8099/` を開く。
+
+```
+python3 -m http.server 8099
+```
 
 ## 対象エリア
 
