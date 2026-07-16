@@ -7,8 +7,9 @@
 ## 構成
 
 - `data/stores.json` — 店舗マスタ（エリア・台数・特定日ルール・抽選方式・閉店時刻・換金率・概要・出典・確認日）。2026-07-16 に全32店で生成・詳細補完まで完了（上野4/秋葉原5/新宿6/渋谷4/池袋8/新橋3/京橋銀座2）
+- `data/media.json` — 取材媒体マスタ（媒体名・取材傾向・対象ジャンル・確度・出典）。店舗単位ではなく媒体単位の一般的傾向（伝聞情報、公式公約ではない）
 - `match.mjs` — 日付マッチングロジック本体（`rules[].type` 全7種の判定・`ruleLabel` によるバッジ用日本語ラベル生成）
-- `index.html` / `app.js` — ビューワ（今日/明日/日付指定/エリア別一覧の4タブ）。`app.js` は `<script type="module">` として `match.mjs` を import する
+- `index.html` / `app.js` — ビューワ（今日/明日/日付指定/エリア別一覧/取材傾向の5タブ）。`app.js` は `<script type="module">` として `match.mjs` を import する
 - `test/match.test.mjs` — `match.mjs` のユニットテスト（`node --test` で実行、境界ケース網羅・全18件pass）
 - `docs/superpowers/specs/` — 設計書
 

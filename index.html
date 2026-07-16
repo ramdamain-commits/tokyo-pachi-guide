@@ -68,6 +68,11 @@
     }
     .badge--rule { background: #334155; color: #e2e8f0; }
     .badge--closed { background: #7f1d1d; color: #fecaca; }
+    .badge--confidence-高 { background: #14532d; color: #bbf7d0; }
+    .badge--confidence-中 { background: #422006; color: #fde68a; }
+    .badge--confidence-低 { background: #451a1a; color: #fecaca; }
+    .media-card__tendency { font-size: .9rem; margin-top: .4rem; }
+    .media-card__genre { font-size: .85rem; margin-top: .3rem; color: var(--text-muted); }
     footer {
       color: var(--text-muted); font-size: .8rem; margin-top: 2rem;
       border-top: 1px solid #334155; padding-top: 1rem;
@@ -86,6 +91,7 @@
     <button class="tab-btn" data-tab="tomorrow">明日</button>
     <button class="tab-btn" data-tab="custom">日付指定</button>
     <button class="tab-btn" data-tab="area">エリア別一覧</button>
+    <button class="tab-btn" data-tab="media">取材傾向</button>
   </nav>
 
   <section id="tab-today" class="tab-panel"></section>
@@ -101,6 +107,12 @@
   </section>
 
   <section id="tab-area" class="tab-panel" hidden></section>
+
+  <section id="tab-media" class="tab-panel" hidden>
+    <p class="disclaimer">
+      取材傾向は第三者まとめサイト・評判に基づく伝聞情報であり、公式の設定示唆・公約ではありません。
+    </p>
+  </section>
 
   <footer>
     データ出典は各店カード内リンクを参照。非公開ローカルツール（GitHub非掲載）。

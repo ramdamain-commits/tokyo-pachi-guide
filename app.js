@@ -157,6 +157,29 @@ function renderAreaList(container, stores) {
   });
 }
 
+// 取材傾向タブ用: 媒体カード
+function renderMediaCard(media) {
+  const wrap = el("div", "store-card");
+  const confidenceBadge = `<span class="badge badge--confidence-${media.confidence}">確度: ${media.confidence}</span>`;
+  const src = sourcesHtml(media.sources);
+  wrap.innerHTML =
+    `<div class="store-card__head"><span class="store-card__name">${media.name}</span>` +
+    `<span class="store-card__area">${media.type}</span></div>` +
+    `<div class="store-card__badges">${confidenceBadge}</div>` +
+    `<div class="media-card__tendency">${media.tendency}</div>` +
+    `<div class="media-card__genre">対象: ${media.targetGenre}</div>` +
+    (media.note ? `<div class="store-card__memo">${media.note}</div>` : "") +
+    (src ? `<div class="store-card__links">${src}</div>` : "");
+  return wrap;
+}
+
+function renderMediaList(container, mediaList) {
+  const disclaimer = container.querySelector(".disclaimer");
+  container.innerHTML = "";
+  if (disclaimer) container.appendChild(disclaimer);
+  mediaList.forEach((media) => container.appendChild(renderMediaCard(media)));
+}
+
 function setupTabs() {
   const buttons = Array.from(document.querySelectorAll(".tab-btn"));
   buttons.forEach((btn) => {
@@ -173,6 +196,7 @@ function setupTabs() {
 
 async function main() {
   const data = await loadJSON("data/stores.json");
+  const mediaData = await loadJSON("data/media.json");
   document.getElementById("updated").textContent = `データ更新日: ${data.updated}`;
 
   const today = todayLocal();
@@ -181,6 +205,7 @@ async function main() {
   renderDateMatches(document.getElementById("tab-today"), data.stores, today);
   renderDateMatches(document.getElementById("tab-tomorrow"), data.stores, tomorrow);
   renderAreaList(document.getElementById("tab-area"), data.stores);
+  renderMediaList(document.getElementById("tab-media"), mediaData.media);
 
   const dateInput = document.getElementById("date-input");
   const customResult = document.getElementById("custom-result");
