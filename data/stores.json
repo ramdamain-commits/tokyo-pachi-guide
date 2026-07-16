@@ -840,9 +840,9 @@
       "id": "maruhan-ikebukuro-slotbase",
       "name": "マルハン池袋 SLOT BASE",
       "area": "池袋",
-      "address": null,
-      "access": null,
-      "slots": null,
+      "address": "東京都豊島区東池袋1-43-6 D-BOXビル1F",
+      "access": "池袋駅東口 徒歩3分",
+      "slots": 301,
       "pachinko": null,
       "rules": [
         {
@@ -866,14 +866,23 @@
           "value": 28
         }
       ],
-      "lottery": null,
-      "open": null,
-      "close": null,
-      "exchange": null,
-      "memo": "※③エリア: すろざんまい一次抽出のパターンのみ確定。住所/台数/抽選/換金率はみんパチ未取得(セッション上限で中断)→次セッションで補完。",
+      "lottery": {
+        "method": "777コンパス モバイル抽選",
+        "draw": null,
+        "auth": "9:30",
+        "lineup": "9:50"
+      },
+      "open": "10:00",
+      "close": "23:00",
+      "exchange": "非等価（スロ21.73円5.2枚）",
+      "memo": "スロット専門店。⚠パターン食い違い: すろざんまいは2の付く日だが、みんパチは7のつく日(+241枚)＋月日ゾロ目を記載(毎月6/8/22/28日は一致)。照合(403で未実施)要再検証。",
       "sources": [
         {
           "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        },
+        {
+          "url": "https://minpachi.com/maruhan-ikebukurosb/",
           "checkedAt": "2026-07-16"
         }
       ]
@@ -882,24 +891,33 @@
       "id": "maruhan-ikebukuro",
       "name": "マルハン池袋店",
       "area": "池袋",
-      "address": null,
-      "access": null,
-      "slots": null,
-      "pachinko": null,
+      "address": "東京都豊島区東池袋1-43-5",
+      "access": "池袋駅東口 徒歩3分",
+      "slots": 255,
+      "pachinko": 478,
       "rules": [
         {
           "type": "digit",
           "value": 7
         }
       ],
-      "lottery": null,
-      "open": null,
-      "close": null,
-      "exchange": null,
-      "memo": "※③エリア: すろざんまい一次抽出のパターンのみ確定。住所/台数/抽選/換金率はみんパチ未取得(セッション上限で中断)→次セッションで補完。",
+      "lottery": {
+        "method": "入場くんオンライン(モバイル抽選)",
+        "draw": "9:45",
+        "auth": "9:45",
+        "lineup": "9:50"
+      },
+      "open": "10:00",
+      "close": "23:00",
+      "exchange": "非等価（4円28玉/1円112玉/スロ21.73円5.2枚）",
+      "memo": "GO2015-11-20。抽選上限700名。みんパチは毎月11日・22日も追加記載。",
       "sources": [
         {
           "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        },
+        {
+          "url": "https://minpachi.com/maruhan-ikebukuro/",
           "checkedAt": "2026-07-16"
         }
       ]
@@ -908,10 +926,10 @@
       "id": "rakuen-ikebukuro",
       "name": "楽園池袋店",
       "area": "池袋",
-      "address": null,
+      "address": "東京都豊島区南池袋1-24-5",
       "access": null,
-      "slots": null,
-      "pachinko": null,
+      "slots": 607,
+      "pachinko": 922,
       "rules": [
         {
           "type": "monthday",
@@ -925,14 +943,23 @@
           "type": "zorome"
         }
       ],
-      "lottery": null,
-      "open": null,
-      "close": null,
-      "exchange": null,
-      "memo": "※③エリア: すろざんまい一次抽出のパターンのみ確定。住所/台数/抽選/換金率はみんパチ未取得(セッション上限で中断)→次セッションで補完。",
+      "lottery": {
+        "method": "整理券(パチ/スロ別抽選)",
+        "draw": "9:40",
+        "auth": null,
+        "lineup": "9:50"
+      },
+      "open": "10:00",
+      "close": "22:40",
+      "exchange": "非等価（4円28玉/1円112玉/スロ21.73円5.2枚/5円22.4枚）",
+      "memo": "大型店。みんパチは7のつく日も追加記載(すろざんまいになし)。",
       "sources": [
         {
           "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        },
+        {
+          "url": "https://minpachi.com/rakuen-ikebukuro/",
           "checkedAt": "2026-07-16"
         }
       ]
@@ -941,9 +968,9 @@
       "id": "toho-ikebukuro",
       "name": "TOHO池袋店",
       "area": "池袋",
-      "address": null,
+      "address": "東京都豊島区東池袋1-11-11",
       "access": null,
-      "slots": null,
+      "slots": 304,
       "pachinko": null,
       "rules": [
         {
@@ -951,14 +978,23 @@
           "value": 4
         }
       ],
-      "lottery": null,
-      "open": null,
-      "close": null,
-      "exchange": null,
-      "memo": "※③エリア: すろざんまい一次抽出のパターンのみ確定。住所/台数/抽選/換金率はみんパチ未取得(セッション上限で中断)→次セッションで補完。",
+      "lottery": {
+        "method": "整理券(会員カード不要)",
+        "draw": "9:50",
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:45",
+      "exchange": "非等価（スロ21.73円5.2枚）",
+      "memo": "スロット専門店。すろざんまい×みんパチ一致(4のつく日)。",
       "sources": [
         {
           "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        },
+        {
+          "url": "https://minpachi.com/toho-ikebukuro/",
           "checkedAt": "2026-07-16"
         }
       ]
@@ -967,24 +1003,33 @@
       "id": "yasuda-nishiikebukuro6",
       "name": "やすだ西池袋6号店",
       "area": "池袋",
-      "address": null,
-      "access": null,
-      "slots": null,
-      "pachinko": null,
+      "address": "東京都豊島区西池袋1-36-3",
+      "access": "池袋駅西口 徒歩数分",
+      "slots": 110,
+      "pachinko": 241,
       "rules": [
         {
           "type": "digit",
           "value": 6
         }
       ],
-      "lottery": null,
-      "open": null,
-      "close": null,
-      "exchange": null,
-      "memo": "※③エリア: すろざんまい一次抽出のパターンのみ確定。住所/台数/抽選/換金率はみんパチ未取得(セッション上限で中断)→次セッションで補完。",
+      "lottery": {
+        "method": "入場くんオンライン(モバイル抽選)",
+        "draw": "9:45",
+        "auth": null,
+        "lineup": "9:50"
+      },
+      "open": "10:00",
+      "close": "23:00",
+      "exchange": "非等価（4円28玉/1円112玉/スロ21.73円5.2枚）",
+      "memo": "すろざんまい×みんパチ一致(6のつく日=6/16/26日)。",
       "sources": [
         {
           "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        },
+        {
+          "url": "https://minpachi.com/yasuda-6/",
           "checkedAt": "2026-07-16"
         }
       ]
@@ -993,9 +1038,9 @@
       "id": "smart-prego-ikebukuro",
       "name": "スマートプレゴ池袋",
       "area": "池袋",
-      "address": null,
-      "access": null,
-      "slots": null,
+      "address": "東京都豊島区南池袋1-21-2 地下1F",
+      "access": "池袋駅東口(明治通り沿い)",
+      "slots": 195,
       "pachinko": null,
       "rules": [
         {
@@ -1003,14 +1048,23 @@
           "value": 5
         }
       ],
-      "lottery": null,
-      "open": null,
-      "close": null,
-      "exchange": null,
-      "memo": "※③エリア: すろざんまい一次抽出のパターンのみ確定。住所/台数/抽選/換金率はみんパチ未取得(セッション上限で中断)→次セッションで補完。",
+      "lottery": {
+        "method": "777コンパス モバイル抽選",
+        "draw": "9:20",
+        "auth": "9:29",
+        "lineup": "9:30"
+      },
+      "open": "10:00",
+      "close": "22:40",
+      "exchange": "非等価（スロ21.73円5.2枚/5円22.4枚）",
+      "memo": "スマスロ専門店。すろざんまい×みんパチ一致(5のつく日)。前身P-PORT PREGO池袋(2019-09-23閉店)→2023-04-05業態転換で再OP(同一住所)。",
       "sources": [
         {
           "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        },
+        {
+          "url": "https://minpachi.com/smart-prego/",
           "checkedAt": "2026-07-16"
         }
       ]
@@ -1019,10 +1073,10 @@
       "id": "prego-ex-ikebukuro",
       "name": "プレゴEX池袋南口店(PREGO)",
       "area": "池袋",
-      "address": null,
-      "access": null,
-      "slots": null,
-      "pachinko": null,
+      "address": "東京都豊島区南池袋1-21-2",
+      "access": "池袋駅南口 徒歩圏",
+      "slots": 85,
+      "pachinko": 329,
       "rules": [
         {
           "type": "digit",
@@ -1033,14 +1087,23 @@
           "value": 11
         }
       ],
-      "lottery": null,
-      "open": null,
-      "close": null,
-      "exchange": null,
-      "memo": "※③エリア: すろざんまい一次抽出のパターンのみ確定。住所/台数/抽選/換金率はみんパチ未取得(セッション上限で中断)→次セッションで補完。",
+      "lottery": {
+        "method": "モバイル抽選(コンパス、2024-12-15方式変更)",
+        "draw": "9:30",
+        "auth": "9:39",
+        "lineup": "9:50"
+      },
+      "open": "10:00",
+      "close": "22:40",
+      "exchange": "非等価（パチ4.38円25.5玉/1円112玉/スロ21.73円5.2枚）",
+      "memo": "⚠パターン食い違い: すろざんまいは5の付く日＋毎月11日だが、みんパチは5のつく日のみで毎月11日の記載なし。照合(403で未実施)要再検証。",
       "sources": [
         {
           "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        },
+        {
+          "url": "https://minpachi.com/prego-ex/",
           "checkedAt": "2026-07-16"
         }
       ]
@@ -1049,9 +1112,9 @@
       "id": "koshien-ikebukuro",
       "name": "甲子園池袋店",
       "area": "池袋",
-      "address": null,
-      "access": null,
-      "slots": null,
+      "address": "東京都豊島区西池袋1-22-8",
+      "access": "池袋駅西口 徒歩2分",
+      "slots": 141,
       "pachinko": null,
       "rules": [
         {
@@ -1059,14 +1122,23 @@
           "value": 15
         }
       ],
-      "lottery": null,
-      "open": null,
-      "close": null,
-      "exchange": null,
-      "memo": "※③エリア: すろざんまい一次抽出のパターンのみ確定。住所/台数/抽選/換金率はみんパチ未取得(セッション上限で中断)→次セッションで補完。",
+      "lottery": {
+        "method": "整理券抽選",
+        "draw": "9:50",
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:50",
+      "exchange": "等価（スロ21.73円5.26枚）",
+      "memo": "スロット専門店・等価交換(③で唯一)。⚠パターン食い違い: すろざんまいは毎月15日だが、みんパチは15日明記なし・5のつく日/コメントで16日本命の示唆・現行パターン不明瞭。照合(403で未実施)要再検証。",
       "sources": [
         {
           "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        },
+        {
+          "url": "https://minpachi.com/%E7%94%B2%E5%AD%90%E5%9C%92%E6%B1%A0%E8%A2%8B%E5%BA%97/",
           "checkedAt": "2026-07-16"
         }
       ]
@@ -1075,24 +1147,33 @@
       "id": "shimbashi-uno",
       "name": "新橋UNO",
       "area": "新橋",
-      "address": null,
-      "access": null,
-      "slots": null,
-      "pachinko": null,
+      "address": "東京都港区新橋3-20-1 TOWAJ'sビル",
+      "access": "JR新橋駅 徒歩1分",
+      "slots": 299,
+      "pachinko": 306,
       "rules": [
         {
           "type": "digit",
           "value": 1
         }
       ],
-      "lottery": null,
-      "open": null,
-      "close": null,
-      "exchange": null,
-      "memo": "※③エリア: すろざんまい一次抽出のパターンのみ確定。詳細はみんパチ未取得→次セッションで補完。",
+      "lottery": {
+        "method": "整理券抽選",
+        "draw": "9:45",
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:55",
+      "exchange": "非等価（4円28玉/2円56玉/スロ21.73円5.3枚）",
+      "memo": "すろざんまい×みんパチ一致(1のつく日=1/11/21/31日)。みんパチは毎月25日も追加。",
       "sources": [
         {
           "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        },
+        {
+          "url": "https://minpachi.com/2050uno/",
           "checkedAt": "2026-07-16"
         }
       ]
@@ -1101,10 +1182,10 @@
       "id": "bigdipper-shimbashi1",
       "name": "ビックディッパー新橋1号店",
       "area": "新橋",
-      "address": null,
+      "address": "東京都港区新橋3-12-3",
       "access": null,
-      "slots": null,
-      "pachinko": null,
+      "slots": 565,
+      "pachinko": 371,
       "rules": [
         {
           "type": "digit",
@@ -1122,14 +1203,23 @@
           "type": "zorome"
         }
       ],
-      "lottery": null,
-      "open": null,
-      "close": null,
-      "exchange": null,
-      "memo": "※③エリア: すろざんまい一次抽出のパターンのみ確定。詳細はみんパチ未取得→次セッションで補完。",
+      "lottery": {
+        "method": "抽選券配布(スロ)",
+        "draw": "9:45",
+        "auth": null,
+        "lineup": "9:50"
+      },
+      "open": "10:00",
+      "close": "22:50",
+      "exchange": "非等価（4円28玉/スロ21.73円5.2枚）",
+      "memo": "一致(5・7のつく日/16日生誕祭/月ゾロ目)。みんパチは多数追加(毎月1/4/17/22日・月末・8のつく日・0のつく日=沖スロ)。",
       "sources": [
         {
           "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        },
+        {
+          "url": "https://minpachi.com/big-dipper1/",
           "checkedAt": "2026-07-16"
         }
       ]
@@ -1138,10 +1228,10 @@
       "id": "bigdipper-shimbashi2",
       "name": "ビックディッパー新橋2号店",
       "area": "新橋",
-      "address": null,
+      "address": "東京都港区新橋2-8-12 ミクニ新橋第2ビル",
       "access": null,
-      "slots": null,
-      "pachinko": null,
+      "slots": 244,
+      "pachinko": 126,
       "rules": [
         {
           "type": "digit",
@@ -1159,14 +1249,23 @@
           "type": "zorome"
         }
       ],
-      "lottery": null,
-      "open": null,
-      "close": null,
-      "exchange": null,
-      "memo": "※③エリア: すろざんまい一次抽出のパターンのみ確定。詳細はみんパチ未取得→次セッションで補完。",
+      "lottery": {
+        "method": "整理券",
+        "draw": "9:55",
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:50",
+      "exchange": "非等価（4円28玉/1.12円100玉/スロ21.73円5.2枚/5.58円20.8枚）",
+      "memo": "一致(5・7のつく日/21日生誕祭)。みんパチは毎月1日・11月21日周年を追加、ゾロ目の明記なし。",
       "sources": [
         {
           "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        },
+        {
+          "url": "https://minpachi.com/big-dipper2/",
           "checkedAt": "2026-07-16"
         }
       ]
@@ -1175,24 +1274,33 @@
       "id": "yurakucho-duo",
       "name": "有楽町DUO",
       "area": "京橋/銀座",
-      "address": null,
-      "access": "有楽町(銀座・京橋至近)",
-      "slots": null,
-      "pachinko": null,
+      "address": "東京都千代田区有楽町2-8-1",
+      "access": "JR有楽町駅 銀座口前",
+      "slots": 287,
+      "pachinko": 281,
       "rules": [
         {
           "type": "digit",
           "value": 2
         }
       ],
-      "lottery": null,
-      "open": null,
-      "close": null,
-      "exchange": null,
-      "memo": "※③エリア: 京橋/銀座本体にパチ店はほぼ皆無(すろざんまい掲載0)。隣接の有楽町で代表補完。すろざんまい一次抽出パターンのみ確定・詳細はみんパチ未取得→次セッションで補完。",
+      "lottery": {
+        "method": "整理券抽選",
+        "draw": "9:35",
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:55",
+      "exchange": "非等価（4円28玉/1.33円84玉/スロ21.73円5.2枚）",
+      "memo": "※京橋/銀座本体はパチ店ほぼ皆無(すろざんまい掲載0)のため隣接の有楽町で代表補完。一致(2のつく日)＋みんパチは毎月28日も追加。",
       "sources": [
         {
           "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        },
+        {
+          "url": "https://minpachi.com/1011duo/",
           "checkedAt": "2026-07-16"
         }
       ]
@@ -1201,24 +1309,33 @@
       "id": "yurakucho-uno",
       "name": "有楽町UNO",
       "area": "京橋/銀座",
-      "address": null,
-      "access": "有楽町(銀座・京橋至近)",
-      "slots": null,
-      "pachinko": null,
+      "address": "東京都千代田区有楽町2-7-1 有楽町駅前ビルディング",
+      "access": "有楽町駅直結",
+      "slots": 209,
+      "pachinko": 365,
       "rules": [
         {
           "type": "digit",
           "value": 1
         }
       ],
-      "lottery": null,
-      "open": null,
-      "close": null,
-      "exchange": null,
-      "memo": "※③エリア: 京橋/銀座本体にパチ店はほぼ皆無(すろざんまい掲載0)。隣接の有楽町で代表補完。すろざんまい一次抽出パターンのみ確定・詳細はみんパチ未取得→次セッションで補完。",
+      "lottery": {
+        "method": "整理券抽選",
+        "draw": "9:45",
+        "auth": null,
+        "lineup": "9:55"
+      },
+      "open": "10:00",
+      "close": "22:55",
+      "exchange": "非等価（4円28玉/スロ21.73円5.2枚）",
+      "memo": "※京橋/銀座本体はパチ店ほぼ皆無のため隣接の有楽町で代表補完。一致(1のつく日=1/11/21/31日)＋みんパチは毎月25日も追加。",
       "sources": [
         {
           "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        },
+        {
+          "url": "https://minpachi.com/2000uno/",
           "checkedAt": "2026-07-16"
         }
       ]
