@@ -1,0 +1,6 @@
+# 中間収集ファイル（researcher直書き・provenanceはstores.jsonのmemo/sourcesに集約）
+_staging/
+
+# scratch
+*.tmp
+.DS_Store

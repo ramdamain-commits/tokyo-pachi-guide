@@ -1,0 +1,1227 @@
+{
+  "updated": "2026-07-16",
+  "stores": [
+    {
+      "id": "pia-ueno",
+      "name": "PIA上野",
+      "area": "上野",
+      "address": "東京都台東区上野6-13-9",
+      "access": null,
+      "slots": 377,
+      "pachinko": 312,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 5
+        },
+        {
+          "type": "digit",
+          "value": 7
+        },
+        {
+          "type": "monthday",
+          "value": 21
+        },
+        {
+          "type": "month-day-match"
+        },
+        {
+          "type": "zorome"
+        }
+      ],
+      "lottery": {
+        "method": "整理券(会員カード不要)",
+        "draw": "9:40",
+        "auth": null,
+        "lineup": "9:50"
+      },
+      "open": "10:00",
+      "close": "22:45",
+      "exchange": "非等価（4円28玉/スロ21.73円5.2枚）",
+      "memo": "GO1994-01-17。PIAはデータをアプリ内表示のみで外部サイト非提供。⚠みんパチ本文は「7のつく日」のみ明記でパターン欠落の可能性→アナスロ照合(403で未実施)要。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        },
+        {
+          "url": "https://minpachi.com/pia-u/",
+          "checkedAt": "2026-07-16"
+        }
+      ]
+    },
+    {
+      "id": "espace-ueno-honkan",
+      "name": "エスパス日拓上野本館",
+      "area": "上野",
+      "address": "東京都台東区上野4-10-4",
+      "access": null,
+      "slots": 513,
+      "pachinko": 402,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 7
+        }
+      ],
+      "lottery": {
+        "method": "モバイル抽選",
+        "draw": "9:15",
+        "auth": "9:45",
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:45",
+      "exchange": "非等価（4円28玉/スロ21.73円5.2枚）",
+      "memo": "GO2006-08-21。⚠パターン食い違い大: すろざんまいは7の付く日のみだが、みんパチは1・5・7の付く日＋第1土曜＋毎月21日(周年)＋ゾロ目＋25日と多数記載。すろざんまいの網羅漏れの可能性→アナスロ照合(403で未実施)で要再検証。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        },
+        {
+          "url": "https://minpachi.com/espace-ueno/",
+          "checkedAt": "2026-07-16"
+        }
+      ]
+    },
+    {
+      "id": "espace-ueno-shinkan",
+      "name": "エスパス日拓上野新館",
+      "area": "上野",
+      "address": "東京都台東区上野4-7-5 日拓上野アメ横ビル",
+      "access": null,
+      "slots": 431,
+      "pachinko": 515,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 7
+        }
+      ],
+      "lottery": {
+        "method": "モバイル抽選(スロ)",
+        "draw": "9:30",
+        "auth": "9:45",
+        "lineup": "9:55"
+      },
+      "open": "10:00",
+      "close": "23:00",
+      "exchange": "非等価（4円28玉/スロ21.73円5.15枚）",
+      "memo": "⚠パターン食い違い: すろざんまいは7の付く日のみだが、みんパチは5・7の付く日＋毎月14日(周年)＋ゾロ目を記載→アナスロ照合(403で未実施)で要再検証。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        },
+        {
+          "url": "https://minpachi.com/espace-ueno-ameyoko/",
+          "checkedAt": "2026-07-16"
+        }
+      ]
+    },
+    {
+      "id": "rakuen-ameyoko",
+      "name": "楽園アメ横店",
+      "area": "上野",
+      "address": "東京都台東区上野6-9-7",
+      "access": null,
+      "slots": 478,
+      "pachinko": 409,
+      "rules": [
+        {
+          "type": "monthday",
+          "value": 1
+        },
+        {
+          "type": "monthday",
+          "value": 6,
+          "label": "周年"
+        },
+        {
+          "type": "monthday",
+          "value": 15
+        },
+        {
+          "type": "zorome"
+        },
+        {
+          "type": "month-day-match"
+        }
+      ],
+      "lottery": {
+        "method": "整理券(会員カード不要)",
+        "draw": "9:40",
+        "auth": null,
+        "lineup": "9:50"
+      },
+      "open": "10:00",
+      "close": "22:40",
+      "exchange": "非等価（4円28玉/スロ21.73円5.15枚）",
+      "memo": "GO2023-01-06。※すろざんまい未掲載のため特定日ルールはみんパチ由来(毎月1日/6日周年/15日/11・22ゾロ目/月日ゾロ)。第1ソース欠のため他店より確度低め。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        },
+        {
+          "url": "https://minpachi.com/rakuen-ameyoko/",
+          "checkedAt": "2026-07-16"
+        }
+      ]
+    },
+    {
+      "id": "akihabara-uno",
+      "name": "秋葉原UNO",
+      "area": "秋葉原",
+      "address": "東京都千代田区神田佐久間町1-3",
+      "access": "JR秋葉原駅電気街口 徒歩2分",
+      "slots": 197,
+      "pachinko": 263,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 1
+        },
+        {
+          "type": "digit",
+          "value": 7
+        }
+      ],
+      "lottery": {
+        "method": "整理券・シャッフル抽選",
+        "draw": "9:40",
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:45",
+      "exchange": "非等価（4円28玉/スロ21.73円5.2枚）",
+      "memo": "GO2013-12-04。⚠みんパチは「1のつく日＋毎月4日(GO記念)」で7の付く日への言及なし→照合(403で未実施)要。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        },
+        {
+          "url": "https://minpachi.com/2090uno/",
+          "checkedAt": "2026-07-16"
+        }
+      ]
+    },
+    {
+      "id": "big-apple-akihabara",
+      "name": "ビッグアップル.秋葉原店",
+      "area": "秋葉原",
+      "address": "東京都千代田区外神田1-16-1 トゥモロービル",
+      "access": null,
+      "slots": 675,
+      "pachinko": 185,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 2
+        },
+        {
+          "type": "digit",
+          "value": 6
+        },
+        {
+          "type": "month-day-match"
+        },
+        {
+          "type": "zorome"
+        }
+      ],
+      "lottery": {
+        "method": "モバイル抽選(スロ)",
+        "draw": "9:45",
+        "auth": "9:30",
+        "lineup": "9:50"
+      },
+      "open": "10:00",
+      "close": "22:40",
+      "exchange": "非等価（4円28玉/スロ21.73円5.15枚）",
+      "memo": "GO2003-06-06。秋葉原最大級。⚠みんパチは「6のつく日/毎月20日/月末最終日」で2の付く日・月日重なる・ゾロ目の言及なし→照合(403で未実施)要。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        },
+        {
+          "url": "https://minpachi.com/big-apple/",
+          "checkedAt": "2026-07-16"
+        }
+      ]
+    },
+    {
+      "id": "cyber-akihabara",
+      "name": "サイバーパチンコ秋葉原昭和通り口店",
+      "area": "秋葉原",
+      "address": "東京都千代田区神田平河町4-7",
+      "access": "秋葉原駅から東へ約150m(昭和通り沿い)",
+      "slots": 308,
+      "pachinko": 303,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 3
+        }
+      ],
+      "lottery": {
+        "method": "モバイル抽選(入場くんオンライン)",
+        "draw": "9:45",
+        "auth": null,
+        "lineup": "9:55"
+      },
+      "open": "10:00",
+      "close": "23:00",
+      "exchange": "非等価（4円28玉/スロ21.73円5.2枚）",
+      "memo": "GO2011-05-10。⚠みんパチは3・9のつく日で9の付く日が追加→照合(403で未実施)要。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        },
+        {
+          "url": "https://minpachi.com/11-2/",
+          "checkedAt": "2026-07-16"
+        }
+      ]
+    },
+    {
+      "id": "island-akihabara",
+      "name": "アイランド秋葉原",
+      "area": "秋葉原",
+      "address": "東京都千代田区外神田4-3-3",
+      "access": null,
+      "slots": 392,
+      "pachinko": 204,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 6
+        },
+        {
+          "type": "monthday",
+          "value": 11
+        },
+        {
+          "type": "monthday",
+          "value": 20
+        },
+        {
+          "type": "zorome"
+        },
+        {
+          "type": "month-day-match"
+        }
+      ],
+      "lottery": {
+        "method": "整理券(会員カード不要)",
+        "draw": "9:30",
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:40",
+      "exchange": "非等価（4円28玉/スロ21.27円5.264枚）",
+      "memo": "GO2004-10-20。すろざんまい×みんパチほぼ一致(対象日同一)。みんパチはアニメキャラ誕生日連動の傾向も記載。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        },
+        {
+          "url": "https://minpachi.com/island/",
+          "checkedAt": "2026-07-16"
+        }
+      ]
+    },
+    {
+      "id": "espace-akihabara",
+      "name": "エスパス日拓秋葉原駅前店",
+      "area": "秋葉原",
+      "address": "東京都千代田区外神田1-15-6",
+      "access": "秋葉原駅前",
+      "slots": 519,
+      "pachinko": 327,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 6
+        },
+        {
+          "type": "digit",
+          "value": 7
+        },
+        {
+          "type": "monthday",
+          "value": 20
+        },
+        {
+          "type": "monthday",
+          "value": 22
+        },
+        {
+          "type": "monthday",
+          "value": 25
+        },
+        {
+          "type": "monthday",
+          "value": 28
+        },
+        {
+          "type": "month-day-match"
+        }
+      ],
+      "lottery": {
+        "method": "モバイル抽選(入場くんオンライン∞)",
+        "draw": "9:15",
+        "auth": "9:45",
+        "lineup": "9:50"
+      },
+      "open": "10:00",
+      "close": "23:00",
+      "exchange": "非等価（4円28玉/スロ21.73円5.16枚）",
+      "memo": "日替わりで強化機種を変える企画あり。⚠みんパチは「6・7のつく日/毎月1日11日22日25日/月日ゾロ/土日/月末」で毎月20日28日が現れず1日11日土日月末が追加→照合(403で未実施)要。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        },
+        {
+          "url": "https://minpachi.com/espace-akb/",
+          "checkedAt": "2026-07-16"
+        }
+      ]
+    },
+    {
+      "id": "espace-kabukicho",
+      "name": "エスパス日拓新宿歌舞伎町店",
+      "area": "新宿",
+      "address": "東京都新宿区歌舞伎町1-23-3",
+      "access": null,
+      "slots": 739,
+      "pachinko": 966,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 6
+        },
+        {
+          "type": "digit",
+          "value": 7
+        },
+        {
+          "type": "monthday",
+          "value": 1
+        },
+        {
+          "type": "monthday",
+          "value": 23
+        },
+        {
+          "type": "monthday",
+          "value": 24
+        },
+        {
+          "type": "month-day-match"
+        },
+        {
+          "type": "zorome"
+        }
+      ],
+      "lottery": {
+        "method": "店頭/モバイル抽選",
+        "draw": "9:30",
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:45",
+      "exchange": "非等価（4円28玉/スロ21.73円5.15枚）",
+      "memo": "⚠みんパチは土曜(店推し日)・日曜(全台系)も旧イベ日として記載(すろざんまいになし)。逆に6の付く日/24日/11・22はみんパチ本文になし→照合(403で未実施)要。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        },
+        {
+          "url": "https://minpachi.com/espace-kabuki/",
+          "checkedAt": "2026-07-16"
+        }
+      ]
+    },
+    {
+      "id": "maruhan-shinjuku-toho",
+      "name": "マルハン新宿東宝ビル店",
+      "area": "新宿",
+      "address": "東京都新宿区歌舞伎町1-19-1 新宿東宝ビル2F",
+      "access": null,
+      "slots": 664,
+      "pachinko": 561,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 7
+        },
+        {
+          "type": "monthday",
+          "value": 1
+        }
+      ],
+      "lottery": {
+        "method": "モバイル抽選(777コンパス)",
+        "draw": "9:30",
+        "auth": "9:45",
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:30",
+      "exchange": "非等価（4円28玉/スロ21.73円5.16枚）",
+      "memo": "GO2015-04-24。⚠みんパチは「7のつく日/毎月21日24日/月日ゾロ」で毎月1日がなく21日24日ゾロが追加→照合(403で未実施)要。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        },
+        {
+          "url": "https://minpachi.com/maruhan-shinjukutoho/",
+          "checkedAt": "2026-07-16"
+        }
+      ]
+    },
+    {
+      "id": "shinjuku-aladdin",
+      "name": "新宿アラジン",
+      "area": "新宿",
+      "address": "東京都新宿区西新宿1-19-1",
+      "access": null,
+      "slots": 422,
+      "pachinko": 410,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 7
+        },
+        {
+          "type": "monthday",
+          "value": 1
+        },
+        {
+          "type": "monthday",
+          "value": 7
+        },
+        {
+          "type": "monthday",
+          "value": 11
+        },
+        {
+          "type": "monthday",
+          "value": 21
+        }
+      ],
+      "lottery": {
+        "method": "モバイル抽選(会員カード不要)",
+        "draw": "9:00",
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:40",
+      "exchange": "非等価（4円28玉/スロ21.73円5.2枚）",
+      "memo": "1969年創業の老舗。みんパチは同日数＋「月末」を追加記載(要検討: 月末=monthday last)。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        },
+        {
+          "url": "https://minpachi.com/aladdin/",
+          "checkedAt": "2026-07-16"
+        }
+      ]
+    },
+    {
+      "id": "espace-seibu-shinjuku",
+      "name": "エスパス日拓西武新宿駅前店",
+      "area": "新宿",
+      "address": "東京都新宿区歌舞伎町1-25-4",
+      "access": "西武新宿駅前",
+      "slots": 411,
+      "pachinko": 516,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 7
+        },
+        {
+          "type": "monthday",
+          "value": 16
+        },
+        {
+          "type": "weekday",
+          "value": 6
+        },
+        {
+          "type": "weekday",
+          "value": 0
+        },
+        {
+          "type": "month-day-match"
+        },
+        {
+          "type": "zorome"
+        }
+      ],
+      "lottery": {
+        "method": "抽選(会員カード不要)",
+        "draw": "9:45",
+        "auth": null,
+        "lineup": "9:55"
+      },
+      "open": "10:00",
+      "close": "22:45",
+      "exchange": "非等価（4円28玉/スロ21.73円5.2枚）",
+      "memo": "GO2014-11-26。すろざんまい×みんパチほぼ一致。みんパチは7の付く日の明記なし(他は一致)。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        },
+        {
+          "url": "https://minpachi.com/espace-shinjuku/",
+          "checkedAt": "2026-07-16"
+        }
+      ]
+    },
+    {
+      "id": "kaleido-shinjuku",
+      "name": "カレイド新宿",
+      "area": "新宿",
+      "address": "東京都新宿区西新宿7-1-1",
+      "access": null,
+      "slots": 240,
+      "pachinko": 226,
+      "rules": [
+        {
+          "type": "monthday",
+          "value": 16
+        },
+        {
+          "type": "month-day-match"
+        }
+      ],
+      "lottery": {
+        "method": "モバイル抽選(777コンパス)",
+        "draw": null,
+        "auth": "9:40",
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:45",
+      "exchange": "非等価（4円28玉/スロ21.73円5.16枚）",
+      "memo": "GO1996-07-20。⚠みんパチは第4土曜を追加記載(すろざんまいになし)→照合(403で未実施)要。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        },
+        {
+          "url": "https://minpachi.com/kaleido/",
+          "checkedAt": "2026-07-16"
+        }
+      ]
+    },
+    {
+      "id": "kicona-shinjuku3",
+      "name": "キコーナ新宿三丁目店",
+      "area": "新宿",
+      "address": "東京都新宿区新宿3-6-7",
+      "access": "新宿三丁目駅近く/新宿駅徒歩5分",
+      "slots": 224,
+      "pachinko": 240,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 3
+        },
+        {
+          "type": "digit",
+          "value": 8
+        },
+        {
+          "type": "digit",
+          "value": 9
+        }
+      ],
+      "lottery": {
+        "method": "抽選方式",
+        "draw": "9:45",
+        "auth": null,
+        "lineup": "9:55"
+      },
+      "open": "10:00",
+      "close": "22:45",
+      "exchange": "非等価（4円28玉/スロ21.73円5.16枚）",
+      "memo": "GO2015-11-25。新宿三丁目エリア唯一のパチンコ店。⚠みんパチは8のつく日のみで3・9の付く日の記載なし→照合(403で未実施)要。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        },
+        {
+          "url": "https://minpachi.com/kicona-shin/",
+          "checkedAt": "2026-07-16"
+        }
+      ]
+    },
+    {
+      "id": "espace-shibuya-shinkan",
+      "name": "エスパス日拓渋谷駅前新館",
+      "area": "渋谷",
+      "address": "東京都渋谷区道玄坂2-4-2",
+      "access": "京王井の頭線渋谷駅中央エスカレーター直下",
+      "slots": 421,
+      "pachinko": 526,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 7
+        },
+        {
+          "type": "monthday",
+          "value": 5,
+          "label": "周年"
+        },
+        {
+          "type": "month-day-match"
+        },
+        {
+          "type": "zorome"
+        }
+      ],
+      "lottery": {
+        "method": "モバイル抽選(会員カード不要)",
+        "draw": "9:40",
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": null,
+      "exchange": "非等価（4円28玉/スロ21.73円5.2枚）",
+      "memo": "GO2013-07-05。営業中(本館とは別)。close時刻みんパチ未記載でnull。⚠みんパチは1のつく日(競合対抗日)を追加→照合(403で未実施)要。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        },
+        {
+          "url": "https://minpachi.com/espace-shibuya-n/",
+          "checkedAt": "2026-07-16"
+        }
+      ]
+    },
+    {
+      "id": "espace-shibuya-honkan",
+      "name": "エスパス日拓渋谷本館",
+      "area": "渋谷",
+      "address": "東京都渋谷区道玄坂2-5-2 日拓渋谷ビル",
+      "access": null,
+      "slots": 443,
+      "pachinko": 465,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 7
+        },
+        {
+          "type": "zorome"
+        }
+      ],
+      "lottery": {
+        "method": "抽選(会員カード不要)",
+        "draw": "9:45",
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:50",
+      "exchange": "非等価（4円28玉/スロ21.73円5.2枚）",
+      "closed": "2026-03-31",
+      "memo": "【閉店】2026-03-31閉店(隣接店と統合)。すろざんまいも「(3/31~休業)」注記。過去データとして保持。ビューワでは非表示/閉店表記推奨。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        },
+        {
+          "url": "https://minpachi.com/espace-shibuya/",
+          "checkedAt": "2026-07-16"
+        }
+      ]
+    },
+    {
+      "id": "rakuen-shibuya-dogenzaka",
+      "name": "楽園渋谷道玄坂店",
+      "area": "渋谷",
+      "address": "東京都渋谷区道玄坂2-6-16",
+      "access": null,
+      "slots": 392,
+      "pachinko": 483,
+      "rules": [
+        {
+          "type": "month-day-match"
+        },
+        {
+          "type": "zorome"
+        }
+      ],
+      "lottery": {
+        "method": "整理券(会員カード不要)",
+        "draw": "9:40",
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:45",
+      "exchange": "非等価（4円28玉/スロ21.73円5.2枚）",
+      "memo": "GO2011-05-11。すろざんまい×みんパチ一致。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        },
+        {
+          "url": "https://minpachi.com/rakuen-shibuya/",
+          "checkedAt": "2026-07-16"
+        }
+      ]
+    },
+    {
+      "id": "rakuen-shibuya-ekimae",
+      "name": "楽園渋谷駅前店",
+      "area": "渋谷",
+      "address": "東京都渋谷区道玄坂1-3-1 渋谷駅前会館ビル",
+      "access": "JR渋谷駅西口すぐ",
+      "slots": 391,
+      "pachinko": 495,
+      "rules": [
+        {
+          "type": "month-day-match"
+        },
+        {
+          "type": "zorome"
+        }
+      ],
+      "lottery": {
+        "method": "整理券(会員カード不要)",
+        "draw": "9:30",
+        "auth": null,
+        "lineup": "9:50"
+      },
+      "open": "10:00",
+      "close": "22:45",
+      "exchange": "非等価（4円28玉/スロ21.73円5.16枚）",
+      "memo": "GO2020-07-01。すろざんまい×みんパチ一致。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        },
+        {
+          "url": "https://minpachi.com/rakuen-shibuyaekimae/",
+          "checkedAt": "2026-07-16"
+        }
+      ]
+    },
+    {
+      "id": "maruhan-ikebukuro-slotbase",
+      "name": "マルハン池袋 SLOT BASE",
+      "area": "池袋",
+      "address": null,
+      "access": null,
+      "slots": null,
+      "pachinko": null,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 2
+        },
+        {
+          "type": "monthday",
+          "value": 6
+        },
+        {
+          "type": "monthday",
+          "value": 8
+        },
+        {
+          "type": "monthday",
+          "value": 22
+        },
+        {
+          "type": "monthday",
+          "value": 28
+        }
+      ],
+      "lottery": null,
+      "open": null,
+      "close": null,
+      "exchange": null,
+      "memo": "※③エリア: すろざんまい一次抽出のパターンのみ確定。住所/台数/抽選/換金率はみんパチ未取得(セッション上限で中断)→次セッションで補完。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        }
+      ]
+    },
+    {
+      "id": "maruhan-ikebukuro",
+      "name": "マルハン池袋店",
+      "area": "池袋",
+      "address": null,
+      "access": null,
+      "slots": null,
+      "pachinko": null,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 7
+        }
+      ],
+      "lottery": null,
+      "open": null,
+      "close": null,
+      "exchange": null,
+      "memo": "※③エリア: すろざんまい一次抽出のパターンのみ確定。住所/台数/抽選/換金率はみんパチ未取得(セッション上限で中断)→次セッションで補完。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        }
+      ]
+    },
+    {
+      "id": "rakuen-ikebukuro",
+      "name": "楽園池袋店",
+      "area": "池袋",
+      "address": null,
+      "access": null,
+      "slots": null,
+      "pachinko": null,
+      "rules": [
+        {
+          "type": "monthday",
+          "value": 1
+        },
+        {
+          "type": "monthday",
+          "value": 21
+        },
+        {
+          "type": "zorome"
+        }
+      ],
+      "lottery": null,
+      "open": null,
+      "close": null,
+      "exchange": null,
+      "memo": "※③エリア: すろざんまい一次抽出のパターンのみ確定。住所/台数/抽選/換金率はみんパチ未取得(セッション上限で中断)→次セッションで補完。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        }
+      ]
+    },
+    {
+      "id": "toho-ikebukuro",
+      "name": "TOHO池袋店",
+      "area": "池袋",
+      "address": null,
+      "access": null,
+      "slots": null,
+      "pachinko": null,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 4
+        }
+      ],
+      "lottery": null,
+      "open": null,
+      "close": null,
+      "exchange": null,
+      "memo": "※③エリア: すろざんまい一次抽出のパターンのみ確定。住所/台数/抽選/換金率はみんパチ未取得(セッション上限で中断)→次セッションで補完。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        }
+      ]
+    },
+    {
+      "id": "yasuda-nishiikebukuro6",
+      "name": "やすだ西池袋6号店",
+      "area": "池袋",
+      "address": null,
+      "access": null,
+      "slots": null,
+      "pachinko": null,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 6
+        }
+      ],
+      "lottery": null,
+      "open": null,
+      "close": null,
+      "exchange": null,
+      "memo": "※③エリア: すろざんまい一次抽出のパターンのみ確定。住所/台数/抽選/換金率はみんパチ未取得(セッション上限で中断)→次セッションで補完。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        }
+      ]
+    },
+    {
+      "id": "smart-prego-ikebukuro",
+      "name": "スマートプレゴ池袋",
+      "area": "池袋",
+      "address": null,
+      "access": null,
+      "slots": null,
+      "pachinko": null,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 5
+        }
+      ],
+      "lottery": null,
+      "open": null,
+      "close": null,
+      "exchange": null,
+      "memo": "※③エリア: すろざんまい一次抽出のパターンのみ確定。住所/台数/抽選/換金率はみんパチ未取得(セッション上限で中断)→次セッションで補完。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        }
+      ]
+    },
+    {
+      "id": "prego-ex-ikebukuro",
+      "name": "プレゴEX池袋南口店(PREGO)",
+      "area": "池袋",
+      "address": null,
+      "access": null,
+      "slots": null,
+      "pachinko": null,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 5
+        },
+        {
+          "type": "monthday",
+          "value": 11
+        }
+      ],
+      "lottery": null,
+      "open": null,
+      "close": null,
+      "exchange": null,
+      "memo": "※③エリア: すろざんまい一次抽出のパターンのみ確定。住所/台数/抽選/換金率はみんパチ未取得(セッション上限で中断)→次セッションで補完。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        }
+      ]
+    },
+    {
+      "id": "koshien-ikebukuro",
+      "name": "甲子園池袋店",
+      "area": "池袋",
+      "address": null,
+      "access": null,
+      "slots": null,
+      "pachinko": null,
+      "rules": [
+        {
+          "type": "monthday",
+          "value": 15
+        }
+      ],
+      "lottery": null,
+      "open": null,
+      "close": null,
+      "exchange": null,
+      "memo": "※③エリア: すろざんまい一次抽出のパターンのみ確定。住所/台数/抽選/換金率はみんパチ未取得(セッション上限で中断)→次セッションで補完。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        }
+      ]
+    },
+    {
+      "id": "shimbashi-uno",
+      "name": "新橋UNO",
+      "area": "新橋",
+      "address": null,
+      "access": null,
+      "slots": null,
+      "pachinko": null,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 1
+        }
+      ],
+      "lottery": null,
+      "open": null,
+      "close": null,
+      "exchange": null,
+      "memo": "※③エリア: すろざんまい一次抽出のパターンのみ確定。詳細はみんパチ未取得→次セッションで補完。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        }
+      ]
+    },
+    {
+      "id": "bigdipper-shimbashi1",
+      "name": "ビックディッパー新橋1号店",
+      "area": "新橋",
+      "address": null,
+      "access": null,
+      "slots": null,
+      "pachinko": null,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 5
+        },
+        {
+          "type": "digit",
+          "value": 7
+        },
+        {
+          "type": "monthday",
+          "value": 16
+        },
+        {
+          "type": "zorome"
+        }
+      ],
+      "lottery": null,
+      "open": null,
+      "close": null,
+      "exchange": null,
+      "memo": "※③エリア: すろざんまい一次抽出のパターンのみ確定。詳細はみんパチ未取得→次セッションで補完。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        }
+      ]
+    },
+    {
+      "id": "bigdipper-shimbashi2",
+      "name": "ビックディッパー新橋2号店",
+      "area": "新橋",
+      "address": null,
+      "access": null,
+      "slots": null,
+      "pachinko": null,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 5
+        },
+        {
+          "type": "digit",
+          "value": 7
+        },
+        {
+          "type": "monthday",
+          "value": 21
+        },
+        {
+          "type": "zorome"
+        }
+      ],
+      "lottery": null,
+      "open": null,
+      "close": null,
+      "exchange": null,
+      "memo": "※③エリア: すろざんまい一次抽出のパターンのみ確定。詳細はみんパチ未取得→次セッションで補完。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        }
+      ]
+    },
+    {
+      "id": "yurakucho-duo",
+      "name": "有楽町DUO",
+      "area": "京橋/銀座",
+      "address": null,
+      "access": "有楽町(銀座・京橋至近)",
+      "slots": null,
+      "pachinko": null,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 2
+        }
+      ],
+      "lottery": null,
+      "open": null,
+      "close": null,
+      "exchange": null,
+      "memo": "※③エリア: 京橋/銀座本体にパチ店はほぼ皆無(すろざんまい掲載0)。隣接の有楽町で代表補完。すろざんまい一次抽出パターンのみ確定・詳細はみんパチ未取得→次セッションで補完。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        }
+      ]
+    },
+    {
+      "id": "yurakucho-uno",
+      "name": "有楽町UNO",
+      "area": "京橋/銀座",
+      "address": null,
+      "access": "有楽町(銀座・京橋至近)",
+      "slots": null,
+      "pachinko": null,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 1
+        }
+      ],
+      "lottery": null,
+      "open": null,
+      "close": null,
+      "exchange": null,
+      "memo": "※③エリア: 京橋/銀座本体にパチ店はほぼ皆無(すろざんまい掲載0)。隣接の有楽町で代表補完。すろざんまい一次抽出パターンのみ確定・詳細はみんパチ未取得→次セッションで補完。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-07-16"
+        }
+      ]
+    }
+  ]
+}
