@@ -1,0 +1,507 @@
+{
+  "updated": "2026-07-20",
+  "note": "過去の取材実績に基づく推定・伝聞情報であり、店舗・媒体の公式情報ではない。掲載が無い店舗・媒体は「実績なし」を意味しない（欠測）。",
+  "coverage": [
+    {
+      "storeId": "pia-ueno",
+      "mediaName": "スロパチステーション",
+      "frequency": "月1〜2回程度",
+      "lastSeen": "2026-04",
+      "confidence": "高",
+      "sources": [
+        {
+          "url": "https://777.slopachi-station.com/shop_data/4860/",
+          "checkedAt": "2026-07-20"
+        },
+        {
+          "url": "https://777.slopachi-station.com/shopposts/?shop_id=4860",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "shopposts一覧で2025-10〜2026-04にかけて月2本前後の来店取材記事を確認。個別記事(4/4取材分)のJSON-LD datePublishedは2026-04-06。全6ページ分の一覧は未全走査（直近1年分の傾向のみ確認）。"
+    },
+    {
+      "storeId": "espace-ueno-honkan",
+      "mediaName": "DMMぱちタウン",
+      "frequency": "月2回程度",
+      "lastSeen": "2026-06",
+      "confidence": "高",
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/111/reports",
+          "checkedAt": "2026-07-20"
+        },
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/111",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "来店レポート一覧に2026-06-21, 05-24, 05-21, 05-14, 04-21, 03-21等が並ぶ。「極誓取材」「格付けスピリッツ」等の企画名あり（DMMぱちタウン内の企画名で媒体自体は正規名どおり）。"
+    },
+    {
+      "storeId": "espace-ueno-shinkan",
+      "mediaName": "DMMぱちタウン",
+      "frequency": "月1〜2回程度",
+      "lastSeen": "2026-06",
+      "confidence": "高",
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/102/reports",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "2026-06-13, 05-23, 05-06, 2025-11-17, 10-25, 09-24等の来店レポートを確認。"
+    },
+    {
+      "storeId": "espace-ueno-shinkan",
+      "mediaName": "サンスポトクダネ！（サンケイスポーツ系・独自取材）",
+      "frequency": "月1回程度",
+      "lastSeen": "2025-12",
+      "confidence": "中",
+      "sources": [
+        {
+          "url": "https://sanspotokudane.jp/chain_name/%E3%82%A8%E3%82%B9%E3%83%91%E3%82%B9%E6%97%A5%E6%8B%93%E4%B8%8A%E9%87%8E%E6%96%B0%E9%A4%A8/",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "公式サイトの店舗別ページで2025-10-01, 10-17, 10-27, 11-01, 11-12, 12-01, 12-24を確認。2026年分は当ページ取得時点で未掲載（半年ブランクの可能性、要再確認）。片側ソースのみのため確度は中。"
+    },
+    {
+      "storeId": "rakuen-ameyoko",
+      "mediaName": "DMMぱちタウン",
+      "frequency": "月2回程度",
+      "lastSeen": "2026-06",
+      "confidence": "高",
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/130/reports",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "2026-06-22, 05-13, 05-12, 04-13, 04-12, 03-13等の来店レポートを確認。"
+    },
+    {
+      "storeId": "rakuen-ameyoko",
+      "mediaName": "スロパチステーション",
+      "frequency": "月2回程度（時期により変動）",
+      "lastSeen": null,
+      "confidence": "中",
+      "sources": [
+        {
+          "url": "https://777.slopachi-station.com/shop_data/11301/",
+          "checkedAt": "2026-07-20"
+        },
+        {
+          "url": "https://777.slopachi-station.com/shopposts/?shop_id=11301",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "shopposts一覧に4月〜9月の月2回ペースの記事タイトルを多数確認したが、一覧の並びが発行日順でなく年をまたぐ可能性があり、個別記事のdatePublished特定が404で未完了。頻度傾向は高確度だがlastSeen月は要再検証。"
+    },
+    {
+      "storeId": "big-apple-akihabara",
+      "mediaName": "DMMぱちタウン",
+      "frequency": "月2回程度",
+      "lastSeen": "2026-06",
+      "confidence": "高",
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/7/reports",
+          "checkedAt": "2026-07-20"
+        },
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/7",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "来店レポート一覧に2026-06-06, 04-19, 04-12, 04-05, 04-04, 01-18等を確認。「スロセレ」等の企画名で複数回のDMMぱちタウン取材を確認。"
+    },
+    {
+      "storeId": "cyber-akihabara",
+      "mediaName": "DMMぱちタウン",
+      "frequency": "数ヶ月に数回程度",
+      "lastSeen": "2026-05",
+      "confidence": "高",
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/11/reports",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "来店レポート一覧に2026-05-31, 04-11, 03-20を確認（他店より件数少なめ）。"
+    },
+    {
+      "storeId": "espace-kabukicho",
+      "mediaName": "DMMぱちタウン",
+      "frequency": "不明(2019年以降の掲載なし)",
+      "lastSeen": "2019-03",
+      "confidence": "低",
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/88/reports",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "来店レポート一覧の最新が2019/03/10「真双龍」で以降の掲載が確認できず。直近1年の実績は確認できず（取材が入らないと断定はできない）"
+    },
+    {
+      "storeId": "espace-kabukicho",
+      "mediaName": "スロパチステーション",
+      "frequency": "不明(2021年以降の掲載なし)",
+      "lastSeen": "2021-09",
+      "confidence": "低",
+      "sources": [
+        {
+          "url": "https://777.slopachi-station.com/shop_data/4755/",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "店舗ページ「最新結果」欄の最新記事が2021/09/23「スロ子×パチ子来店」。直近1年の実績は確認できず"
+    },
+    {
+      "storeId": "maruhan-shinjuku-toho",
+      "mediaName": "スロパチステーション",
+      "frequency": "月1回程度",
+      "lastSeen": "2026-06",
+      "confidence": "高",
+      "sources": [
+        {
+          "url": "https://777.slopachi-station.com/shop_data/4750/",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "「東京あかまる来店取材」シリーズ。2026/06/25・05/14・04月にも記事あり。店舗ページ内の記事一覧（画像パスのwp-uploads年月）で確認"
+    },
+    {
+      "storeId": "shinjuku-aladdin",
+      "mediaName": "一撃(Ichigeki)",
+      "frequency": "月2回以上(高頻度)",
+      "lastSeen": "2026-05",
+      "confidence": "高",
+      "sources": [
+        {
+          "url": "https://shuzai.1geki.jp/shop/172838/",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "「スロットパチンコ来店取材」ページで2026/05/21が最新。2025/11は11/1・11/7・11/11・11/17・11/22・11/27と月数回ペースの記録あり"
+    },
+    {
+      "storeId": "shinjuku-aladdin",
+      "mediaName": "スロパチステーション",
+      "frequency": "不明(7のつく日中心と伝聞)",
+      "lastSeen": null,
+      "confidence": "低",
+      "sources": [
+        {
+          "url": "https://777.slopachi-station.com/shop_data/4760/",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "店舗ページは存在し提携ホールとして掲載されているが、curlで取得した「最新結果」欄に記事一覧が展開されず日付を直接確認できなかった。WebSearchの要約で『7のつく日を中心に取材』との言及があるのみ（伝聞レベル）"
+    },
+    {
+      "storeId": "espace-seibu-shinjuku",
+      "mediaName": "DMMぱちタウン",
+      "frequency": "月1回程度",
+      "lastSeen": "2026-07",
+      "confidence": "高",
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/83/reports",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "「格付けスピリッツ」シリーズ。2026/07/05・06/27・06/07・05/17など毎月複数回の掲載あり"
+    },
+    {
+      "storeId": "kaleido-shinjuku",
+      "mediaName": "DMMぱちタウン",
+      "frequency": "不明(2019年以降の掲載なし)",
+      "lastSeen": "2019-04",
+      "confidence": "低",
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/54/reports",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "来店レポート一覧の最新が2019/04/16「REAL取材」。直近1年の実績は確認できず"
+    },
+    {
+      "storeId": "kicona-shinjuku3",
+      "mediaName": "スロパチステーション",
+      "frequency": "不定期(年数回程度)",
+      "lastSeen": "2026-05",
+      "confidence": "高",
+      "sources": [
+        {
+          "url": "https://777.slopachi-station.com/shop_data/4762/",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "店舗ページ「最新結果」に2026/05/23「スロパチガール来店S」、その前が2023/12/09「初スロパチ取材」の2件のみ。頻度は高くない"
+    },
+    {
+      "storeId": "espace-shibuya-shinkan",
+      "mediaName": "DMMぱちタウン",
+      "frequency": "月1回程度",
+      "lastSeen": "2026-07",
+      "confidence": "高",
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/12550/reports",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "「極誓取材」シリーズ。2026/07/10・06/26・05/12・04/02など2025/09以降ほぼ毎月掲載"
+    },
+    {
+      "storeId": "espace-shibuya-shinkan",
+      "mediaName": "パチ7ホール取材（ホル調／ちゅんげーリサーチ）",
+      "frequency": "不明(2018年以降の掲載なし)",
+      "lastSeen": "2018-10",
+      "confidence": "低",
+      "sources": [
+        {
+          "url": "https://pachiseven.jp/reports/hall/11141.html",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "レポート一覧の最新が2018.10.20。直近1年の実績は確認できず"
+    },
+    {
+      "storeId": "rakuen-shibuya-dogenzaka",
+      "mediaName": "DMMぱちタウン",
+      "frequency": "週1〜隔週程度(直近)",
+      "lastSeen": "2026-07",
+      "confidence": "高",
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/346/reports",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "2026/07/04「ぱちタウンコレクション」を筆頭に06/27・06/20・06/13など高頻度で掲載"
+    },
+    {
+      "storeId": "rakuen-shibuya-dogenzaka",
+      "mediaName": "スロパチステーション",
+      "frequency": "月1回程度",
+      "lastSeen": "2026-06",
+      "confidence": "高",
+      "sources": [
+        {
+          "url": "https://777.slopachi-station.com/shop_data/5152/",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "「スロパチ来店取材」シリーズ。2026/06/28・05/28に記事あり"
+    },
+    {
+      "storeId": "rakuen-shibuya-ekimae",
+      "mediaName": "DMMぱちタウン",
+      "frequency": "月1〜2回程度",
+      "lastSeen": "2026-05",
+      "confidence": "高",
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/363/reports",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "「決戦 GRAND PRIX取材」シリーズ。2026/05/13が直近、2025/03〜2026/05にかけて概ね月1回のペース"
+    },
+    {
+      "storeId": "rakuen-shibuya-ekimae",
+      "mediaName": "スロパチステーション",
+      "frequency": "数ヶ月に1回程度",
+      "lastSeen": "2025-11",
+      "confidence": "高",
+      "sources": [
+        {
+          "url": "https://777.slopachi-station.com/shop_data/21111/",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "「スロパチ来店取材」シリーズ。2025/11/05が直近、その前が2025/08/02"
+    },
+    {
+      "storeId": "kaleido-shimokitazawa",
+      "mediaName": "DMMぱちタウン",
+      "frequency": "不明(2021年以降の掲載なし)",
+      "lastSeen": "2021-02",
+      "confidence": "低",
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/319/reports",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "「日刊ぱちタウン」など掲載は2021/01〜02の3件のみで以降なし。直近1年の実績は確認できず"
+    },
+    {
+      "storeId": "maruhan-ikebukuro-slotbase",
+      "mediaName": "DMMぱちタウン",
+      "frequency": "月1回程度",
+      "lastSeen": "2026-06",
+      "confidence": "高",
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/13328/reports",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "2025-09,10,11、2026-05,06に極誓取材等のレポートを確認。直接ソース（DMM公式ページ）で日付確認済み"
+    },
+    {
+      "storeId": "maruhan-ikebukuro-slotbase",
+      "mediaName": "スロパチステーション",
+      "frequency": "不明",
+      "lastSeen": null,
+      "confidence": "低",
+      "sources": [
+        {
+          "url": "https://777.slopachi-station.com/shop_data/201205/",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "店舗ページにスロパチステーション来店取材(赤)バッジ表示ありだが、同バッジは他店（楽園池袋店など実績不明な店）にも共通ナビとして表示されており個別実績の確証にならない。WebSearch要約でも来店実績への言及あり。日付付きの実績はcurlでは未確認（動的読込のため）"
+    },
+    {
+      "storeId": "maruhan-ikebukuro",
+      "mediaName": "DMMぱちタウン",
+      "frequency": "稀（直近1年で1回:2026-05）",
+      "lastSeen": "2026-05",
+      "confidence": "中",
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/449/reports",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "2026-05-24の極誓取材1件のみ直近実績。それ以前は2019年に多数実績あるが2019から2026の間は空白（本店よりSLOT BASE側に取材が集中している可能性）"
+    },
+    {
+      "storeId": "rakuen-ikebukuro",
+      "mediaName": "DMMぱちタウン",
+      "frequency": "月2回程度",
+      "lastSeen": "2026-06",
+      "confidence": "高",
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/437/reports",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "2026-02から06の間、月2回ペースで決戦GRAND PRIX取材等を継続実施。直接ソースで日付確認済み"
+    },
+    {
+      "storeId": "toho-ikebukuro",
+      "mediaName": "DMMぱちタウン",
+      "frequency": "実績確認できず（直近1年）",
+      "lastSeen": "2023-03",
+      "confidence": "低",
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/467/reports",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "直近レポートは2023-03（ぱちタウンエンジェルス）。2022年にも複数実績あるが2023年以降は空白。直近1年の実績としては確認できず扱い"
+    },
+    {
+      "storeId": "toho-ikebukuro",
+      "mediaName": "スロパチステーション",
+      "frequency": "不明",
+      "lastSeen": null,
+      "confidence": "低",
+      "sources": [],
+      "note": "WebSearch要約でスロパチステーション来店取材（黒）96台合計188981枚との言及あり。ただしAI要約経由の情報でcurlでの一次確認は未実施。要再検証"
+    },
+    {
+      "storeId": "yasuda-nishiikebukuro6",
+      "mediaName": "DMMぱちタウン",
+      "frequency": "実績確認できず（直近1年）",
+      "lastSeen": "2019-03",
+      "confidence": "低",
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/462/reports",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "直近レポートは2019-03のKING GOLDEN JAC関連イベント。2015から2019年は複数実績あるが以降は空白"
+    },
+    {
+      "storeId": "koshien-ikebukuro",
+      "mediaName": "DMMぱちタウン",
+      "frequency": "月2から3回程度（約10日おき）",
+      "lastSeen": "2026-07",
+      "confidence": "高",
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/456/reports",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "2025-12から2026-07にわたり10日おきペースで継続的にレポート実施（直近: 2026-07-10 VEPPAN）。13店舗中もっとも取材頻度が高い"
+    },
+    {
+      "storeId": "bigdipper-shimbashi1",
+      "mediaName": "DMMぱちタウン",
+      "frequency": "月1回程度",
+      "lastSeen": "2026-06",
+      "confidence": "高",
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/49/reports",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "2025-04から2026-06、ほぼ毎月レポート実施（直近: 2026-06-05 極誓取材）"
+    },
+    {
+      "storeId": "bigdipper-shimbashi2",
+      "mediaName": "DMMぱちタウン",
+      "frequency": "月1回程度（2026-02以降は未確認）",
+      "lastSeen": "2026-02",
+      "confidence": "中",
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/12781/reports",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "2025-04から2026-02はほぼ毎月実施だが、2026-02（BIGディッパー特集）以降2026-07時点まで新規レポートなし。頻度低下または一時停止の可能性"
+    },
+    {
+      "storeId": "yurakucho-duo",
+      "mediaName": "DMMぱちタウン",
+      "frequency": "実績確認できず（直近1年）",
+      "lastSeen": "2023-05",
+      "confidence": "低",
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/2/reports",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "直近レポートは2023-05周年実録取材。それ以前は2022年、2015年に散発的実績"
+    },
+    {
+      "storeId": "yurakucho-uno",
+      "mediaName": "DMMぱちタウン",
+      "frequency": "実績確認できず（直近1年）",
+      "lastSeen": "2015-10",
+      "confidence": "低",
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/22/reports",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "レポートは2015-10注目店舗特集の1件のみ確認。ほぼ実績なしと言える水準"
+    }
+  ]
+}

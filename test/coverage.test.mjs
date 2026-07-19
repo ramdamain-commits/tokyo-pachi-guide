@@ -1,5 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
+import fs from "node:fs";
 import { validateCoverage, mediaForStore, storesForMedia } from "../coverage.mjs";
 
 const stores = [{ id: "a" }, { id: "b" }];
@@ -39,4 +40,12 @@ test("storesForMedia: 媒体に紐づく店を返す", () => {
     storesForMedia(valid, "M1").map((c) => c.storeId),
     ["a", "b"]
   );
+});
+
+test("実データの参照整合: coverage.json の全キーが stores/media に存在する", () => {
+  const s = JSON.parse(fs.readFileSync(new URL("../data/stores.json", import.meta.url)));
+  const m = JSON.parse(fs.readFileSync(new URL("../data/media.json", import.meta.url)));
+  const c = JSON.parse(fs.readFileSync(new URL("../data/coverage.json", import.meta.url)));
+  const { warnings } = validateCoverage(c.coverage, s.stores, m.media);
+  assert.deepEqual(warnings, []);
 });
