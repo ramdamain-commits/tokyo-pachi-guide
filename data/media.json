@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-16",
+  "updated": "2026-07-20",
   "media": [
     {
       "name": "スロパチステーション",
@@ -8,9 +8,13 @@
       "targetGenre": "全台系（設置2〜4台の中小型機種中心）",
       "confidence": "中",
       "sources": [
-        { "url": "https://pachikatsu.com/slopachi-station-event-promises", "checkedAt": "2026-07-16" }
+        {
+          "url": "https://pachikatsu.com/slopachi-station-event-promises",
+          "checkedAt": "2026-07-16"
+        }
       ],
-      "note": "「いそまる」等の来店イベントと同時開催されることが多いとされる。参考: https://pachisuro100.com/slopachi/"
+      "note": "「いそまる」等の来店イベントと同時開催されることが多いとされる。参考: https://pachisuro100.com/slopachi/",
+      "scheduleUrl": "https://777.slopachi-station.com/report_schedule/"
     },
     {
       "name": "ジャンバリ.ネット（ジャンバリTV）",
@@ -19,9 +23,13 @@
       "targetGenre": "全台系（4〜5台設置のミドルスペック機種が狙われやすいとされる）",
       "confidence": "高",
       "sources": [
-        { "url": "https://www.slopachi-quest.com/article/starrepo/", "checkedAt": "2026-07-16" }
+        {
+          "url": "https://www.slopachi-quest.com/article/starrepo/",
+          "checkedAt": "2026-07-16"
+        }
       ],
-      "note": "参考: https://ryomemoblog.com/ジャンバリtvの公約と信頼度について/"
+      "note": "参考: https://ryomemoblog.com/ジャンバリtvの公約と信頼度について/",
+      "scheduleUrl": "https://jb-portal.com/schedule/"
     },
     {
       "name": "DMMぱちタウン",
@@ -30,9 +38,13 @@
       "targetGenre": "企画により様々（全台系〜特定コーナー中心まで幅がある）",
       "confidence": "中",
       "sources": [
-        { "url": "https://note.com/holy_snail7481/n/nb4f26fbb5a36", "checkedAt": "2026-07-16" }
+        {
+          "url": "https://note.com/holy_snail7481/n/nb4f26fbb5a36",
+          "checkedAt": "2026-07-16"
+        }
       ],
-      "note": "取材ランキングは平均差枚数を基準に分析されている（第三者ブログによる集計）"
+      "note": "取材ランキングは平均差枚数を基準に分析されている（第三者ブログによる集計）",
+      "scheduleUrl": "https://p-town.dmm.com/schedules"
     },
     {
       "name": "パチ7ホール取材（ホル調／ちゅんげーリサーチ）",
@@ -41,9 +53,13 @@
       "targetGenre": "全台系（3〜5台設置の少数機種中心、ちゅんげーリサーチの場合）",
       "confidence": "中",
       "sources": [
-        { "url": "http://bunmawashi.com/5225", "checkedAt": "2026-07-16" }
+        {
+          "url": "http://bunmawashi.com/5225",
+          "checkedAt": "2026-07-16"
+        }
       ],
-      "note": "参考: https://manmai.club/?p=39196（ホル調自体は「良好な立ち回りが多い」という評判だが公式公約はないとされる）"
+      "note": "参考: https://manmai.club/?p=39196（ホル調自体は「良好な立ち回りが多い」という評判だが公式公約はないとされる）",
+      "scheduleUrl": "https://pachiseven-lp.jp/"
     },
     {
       "name": "サンスポトクダネ！（サンケイスポーツ系・独自取材）",
@@ -52,9 +68,13 @@
       "targetGenre": "一部機種のみ（指定された「トクダネ機種」中心）",
       "confidence": "中",
       "sources": [
-        { "url": "https://sanspotokudane.jp/pachinko-slot-schedule/coverage/", "checkedAt": "2026-07-16" }
+        {
+          "url": "https://sanspotokudane.jp/pachinko-slot-schedule/coverage/",
+          "checkedAt": "2026-07-16"
+        }
       ],
-      "note": "運営はサンケイスポーツの委託により株式会社一広ケーアンドエーが実施しているとされる"
+      "note": "運営はサンケイスポーツの委託により株式会社一広ケーアンドエーが実施しているとされる",
+      "scheduleUrl": "https://sanspotokudane.jp/pachinko-slot-schedule/coverage/"
     },
     {
       "name": "パチスロ必勝本／パチンコ必勝ガイド（旧白夜書房→ガイドワークス）",
@@ -63,9 +83,13 @@
       "targetGenre": "全台系（5台以上並びの機種が中心とされる）",
       "confidence": "中",
       "sources": [
-        { "url": "https://slo-map.com/media/pachislot-hisshobon", "checkedAt": "2026-07-16" }
+        {
+          "url": "https://slo-map.com/media/pachislot-hisshobon",
+          "checkedAt": "2026-07-16"
+        }
       ],
-      "note": "全国40都道府県で取材イベントを実施しているとされる（第三者まとめサイトによる集計）"
+      "note": "全国40都道府県で取材イベントを実施しているとされる（第三者まとめサイトによる集計）",
+      "scheduleUrl": "https://www.guideworks.co.jp/news/n56996.html"
     },
     {
       "name": "パチンコ攻略マガジン／パチスロ攻略マガジン（双葉社、2020年休刊）",
@@ -74,9 +98,211 @@
       "targetGenre": "機種攻略中心（全台系公約より実戦データ・攻略法重視）",
       "confidence": "中",
       "sources": [
-        { "url": "https://ja.wikipedia.org/wiki/パチスロ攻略マガジン", "checkedAt": "2026-07-16" }
+        {
+          "url": "https://ja.wikipedia.org/wiki/パチスロ攻略マガジン",
+          "checkedAt": "2026-07-16"
+        }
       ],
-      "note": "2020年に休刊し統合誌『月刊パチマガスロマガ』となったが、同誌も2021年に休刊。参考: https://ja.wikipedia.org/wiki/パチンコ攻略マガジン"
+      "note": "2020年に休刊し統合誌『月刊パチマガスロマガ』となったが、同誌も2021年に休刊。参考: https://ja.wikipedia.org/wiki/パチンコ攻略マガジン",
+      "scheduleUrl": null
+    },
+    {
+      "name": "マグロ取材",
+      "type": "web",
+      "tendency": "「マグロ」「極上」「あがり」「ジャンドリ」「山狩」「海鮮ドン」「スマ寿司」等、複数の取材企画名を展開するホール取材媒体。公式トップに「当取材に公約はございません」と明記されている。",
+      "targetGenre": "関東(東京・神奈川・埼玉・千葉)と東北・北海道(宮城・北海道・福島)の複数ホール",
+      "confidence": "中",
+      "scheduleUrl": "https://drillermaguro.com/schedule/",
+      "sources": [
+        {
+          "url": "https://drillermaguro.com/",
+          "checkedAt": "2026-07-20"
+        },
+        {
+          "url": "https://drillermaguro.com/schedule/",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "運営はPROTERAS Co., Ltd.(サイト下部コピーライト表記より)。取材件数の内訳(マグロ1008件・極上550件・あがり356件・ジャンドリ263件等)はサイト集計値であり公式公約ではない。"
+    },
+    {
+      "name": "でちゃう!PLUS",
+      "type": "web",
+      "tendency": "関東・関西・東海・北海道東北等の地域版ごとに来店取材情報を集約するポータル型媒体とされる。必勝本・スクープTV・DMMぱちタウン等、他媒体の取材情報も併せて掲載しているとみられる。",
+      "targetGenre": "全国各地域のホール(地域版で分割)",
+      "confidence": "中",
+      "scheduleUrl": "https://www.dechau.com/schedule/schedule_all.php",
+      "sources": [
+        {
+          "url": "https://www.dechau.com/",
+          "checkedAt": "2026-07-20"
+        },
+        {
+          "url": "https://www.dechau.com/schedule/schedule_all.php",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "2026-07-14時点で全国689件のスケジュール登録との言及あり(検索結果内の言及、一次ページでの件数確認はしていない)。地域別X(旧Twitter)アカウントも運用(例: dechau_touhoku)。"
+    },
+    {
+      "name": "ARROWS SCREEN",
+      "type": "web",
+      "tendency": "独自カレンダーで取材スケジュールを公開する媒体。ぱちんこメディアポータル(PMP)掲載19媒体の1つ。具体的な取材傾向(全台系か機種指定系か)は今回の調査範囲では確認できず。",
+      "targetGenre": "不明(要追加調査)",
+      "confidence": "低",
+      "scheduleUrl": "https://www.arrows-screen.com/cal/calendar.php",
+      "sources": [
+        {
+          "url": "https://pmp-paa.com/media_list",
+          "checkedAt": "2026-07-20"
+        },
+        {
+          "url": "https://www.arrows-screen.com/cal/calendar.php",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "DMMぱちタウン内に「ARROW THE REAL取材」という特設ページも存在し、DMMぱちタウンとの取材連携がある可能性。関連性は未確認。"
+    },
+    {
+      "name": "一撃(Ichigeki)",
+      "type": "web",
+      "tendency": "「一撃スロット調査隊」の名称でホール取材を展開する媒体とされる。パチスロ・パチンコ新台解析攻略サイト1geki.jpの取材部門。",
+      "targetGenre": "不明(要追加調査)",
+      "confidence": "中",
+      "scheduleUrl": "https://shuzai.1geki.jp/",
+      "sources": [
+        {
+          "url": "https://shuzai.1geki.jp/",
+          "checkedAt": "2026-07-20"
+        },
+        {
+          "url": "https://1geki.jp/eve/",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "取材結果レポートは https://1geki.jp/eve/ (ホール取材レポート)に掲載。"
+    },
+    {
+      "name": "ウチイクTV(うちいく.TV)",
+      "type": "動画",
+      "tendency": "複数のタレント・ライターが全国各地のホールへ来店収録する動画媒体とされる。",
+      "targetGenre": "全国(例: 佐賀・群馬・東京等、地域を問わず収録実績あり)",
+      "confidence": "中",
+      "scheduleUrl": "https://ucik.tv/schedule/",
+      "sources": [
+        {
+          "url": "https://ucik.tv/",
+          "checkedAt": "2026-07-20"
+        },
+        {
+          "url": "https://ucik.tv/schedule/",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "YouTubeチャンネル「うちいくTV」と連動。"
+    },
+    {
+      "name": "オフミー",
+      "type": "来店イベント",
+      "tendency": "「オフミーグラレポ取材」「オフミー謎解き取材」等、企画型の来店イベントを全国25都道府県で展開するとされる。グラレポ取材は取材結果を独自アルゴリズムで13色に分類しヒートマップ化するとされる。謎解き取材は3つの謎の答えから取材対象機種をユーザーが推理するユーザー参加型企画。",
+      "targetGenre": "全国25都道府県の複数ホール",
+      "confidence": "中",
+      "scheduleUrl": "https://offme.jp/",
+      "sources": [
+        {
+          "url": "https://offme.jp/",
+          "checkedAt": "2026-07-20"
+        },
+        {
+          "url": "https://offme.jp/grarepo/",
+          "checkedAt": "2026-07-20"
+        },
+        {
+          "url": "https://offme.jp/nazo/",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "地域別(例: 愛知・関東等)にスケジュールページが分かれており単一URLでは全件把握できない。公式アプリ(iOS)あり。scheduleUrlはトップページを暫定採用。"
+    },
+    {
+      "name": "Trinity Anthem取材(英語取材)",
+      "type": "来店イベント",
+      "tendency": "パチスロ英語(English)取材というSNSアカウントが実施主体とみられるニッチな来店取材企画。「全台優秀機種あり」「1/2末尾あり」「3台並び(ジャグ・AT機に各1箇所以上)」等の全台系・末尾系の仕掛けがSNS上で語られるとされる。",
+      "targetGenre": "関東(栃木・神奈川等)中心の複数ホール",
+      "confidence": "低",
+      "scheduleUrl": null,
+      "sources": [
+        {
+          "url": "https://x.com/Englishpachikas",
+          "checkedAt": "2026-07-20"
+        },
+        {
+          "url": "https://slo-map.com/media/eigo-shuzai",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "運営元の公式サイトが特定できず、活動はX(旧Twitter)中心。raiten-ex.com(来店分析EX、まとめサイト)は403で本文取得不可(未取得)。公式サイト・法人格ともに不明のため信頼度は低とした。"
+    },
+    {
+      "name": "777パチガブ(サミーネットワークス)",
+      "type": "web",
+      "tendency": "パチ7とのコラボ企画「VS取材」「ガブっとセブン取材」等、機種示唆系の取材を展開するとされる。",
+      "targetGenre": "複数ホール(パチ7とのコラボ企画対象店)",
+      "confidence": "中",
+      "scheduleUrl": "https://p-gabu.jp/guideworks/interviewtop",
+      "sources": [
+        {
+          "url": "https://p-gabu.jp/",
+          "checkedAt": "2026-07-20"
+        },
+        {
+          "url": "https://p-gabu.jp/guideworks/interviewtop",
+          "checkedAt": "2026-07-20"
+        },
+        {
+          "url": "https://prtimes.jp/main/html/rd/p/000001176.000002703.html",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "運営は株式会社サミーネットワークス(2015年10月開始、777パチガブ プレスリリースより)。scheduleUrlはガイドワークスとの共同来店取材ページ。パチガブ独自の全社スケジュール一覧ページは今回の調査では特定できず。"
+    },
+    {
+      "name": "スクープTV",
+      "type": "動画",
+      "tendency": "「全力取材」等の名称でホール取材動画を配信する媒体。全台系の機種取材を含むとされる。",
+      "targetGenre": "全国の複数ホール",
+      "confidence": "中",
+      "scheduleUrl": "https://scooooooop.tv/schedule",
+      "sources": [
+        {
+          "url": "https://scooooooop.tv/",
+          "checkedAt": "2026-07-20"
+        },
+        {
+          "url": "https://scooooooop.tv/schedule",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "取材結果は公式ブログ(blog.scooooooop.tv)の「取材レポート」カテゴリに掲載。"
+    },
+    {
+      "name": "エースプロ(株式会社エースプログループ)",
+      "type": "来店イベント",
+      "tendency": "「肉はこう焼く!」等の独自企画名でホールを主催取材し、「接客」「業界愛」等の独自視点で評価するとされる。",
+      "targetGenre": "不明(要追加調査、宮城県等の実績あり)",
+      "confidence": "低",
+      "scheduleUrl": null,
+      "sources": [
+        {
+          "url": "https://ace-pro.com/pachinkoduke/about.html",
+          "checkedAt": "2026-07-20"
+        },
+        {
+          "url": "https://acepro-matome.com/",
+          "checkedAt": "2026-07-20"
+        }
+      ],
+      "note": "公式サイト(ace-pro.com)に一元化されたスケジュールページを確認できず。第三者運営とみられる「エースプロまとめ」(acepro-matome.com)に取材情報まとめあり(運営者不明のため信頼度は低のまま扱う)。"
     }
   ]
 }
