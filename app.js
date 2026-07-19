@@ -1,4 +1,5 @@
 import { matchRules, ruleLabel } from "./match.mjs";
+import { validateCoverage, mediaForStore, storesForMedia } from "./coverage.mjs";
 
 // エリア表示順（固定）
 const AREA_ORDER = ["上野", "秋葉原", "新宿", "渋谷", "下北沢", "池袋", "新橋", "京橋/銀座"];
@@ -81,26 +82,38 @@ function sourcesHtml(sources) {
     .join(" ・ ");
 }
 
+// 店に紐づく取材実績バッジ（過去実績の推定・伝聞ベース。confidence併記）
+function coverageBadges(coverage, storeId) {
+  const items = mediaForStore(coverage, storeId);
+  if (!items.length) return "";
+  return items
+    .map((c) => `<span class="badge badge--coverage">取材: ${c.mediaName}(${c.confidence})</span>`)
+    .join(" ");
+}
+
 // 今日/明日/日付指定タブ用: 特定日マッチした店カード（マッチしたルールのバッジのみ表示）
-function renderDateMatchCard(store, matched) {
+function renderDateMatchCard(store, matched, coverage) {
   const wrap = el("div", "store-card");
+  const covBadges = coverageBadges(coverage, store.id);
   wrap.innerHTML =
     `<div class="store-card__head"><span class="store-card__name">${store.name}</span>` +
     `<span class="store-card__area">${store.area}</span></div>` +
     `<div class="store-card__meta">${countLabel(store)}</div>` +
     `<div class="store-card__badges">${ruleBadges(matched)}</div>` +
+    (covBadges ? `<div class="store-card__badges">${covBadges}</div>` : "") +
     (store.memo ? `<div class="store-card__memo">${store.memo}</div>` : "");
   return wrap;
 }
 
 // エリア別一覧タブ用: 店の全情報カード
-function renderStoreDetailCard(store) {
+function renderStoreDetailCard(store, coverage) {
   const wrap = el("div", store.closed ? "store-card store-card--closed" : "store-card");
   const closedBadge = store.closed
     ? `<span class="badge badge--closed">閉店(${store.closed})</span> `
     : "";
   const addressLine = [store.address, store.access].filter(Boolean).join(" / ");
   const rulesBadges = store.rules && store.rules.length ? ruleBadges(store.rules) : "特定日情報なし";
+  const covBadges = coverageBadges(coverage, store.id);
   const lottery = lotteryLine(store.lottery);
   const hours = `営業: ${store.open || "不明"}〜${store.close || "不明"} / 換金率: ${store.exchange || "不明"}`;
   const src = sourcesHtml(store.sources);
@@ -110,6 +123,7 @@ function renderStoreDetailCard(store) {
     (addressLine ? `<div class="store-card__meta">${addressLine}</div>` : "") +
     `<div class="store-card__meta">${countLabel(store)}</div>` +
     `<div class="store-card__badges">${rulesBadges}</div>` +
+    (covBadges ? `<div class="store-card__badges">${covBadges}</div>` : "") +
     (lottery ? `<div class="store-card__desc">抽選: ${lottery}</div>` : "") +
     `<div class="store-card__desc">${hours}</div>` +
     (store.memo ? `<div class="store-card__memo">${store.memo}</div>` : "") +
@@ -118,7 +132,7 @@ function renderStoreDetailCard(store) {
 }
 
 // 今日/明日/日付指定タブ共通の描画（閉店店は対象から除外）
-function renderDateMatches(container, stores, date) {
+function renderDateMatches(container, stores, date, coverage) {
   container.innerHTML = "";
   container.appendChild(el("p", "date-heading", dateHeading(date)));
 
@@ -134,7 +148,7 @@ function renderDateMatches(container, stores, date) {
       container.appendChild(el("h2", "area-heading", store.area));
       currentArea = store.area;
     }
-    container.appendChild(renderDateMatchCard(store, matched));
+    container.appendChild(renderDateMatchCard(store, matched, coverage));
     matchCount += 1;
   });
 
@@ -144,7 +158,7 @@ function renderDateMatches(container, stores, date) {
 }
 
 // エリア別一覧タブ（閉店店も表示。閉店バッジ付き）
-function renderAreaList(container, stores) {
+function renderAreaList(container, stores, coverage) {
   container.innerHTML = "";
   const grouped = sortByArea(stores);
   let currentArea = null;
@@ -153,31 +167,44 @@ function renderAreaList(container, stores) {
       container.appendChild(el("h2", "area-heading", store.area));
       currentArea = store.area;
     }
-    container.appendChild(renderStoreDetailCard(store));
+    container.appendChild(renderStoreDetailCard(store, coverage));
   });
 }
 
-// 取材傾向タブ用: 媒体カード
-function renderMediaCard(media) {
+// 取材傾向タブ用: 媒体カード（掲載店の実績と公式スケジュールリンク付き）
+function renderMediaCard(media, coverage, storesById) {
   const wrap = el("div", "store-card");
   const confidenceBadge = `<span class="badge badge--confidence-${media.confidence}">確度: ${media.confidence}</span>`;
+  const covered = storesForMedia(coverage, media.name)
+    .map((c) => storesById.get(c.storeId)?.name)
+    .filter(Boolean);
+  const coveredLine = covered.length
+    ? `<div class="media-card__stores">実績店: ${covered.join(" / ")}</div>`
+    : "";
+  const scheduleLink = media.scheduleUrl
+    ? `<a href="${media.scheduleUrl}" target="_blank" rel="noopener">取材スケジュール(公式)</a>`
+    : "";
   const src = sourcesHtml(media.sources);
+  const links = [scheduleLink, src].filter(Boolean).join(" ・ ");
   wrap.innerHTML =
     `<div class="store-card__head"><span class="store-card__name">${media.name}</span>` +
     `<span class="store-card__area">${media.type}</span></div>` +
     `<div class="store-card__badges">${confidenceBadge}</div>` +
     `<div class="media-card__tendency">${media.tendency}</div>` +
     `<div class="media-card__genre">対象: ${media.targetGenre}</div>` +
+    coveredLine +
     (media.note ? `<div class="store-card__memo">${media.note}</div>` : "") +
-    (src ? `<div class="store-card__links">${src}</div>` : "");
+    (links ? `<div class="store-card__links">${links}</div>` : "");
   return wrap;
 }
 
-function renderMediaList(container, mediaList) {
+function renderMediaList(container, mediaList, coverage, storesById) {
   const disclaimer = container.querySelector(".disclaimer");
   container.innerHTML = "";
   if (disclaimer) container.appendChild(disclaimer);
-  mediaList.forEach((media) => container.appendChild(renderMediaCard(media)));
+  mediaList.forEach((media) =>
+    container.appendChild(renderMediaCard(media, coverage, storesById))
+  );
 }
 
 function setupTabs() {
@@ -199,13 +226,25 @@ async function main() {
   const mediaData = await loadJSON("data/media.json");
   document.getElementById("updated").textContent = `データ更新日: ${data.updated}`;
 
+  // 取材実績は任意データ。無い/壊れている場合はバッジ無しで既存表示を維持する。
+  let coverage = [];
+  try {
+    const covData = await loadJSON("data/coverage.json");
+    const { valid, warnings } = validateCoverage(covData.coverage, data.stores, mediaData.media);
+    warnings.forEach((w) => console.warn(w));
+    coverage = valid;
+  } catch (e) {
+    console.warn(`coverage読み込みスキップ: ${e.message}`);
+  }
+  const storesById = new Map(data.stores.map((s) => [s.id, s]));
+
   const today = todayLocal();
   const tomorrow = addDays(today, 1);
 
-  renderDateMatches(document.getElementById("tab-today"), data.stores, today);
-  renderDateMatches(document.getElementById("tab-tomorrow"), data.stores, tomorrow);
-  renderAreaList(document.getElementById("tab-area"), data.stores);
-  renderMediaList(document.getElementById("tab-media"), mediaData.media);
+  renderDateMatches(document.getElementById("tab-today"), data.stores, today, coverage);
+  renderDateMatches(document.getElementById("tab-tomorrow"), data.stores, tomorrow, coverage);
+  renderAreaList(document.getElementById("tab-area"), data.stores, coverage);
+  renderMediaList(document.getElementById("tab-media"), mediaData.media, coverage, storesById);
 
   const dateInput = document.getElementById("date-input");
   const customResult = document.getElementById("custom-result");
@@ -213,7 +252,7 @@ async function main() {
 
   function renderCustom() {
     if (!dateInput.value) return;
-    renderDateMatches(customResult, data.stores, parseDateInputValue(dateInput.value));
+    renderDateMatches(customResult, data.stores, parseDateInputValue(dateInput.value), coverage);
   }
   dateInput.addEventListener("change", renderCustom);
   renderCustom();
