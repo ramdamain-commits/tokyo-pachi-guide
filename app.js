@@ -1,7 +1,7 @@
 import { matchRules, ruleLabel } from "./match.mjs";
 
 // エリア表示順（固定）
-const AREA_ORDER = ["上野", "秋葉原", "新宿", "渋谷", "池袋", "新橋", "京橋/銀座"];
+const AREA_ORDER = ["上野", "秋葉原", "新宿", "渋谷", "下北沢", "池袋", "新橋", "京橋/銀座"];
 const WEEKDAY_JA = ["日", "月", "火", "水", "木", "金", "土"];
 
 async function loadJSON(path) {

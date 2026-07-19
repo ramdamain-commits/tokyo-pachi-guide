@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-16",
+  "updated": "2026-07-20",
   "stores": [
     {
       "id": "pia-ueno",
@@ -1337,6 +1337,124 @@
         {
           "url": "https://minpachi.com/2000uno/",
           "checkedAt": "2026-07-16"
+        }
+      ]
+    },
+    {
+      "id": "kaleido-shimokitazawa",
+      "name": "カレイド下北沢店",
+      "area": "下北沢",
+      "address": "東京都世田谷区北沢2-10-12",
+      "access": "小田急線下北沢駅（東口）、京王井の頭線下北沢駅（中央口）各徒歩1分",
+      "slots": 124,
+      "pachinko": 118,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 0
+        },
+        {
+          "type": "monthday",
+          "value": 16
+        }
+      ],
+      "lottery": {
+        "method": "モバイル抽選（整理券配布・会員カード不要／777コンパスによるオンライン抽選）",
+        "draw": "9:30（抽選申込は9:29まで）",
+        "auth": "9:30〜9:44 本人認証",
+        "lineup": "9:50 再整列"
+      },
+      "open": "10:00",
+      "close": "22:40",
+      "exchange": "非等価（4円パチンコ28玉／21.73円スロット5.2枚）",
+      "memo": "下北沢駅前・あずま通り商店街に立地する現存唯一のホール（2021年のミナミ本店休業後は実質1軒とされる）。旧イベント日は「0のつく日」「毎月16日」とされる（第三者サイトの過去傾向推定であり公式情報ではない）。GO1997-12-21（周年イベント日の可能性あり、要現地確認）。景品交換所は店を出てすぐ左、ラーメン屋隣の階段を上って2階とされる。",
+      "sources": [
+        {
+          "url": "https://www.p-world.co.jp/tokyo/kaleido-shimokita.htm",
+          "checkedAt": "2026-07-20"
+        },
+        {
+          "url": "https://minpachi.com/kaleido-shimokita/",
+          "checkedAt": "2026-07-20"
+        },
+        {
+          "url": "https://p-town.dmm.com/shops/station/2400605",
+          "checkedAt": "2026-07-20"
+        },
+        {
+          "url": "https://www.pachibee.jp/ivent/view/1888",
+          "checkedAt": "2026-07-20"
+        }
+      ]
+    },
+    {
+      "id": "minami-honten-shimokitazawa",
+      "name": "ミナミ本店",
+      "area": "下北沢",
+      "address": "東京都世田谷区北沢2-4-7",
+      "access": null,
+      "slots": 133,
+      "pachinko": 277,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 7
+        }
+      ],
+      "lottery": {
+        "method": "整理券あり（会員カード不要・抽選）",
+        "draw": "9:30",
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": null,
+      "exchange": "非等価（4円パチンコ28玉／20円スロット5.6枚）",
+      "closed": "2021-04-11",
+      "memo": "1973年創業とされる下北沢の老舗ホール。2021年4月11日から長期休業に入り事実上の閉店と業界サイトで報じられた。旧イベント日は「7のつく日」とされる（第三者サイトの過去傾向推定）。閉店時刻・アクセスは出典で確認できずnull。",
+      "sources": [
+        {
+          "url": "https://minpachi.com/%E3%83%9F%E3%83%8A%E3%83%9F%E6%9C%AC%E5%BA%97/",
+          "checkedAt": "2026-07-20"
+        },
+        {
+          "url": "https://johojima.com/pachinko_open/post-177199/",
+          "checkedAt": "2026-07-20"
+        },
+        {
+          "url": "https://willstage.jp/member/?p=79714",
+          "checkedAt": "2026-07-20"
+        }
+      ]
+    },
+    {
+      "id": "minami-10go-shimokitazawa",
+      "name": "ミナミ10号店",
+      "area": "下北沢",
+      "address": "東京都世田谷区北沢2-9-21",
+      "access": "あずま通り商店街（東通り商店街）沿い",
+      "slots": null,
+      "pachinko": null,
+      "rules": [],
+      "lottery": {
+        "method": null,
+        "draw": null,
+        "auth": null,
+        "lineup": null
+      },
+      "open": null,
+      "close": null,
+      "exchange": null,
+      "closed": "2017",
+      "memo": "1996年開業、2017年閉店（約21年営業）。跡地はスーパーオオゼキ本社ビルとして再利用。閉店済みのため台数・時刻・換金率の一次データは現存せず未取得。⚠住所はWebSearch要約経由で一次資料未裏取り（信頼度低・次回精査時に照合推奨）。",
+      "sources": [
+        {
+          "url": "https://www.pachibee.jp/ivent/view/1888",
+          "checkedAt": "2026-07-20"
+        },
+        {
+          "url": "https://willstage.jp/member/?p=78220",
+          "checkedAt": "2026-07-20"
         }
       ]
     }
