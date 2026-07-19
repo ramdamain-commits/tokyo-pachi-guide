@@ -82,9 +82,19 @@ function sourcesHtml(sources) {
     .join(" ・ ");
 }
 
+// UIで「取材が入る店」として提示する確度。低は最終確認が数年前/未確認のものが多く、
+// 肯定バッジにすると誤誘導になるためデータ(coverage.json)には残しつつ表示から除外する。
+const COVERAGE_DISPLAY_CONFIDENCE = new Set(["高", "中"]);
+
+function displayCoverage(coverage, storeId) {
+  return mediaForStore(coverage, storeId).filter((c) =>
+    COVERAGE_DISPLAY_CONFIDENCE.has(c.confidence)
+  );
+}
+
 // 店に紐づく取材実績バッジ（過去実績の推定・伝聞ベース。confidence併記）
 function coverageBadges(coverage, storeId) {
-  const items = mediaForStore(coverage, storeId);
+  const items = displayCoverage(coverage, storeId);
   if (!items.length) return "";
   return items
     .map((c) => `<span class="badge badge--coverage">取材: ${c.mediaName}(${c.confidence})</span>`)
@@ -176,6 +186,7 @@ function renderMediaCard(media, coverage, storesById) {
   const wrap = el("div", "store-card");
   const confidenceBadge = `<span class="badge badge--confidence-${media.confidence}">確度: ${media.confidence}</span>`;
   const covered = storesForMedia(coverage, media.name)
+    .filter((c) => COVERAGE_DISPLAY_CONFIDENCE.has(c.confidence))
     .map((c) => storesById.get(c.storeId)?.name)
     .filter(Boolean);
   const coveredLine = covered.length
