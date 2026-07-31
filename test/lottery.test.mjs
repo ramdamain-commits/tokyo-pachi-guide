@@ -166,3 +166,28 @@ test("lotteryLabel: type 未確認はバッジを出さない（null を返す�
   assert.equal(lotteryLabel({ type: null, random: true }), null);
   assert.equal(lotteryLabel(null), null);
 });
+
+test("lotteryLabel: random キー自体が無い場合も断定しない（店頭整理券）", () => {
+  // 将来 `random ?? false` のような書き換えで undefined が false 扱いになる回帰を検出する
+  assert.equal(lotteryLabel({ type: "onsite" }), "店頭整理券");
+});
+
+test("resolveLottery: 元のオブジェクトを破壊しない", () => {
+  const lottery = {
+    type: "onsite",
+    random: true,
+    slot: { type: "app", tool: "777コンパス" },
+  };
+  resolveLottery(lottery, "slot");
+  // 呼び出し後も元のサブオブジェクトが残っていること
+  assert.equal(lottery.slot.type, "app");
+  assert.equal(lottery.type, "onsite");
+});
+
+test("resolveLottery: サブオブジェクトで明示的に null 上書きできる", () => {
+  const lottery = { type: "app", tool: "777コンパス", slot: { tool: null } };
+  const slot = resolveLottery(lottery, "slot");
+  // 明示的な null は「上書きして消す」意図として扱う
+  assert.equal(slot.tool, null);
+  assert.equal(slot.type, "app");
+});
