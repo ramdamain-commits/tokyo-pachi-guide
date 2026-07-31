@@ -13,6 +13,10 @@ function isUrl(v) {
   return typeof v === "string" && URL_RE.test(v);
 }
 
+function isPlainObject(v) {
+  return typeof v === "object" && v !== null && !Array.isArray(v);
+}
+
 function checkLotteryCore(lottery, label, errors, warnings) {
   if (lottery.type != null && !LOTTERY_TYPES.has(lottery.type)) {
     errors.push(`${label}: lottery.type が不正 "${lottery.type}"`);
@@ -26,12 +30,16 @@ function checkLotteryCore(lottery, label, errors, warnings) {
 }
 
 function checkLottery(lottery, label, errors, warnings) {
+  if (!isPlainObject(lottery)) {
+    errors.push(`${label}: lottery はオブジェクト`);
+    return;
+  }
   checkLotteryCore(lottery, label, errors, warnings);
 
   for (const genre of ["pachinko", "slot"]) {
     const sub = lottery[genre];
     if (sub == null) continue;
-    if (typeof sub !== "object") {
+    if (!isPlainObject(sub)) {
       errors.push(`${label}: lottery.${genre} はオブジェクト`);
       continue;
     }
@@ -44,6 +52,10 @@ function checkLottery(lottery, label, errors, warnings) {
 }
 
 function checkSns(sns, label, errors) {
+  if (!isPlainObject(sns)) {
+    errors.push(`${label}: sns はオブジェクト`);
+    return;
+  }
   const unknown = Object.keys(sns).filter((k) => !SNS_KEYS.has(k));
   if (unknown.length) {
     errors.push(`${label}: sns に未知のキー ${unknown.join(",")}`);
@@ -56,6 +68,10 @@ function checkSns(sns, label, errors) {
 }
 
 function checkCrowd(crowd, label, errors) {
+  if (!isPlainObject(crowd)) {
+    errors.push(`${label}: crowd はオブジェクト`);
+    return;
+  }
   if (typeof crowd.note !== "string" || !crowd.note) {
     errors.push(`${label}: crowd.note が未設定`);
   }
@@ -91,15 +107,23 @@ export function validateStores(stores) {
   for (const store of stores) {
     const label = store.id || store.name || "(id不明)";
 
-    if (seenIds.has(store.id)) errors.push(`${label}: id重複`);
-    seenIds.add(store.id);
+    if (store.id != null) {
+      if (seenIds.has(store.id)) errors.push(`${label}: id重複`);
+      seenIds.add(store.id);
+    }
 
     if (store.lottery) checkLottery(store.lottery, label, errors, warnings);
     if (store.sns) checkSns(store.sns, label, errors);
     if (store.crowd) checkCrowd(store.crowd, label, errors);
 
-    for (const rule of store.rules || []) {
-      if (rule.type === "annual") checkAnnualRule(rule, label, errors);
+    if (store.rules != null) {
+      if (!Array.isArray(store.rules)) {
+        errors.push(`${label}: rules は配列`);
+      } else {
+        for (const rule of store.rules) {
+          if (rule.type === "annual") checkAnnualRule(rule, label, errors);
+        }
+      }
     }
   }
 

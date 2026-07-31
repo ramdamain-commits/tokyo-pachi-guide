@@ -113,3 +113,42 @@ test("validateStores: annual の label は文字列なら通り、文字列以�
   const ng = [{ type: "annual", month: 3, day: 15, label: 5 }];
   assert.equal(validateStores([store({ rules: ng })]).errors.length, 1);
 });
+
+// --- 型崩れ・欠損への耐性 ---
+
+test("validateStores: rules が配列でなくても例外を投げずエラーとして報告する", () => {
+  const bad = [{ id: "a", rules: { type: "annual", month: 1, day: 1 } }];
+  assert.doesNotThrow(() => validateStores(bad));
+  const { errors } = validateStores(bad);
+  assert.equal(errors.length, 1);
+  assert.match(errors[0], /rules/);
+});
+
+test("validateStores: id 欠損の店が複数あっても重複扱いしない", () => {
+  const { errors } = validateStores([{ name: "店A" }, { name: "店B" }]);
+  assert.deepEqual(errors, []);
+});
+
+test("validateStores: sns が非オブジェクトならエラーにする", () => {
+  assert.equal(validateStores([{ id: "a", sns: true }]).errors.length, 1);
+  assert.equal(validateStores([{ id: "a", sns: 5 }]).errors.length, 1);
+  assert.match(validateStores([{ id: "a", sns: true }]).errors[0], /sns/);
+});
+
+test("validateStores: lottery が非オブジェクトならエラーにする", () => {
+  const { errors } = validateStores([{ id: "a", lottery: "モバイル抽選あり" }]);
+  assert.equal(errors.length, 1);
+  assert.match(errors[0], /lottery/);
+});
+
+test("validateStores: crowd が非オブジェクトならエラーにする", () => {
+  const { errors } = validateStores([{ id: "a", crowd: true }]);
+  assert.equal(errors.length, 1);
+  assert.match(errors[0], /crowd/);
+});
+
+test("validateStores: lottery のサブオブジェクトが配列ならエラーにする", () => {
+  const { errors } = validateStores([{ id: "a", lottery: { type: "onsite", slot: [] } }]);
+  assert.equal(errors.length, 1);
+  assert.match(errors[0], /slot/);
+});
