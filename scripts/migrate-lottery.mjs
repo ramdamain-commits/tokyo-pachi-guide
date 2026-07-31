@@ -10,7 +10,7 @@ import { deriveChannel, deriveTool, deriveRandom, reviewFlags } from "../lottery
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const dataPath = path.join(root, "data", "stores.json");
-const stagingDir = path.join(root, "_staging");
+const docsDir = path.join(root, "docs");
 
 const data = JSON.parse(fs.readFileSync(dataPath, "utf8"));
 
@@ -34,18 +34,32 @@ for (const store of data.stores) {
     ...store.lottery,
   };
   migrated += 1;
+}
 
-  const flags = reviewFlags(method);
+// 要確認リストは移行の有無と関係なく全店から作り直す。
+// 移行済みの店だけを対象にすると、2回目以降の実行でリストが空になってしまうため。
+for (const store of data.stores) {
+  if (!store.lottery) continue;
+  const flags = reviewFlags(store.lottery.method || null);
   if (flags.length) {
-    reviewRows.push({ id: store.id, name: store.name, area: store.area, method, flags });
+    reviewRows.push({
+      id: store.id,
+      name: store.name,
+      area: store.area,
+      method: store.lottery.method || null,
+      flags,
+    });
   }
 }
 
 fs.writeFileSync(dataPath, `${JSON.stringify(data, null, 2)}\n`, "utf8");
 
-fs.mkdirSync(stagingDir, { recursive: true });
+fs.mkdirSync(docsDir, { recursive: true });
 const lines = [
-  "# lottery 要確認リスト（Phase 2 の収集対象）",
+  "# 抽選方式の要確認リスト（Phase 2 の収集対象）",
+  "",
+  "`node scripts/migrate-lottery.mjs` が生成する。手で編集せず、出典を再確認して",
+  "`data/stores.json` を直したうえでスクリプトを再実行すること。",
   "",
   `生成: ${new Date().toISOString().slice(0, 10)} / 対象 ${reviewRows.length}店`,
   "",
@@ -56,7 +70,7 @@ const lines = [
   ...reviewRows.map((r) => `| ${r.id} | ${r.name} | ${r.area} | ${r.method ?? "(未記載)"} | ${r.flags.join(" / ")} |`),
   "",
 ];
-fs.writeFileSync(path.join(stagingDir, "lottery-review.md"), lines.join("\n"), "utf8");
+fs.writeFileSync(path.join(docsDir, "抽選方式の要確認リスト.md"), lines.join("\n"), "utf8");
 
 console.log(`移行 ${migrated}店 / スキップ ${skipped}店 / 要確認 ${reviewRows.length}店`);
-console.log("要確認リスト: _staging/lottery-review.md");
+console.log("要確認リスト: docs/抽選方式の要確認リスト.md");

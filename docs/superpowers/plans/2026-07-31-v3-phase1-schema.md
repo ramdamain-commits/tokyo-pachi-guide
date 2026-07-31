@@ -827,7 +827,7 @@ Run: `node scripts/validate-data.mjs`
 Expected: `errors 0`。`type=app` でツール名が無い店の warnings が数件出るのは想定どおり
 
 Run: `node --test test/*.test.mjs`
-Expected: 全件 PASS（match 18 + coverage 5 + lottery 23 + validate 14 = 60件）
+Expected: 全件 PASS（実績: match 18 + coverage 5 + lottery 26 + validate 20 = 69件。レビュー指摘対応でテストを追加したため計画時の見込みより増えている）
 
 - [ ] **Step 5: 差分を目視確認する**
 
@@ -991,7 +991,7 @@ Expected: フッターが新しい文言になっており、5タブすべてが
 - [ ] **Step 5: 全テストと検証を実行する**
 
 Run: `node --test test/*.test.mjs`
-Expected: 全件 PASS（60件）
+Expected: 全件 PASS（実績69件）
 
 Run: `node scripts/validate-data.mjs`
 Expected: `errors 0`

@@ -18,6 +18,7 @@
 - `test/` — `node --test test/*.test.mjs` で実行（match 18件 + coverage 5件 + lottery 26件 + validate 20件 = 69件）
 - `docs/取材予定の確認手順.md` — 「今週どこに取材が入るか」を調べる巡回手順とリンク集
 - `docs/収集手順_v3.md` — 特定日・抽選・周年・SNS・混雑を1パスで集める収集手順とソース序列
+- `docs/抽選方式の要確認リスト.md` — `scripts/migrate-lottery.mjs` が生成。出典の文言だけでは抽選方式を確定できなかった店の一覧（手で編集しない）
 - `docs/superpowers/specs/` — 設計書
 
 ## 閲覧方法
