@@ -90,3 +90,12 @@ test("reviewFlags: 判別できる文言なら空配列", () => {
   assert.deepEqual(reviewFlags("整理券抽選"), []);
   assert.deepEqual(reviewFlags("モバイル抽選(777コンパス)"), []);
 });
+
+test("reviewFlags: 略称だけでツール名を推定した場合は要確認にする", () => {
+  // 原文に「777」が無く「コンパス」だけ → 推定なので確定扱いにしない
+  assert.ok(
+    reviewFlags("モバイル抽選(コンパス、2024-12-15方式変更)").includes("ツール名要確認(略称一致)")
+  );
+  // 正式名称が書かれていれば要確認にしない
+  assert.deepEqual(reviewFlags("モバイル抽選(777コンパス)"), []);
+});

@@ -75,5 +75,9 @@ export function reviewFlags(method) {
     flags.push("ハイブリッド疑い");
   }
   if (hasAny(method, GENRE_MARKERS)) flags.push("パチ/スロ差分疑い");
+  // 「コンパス」の略称のみで「777コンパス」と推定した場合は出典に無い情報の補完になるため要確認
+  if (method.includes("コンパス") && !method.includes("777")) {
+    flags.push("ツール名要確認(略称一致)");
+  }
   return flags;
 }
