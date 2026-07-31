@@ -1,6 +1,13 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { deriveChannel, deriveTool, deriveRandom, reviewFlags } from "../lottery.mjs";
+import {
+  deriveChannel,
+  deriveTool,
+  deriveRandom,
+  reviewFlags,
+  resolveLottery,
+  lotteryLabel,
+} from "../lottery.mjs";
 
 // --- deriveChannel: 入場チャネル ---
 
@@ -98,4 +105,64 @@ test("reviewFlags: 略称だけでツール名を推定した場合は要確認�
   );
   // 正式名称が書かれていれば要確認にしない
   assert.deepEqual(reviewFlags("モバイル抽選(777コンパス)"), []);
+});
+
+// --- resolveLottery: パチ/スロ差分の解決 ---
+
+test("resolveLottery: サブオブジェクトが無ければ共通値をそのまま返す", () => {
+  const lottery = { type: "onsite", random: true, tool: null, method: "整理券抽選" };
+  assert.deepEqual(resolveLottery(lottery, "slot"), lottery);
+  assert.deepEqual(resolveLottery(lottery, "pachinko"), lottery);
+});
+
+test("resolveLottery: genre 指定時はサブオブジェクトで上書きする", () => {
+  const lottery = {
+    type: "onsite",
+    random: true,
+    tool: null,
+    method: "整理券(パチ/スロ別抽選)",
+    slot: { type: "app", tool: "777コンパス" },
+  };
+  const slot = resolveLottery(lottery, "slot");
+  assert.equal(slot.type, "app");
+  assert.equal(slot.tool, "777コンパス");
+  // 上書きされていない項目は共通値が残る
+  assert.equal(slot.random, true);
+  // サブオブジェクト自体は結果に混入させない
+  assert.equal(slot.slot, undefined);
+});
+
+test("resolveLottery: genre 未指定なら共通値のみ（サブオブジェクトは除去）", () => {
+  const lottery = { type: "onsite", slot: { type: "app" } };
+  const resolved = resolveLottery(lottery, null);
+  assert.equal(resolved.type, "onsite");
+  assert.equal(resolved.slot, undefined);
+});
+
+test("resolveLottery: lottery が無い店は null を返す", () => {
+  assert.equal(resolveLottery(null, "slot"), null);
+});
+
+// --- lotteryLabel: バッジ文言 ---
+
+test("lotteryLabel: app はツール名を併記する", () => {
+  assert.equal(lotteryLabel({ type: "app", tool: "777コンパス" }), "アプリ抽選(777コンパス)");
+  assert.equal(lotteryLabel({ type: "app", tool: null }), "アプリ抽選");
+});
+
+test("lotteryLabel: onsite は抽選有無で文言を分ける", () => {
+  assert.equal(lotteryLabel({ type: "onsite", random: true }), "店頭抽選");
+  assert.equal(lotteryLabel({ type: "onsite", random: false }), "先着整理券");
+  // 抽選有無が未確認のときは断定しない中立表現
+  assert.equal(lotteryLabel({ type: "onsite", random: null }), "店頭整理券");
+});
+
+test("lotteryLabel: lineup は並び順", () => {
+  assert.equal(lotteryLabel({ type: "lineup", random: false }), "並び順");
+});
+
+test("lotteryLabel: type 未確認はバッジを出さない（null を返す）", () => {
+  // 「抽選なし」と誤読させないため、未確認はバッジ非表示にする
+  assert.equal(lotteryLabel({ type: null, random: true }), null);
+  assert.equal(lotteryLabel(null), null);
 });

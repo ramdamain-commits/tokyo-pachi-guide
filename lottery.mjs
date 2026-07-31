@@ -24,8 +24,10 @@ function hasAny(method, markers) {
 
 /**
  * 入場チャネルを返す。判別できなければ null。
+ * 「lineup」（並びのみ）は method 文言からは判別できないため本関数では返さない。
+ * 出典の再確認で人手により設定する。
  * @param {string|null} method
- * @returns {"lineup"|"onsite"|"app"|null}
+ * @returns {"onsite"|"app"|null}
  */
 export function deriveChannel(method) {
   if (!method) return null;
@@ -80,4 +82,42 @@ export function reviewFlags(method) {
     flags.push("ツール名要確認(略称一致)");
   }
   return flags;
+}
+
+/**
+ * パチ/スロで方式が異なる店の値を解決する。
+ * 共通値（トップレベル）に genre のサブオブジェクトを重ねた新しいオブジェクトを返す。
+ * サブオブジェクト自体（pachinko / slot）は結果に含めない。
+ * @param {object|null} lottery
+ * @param {"pachinko"|"slot"|null} genre
+ * @returns {object|null}
+ */
+export function resolveLottery(lottery, genre) {
+  if (!lottery) return null;
+  const { pachinko, slot, ...common } = lottery;
+  const override = genre === "pachinko" ? pachinko : genre === "slot" ? slot : null;
+  return override ? { ...common, ...override } : common;
+}
+
+/**
+ * バッジ表示用の日本語ラベルを返す。
+ * type が未確認（null）のときは null を返し、呼び出し側でバッジを出さない
+ * （「抽選なし」と誤読されるのを避けるため）。
+ * @param {object|null} lottery resolveLottery 済みのオブジェクト
+ * @returns {string|null}
+ */
+export function lotteryLabel(lottery) {
+  if (!lottery || !lottery.type) return null;
+  switch (lottery.type) {
+    case "app":
+      return lottery.tool ? `アプリ抽選(${lottery.tool})` : "アプリ抽選";
+    case "onsite":
+      if (lottery.random === true) return "店頭抽選";
+      if (lottery.random === false) return "先着整理券";
+      return "店頭整理券";
+    case "lineup":
+      return "並び順";
+    default:
+      return null;
+  }
 }
