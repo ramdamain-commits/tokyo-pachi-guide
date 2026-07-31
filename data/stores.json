@@ -30,6 +30,9 @@
         }
       ],
       "lottery": {
+        "type": "onsite",
+        "random": null,
+        "tool": null,
         "method": "整理券(会員カード不要)",
         "draw": "9:40",
         "auth": null,
@@ -65,6 +68,9 @@
         }
       ],
       "lottery": {
+        "type": "app",
+        "random": true,
+        "tool": null,
         "method": "モバイル抽選",
         "draw": "9:15",
         "auth": "9:45",
@@ -100,6 +106,9 @@
         }
       ],
       "lottery": {
+        "type": "app",
+        "random": true,
+        "tool": null,
         "method": "モバイル抽選(スロ)",
         "draw": "9:30",
         "auth": "9:45",
@@ -150,6 +159,9 @@
         }
       ],
       "lottery": {
+        "type": "onsite",
+        "random": null,
+        "tool": null,
         "method": "整理券(会員カード不要)",
         "draw": "9:40",
         "auth": null,
@@ -189,6 +201,9 @@
         }
       ],
       "lottery": {
+        "type": "onsite",
+        "random": true,
+        "tool": null,
         "method": "整理券・シャッフル抽選",
         "draw": "9:40",
         "auth": null,
@@ -234,6 +249,9 @@
         }
       ],
       "lottery": {
+        "type": "app",
+        "random": true,
+        "tool": null,
         "method": "モバイル抽選(スロ)",
         "draw": "9:45",
         "auth": "9:30",
@@ -269,6 +287,9 @@
         }
       ],
       "lottery": {
+        "type": "app",
+        "random": true,
+        "tool": "入場くんオンライン",
         "method": "モバイル抽選(入場くんオンライン)",
         "draw": "9:45",
         "auth": null,
@@ -318,6 +339,9 @@
         }
       ],
       "lottery": {
+        "type": "onsite",
+        "random": null,
+        "tool": null,
         "method": "整理券(会員カード不要)",
         "draw": "9:30",
         "auth": null,
@@ -376,6 +400,9 @@
         }
       ],
       "lottery": {
+        "type": "app",
+        "random": true,
+        "tool": "入場くんオンライン∞",
         "method": "モバイル抽選(入場くんオンライン∞)",
         "draw": "9:15",
         "auth": "9:45",
@@ -433,6 +460,9 @@
         }
       ],
       "lottery": {
+        "type": "app",
+        "random": true,
+        "tool": null,
         "method": "店頭/モバイル抽選",
         "draw": "9:30",
         "auth": null,
@@ -472,6 +502,9 @@
         }
       ],
       "lottery": {
+        "type": "app",
+        "random": true,
+        "tool": "777コンパス",
         "method": "モバイル抽選(777コンパス)",
         "draw": "9:30",
         "auth": "9:45",
@@ -523,6 +556,9 @@
         }
       ],
       "lottery": {
+        "type": "app",
+        "random": true,
+        "tool": null,
         "method": "モバイル抽選(会員カード不要)",
         "draw": "9:00",
         "auth": null,
@@ -576,6 +612,9 @@
         }
       ],
       "lottery": {
+        "type": null,
+        "random": true,
+        "tool": null,
         "method": "抽選(会員カード不要)",
         "draw": "9:45",
         "auth": null,
@@ -614,6 +653,9 @@
         }
       ],
       "lottery": {
+        "type": "app",
+        "random": true,
+        "tool": "777コンパス",
         "method": "モバイル抽選(777コンパス)",
         "draw": null,
         "auth": "9:40",
@@ -657,6 +699,9 @@
         }
       ],
       "lottery": {
+        "type": null,
+        "random": true,
+        "tool": null,
         "method": "抽選方式",
         "draw": "9:45",
         "auth": null,
@@ -703,6 +748,9 @@
         }
       ],
       "lottery": {
+        "type": "app",
+        "random": true,
+        "tool": null,
         "method": "モバイル抽選(会員カード不要)",
         "draw": "9:40",
         "auth": null,
@@ -741,6 +789,9 @@
         }
       ],
       "lottery": {
+        "type": null,
+        "random": true,
+        "tool": null,
         "method": "抽選(会員カード不要)",
         "draw": "9:45",
         "auth": null,
@@ -779,6 +830,9 @@
         }
       ],
       "lottery": {
+        "type": "onsite",
+        "random": null,
+        "tool": null,
         "method": "整理券(会員カード不要)",
         "draw": "9:40",
         "auth": null,
@@ -816,6 +870,9 @@
         }
       ],
       "lottery": {
+        "type": "onsite",
+        "random": null,
+        "tool": null,
         "method": "整理券(会員カード不要)",
         "draw": "9:30",
         "auth": null,
@@ -867,6 +924,9 @@
         }
       ],
       "lottery": {
+        "type": "app",
+        "random": true,
+        "tool": "777コンパス",
         "method": "777コンパス モバイル抽選",
         "draw": null,
         "auth": "9:30",
@@ -902,6 +962,9 @@
         }
       ],
       "lottery": {
+        "type": "app",
+        "random": true,
+        "tool": "入場くんオンライン",
         "method": "入場くんオンライン(モバイル抽選)",
         "draw": "9:45",
         "auth": "9:45",
@@ -944,6 +1007,9 @@
         }
       ],
       "lottery": {
+        "type": "onsite",
+        "random": true,
+        "tool": null,
         "method": "整理券(パチ/スロ別抽選)",
         "draw": "9:40",
         "auth": null,
@@ -979,6 +1045,9 @@
         }
       ],
       "lottery": {
+        "type": "onsite",
+        "random": null,
+        "tool": null,
         "method": "整理券(会員カード不要)",
         "draw": "9:50",
         "auth": null,
@@ -1014,6 +1083,9 @@
         }
       ],
       "lottery": {
+        "type": "app",
+        "random": true,
+        "tool": "入場くんオンライン",
         "method": "入場くんオンライン(モバイル抽選)",
         "draw": "9:45",
         "auth": null,
@@ -1049,6 +1121,9 @@
         }
       ],
       "lottery": {
+        "type": "app",
+        "random": true,
+        "tool": "777コンパス",
         "method": "777コンパス モバイル抽選",
         "draw": "9:20",
         "auth": "9:29",
@@ -1088,6 +1163,9 @@
         }
       ],
       "lottery": {
+        "type": "app",
+        "random": true,
+        "tool": "777コンパス",
         "method": "モバイル抽選(コンパス、2024-12-15方式変更)",
         "draw": "9:30",
         "auth": "9:39",
@@ -1123,6 +1201,9 @@
         }
       ],
       "lottery": {
+        "type": "onsite",
+        "random": true,
+        "tool": null,
         "method": "整理券抽選",
         "draw": "9:50",
         "auth": null,
@@ -1158,6 +1239,9 @@
         }
       ],
       "lottery": {
+        "type": "onsite",
+        "random": true,
+        "tool": null,
         "method": "整理券抽選",
         "draw": "9:45",
         "auth": null,
@@ -1204,6 +1288,9 @@
         }
       ],
       "lottery": {
+        "type": "onsite",
+        "random": true,
+        "tool": null,
         "method": "抽選券配布(スロ)",
         "draw": "9:45",
         "auth": null,
@@ -1250,6 +1337,9 @@
         }
       ],
       "lottery": {
+        "type": "onsite",
+        "random": null,
+        "tool": null,
         "method": "整理券",
         "draw": "9:55",
         "auth": null,
@@ -1285,6 +1375,9 @@
         }
       ],
       "lottery": {
+        "type": "onsite",
+        "random": true,
+        "tool": null,
         "method": "整理券抽選",
         "draw": "9:35",
         "auth": null,
@@ -1320,6 +1413,9 @@
         }
       ],
       "lottery": {
+        "type": "onsite",
+        "random": true,
+        "tool": null,
         "method": "整理券抽選",
         "draw": "9:45",
         "auth": null,
@@ -1359,6 +1455,9 @@
         }
       ],
       "lottery": {
+        "type": "app",
+        "random": true,
+        "tool": "777コンパス",
         "method": "モバイル抽選（整理券配布・会員カード不要／777コンパスによるオンライン抽選）",
         "draw": "9:30（抽選申込は9:29まで）",
         "auth": "9:30〜9:44 本人認証",
@@ -1402,6 +1501,9 @@
         }
       ],
       "lottery": {
+        "type": "onsite",
+        "random": true,
+        "tool": null,
         "method": "整理券あり（会員カード不要・抽選）",
         "draw": "9:30",
         "auth": null,
@@ -1437,6 +1539,9 @@
       "pachinko": null,
       "rules": [],
       "lottery": {
+        "type": null,
+        "random": null,
+        "tool": null,
         "method": null,
         "draw": null,
         "auth": null,
