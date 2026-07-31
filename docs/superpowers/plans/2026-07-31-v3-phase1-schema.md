@@ -153,6 +153,15 @@ test("reviewFlags: 判別できる文言なら空配列", () => {
   assert.deepEqual(reviewFlags("整理券抽選"), []);
   assert.deepEqual(reviewFlags("モバイル抽選(777コンパス)"), []);
 });
+
+test("reviewFlags: 略称だけでツール名を推定した場合は要確認にする", () => {
+  // 原文に「777」が無く「コンパス」だけ → 推定なので確定扱いにしない
+  assert.ok(
+    reviewFlags("モバイル抽選(コンパス、2024-12-15方式変更)").includes("ツール名要確認(略称一致)")
+  );
+  // 正式名称が書かれていれば要確認にしない
+  assert.deepEqual(reviewFlags("モバイル抽選(777コンパス)"), []);
+});
 ```
 
 - [ ] **Step 2: テストを実行して失敗を確認する**
@@ -242,6 +251,10 @@ export function reviewFlags(method) {
     flags.push("ハイブリッド疑い");
   }
   if (hasAny(method, GENRE_MARKERS)) flags.push("パチ/スロ差分疑い");
+  // 「コンパス」だけの略称からツール名を推定した場合は確定扱いにしない
+  if (method.includes("コンパス") && !method.includes("777")) {
+    flags.push("ツール名要確認(略称一致)");
+  }
   return flags;
 }
 ```
@@ -249,7 +262,7 @@ export function reviewFlags(method) {
 - [ ] **Step 4: テストを実行して通ることを確認する**
 
 Run: `node --test test/lottery.test.mjs`
-Expected: PASS（14件）
+Expected: PASS（15件）
 
 - [ ] **Step 5: コミット**
 
@@ -400,7 +413,7 @@ export function lotteryLabel(lottery) {
 - [ ] **Step 4: テストを実行して通ることを確認する**
 
 Run: `node --test test/lottery.test.mjs`
-Expected: PASS（22件）
+Expected: PASS（23件）
 
 - [ ] **Step 5: コミット**
 
@@ -814,7 +827,7 @@ Run: `node scripts/validate-data.mjs`
 Expected: `errors 0`。`type=app` でツール名が無い店の warnings が数件出るのは想定どおり
 
 Run: `node --test test/*.test.mjs`
-Expected: 全件 PASS（match 18 + coverage 5 + lottery 21 + validate 15）
+Expected: 全件 PASS（match 18 + coverage 5 + lottery 23 + validate 14 = 60件）
 
 - [ ] **Step 5: 差分を目視確認する**
 
@@ -954,7 +967,7 @@ Expected: フッターが新しい文言になっており、5タブすべてが
 `test/` の行を以下に差し替える（テスト件数の更新）。
 
 ```markdown
-- `test/` — `node --test test/*.test.mjs` で実行（match 18件 + coverage 5件 + lottery 22件 + validate 14件）
+- `test/` — `node --test test/*.test.mjs` で実行（match 18件 + coverage 5件 + lottery 23件 + validate 14件）
 ```
 
 - [ ] **Step 4: CHANGELOG を更新する**
@@ -978,7 +991,7 @@ Expected: フッターが新しい文言になっており、5タブすべてが
 - [ ] **Step 5: 全テストと検証を実行する**
 
 Run: `node --test test/*.test.mjs`
-Expected: 全件 PASS（59件）
+Expected: 全件 PASS（60件）
 
 Run: `node scripts/validate-data.mjs`
 Expected: `errors 0`

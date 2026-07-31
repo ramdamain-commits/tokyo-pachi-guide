@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## 2026-07-31
+
+v3拡張の Phase 1（データ基盤整備）。設計書: `docs/superpowers/specs/2026-07-31-v3-expansion-design.md`、実装計画: `docs/superpowers/plans/2026-07-31-v3-phase1-schema.md`
+
+### 追加
+- `lottery.mjs` — 抽選方式の派生ロジック（`method` の文言から `type`／`random`／`tool` を導出。判別できない項目は `null` のまま残す）、パチ/スロ差分の解決（`lottery.pachinko`／`lottery.slot` のサブオブジェクト上書き）、バッジ用ラベル生成
+- `validate.mjs` + `scripts/validate-data.mjs` — `stores.json` のスキーマ検証（lottery・sns・crowd・annual+label）。「未確認（null）・キー欠損は正常、値が入っていて型が不正ならエラー」の方針
+- `scripts/migrate-lottery.mjs` — 既存店の lottery へ派生値を付与し、要確認リスト（`_staging/lottery-review.md`）を出力する冪等スクリプト
+- `docs/収集手順_v3.md` — v3 データ収集手順（ソース序列・1パス収集項目・禁止事項・要確認スイープの読み方）
+
+### 変更
+- `data/stores.json` — 既存35店の `lottery` に `type`／`random`／`tool` を追加（追加のみ・既存値の変更なし）。出典の文言から確定できたのは14店、残る21店は判別できない項目を `null` で保持し要確認扱い。出典の再確認は行っていないため `updated` は据え置き
+- `index.html` — フッターに残っていた「非公開ローカルツール（GitHub非掲載）」を公開後の実態に合わせて修正（2026-07-17 の公開化時の更新漏れ）
+
 ## 2026-07-20
 
 - 下北沢エリアを追加（カレイド下北沢店＋閉店2店＝ミナミ本店・ミナミ10号店）。全35店・8エリア体制に

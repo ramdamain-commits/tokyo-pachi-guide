@@ -11,9 +11,13 @@
 - `data/coverage.json` — 店舗×媒体の取材実績（storeId・mediaName・頻度・直近確認月・確度・出典）。過去実績に基づく推定・伝聞であり公式情報ではない。掲載が無い＝実績なし、ではない（欠測）
 - `match.mjs` — 日付マッチングロジック本体（`rules[].type` 全7種の判定・`ruleLabel` によるバッジ用日本語ラベル生成）
 - `coverage.mjs` — coverage.json の参照整合検証と店舗/媒体からの結合ロジック
+- `lottery.mjs` — 抽選方式の派生（method文言→type/random/tool）・パチ/スロ差分の解決・バッジ用ラベル生成
+- `validate.mjs` — `data/stores.json` のスキーマ検証（v3フィールド: lottery.type/random/tool・sns・crowd・annual+label）
+- `scripts/` — `validate-data.mjs`（検証CLI）・`migrate-lottery.mjs`（既存店のlottery派生付与）
 - `index.html` / `app.js` — ビューワ（今日/明日/日付指定/エリア別一覧/取材傾向の5タブ）。店舗カードに取材実績バッジ、媒体カードに実績店一覧と公式スケジュールリンクを表示
-- `test/` — `node --test test/*.test.mjs` で実行（match 18件+coverage 5件）
+- `test/` — `node --test test/*.test.mjs` で実行（match 18件 + coverage 5件 + lottery 26件 + validate 20件 = 69件）
 - `docs/取材予定の確認手順.md` — 「今週どこに取材が入るか」を調べる巡回手順とリンク集
+- `docs/収集手順_v3.md` — 特定日・抽選・周年・SNS・混雑を1パスで集める収集手順とソース序列
 - `docs/superpowers/specs/` — 設計書
 
 ## 閲覧方法
