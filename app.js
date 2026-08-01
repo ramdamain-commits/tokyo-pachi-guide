@@ -98,6 +98,14 @@ function lotteryLine(lottery) {
   return parts.join(" / ");
 }
 
+function crowdLine(crowd) {
+  if (!crowd) return "";
+  const src = crowd.sourceUrl
+    ? ` <a href="${crowd.sourceUrl}" target="_blank" rel="noopener">出典</a>(確認: ${crowd.checkedAt})`
+    : "";
+  return `混雑参考: ${crowd.note}${src}`;
+}
+
 function sourcesHtml(sources) {
   return (sources || [])
     .map((s) => `<a href="${s.url}" target="_blank" rel="noopener">出典</a>(確認: ${s.checkedAt})`)
@@ -159,6 +167,7 @@ function renderStoreDetailCard(store, coverage) {
   const lotteryBadgesHtml = lotteryBadges(store.lottery);
   const lottery = lotteryLine(store.lottery);
   const hours = `営業: ${store.open || "不明"}〜${store.close || "不明"} / 換金率: ${store.exchange || "不明"}`;
+  const crowd = crowdLine(store.crowd);
   const sns = snsLinks(store.sns);
   const src = sourcesHtml(store.sources);
   const links = [sns, src].filter(Boolean).join(" ・ ");
@@ -172,6 +181,7 @@ function renderStoreDetailCard(store, coverage) {
     (lotteryBadgesHtml ? `<div class="store-card__badges">${lotteryBadgesHtml}</div>` : "") +
     (lottery ? `<div class="store-card__desc">抽選: ${lottery}</div>` : "") +
     `<div class="store-card__desc">${hours}</div>` +
+    (crowd ? `<div class="store-card__desc">${crowd}</div>` : "") +
     (store.memo ? `<div class="store-card__memo">${store.memo}</div>` : "") +
     (links ? `<div class="store-card__links">${links}</div>` : "");
   return wrap;
