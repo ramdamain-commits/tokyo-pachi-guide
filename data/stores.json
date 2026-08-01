@@ -1562,6 +1562,2582 @@
           "checkedAt": "2026-07-20"
         }
       ]
+    },
+    {
+      "id": "granpa-nakano",
+      "name": "グランパ中野",
+      "area": "中野",
+      "address": "東京都中野区中野5-60-12",
+      "access": null,
+      "slots": 203,
+      "pachinko": 423,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 2
+        },
+        {
+          "type": "digit",
+          "value": 8
+        },
+        {
+          "type": "monthday",
+          "value": 29,
+          "_memo": "すろざんまいのみ掲載（みんパチ旧イベント日欄には無し）"
+        },
+        {
+          "type": "annual",
+          "month": 12,
+          "day": 29,
+          "label": "グランドオープン記念"
+        }
+      ],
+      "lottery": {
+        "type": "onsite",
+        "random": true,
+        "tool": null,
+        "method": "整理券配布・抽選（会員カード不要）",
+        "draw": "9:30",
+        "auth": null,
+        "lineup": "9:45 再整列"
+      },
+      "open": "10:00",
+      "close": "23:00",
+      "exchange": "非等価（4円パチンコ28玉／21.73円スロット5.2枚）",
+      "sns": {
+        "x": "https://twitter.com/granpanakano88?s=21",
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "旧イベント日はみんパチ「2のつく日/8のつく日」、すろざんまいはこれに加え「毎月29日」も掲載（みんパチ側は未記載、食い違い）。グランドオープン日が12/29のため毎月29日イベントとの関連可能性があるが現地未確認。アクセス（駅徒歩分数）は出典で確認できずnull。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://minpachi.com/granpa-nakano/",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "jipang",
+      "name": "スロットジパング",
+      "area": "中野",
+      "address": "東京都中野区中野2-25-2",
+      "access": null,
+      "slots": 162,
+      "pachinko": null,
+      "rules": [],
+      "lottery": {
+        "type": "onsite",
+        "random": true,
+        "tool": null,
+        "method": "整理券配布・抽選（会員カード不要）",
+        "draw": "9:45",
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:50",
+      "exchange": "非等価（21.73円スロット5.2枚）※スロット専門店",
+      "sns": {
+        "x": "https://mobile.twitter.com/ougon_taro777",
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "旧イベント日はみんパチ「なし」、すろざんまいにも掲載なし（一致）。グランドオープン日はみんパチ表記が2001年5月??日で日付不明瞭のためrules化せず。X（mobile.twitter.com/ougon_taro777）はみんパチ店舗ページのリンク欄記載だが、アカウント名が店名と直接一致しないため店公式か要確認。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://minpachi.com/jipang/",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "niraku-nakano-sunmall-2",
+      "name": "ニラク中野サンモール2号店",
+      "area": "中野",
+      "address": "東京都中野区中野5丁目60番7号高木ビル地下1階",
+      "access": null,
+      "slots": 258,
+      "pachinko": 283,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 2
+        },
+        {
+          "type": "digit",
+          "value": 9
+        },
+        {
+          "type": "monthday",
+          "value": 29,
+          "_memo": "すろざんまい記載。みんパチは同じ枠に毎月15日と記載しており食い違い（第1ソース優先で29日を採用）"
+        },
+        {
+          "type": "annual",
+          "month": 11,
+          "day": 25,
+          "label": "グランドオープン記念"
+        }
+      ],
+      "lottery": {
+        "type": "app",
+        "random": true,
+        "tool": "777コンパス",
+        "method": "モバイル抽選（777コンパス、通常日9:50頃顔認証後エレベーターホールに再整列／29日等の特定日は裏入口に再整列と異なる）",
+        "draw": "9:50",
+        "auth": "顔認証",
+        "lineup": "9:50 再整列（特定日は入口が異なる場合あり）"
+      },
+      "open": "10:00",
+      "close": "23:00",
+      "exchange": "非等価（4円パチンコ28玉／21.73円スロット5.31枚）",
+      "sns": {
+        "x": "https://x.com/niraku_san2",
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "みんパチ「2のつく日/9のつく日/毎月15日」、すろざんまい「2の付く日/9の付く日/毎月29日」→月内特定日で食い違い（15日 vs 29日）。rulesには第1ソース(すろざんまい)の29日を採用し、みんパチの15日情報はここに記録（どちらかを消さない）。同一建物1階の「ニラク中野サンモール店」とXアカウントを共有。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://minpachi.com/%E3%83%8B%E3%83%A9%E3%82%AF%E4%B8%AD%E9%87%8E%E3%82%B5%E3%83%B3%E3%83%A2%E3%83%BC%E3%83%AB2%E5%8F%B7%E5%BA%97/",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "niraku-nakano-sunmall",
+      "name": "ニラク中野サンモール店",
+      "area": "中野",
+      "address": "東京都中野区中野5-60-7",
+      "access": null,
+      "slots": 258,
+      "pachinko": 283,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 2
+        },
+        {
+          "type": "digit",
+          "value": 9
+        },
+        {
+          "type": "annual",
+          "month": 4,
+          "day": 6,
+          "label": "グランドオープン記念"
+        }
+      ],
+      "lottery": {
+        "type": "app",
+        "random": true,
+        "tool": "777コンパス",
+        "method": "モバイル抽選（777con-pass、前日に抽選結果が確定する運用）",
+        "draw": null,
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "23:00",
+      "exchange": "非等価（4円パチンコ28玉／21.73円スロット5.31枚）",
+      "sns": {
+        "x": "https://x.com/niraku_san2",
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "すろざんまいには本店（無印・地上階）の掲載がなく、同一建物地下の2号店のみ掲載されている。配布時間=前日はみんパチ表記のまま採用（前日中に抽選結果が出る＝モバイル抽選の一種と解釈）。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://minpachi.com/%E3%83%8B%E3%83%A9%E3%82%AF%E4%B8%AD%E9%87%8E%E3%82%B5%E3%83%B3%E3%83%A2%E3%83%BC%E3%83%AB%E5%BA%97/",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "kokusai-nakano",
+      "name": "国際センター中野店",
+      "area": "中野",
+      "address": "東京都中野区中野5-61-1",
+      "access": "JR中野駅北口より徒歩1分（第三者サイト要約由来、一次ソース未確認の参考情報）",
+      "slots": 112,
+      "pachinko": 138,
+      "rules": [
+        {
+          "type": "monthday",
+          "value": 10
+        },
+        {
+          "type": "monthday",
+          "value": 20
+        }
+      ],
+      "lottery": {
+        "type": "lineup",
+        "random": false,
+        "tool": null,
+        "method": "整理券なし・並び順（会員カード不要）",
+        "draw": null,
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:45",
+      "exchange": "1円パチンコ112玉／10円スロット（低貸主体店、4円パチ・21.73円スロ表記なし）",
+      "sns": {
+        "x": "https://twitter.com/nkn59311?t=-QYsI-pnS4UCc2eZ5ivnvw&s=09",
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "旧イベント日はみんパチのみ記載（すろざんまいに掲載なし）。アクセス文言はWebSearch要約経由の間接情報のため参考扱い。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://minpachi.com/kokusai-nakano/",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "meese-kitijoji",
+      "name": "メッセ吉祥寺店",
+      "area": "吉祥寺",
+      "address": "東京都武蔵野市吉祥寺本町1-8-4コスモビルB1",
+      "access": null,
+      "slots": 477,
+      "pachinko": 500,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 0
+        },
+        {
+          "type": "digit",
+          "value": 2
+        },
+        {
+          "type": "digit",
+          "value": 7
+        },
+        {
+          "type": "annual",
+          "month": 11,
+          "day": 3,
+          "label": "グランドオープン記念"
+        }
+      ],
+      "lottery": {
+        "type": "onsite",
+        "random": true,
+        "tool": null,
+        "method": "整理券配布・抽選（会員カード不要）",
+        "draw": "9:40",
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:50",
+      "exchange": "非等価（4円パチンコ28玉／21.73円スロット5枚）",
+      "sns": {
+        "x": "https://twitter.com/messe_kichijoji",
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "旧イベント日はみんパチ・すろざんまい完全一致（0/2/7のつく日）。2021年11月3日、パラッツォ吉祥寺イースト店の業態転換で開業（Web検索: mu-navi.com記事、要一次ソース確認）。吉祥寺エリアは2018〜2026年にかけて大量閉店が進み、現在吉祥寺駅前で営業中のホールは本店（メッセ吉祥寺店）と新館の2軒のみと判明（詳細は本ファイル末尾の閉店店舗リスト参照）。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://minpachi.com/meese-kitijoji/",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "meese-kitijoji2",
+      "name": "メッセ吉祥寺店新館",
+      "area": "吉祥寺",
+      "address": "東京都武蔵野市吉祥寺南町2-3-16 吉祥寺東亜会館1階（旧G-ONE吉祥寺跡）",
+      "access": null,
+      "slots": null,
+      "pachinko": 210,
+      "rules": [],
+      "lottery": {
+        "type": "lineup",
+        "random": false,
+        "tool": null,
+        "method": "整理券なし・並び順（会員カード優先）",
+        "draw": null,
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "23:00",
+      "exchange": "1円パチンコ表記のみ確認（非等価、詳細は出典で未確認）",
+      "sns": {
+        "x": "https://x.com/messe_kichijoji",
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "2026年4月20日グランドオープン（旧G-ONE吉祥寺跡地。Web検索: jenepi.jp記事、要一次ソース確認）。開業から日が浅く旧イベント日パターン未確立のためrulesは空。Xアカウントは本館メッセ吉祥寺店と共有。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://minpachi.com/meese-kitijoji2/",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "p-port-tachikawa",
+      "name": "P-PORT PREGO立川店",
+      "area": "立川",
+      "address": "東京都立川市柴崎3丁目7番地5号",
+      "access": null,
+      "slots": 766,
+      "pachinko": 588,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 5
+        },
+        {
+          "type": "annual",
+          "month": 2,
+          "day": 8,
+          "label": "グランドオープン記念"
+        }
+      ],
+      "lottery": {
+        "type": "onsite",
+        "random": true,
+        "tool": null,
+        "method": "整理券配布・抽選（会員カード不要）",
+        "draw": "9:30",
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:45",
+      "exchange": "非等価（4円パチンコ28玉／21.73円スロット5枚）",
+      "sns": {
+        "x": "https://x.com/prego_tachikawa",
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "すろざんまいには掲載なし（みんパチのみ）。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://minpachi.com/p-port-tachikawa/",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "sap-tachikawa",
+      "name": "SAP立川店",
+      "area": "立川",
+      "address": "東京都立川市幸町1-35-7",
+      "access": null,
+      "slots": 317,
+      "pachinko": 336,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 4
+        },
+        {
+          "type": "digit",
+          "value": 7
+        },
+        {
+          "type": "monthday",
+          "value": 11
+        },
+        {
+          "type": "monthday",
+          "value": 16
+        },
+        {
+          "type": "nth-weekday",
+          "weekday": 6,
+          "nth": 1,
+          "_memo": "第1土曜日"
+        },
+        {
+          "type": "annual",
+          "month": 8,
+          "day": 11,
+          "label": "グランドオープン記念"
+        }
+      ],
+      "lottery": {
+        "type": "onsite",
+        "random": true,
+        "tool": null,
+        "method": "整理券配布・抽選（会員カード不要）",
+        "draw": "9:30",
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:50",
+      "exchange": "非等価（4円パチンコ28玉／21.73円スロット5枚）",
+      "sns": {
+        "x": "https://twitter.com/sap_staff_karu?s=21",
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "立川駅からやや離れた幸町に立地（立川市内だが他5店の駅前クラスターとは離れた場所）。すろざんまいは7のつく日/毎月16日のみ掲載、みんパチは追加で4のつく日/毎月11日/第1土曜日を記載（すろの方が情報量が少ない、みんパチ側の詳細情報を採用しrulesに反映）。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://minpachi.com/sap-tachikawa/",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "dstation-tachikawa",
+      "name": "SuperD'station立川店",
+      "area": "立川",
+      "address": "東京都立川市曙町2-4-5 OSJ TACHIKAWAビル",
+      "access": null,
+      "slots": 483,
+      "pachinko": 523,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 3
+        },
+        {
+          "type": "digit",
+          "value": 9
+        },
+        {
+          "type": "annual",
+          "month": 3,
+          "day": 6,
+          "label": "グランドオープン記念"
+        }
+      ],
+      "lottery": {
+        "type": "app",
+        "random": true,
+        "tool": null,
+        "method": "モバイル抽選（旧運用: 9:00〜9:30店舗より半径100m圏内で入場抽選受付→9:45結果公開→9:50整列→10:00入場。現行運用は要現地確認）",
+        "draw": "9:45",
+        "auth": null,
+        "lineup": "9:50"
+      },
+      "open": "10:00",
+      "close": "22:45",
+      "exchange": "非等価（4円パチンコ28玉／21.73円スロット5.5枚）",
+      "sns": {
+        "x": "https://mobile.twitter.com/d_tachikawa",
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "すろざんまい掲載なし。モバイル抽選のツール名は出典で特定できずnull。D'station系列共通の会員アプリP'sCUBE（ピーズキューブ）の存在をWeb検索で確認したが、これが抽選ツールそのものと同一かは出典で確認できないため採用しない（要現地/公式確認）。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://minpachi.com/dstation-tachikawa/",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "tokyo-jias",
+      "name": "ハイパージアス立川",
+      "area": "立川",
+      "address": "東京都立川市柴崎町3-6-2",
+      "access": null,
+      "slots": 647,
+      "pachinko": 684,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 5
+        },
+        {
+          "type": "monthday",
+          "value": 11
+        },
+        {
+          "type": "monthday",
+          "value": 22
+        },
+        {
+          "type": "zorome"
+        },
+        {
+          "type": "weekday",
+          "value": 0,
+          "_memo": "すろざんまいのみ毎週日曜日記載、みんパチには無し"
+        },
+        {
+          "type": "annual",
+          "month": 4,
+          "day": 8,
+          "label": "グランドオープン記念"
+        }
+      ],
+      "lottery": {
+        "type": "onsite",
+        "random": true,
+        "tool": null,
+        "method": "整理券配布・抽選（会員カード不要）",
+        "draw": "9:30",
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:40",
+      "exchange": "非等価（4円パチンコ28玉／21.73円スロット5枚）",
+      "sns": {
+        "x": "https://twitter.com/hyper_ziath",
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "すろざんまいは5の付く日/毎週日曜日/毎月11・22日、みんパチは5のつく日/毎月11日・22日/月と日がゾロ目の日→毎週日曜日はすろのみ、ゾロ目の日はみんパチのみ記載（食い違い、両方をrulesに反映し出典差はここに記録）。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://minpachi.com/tokyo-jias/",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "rakuen-tachikawa",
+      "name": "楽園立川店",
+      "area": "立川",
+      "address": "東京都立川市柴崎町3-1-3（旧メガアイオン立川店跡地）",
+      "access": null,
+      "slots": 783,
+      "pachinko": 767,
+      "rules": [
+        {
+          "type": "monthday",
+          "value": 11
+        },
+        {
+          "type": "monthday",
+          "value": 22
+        },
+        {
+          "type": "zorome"
+        },
+        {
+          "type": "weekday",
+          "value": 0,
+          "_memo": "すろざんまいのみ毎週日曜日記載、みんパチには無し"
+        },
+        {
+          "type": "annual",
+          "month": 8,
+          "day": 7,
+          "label": "グランドオープン記念"
+        }
+      ],
+      "lottery": {
+        "type": "onsite",
+        "random": true,
+        "tool": null,
+        "method": "整理券配布・抽選（会員カード不要。パチンコは抽選参加300名、スロットは500名で受付打ち切り）",
+        "draw": "9:30",
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:40",
+      "exchange": "非等価（4円パチンコ28玉／21.73円スロット5枚）",
+      "sns": {
+        "x": "https://twitter.com/tachikawa_raku",
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "2021年3月22日閉店のメガアイオン立川店跡地に2021年8月7日グランドオープン（Web検索: iine-tachikawa.net記事、要一次ソース確認）。すろざんまいは毎週日曜日/毎月11・22日、みんパチは毎月11日・22日/月と日がゾロ目の日→ハイパージアス立川と同様の食い違いパターン（運営が近い可能性）。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://minpachi.com/rakuen-tachikawa/",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "pia-machida-shinkan",
+      "name": "PIA町田新館",
+      "area": "町田",
+      "address": "東京都町田市原町田6丁目13番21号",
+      "access": "JR町田駅北口より徒歩5分、小田急町田駅東口より徒歩3分",
+      "slots": 662,
+      "pachinko": 700,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 3
+        },
+        {
+          "type": "digit",
+          "value": 6
+        },
+        {
+          "type": "digit",
+          "value": 7
+        },
+        {
+          "type": "zorome"
+        },
+        {
+          "type": "annual",
+          "month": 12,
+          "day": 17,
+          "label": "グランドオープン記念(2020年)"
+        }
+      ],
+      "lottery": {
+        "type": "onsite",
+        "random": true,
+        "tool": null,
+        "method": "整理券抽選（会員カード不要）",
+        "draw": "9:30",
+        "auth": null,
+        "lineup": "9:50 再整列（10:00入場）"
+      },
+      "open": "10:00",
+      "close": "22:40",
+      "exchange": "非等価（4円パチンコ28玉・1円パチンコ112玉／21.73円スロット5.2枚・5.61円スロット20枚）",
+      "sns": {
+        "x": "https://twitter.com/PIA26183663",
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "第1ソース（すろざんまい）は3・6・7のつく日＋ゾロ目(11,22)を掲載。第2ソース（みんパチ特徴欄）は『7のつく日(7,17,27)、日ゾロ(11,22)、月日ゾロ』＋『6のつく日(6,16,26)は近隣対抗』と記載——3のつく日は第2ソースに記載なし、逆に『月日ゾロ(月日が重なる日)』は第1ソースの当該店リストに出現せず。両方をrulesに残せない食い違いなので、3のつく日と月日ゾロは要現地確認として残す。6のつく日は『近隣対抗』＝周辺他店との対抗イベントで自店特定日と性質が異なる可能性があるため注記。旧屋号『PIA町田』（本館）は2020年12月17日グランドオープンと同日以降に新館と店舗統合された旨がみんパチに記載（統合時期は出典に明記なし）。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://minpachi.com/pia-machida2/",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://www.p-world.co.jp/tokyo/pia-machida2.htm",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "challenger-machida",
+      "name": "チャレンジャー町田",
+      "area": "町田",
+      "address": "東京都町田市旭町1-7-2",
+      "access": "小田急線町田駅より徒歩10分、森野交差点近く",
+      "slots": 66,
+      "pachinko": 204,
+      "rules": [
+        {
+          "type": "annual",
+          "month": 12,
+          "day": 7,
+          "label": "グランドオープン記念(2009年)"
+        }
+      ],
+      "lottery": {
+        "type": "onsite",
+        "random": true,
+        "tool": null,
+        "method": "整理券抽選（会員カード不要）",
+        "draw": "9:30",
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:45",
+      "exchange": "非等価（4円パチンコ28玉・1円パチンコ112玉）",
+      "sns": {
+        "x": "https://twitter.com/challemachida",
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "特定日（旧イベント日）は第1ソース（すろざんまい）・第2ソース（みんパチ＝『情報募集中』）ともに情報なし。ゆえにrulesは周年のみとし、digit/monthday等の特定日ルールは追加しない（推測補完の禁止に基づく）。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://minpachi.com/jumbo-machida/",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "http://www.p-world.co.jp/tokyo/jumbo-machida.htm",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "tomoe-machida609",
+      "name": "パールショップともえ町田609",
+      "area": "町田",
+      "address": "東京都町田市原町田4丁目5番7号",
+      "access": null,
+      "slots": 311,
+      "pachinko": 298,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 6
+        },
+        {
+          "type": "digit",
+          "value": 9
+        },
+        {
+          "type": "annual",
+          "month": 4,
+          "day": 25,
+          "label": "グランドオープン記念(2014年)"
+        }
+      ],
+      "lottery": {
+        "type": "onsite",
+        "random": true,
+        "tool": null,
+        "method": "整理券抽選（会員カード不要）",
+        "draw": "9:40",
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:45",
+      "exchange": "非等価（4円パチンコ28玉・1円パチンコ112玉）",
+      "sns": {
+        "x": "https://x.com/TOMOEMACHIDA609",
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "特定日は第1ソース（すろざんまい: 6・9のつく日）と第2ソース（みんパチ: 6のつく日/9のつく日）が完全一致。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://minpachi.com/%E3%83%91%E3%83%BC%E3%83%AB%E3%82%B7%E3%83%A7%E3%83%83%E3%83%97%E3%81%A8%E3%82%82%E3%81%88%E7%94%BA%E7%94%B0609/",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "http://www.p-world.co.jp/tokyo/tomoe-machida.htm",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "rakuen-machida",
+      "name": "楽園町田店",
+      "area": "町田",
+      "address": "東京都町田市原町田6-1-6",
+      "access": "JR横浜線北口出口より徒歩30秒、小田急町田駅西口より徒歩30秒",
+      "slots": 339,
+      "pachinko": 427,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 7
+        },
+        {
+          "type": "month-day-match"
+        },
+        {
+          "type": "zorome"
+        },
+        {
+          "type": "annual",
+          "month": 1,
+          "day": 26,
+          "label": "グランドオープン記念(2022年)"
+        }
+      ],
+      "lottery": {
+        "type": "onsite",
+        "random": true,
+        "tool": null,
+        "method": "整理券抽選（会員カード不要）。抽選は470名で打ち切り",
+        "draw": "9:30",
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:40",
+      "exchange": "非等価（4円パチンコ28玉・1円パチンコ112玉／21.73円スロット5.2枚）",
+      "sns": {
+        "x": "https://twitter.com/machida_rakuen",
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "特定日は両ソース一致（すろざんまい: 7のつく日/月日が重なる日/ゾロ目＝みんパチの『7のつく日・毎月11日22日・月と日がゾロ目の日』と整合）。台数はみんパチ本文表記426台だがP-WORLD最新情報は427台——1台差はP-WORLD側を採用（更新日が新しいため）。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://minpachi.com/rakuen-machida/",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://www.p-world.co.jp/tokyo/rakuen-machida.htm",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "kicona-kamata",
+      "name": "キコーナ蒲田店",
+      "area": "蒲田",
+      "address": "東京都大田区西蒲田8-1-12",
+      "access": null,
+      "slots": 386,
+      "pachinko": 623,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 3
+        },
+        {
+          "type": "digit",
+          "value": 9
+        },
+        {
+          "type": "annual",
+          "month": 4,
+          "day": 23,
+          "label": "グランドオープン記念(2013年)"
+        }
+      ],
+      "lottery": {
+        "type": "onsite",
+        "random": true,
+        "tool": null,
+        "method": "整理券抽選（地下1階、会員カード不要）",
+        "draw": "9:40",
+        "auth": null,
+        "lineup": "9:50 再整列（地下1F開放9:00、入場10:00）"
+      },
+      "open": "10:00",
+      "close": "22:40",
+      "exchange": "非等価（4円パチンコ28玉・1円パチンコ112玉／21.73円スロット5.2枚）",
+      "sns": {
+        "x": "https://twitter.com/kicona_kamata",
+        "line": null,
+        "instagram": "https://instagram.com/kicona_kamata/"
+      },
+      "crowd": null,
+      "memo": "特定日は両ソース一致（3のつく日/9のつく日）。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://minpachi.com/kicona-kamata/",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "http://www.p-world.co.jp/tokyo/kicona-kamata.htm",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "hiroki-max-kamata",
+      "name": "ヒロキMAX蒲田店",
+      "area": "蒲田",
+      "address": "東京都大田区西蒲田7-4-12",
+      "access": "JR蒲田駅西口徒歩1分",
+      "slots": 424,
+      "pachinko": 236,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 6
+        },
+        {
+          "type": "annual",
+          "month": 7,
+          "day": 23,
+          "label": "グランドオープン記念(2006年)"
+        }
+      ],
+      "lottery": {
+        "type": "app",
+        "random": true,
+        "tool": "777コンパス",
+        "method": "777コンパスによるモバイル抽選",
+        "draw": "9:30（申込締切）",
+        "auth": "9:30〜 認証開始",
+        "lineup": "9:50〜 整列（10:00入場）"
+      },
+      "open": "10:00",
+      "close": "23:00",
+      "exchange": "非等価（1円パチンコ112玉／21.73円スロット5.2枚）",
+      "sns": {
+        "x": "https://mobile.twitter.com/hiroki3gou",
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "2026年4月24日に『ヒロキ3号店』から屋号変更してリニューアルオープン（みんパチ特徴欄）。特定日は第1ソース（すろざんまい）が6のつく日のみ掲載。第2ソース（みんパチ）は『6のつく日/毎月23日/月と日がゾロ目の日』とあり、毎月23日・ゾロ目は第1ソースに未掲載のため要現地確認としてrulesには追加していない（両ソース記録の原則により本文に両論併記）。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://minpachi.com/hiroki-3/",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "http://www.p-world.co.jp/tokyo/hiroki-3.htm",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "hiroki-higashiguchi-kamata",
+      "name": "ヒロキ東口店",
+      "area": "蒲田",
+      "address": "東京都大田区蒲田5-9-13",
+      "access": "JR蒲田駅東口徒歩1分",
+      "slots": 320,
+      "pachinko": 670,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 6
+        },
+        {
+          "type": "annual",
+          "month": 8,
+          "day": 11,
+          "label": "グランドオープン記念(2012年)"
+        }
+      ],
+      "lottery": {
+        "type": "app",
+        "random": true,
+        "tool": "777コンパス",
+        "method": "777コンパスによるオンライン抽選。前日24時までに事前予約",
+        "draw": "9:30までに入場抽選実施",
+        "auth": "9:45 本人認証完了",
+        "lineup": "9:50 整列（駐輪場側入口）"
+      },
+      "open": "10:00",
+      "close": "23:00",
+      "exchange": "非等価（4円パチンコ28玉・1円パチンコ112玉／21.73円スロット5.16枚）",
+      "sns": {
+        "x": "https://mobile.twitter.com/hiroki_higashi2",
+        "line": null,
+        "instagram": "https://www.instagram.com/_hirokigirl_?igsh=d3psaWlpOTg2aGNs"
+      },
+      "crowd": null,
+      "memo": "この店はすろざんまい（第1ソース）に掲載自体が見当たらない（店名で全文検索し0件）。特定日『6のつく日』はみんパチ（第2ソース）単独の情報として記録する。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://minpachi.com/hiroki-higashi/",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "http://www.p-world.co.jp/tokyo/hiroki-higashi.htm",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "hiroki-nishiguchi-kamata",
+      "name": "ヒロキ蒲田西口店",
+      "area": "蒲田",
+      "address": "東京都大田区西蒲田7-3-7",
+      "access": "JR蒲田駅西口徒歩0分",
+      "slots": 233,
+      "pachinko": 479,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 6
+        },
+        {
+          "type": "annual",
+          "month": 12,
+          "day": 17,
+          "label": "グランドオープン記念(1951年)"
+        }
+      ],
+      "lottery": {
+        "type": "app",
+        "random": true,
+        "tool": "入場くんオンライン",
+        "method": "モバイル抽選（2026年4月11日より777コンパスから『入場くんオンライン』へ変更、とみんパチに記載）",
+        "draw": "9:00までに参加受付、9:15仮番号発表、9:45最終番号発表",
+        "auth": null,
+        "lineup": "10:00 入場"
+      },
+      "open": "10:00",
+      "close": "23:00",
+      "exchange": "非等価（4円パチンコ28玉・1円パチンコ112玉／21.73円スロット5.2枚）",
+      "sns": {
+        "x": "https://mobile.twitter.com/hirokiwest66666",
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "抽選ツールが2026年4月11日に777コンパスから『入場くんオンライン』へ変更されたとみんパチ本文に明記。特定日は両ソースとも6のつく日で一致。1951年創業と出典にあり、地域の老舗店。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://minpachi.com/hiroki-seiwa/",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "http://www.p-world.co.jp/tokyo/hiroki-seiwa.htm",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "vegabig-keikyu-kamata",
+      "name": "ベガビック京急蒲田店",
+      "area": "蒲田",
+      "address": "東京都大田区蒲田4-10-14 あすとウィズ地下1階・地上1階",
+      "access": null,
+      "slots": 355,
+      "pachinko": null,
+      "rules": [
+        {
+          "type": "annual",
+          "month": 12,
+          "day": 18,
+          "label": "グランドオープン記念(2015年)"
+        }
+      ],
+      "lottery": {
+        "type": "onsite",
+        "random": true,
+        "tool": null,
+        "method": "整理券抽選（会員カード不要）",
+        "draw": "9:30",
+        "auth": null,
+        "lineup": "9:50 再整列（地下1階入場口前）"
+      },
+      "open": "10:00",
+      "close": "22:45",
+      "exchange": "非等価（21.73円スロット5.2枚）",
+      "sns": {
+        "x": "https://twitter.com/vegabiq1218",
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "2023年6月6日に『ベガス京急蒲田店』から屋号変更（みんパチ）。特定日（旧イベント日）は第1・第2ソースとも情報なし（みんパチは『情報募集中』）。すろざんまい店名検索でも0件のため、rulesは周年のみとした。P-WORLD未掲載のためアクセスは出典なし。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://minpachi.com/12606-2/",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "maruhan-megacity2000-kamata1",
+      "name": "マルハンメガシティ2000 蒲田1",
+      "area": "蒲田",
+      "address": "東京都大田区蒲田5-9-2",
+      "access": "JR蒲田駅東口を出て左折 徒歩3分",
+      "slots": 418,
+      "pachinko": 630,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 7
+        },
+        {
+          "type": "monthday",
+          "value": 1
+        },
+        {
+          "type": "month-day-match"
+        },
+        {
+          "type": "zorome"
+        },
+        {
+          "type": "annual",
+          "month": 8,
+          "day": 10,
+          "label": "グランドオープン記念(2012年)"
+        }
+      ],
+      "lottery": {
+        "type": null,
+        "random": null,
+        "tool": null,
+        "method": "パチンコとスロットで方式が異なる（下記参照）",
+        "draw": "9:45 番号表示",
+        "auth": null,
+        "lineup": "9:50 再整列",
+        "pachinko": {
+          "type": "lineup",
+          "random": false,
+          "method": "先着順（ローソン側入口から並び）"
+        },
+        "slot": {
+          "type": "app",
+          "random": true,
+          "tool": null,
+          "method": "モバイル抽選（当日9:30まで受付、アプリ名は出典に明記なし）"
+        }
+      },
+      "open": "10:00",
+      "close": "23:00",
+      "exchange": "非等価（4円パチンコ28玉・1円パチンコ112玉／21.73円スロット5.16枚）",
+      "sns": {
+        "x": "https://mobile.twitter.com/MARUHANkamata",
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "みんパチ本文に『※パチンコは先着順、ローソン側より』と明記されており、パチンコ＝先着（並び）、スロット＝モバイル抽選、で方式が分かれるハイブリッド店と判断。モバイル抽選のアプリ名は出典に記載なくnull。旧屋号『マルハン蒲田駅東店』から屋号変更、2025年8月18日〜31日休業を経て9月1日リニューアルオープン（みんパチ）。特定日は両ソース一致（7のつく日/毎月1日・11日・22日/月と日がゾロ目の日）。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://minpachi.com/maruhan-kamata-h/",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "http://www.p-world.co.jp/tokyo/maruhan-kamata-h.htm",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "maruhan-megacity2000-kamata7",
+      "name": "マルハンメガシティ2000蒲田7",
+      "area": "蒲田",
+      "address": "東京都大田区蒲田5-11-12",
+      "access": "蒲田駅東口を左に進んですぐ",
+      "slots": 715,
+      "pachinko": 292,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 1
+        },
+        {
+          "type": "digit",
+          "value": 7
+        },
+        {
+          "type": "annual",
+          "month": 7,
+          "day": 7,
+          "label": "グランドオープン記念(2025年、旧メガガイア蒲田店跡地)"
+        }
+      ],
+      "lottery": {
+        "type": "app",
+        "random": true,
+        "tool": "777コンパス",
+        "method": "コンパス777アプリによるモバイル抽選（前日24時または当日9:30までに抽選予約）",
+        "draw": "9:30",
+        "auth": "9:45まで（店舗から3km以内で認証）",
+        "lineup": "9:50 整列開始（10:00入場）"
+      },
+      "open": "10:00",
+      "close": "23:00",
+      "exchange": "非等価（4円パチンコ28玉／21.73円スロット5.16枚）",
+      "sns": {
+        "x": "https://x.com/kamata_shinten",
+        "line": null,
+        "instagram": "https://www.instagram.com/maruhan_kamata7/"
+      },
+      "crowd": null,
+      "memo": "2025年7月7日グランドオープン（旧メガガイア蒲田店跡地、みんパチ）。抽選アプリ名はみんパチ原文で『コンパス777アプリ』と表記（他店の『777コンパス』と語順が逆）——同一アプリの表記ゆれと判断しtoolは777コンパスで統一したが、原文表記の違いをここに残す。特定日は第1ソース（1のつく日/7のつく日）に対し第2ソース（みんパチ）は『1のつく日/7のつく日/毎月30日』——毎月30日は第1ソース未掲載のため要現地確認（rulesには追加せずここに記録）。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://minpachi.com/kamataseven/",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://www.p-world.co.jp/tokyo/kamataseven.htm",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "rakuen-kamata",
+      "name": "楽園蒲田店",
+      "area": "蒲田",
+      "address": "東京都大田区西蒲田7-46-8",
+      "access": "JR蒲田駅西口より正面の道路を徒歩30秒、モスバーガーの向かいのビル1F〜3F",
+      "slots": 777,
+      "pachinko": null,
+      "rules": [
+        {
+          "type": "month-day-match"
+        },
+        {
+          "type": "zorome"
+        },
+        {
+          "type": "annual",
+          "month": 5,
+          "day": 22,
+          "label": "本館グランドオープン記念(2002年)"
+        },
+        {
+          "type": "annual",
+          "month": 3,
+          "day": 21,
+          "label": "新館グランドオープン記念(2014年)"
+        }
+      ],
+      "lottery": {
+        "type": "onsite",
+        "random": true,
+        "tool": null,
+        "method": "整理券抽選（会員カード不要、本館裏口にて先着500名で受付打ち切り）",
+        "draw": "9:40",
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:40",
+      "exchange": "非等価（21.73円スロット5.2枚）",
+      "sns": {
+        "x": "https://twitter.com/rakuen_kamata",
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "特定日は両ソース一致（毎月11日・22日＝ゾロ目/月と日がゾロ目の日）。本館・新館で別々のグランドオープン日があるためannualルールを2件に分けた。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://minpachi.com/rakuen-kamata/",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "http://www.p-world.co.jp/tokyo/rakuen-kamata.htm",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "kintoki-keikyu-kamata",
+      "name": "金時京急蒲田店",
+      "area": "蒲田",
+      "address": "東京都大田区蒲田4丁目6番4号",
+      "access": null,
+      "slots": 148,
+      "pachinko": 236,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 5
+        },
+        {
+          "type": "annual",
+          "month": 12,
+          "day": 20,
+          "label": "グランドオープン記念(2013年)"
+        }
+      ],
+      "lottery": {
+        "type": "onsite",
+        "random": true,
+        "tool": null,
+        "method": "「特定日」は抽選（正面入口、抽選予定日は店内掲示）。「通常日」は並び順で整理券配布（駅前入口）",
+        "draw": "9:30（特定日）／9:30整理券配布（通常日）",
+        "auth": null,
+        "lineup": "9:50 再整列"
+      },
+      "open": "10:00",
+      "close": "22:45",
+      "exchange": "非等価（4円パチンコ28玉・1円パチンコ112玉／21.73円スロット5.2枚）",
+      "sns": {
+        "x": null,
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "第1ソース（すろざんまい）は『5のつく日』＋『月日が重なる日』を掲載。第2ソース（みんパチ）は『5のつく日/毎月20日』——『月日が重なる日』と『毎月20日』は別の日付パターンで一致しない食い違いのため、両方をここに記録し『毎月20日』はrulesに追加せず要現地確認とした。入場方式は『特定日のみ抽選、通常日は並び順』という日によって方式が変わる珍しいパターンで、みんパチ本文に明記。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://minpachi.com/kintoki-k-kamata/",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "http://www.p-world.co.jp/tokyo/kintoki-k-kamata.htm",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "kintoki-kamata-higashiguchi",
+      "name": "金時蒲田東口店",
+      "area": "蒲田",
+      "address": "東京都大田区蒲田5-16-7",
+      "access": "JR蒲田駅東口駅前徒歩7秒",
+      "slots": 195,
+      "pachinko": 203,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 5
+        },
+        {
+          "type": "month-day-match"
+        },
+        {
+          "type": "annual",
+          "month": 10,
+          "day": 12,
+          "label": "グランドオープン記念(1958年)"
+        }
+      ],
+      "lottery": {
+        "type": "onsite",
+        "random": true,
+        "tool": null,
+        "method": "特定日のみ整理券抽選（会員カード不要）。通常日の方式は出典に記載なくnull",
+        "draw": "9:40",
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:45",
+      "exchange": "非等価（4円パチンコ28玉・1円パチンコ112玉／21.73円スロット5.2枚）",
+      "sns": {
+        "x": null,
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "第1ソース（すろざんまい）は『5のつく日』＋『月日が重なる日』を掲載。第2ソース（みんパチ）は『3のつく日/5のつく日/9のつく日/月と日がゾロ目の日』——5のつく日と月日ゾロ(=月日が重なる日)は一致するが、3のつく日・9のつく日は第1ソースに未掲載。両ソース記録の原則により3・9のつく日はrulesに追加せずここに記録した。1958年創業と出典にあり、地域の老舗店。",
+      "sources": [
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://minpachi.com/miyako/",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "http://www.p-world.co.jp/tokyo/miyako.htm",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "dstation-kinshicho",
+      "name": "SuperＤ'station錦糸町店",
+      "area": "錦糸町",
+      "address": "東京都墨田区江東橋4-25-5鈴木ビル",
+      "access": "錦糸町駅南口徒歩3分‼",
+      "slots": 427,
+      "pachinko": 573,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 3
+        },
+        {
+          "type": "digit",
+          "value": 9
+        },
+        {
+          "type": "annual",
+          "month": 4,
+          "day": 29,
+          "label": "周年（グランドオープン記念、2021年開業）"
+        }
+      ],
+      "lottery": {
+        "type": "app",
+        "random": true,
+        "tool": null,
+        "method": "モバイル抽選（整理券配布・会員カード不要）",
+        "draw": "9:00-9:30抽選受付、9:45結果発表",
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:45",
+      "exchange": null,
+      "sns": {
+        "x": "https://mobile.twitter.com/d_kinshicho",
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "第1ソース(manmai)は3のつく日と9のつく日が別々の見出しに掲載（3の付く日欄にスーパーDステーション錦糸町、9の付く日欄にスーパーDステーション錦糸町店の表記ゆれで別掲載）だが、みんパチの3のつく日/9のつく日と内容は一致。モバイル抽選のツール名は出典（みんパチ・P-WORLD）から確認できずnull。",
+      "sources": [
+        {
+          "url": "https://minpachi.com/dstation-kinshicho/",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/13202",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://www.p-world.co.jp/tokyo/dstation-kinshicho.htm",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "mitoya-jackpot",
+      "name": "みとやジャックポット錦糸町",
+      "area": "錦糸町",
+      "address": "東京都墨田区江東橋3-9-17",
+      "access": "錦糸町駅",
+      "slots": 176,
+      "pachinko": null,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 4
+        },
+        {
+          "type": "annual",
+          "month": 10,
+          "day": 12,
+          "label": "周年（グランドオープン記念、2010年開業）"
+        }
+      ],
+      "lottery": {
+        "type": "onsite",
+        "random": true,
+        "tool": null,
+        "method": "抽選（整理券あり・会員カード不要）",
+        "draw": "9:45",
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:50",
+      "exchange": null,
+      "sns": {
+        "x": "https://mobile.twitter.com/mitoyajpkinshi",
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "第1ソース(manmai)は4/7/8/0のつく日を旧イベント日として掲載しているが、みんパチは4のつく日のみ記載。食い違いのため両方を記録（どちらかを削除せず併記）。",
+      "sources": [
+        {
+          "url": "https://minpachi.com/mitoya-jackpot/",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/148",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "http://www.p-world.co.jp/tokyo/mitoya-jackpot.htm",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "kinshi-mitoya",
+      "name": "みとや錦糸町北口店",
+      "area": "錦糸町",
+      "address": "東京都墨田区錦糸3-3-4",
+      "access": "錦糸町駅",
+      "slots": 289,
+      "pachinko": 381,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 4
+        },
+        {
+          "type": "zorome"
+        },
+        {
+          "type": "annual",
+          "month": 9,
+          "day": 4,
+          "label": "周年（グランドオープン記念、1993年開業）"
+        }
+      ],
+      "lottery": {
+        "type": "onsite",
+        "random": true,
+        "tool": null,
+        "method": "抽選（整理券あり・会員カード不要）",
+        "draw": "9:30抽選開始・即再整列、10:00入場",
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:50",
+      "exchange": null,
+      "sns": {
+        "x": "https://mobile.twitter.com/mitoyakinnshi",
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "第1ソース(manmai)は4/7/0のつく日を掲載しているが、みんパチは4のつく日/月と日がゾロ目の日。食い違いのため両方を記録。",
+      "sources": [
+        {
+          "url": "https://minpachi.com/kinshi-mitoya/",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/141",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "http://www.p-world.co.jp/tokyo/kinshi-mitoya.htm",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "mitoyakinsityominami",
+      "name": "みとや錦糸町南口店",
+      "area": "錦糸町",
+      "address": "東京都墨田区江東橋3-6-6",
+      "access": null,
+      "slots": 150,
+      "pachinko": 168,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 4
+        },
+        {
+          "type": "annual",
+          "month": 7,
+          "day": 17,
+          "label": "周年（グランドオープン記念、2014年開業）"
+        }
+      ],
+      "lottery": {
+        "type": "onsite",
+        "random": true,
+        "tool": null,
+        "method": "抽選（整理券あり・会員カード不要）。2022年4月25日から パチンコ・スロット混合抽選に変更",
+        "draw": "9:45",
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:50",
+      "exchange": null,
+      "sns": {
+        "x": "https://mobile.twitter.com/Kinshiminami",
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "第1ソース(manmai)は4/7/0のつく日を掲載しているが、みんパチは4のつく日のみ記載。食い違いのため両方を記録。",
+      "sources": [
+        {
+          "url": "https://minpachi.com/mitoyakinsityominami/",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/12282",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://www.p-world.co.jp/tokyo/mitoyakinsityominami.htm",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "hinomaru-kinshicho2",
+      "name": "ヒノマル錦糸町店IIパチンコ館",
+      "area": "錦糸町",
+      "address": "東京都墨田区江東橋3丁目9番20号",
+      "access": null,
+      "slots": 86,
+      "pachinko": 328,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 0
+        },
+        {
+          "type": "annual",
+          "month": 12,
+          "day": 20,
+          "label": "周年（グランドオープン記念、2018年開業）"
+        }
+      ],
+      "lottery": {
+        "type": "lineup",
+        "random": false,
+        "tool": null,
+        "method": "整理券なし・並び順（会員カード不要）",
+        "draw": null,
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:40",
+      "exchange": null,
+      "sns": {
+        "x": "https://mobile.twitter.com/hinomaru_kin2",
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "第1ソース(manmai)も0のつく日で一致。同名系列のスロット館（hinomaru-kinshicho, 江東橋3-9-16）とは別法人番号の別店舗として登録（住所が異なる）。",
+      "sources": [
+        {
+          "url": "https://minpachi.com/hinomaru-kinshicho2/",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/142",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "http://www.p-world.co.jp/tokyo/hinomaru-kinshicho2.htm",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "hinomaru-kinshicho",
+      "name": "ヒノマル錦糸町店スロット館",
+      "area": "錦糸町",
+      "address": "東京都墨田区江東橋3-9-16",
+      "access": "錦糸町南口",
+      "slots": 369,
+      "pachinko": null,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 0
+        },
+        {
+          "type": "annual",
+          "month": 12,
+          "day": 20,
+          "label": "周年（グランドオープン記念、2018年開業）"
+        }
+      ],
+      "lottery": {
+        "type": "onsite",
+        "random": true,
+        "tool": null,
+        "method": "抽選（整理券あり・会員カード不要）",
+        "draw": "9:40抽選、9:50再整列、10:00入場",
+        "auth": null,
+        "lineup": "9:50"
+      },
+      "open": "10:00",
+      "close": "22:40",
+      "exchange": null,
+      "sns": {
+        "x": "https://twitter.com/hinomaru_k?s=09",
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "第1ソース(manmai)も0のつく日で一致。パチンコ館（hinomaru-kinshicho2, 江東橋3-9-20）は並び順で本店と抽選方式が異なるが、別法人番号の別店舗（住所が異なる）として登録。",
+      "sources": [
+        {
+          "url": "https://minpachi.com/hinomaru-kinshicho/",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/145",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "http://www.p-world.co.jp/tokyo/hinomaru-kinshicho.htm",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "pandora-kinshicho",
+      "name": "PANDORA錦糸町北口店",
+      "area": "錦糸町",
+      "address": "東京都墨田区錦糸2丁目3番11号",
+      "access": null,
+      "slots": 295,
+      "pachinko": 291,
+      "rules": [
+        {
+          "type": "annual",
+          "month": 12,
+          "day": 25,
+          "label": "周年（グランドオープン記念、2015年開業）"
+        }
+      ],
+      "lottery": {
+        "type": "onsite",
+        "random": true,
+        "tool": null,
+        "method": "抽選（整理券あり・会員カード不要）",
+        "draw": "9:45",
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:45",
+      "exchange": null,
+      "sns": {
+        "x": "https://twitter.com/pandorakinshi?s=09",
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "第1ソース(manmai)に本店名の記載なし（未収録店）。旧イベント日情報もみんパチで情報募集中のため未確認。",
+      "sources": [
+        {
+          "url": "https://minpachi.com/pandora%e9%8c%a6%e7%b3%b8%e7%94%ba%e5%8c%97%e5%8f%a3%e5%ba%97/",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "md-kinshicho",
+      "name": "エムディー錦糸町店",
+      "area": "錦糸町",
+      "address": "東京都墨田区江東橋3-12-3",
+      "access": null,
+      "slots": null,
+      "pachinko": 144,
+      "rules": [
+        {
+          "type": "annual",
+          "month": 4,
+          "day": 22,
+          "label": "周年（グランドオープン記念、2017年開業）"
+        }
+      ],
+      "lottery": {
+        "type": null,
+        "random": null,
+        "tool": null,
+        "method": null,
+        "draw": null,
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:45",
+      "exchange": null,
+      "sns": {
+        "x": null,
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "第1ソース(manmai)に本店名の記載なし（未収録店）。みんパチにも入場方法（整理券有無）の記載自体がないためlottery全項目null。旧イベント日も情報募集中で未確認。",
+      "sources": [
+        {
+          "url": "https://minpachi.com/%e3%82%a8%e3%83%a0%e3%83%87%e3%82%a3%e3%83%bc%e9%8c%a6%e7%b3%b8%e7%94%ba%e5%ba%97/",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "slot-keiyo",
+      "name": "スロットｋｅｉｙｏ",
+      "area": "錦糸町",
+      "address": "東京都墨田区江東橋3-10-5",
+      "access": null,
+      "slots": 63,
+      "pachinko": 40,
+      "rules": [],
+      "lottery": {
+        "type": "lineup",
+        "random": false,
+        "tool": null,
+        "method": "整理券なし・並び順（会員カード不要）",
+        "draw": null,
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:40",
+      "exchange": null,
+      "sns": {
+        "x": null,
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "第1ソース(manmai)に本店名の記載なし（未収録店）。旧イベント日情報もみんパチで情報募集中のため未確認。",
+      "sources": [
+        {
+          "url": "https://minpachi.com/%e3%82%b9%e3%83%ad%e3%83%83%e3%83%88%ef%bd%8b%ef%bd%85%ef%bd%89%ef%bd%99%ef%bd%8f/",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "patriot-m-kinshicho",
+      "name": "パーラーパトリオットＭ錦糸町店",
+      "area": "錦糸町",
+      "address": "東京都墨田区江東橋4-25-5",
+      "access": null,
+      "slots": 258,
+      "pachinko": 356,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 8
+        }
+      ],
+      "lottery": {
+        "type": "lineup",
+        "random": false,
+        "tool": null,
+        "method": "整理券なし・並び順（会員カード不要）",
+        "draw": null,
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:45",
+      "exchange": null,
+      "sns": {
+        "x": null,
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "第1ソース(manmai)の8の付く日欄に本店名の一致する表記が見当たらず、manmaiでの裏取りは取れていない（要再確認）。",
+      "sources": [
+        {
+          "url": "https://minpachi.com/%e3%83%91%e3%83%bc%e3%83%a9%e3%83%bc%e3%83%91%e3%83%88%e3%83%aa%e3%82%aa%e3%83%83%e3%83%88%ef%bd%8d%e9%8c%a6%e7%b3%b8%e7%94%ba%e5%ba%97/",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "ch-kitasenjyu",
+      "name": "コンサートホール北千住",
+      "area": "北千住",
+      "address": "東京都足立区千住3-72",
+      "access": "地上３地下２計５路線のビッグターミナル「北千住駅」西口すぐ",
+      "slots": 461,
+      "pachinko": 574,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 7
+        },
+        {
+          "type": "annual",
+          "month": 4,
+          "day": 25,
+          "label": "周年（グランドオープン記念、1997年開業）"
+        }
+      ],
+      "lottery": {
+        "type": "app",
+        "random": true,
+        "tool": "入場くんオンライン",
+        "method": "モバイル抽選（入場くんオンライン、整理券配布・会員カード不要）",
+        "draw": "9:15仮番号発表から9:45最終番号発表",
+        "auth": "9:15-9:30 参加意思確認",
+        "lineup": "9:50 再整列"
+      },
+      "open": "10:00",
+      "close": "23:00",
+      "exchange": null,
+      "sns": {
+        "x": "https://x.com/ch_kitasenju",
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "第1ソース(manmai)も7のつく日で一致。ツール名 入場くんオンライン はみんパチ注意点欄の記載に加え、WebSearchで実在サービス（DMMとエースプロ提供のオンライン入場抽選システム）と裏取り済み。",
+      "sources": [
+        {
+          "url": "https://minpachi.com/ch-kitasenjyu/",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/633",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "http://www.p-world.co.jp/tokyo/ch-kitasenjyu.htm",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "parkkitasenju",
+      "name": "ピーアーク北千住",
+      "area": "北千住",
+      "address": "東京都足立区千住3丁目92番地　千住ミルディスI番館　1階",
+      "access": "JR・東武線・東京メトロ・ＴＸ　北千住駅　西口　マルイのビル1Fです",
+      "slots": 111,
+      "pachinko": 249,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 6
+        },
+        {
+          "type": "monthday",
+          "value": 11
+        },
+        {
+          "type": "monthday",
+          "value": 22
+        },
+        {
+          "type": "zorome"
+        },
+        {
+          "type": "nth-weekday",
+          "nth": 3,
+          "weekday": 6
+        },
+        {
+          "type": "annual",
+          "month": 7,
+          "day": 7,
+          "label": "周年（グランドオープン記念、2017年開業）"
+        }
+      ],
+      "lottery": {
+        "type": "onsite",
+        "random": true,
+        "tool": null,
+        "method": "抽選（整理券あり・会員カード不要、状況により打ち切りあり）",
+        "draw": "9:30",
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:40",
+      "exchange": null,
+      "sns": {
+        "x": "https://twitter.com/parkkitasenjyu?s=21&t=Lsu4--aVf1PZwHQQvCbezQ",
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "第1ソース(manmai)は毎月11・22日のみ記載（部分一致）。6のつく日/ゾロ目の日/第3土曜日はみんパチのみの記載のため、食い違いというより情報量差として両方を記録。X公式アカウントはピーアーク北千住SSSと共通（@parkkitasenjyu、グループ公式の可能性）。",
+      "sources": [
+        {
+          "url": "https://minpachi.com/parkkitasenju/",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/636",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "http://www.p-world.co.jp/tokyo/parkkitasenju.htm",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "kitasenjusss",
+      "name": "ピーアーク北千住ＳＳＳ",
+      "area": "北千住",
+      "address": "東京都足立区千住旭町3-5",
+      "access": "北千住駅東口すぐ",
+      "slots": 423,
+      "pachinko": null,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 6
+        },
+        {
+          "type": "annual",
+          "month": 6,
+          "day": 6,
+          "label": "周年（グランドオープン記念、2020年開業）"
+        }
+      ],
+      "lottery": {
+        "type": "app",
+        "random": true,
+        "tool": "入場くんオンライン",
+        "method": "モバイル抽選（入場くんオンライン、整理券配布・会員カード不要）",
+        "draw": "前日21:00-9:30参加受付、9:45抽選",
+        "auth": null,
+        "lineup": "9:50 整列"
+      },
+      "open": "10:00",
+      "close": "22:30",
+      "exchange": null,
+      "sns": {
+        "x": "https://twitter.com/parkkitasenjyu?s=21&t=Lsu4--aVf1PZwHQQvCbezQ",
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "第1ソース(manmai)も6のつく日で一致。X公式アカウントはピーアーク北千住と共通（@parkkitasenjyu）。ツール名 入場くんオンライン はWebSearchで実在サービスと裏取り済み。",
+      "sources": [
+        {
+          "url": "https://minpachi.com/kitasenjusss/",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/651",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://www.p-world.co.jp/tokyo/kitasenjusss.htm",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "asia-center",
+      "name": "アジアセンター",
+      "area": "赤羽",
+      "address": "東京都北区赤羽西1-6-1-103",
+      "access": "赤羽駅",
+      "slots": 136,
+      "pachinko": 252,
+      "rules": [
+        {
+          "type": "weekday",
+          "value": 6
+        }
+      ],
+      "lottery": {
+        "type": "onsite",
+        "random": true,
+        "tool": null,
+        "method": "特定日のみ抽選あり（会員カード不要）",
+        "draw": "9:30",
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:50",
+      "exchange": null,
+      "sns": {
+        "x": null,
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "整理券の有無が特定日のみありという記載（旧イベント日=土曜日と対応する可能性が高いが出典に明記なし）。通常日（非特定日）の入場方法は出典から確認できずtype/randomは特定日のみの値として扱う。第1ソース(manmai)に本店名の記載なし。",
+      "sources": [
+        {
+          "url": "https://minpachi.com/%e3%82%a2%e3%82%b8%e3%82%a2%e3%82%bb%e3%83%b3%e3%82%bf%e3%83%bc/",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/483",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "http://www.p-world.co.jp/tokyo/asia-center.htm",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "wing",
+      "name": "ウイング",
+      "area": "赤羽",
+      "address": "東京都北区赤羽1-3-9",
+      "access": null,
+      "slots": 270,
+      "pachinko": null,
+      "rules": [
+        {
+          "type": "annual",
+          "month": 5,
+          "day": 28,
+          "label": "周年（グランドオープン記念、2016年開業）"
+        }
+      ],
+      "lottery": {
+        "type": "lineup",
+        "random": false,
+        "tool": null,
+        "method": "整理券なし・並び順（会員カード不要）",
+        "draw": null,
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:50",
+      "exchange": null,
+      "sns": {
+        "x": null,
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "みんパチの旧イベント日欄になしと明記（未記載ではなく該当なしの積極的記載）。第1ソース(manmai)に本店名の記載なし。",
+      "sources": [
+        {
+          "url": "https://minpachi.com/wing/",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "http://www.p-world.co.jp/tokyo/wing.htm",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "kings",
+      "name": "キングス",
+      "area": "赤羽",
+      "address": "東京都北区赤羽南1-7-2",
+      "access": null,
+      "slots": null,
+      "pachinko": 279,
+      "rules": [
+        {
+          "type": "annual",
+          "month": 12,
+          "day": 20,
+          "label": "周年（グランドオープン記念、2006年開業）"
+        }
+      ],
+      "lottery": {
+        "type": "onsite",
+        "random": false,
+        "tool": null,
+        "method": "整理券あり（会員カード優先）・並び順配布",
+        "draw": "9:50",
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:50",
+      "exchange": null,
+      "sns": {
+        "x": null,
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "整理券配布方法が並び順（到着順の番号札）のため抽選要素なしと判断（random=false）。第1ソース(manmai)に本店名の記載なし。旧イベント日も情報募集中のため未確認。",
+      "sources": [
+        {
+          "url": "https://minpachi.com/%e3%82%ad%e3%83%b3%e3%82%b0%e3%82%b9/",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "http://www.p-world.co.jp/tokyo/kings.htm",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "marche-a",
+      "name": "マルシェ赤羽店",
+      "area": "赤羽",
+      "address": "東京都北区赤羽1-8-3",
+      "access": "ＪＲ赤羽駅東口 駅前",
+      "slots": 168,
+      "pachinko": null,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 7
+        },
+        {
+          "type": "weekday",
+          "value": 6
+        },
+        {
+          "type": "annual",
+          "month": 12,
+          "day": 19,
+          "label": "周年（グランドオープン記念、2000年開業）"
+        }
+      ],
+      "lottery": {
+        "type": "onsite",
+        "random": true,
+        "tool": null,
+        "method": "抽選（整理券あり・会員カード不要）。新台初日は並び順で別途整理券配布",
+        "draw": "9:30",
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:50",
+      "exchange": null,
+      "sns": {
+        "x": "https://twitter.com/marcheakabane",
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "第1ソース(manmai)も7のつく日/土曜日で一致。",
+      "sources": [
+        {
+          "url": "https://minpachi.com/marche-a/",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/496",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "http://www.p-world.co.jp/tokyo/marche-a.htm",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "k1-akabane",
+      "name": "Ｋ－１赤羽店",
+      "area": "赤羽",
+      "address": "東京都北区赤羽1-7-4",
+      "access": "赤羽駅",
+      "slots": 97,
+      "pachinko": 365,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 1
+        }
+      ],
+      "lottery": {
+        "type": "lineup",
+        "random": false,
+        "tool": null,
+        "method": "整理券なし・並び順（会員カード不要）。新台は会員カード/DM保有者が先着整列",
+        "draw": null,
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:50",
+      "exchange": null,
+      "sns": {
+        "x": null,
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "第1ソース(manmai)も1のつく日で一致。",
+      "sources": [
+        {
+          "url": "https://minpachi.com/k1-akabane/",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://manmai.club/?p=5615",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/491",
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "http://www.p-world.co.jp/tokyo/k1-akabane.htm",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "max-akabane",
+      "name": "MAX赤羽店",
+      "area": "赤羽",
+      "address": "東京都北区赤羽1-5-3",
+      "access": null,
+      "slots": 137,
+      "pachinko": 188,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 6
+        }
+      ],
+      "lottery": {
+        "type": "lineup",
+        "random": false,
+        "tool": null,
+        "method": "整理券なし・並び順（会員カード不要）",
+        "draw": null,
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:50",
+      "exchange": null,
+      "sns": {
+        "x": null,
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "第1ソース(manmai)に本店名の記載なし（未収録店）。",
+      "sources": [
+        {
+          "url": "https://minpachi.com/max%e8%b5%a4%e7%be%bd%e5%ba%97/",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "akotobuk",
+      "name": "コトブキプラス赤羽店",
+      "area": "赤羽",
+      "address": "東京都北区赤羽西1-7-1",
+      "access": null,
+      "slots": 116,
+      "pachinko": 151,
+      "rules": [
+        {
+          "type": "annual",
+          "month": 10,
+          "day": 23,
+          "label": "周年（グランドオープン記念、1995年開業）"
+        }
+      ],
+      "lottery": {
+        "type": "app",
+        "random": true,
+        "tool": "777コンパス",
+        "method": "モバイル抽選（777コンパス、整理券配布・会員カード不要）",
+        "draw": "9:30入場抽選",
+        "auth": "9:45認証期限",
+        "lineup": "9:55整列"
+      },
+      "open": "10:00",
+      "close": "22:50",
+      "exchange": null,
+      "sns": {
+        "x": "https://twitter.com/akabane_pman?s=09",
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "ツール名 777コンパス はみんパチ注意点欄に明記。第1ソース(manmai)に本店名の記載なし。旧イベント日は情報募集中のため未確認。",
+      "sources": [
+        {
+          "url": "https://minpachi.com/akotobuk/",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "new-crown-akabane",
+      "name": "ニュークラウン",
+      "area": "赤羽",
+      "address": "東京都北区赤羽1-3-5",
+      "access": null,
+      "slots": 110,
+      "pachinko": 198,
+      "rules": [
+        {
+          "type": "digit",
+          "value": 0
+        }
+      ],
+      "lottery": {
+        "type": "lineup",
+        "random": false,
+        "tool": null,
+        "method": "整理券なし・並び順（会員カード不要）",
+        "draw": null,
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "22:50",
+      "exchange": null,
+      "sns": {
+        "x": null,
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "第1ソース(manmai)にニュークラウン（赤羽）の記載なし（ニュークラウン綾瀬店は別店舗として収録あり、混同注意）。",
+      "sources": [
+        {
+          "url": "https://minpachi.com/%e3%83%8b%e3%83%a5%e3%83%bc%e3%82%af%e3%83%a9%e3%82%a6%e3%83%b3/",
+          "checkedAt": "2026-08-01"
+        }
+      ]
+    },
+    {
+      "id": "fuji-akabane",
+      "name": "フジ赤羽店",
+      "area": "赤羽",
+      "address": "東京都北区赤羽1丁目2番4号",
+      "access": null,
+      "slots": 126,
+      "pachinko": 241,
+      "rules": [],
+      "lottery": {
+        "type": null,
+        "random": null,
+        "tool": null,
+        "method": null,
+        "draw": null,
+        "auth": null,
+        "lineup": null
+      },
+      "open": "10:00",
+      "close": "23:00",
+      "exchange": null,
+      "sns": {
+        "x": null,
+        "line": null,
+        "instagram": null
+      },
+      "crowd": null,
+      "memo": "第1ソース(manmai)に本店名の記載なし（未収録店）。みんパチにも入場方法の記載自体がないためlottery全項目null。旧イベント日も情報募集中のため未確認。",
+      "sources": [
+        {
+          "url": "https://minpachi.com/%e3%83%95%e3%82%b8%e8%b5%a4%e7%be%bd%e5%ba%97/",
+          "checkedAt": "2026-08-01"
+        }
+      ]
     }
   ]
 }
