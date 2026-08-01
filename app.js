@@ -69,20 +69,22 @@ function ruleBadges(rules) {
   return rules.map((r) => `<span class="badge badge--rule">${ruleLabel(r)}</span>`).join(" ");
 }
 
-// パチ/スロで値が異なる場合のみ両方併記する（同じなら1個だけ表示）。
+// パチ/スロの値が異なる場合、または片方のみ確定している場合はジャンル名付きで併記する
+// （片方だけ確定のとき裸表示にすると、未確認の側にも同じ方式が及ぶかのように誤読されるため）。
+// 両方同じ値のときのみ1個だけ表示する。
 // type未確認(null)の場合はlotteryLabelがnullを返しバッジ非表示になる。
 function lotteryBadges(lottery) {
   if (!lottery) return "";
   const pachi = lotteryLabel(resolveLottery(lottery, "pachinko"));
   const slot = lotteryLabel(resolveLottery(lottery, "slot"));
   if (!pachi && !slot) return "";
-  if (pachi && slot && pachi !== slot) {
-    return (
-      `<span class="badge badge--lottery">パチンコ ${pachi}</span>` +
-      `<span class="badge badge--lottery">スロット ${slot}</span>`
-    );
+  if (pachi && slot && pachi === slot) {
+    return `<span class="badge badge--lottery">${pachi}</span>`;
   }
-  return `<span class="badge badge--lottery">${pachi || slot}</span>`;
+  return (
+    (pachi ? `<span class="badge badge--lottery">パチンコ ${pachi}</span>` : "") +
+    (slot ? `<span class="badge badge--lottery">スロット ${slot}</span>` : "")
+  );
 }
 
 function lotteryLine(lottery) {
