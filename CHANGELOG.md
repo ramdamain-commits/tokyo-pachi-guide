@@ -11,6 +11,14 @@ v3拡張 Phase 2②（既存21店の抽選方式・出典再確認）。設計�
 ### 収集メモ
 - researcher 3並列worktree分離で実行したところ、`_staging/` がgitignore対象のため完了直後にworktreeが自動クリーンアップされ、書き込み済みファイルが3班とも消失。SendMessageでエージェントを再開し全文をテキスト応答として再送させて復旧（次回以降、researcherの`_staging`直書きタスクはworktree分離を使わない）
 
+### 追加（Phase 3・ビューワー配線）
+- `docs/示唆・イベントの確認手順.md` — SNS示唆・周年・混雑傾向の確認手順とリンク集
+
+### 変更（Phase 3・ビューワー配線）
+- `app.js` — `AREA_ORDER` に新8エリア（中野・吉祥寺・立川・町田・蒲田・錦糸町・北千住・赤羽）を追加。Phase1で `data/stores.json` に追加した48店（全83店の58%）が全タブから欠落していた不具合を修正
+- `app.js` / `index.html` — エリア別一覧カードに抽選バッジ（パチ/スロ差分は両方併記）・SNSリンク・混雑参考（crowd、現状データ0件）を追加。周年ルール（`annual`+`label`）は既存の `ruleBadges`/`ruleLabel` がそのまま処理するためコード変更なしで表示された
+- `README.md` — 店舗数・エリア数を83店/16エリアへ更新（Phase1時点で更新漏れ）
+
 ## 2026-07-31
 
 v3拡張の Phase 1（データ基盤整備）。設計書: `docs/superpowers/specs/2026-07-31-v3-expansion-design.md`、実装計画: `docs/superpowers/plans/2026-07-31-v3-phase1-schema.md`
