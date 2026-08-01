@@ -104,6 +104,16 @@ function sourcesHtml(sources) {
     .join(" ・ ");
 }
 
+const SNS_LABELS = { x: "X", line: "LINE", instagram: "Instagram" };
+
+function snsLinks(sns) {
+  if (!sns) return "";
+  return Object.entries(sns)
+    .filter(([, url]) => url)
+    .map(([key, url]) => `<a href="${url}" target="_blank" rel="noopener">${SNS_LABELS[key] || key}</a>`)
+    .join(" ・ ");
+}
+
 // UIで「取材が入る店」として提示する確度。低は最終確認が数年前/未確認のものが多く、
 // 肯定バッジにすると誤誘導になるためデータ(coverage.json)には残しつつ表示から除外する。
 const COVERAGE_DISPLAY_CONFIDENCE = new Set(["高", "中"]);
@@ -149,7 +159,9 @@ function renderStoreDetailCard(store, coverage) {
   const lotteryBadgesHtml = lotteryBadges(store.lottery);
   const lottery = lotteryLine(store.lottery);
   const hours = `営業: ${store.open || "不明"}〜${store.close || "不明"} / 換金率: ${store.exchange || "不明"}`;
+  const sns = snsLinks(store.sns);
   const src = sourcesHtml(store.sources);
+  const links = [sns, src].filter(Boolean).join(" ・ ");
 
   wrap.innerHTML =
     `<div class="store-card__head"><span class="store-card__name">${closedBadge}${store.name}</span></div>` +
@@ -161,7 +173,7 @@ function renderStoreDetailCard(store, coverage) {
     (lottery ? `<div class="store-card__desc">抽選: ${lottery}</div>` : "") +
     `<div class="store-card__desc">${hours}</div>` +
     (store.memo ? `<div class="store-card__memo">${store.memo}</div>` : "") +
-    (src ? `<div class="store-card__links">${src}</div>` : "");
+    (links ? `<div class="store-card__links">${links}</div>` : "");
   return wrap;
 }
 
@@ -193,7 +205,9 @@ function renderDateMatches(container, stores, date, coverage) {
 
 // エリア別一覧タブ（閉店店も表示。閉店バッジ付き）
 function renderAreaList(container, stores, coverage) {
+  const disclaimer = container.querySelector(".disclaimer");
   container.innerHTML = "";
+  if (disclaimer) container.appendChild(disclaimer);
   const grouped = sortByArea(stores);
   let currentArea = null;
   grouped.forEach((store) => {
