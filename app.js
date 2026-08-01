@@ -100,10 +100,7 @@ function lotteryLine(lottery) {
 
 function crowdLine(crowd) {
   if (!crowd) return "";
-  const src = crowd.sourceUrl
-    ? ` <a href="${crowd.sourceUrl}" target="_blank" rel="noopener">出典</a>(確認: ${crowd.checkedAt})`
-    : "";
-  return `混雑参考: ${crowd.note}${src}`;
+  return `混雑参考: ${crowd.note} <a href="${crowd.sourceUrl}" target="_blank" rel="noopener">出典</a>(確認: ${crowd.checkedAt})`;
 }
 
 function sourcesHtml(sources) {
