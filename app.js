@@ -1,4 +1,5 @@
 import { matchRules, ruleLabel } from "./match.mjs";
+import { resolveLottery, lotteryLabel } from "./lottery.mjs";
 import { validateCoverage, mediaForStore, storesForMedia } from "./coverage.mjs";
 
 // エリア表示順（固定）
@@ -68,6 +69,22 @@ function ruleBadges(rules) {
   return rules.map((r) => `<span class="badge badge--rule">${ruleLabel(r)}</span>`).join(" ");
 }
 
+// パチ/スロで値が異なる場合のみ両方併記する（同じなら1個だけ表示）。
+// type未確認(null)の場合はlotteryLabelがnullを返しバッジ非表示になる。
+function lotteryBadges(lottery) {
+  if (!lottery) return "";
+  const pachi = lotteryLabel(resolveLottery(lottery, "pachinko"));
+  const slot = lotteryLabel(resolveLottery(lottery, "slot"));
+  if (!pachi && !slot) return "";
+  if (pachi && slot && pachi !== slot) {
+    return (
+      `<span class="badge badge--lottery">パチンコ ${pachi}</span>` +
+      `<span class="badge badge--lottery">スロット ${slot}</span>`
+    );
+  }
+  return `<span class="badge badge--lottery">${pachi || slot}</span>`;
+}
+
 function lotteryLine(lottery) {
   if (!lottery) return "";
   const parts = [
@@ -127,6 +144,7 @@ function renderStoreDetailCard(store, coverage) {
   const addressLine = [store.address, store.access].filter(Boolean).join(" / ");
   const rulesBadges = store.rules && store.rules.length ? ruleBadges(store.rules) : "特定日情報なし";
   const covBadges = coverageBadges(coverage, store.id);
+  const lotteryBadgesHtml = lotteryBadges(store.lottery);
   const lottery = lotteryLine(store.lottery);
   const hours = `営業: ${store.open || "不明"}〜${store.close || "不明"} / 換金率: ${store.exchange || "不明"}`;
   const src = sourcesHtml(store.sources);
@@ -137,6 +155,7 @@ function renderStoreDetailCard(store, coverage) {
     `<div class="store-card__meta">${countLabel(store)}</div>` +
     `<div class="store-card__badges">${rulesBadges}</div>` +
     (covBadges ? `<div class="store-card__badges">${covBadges}</div>` : "") +
+    (lotteryBadgesHtml ? `<div class="store-card__badges">${lotteryBadgesHtml}</div>` : "") +
     (lottery ? `<div class="store-card__desc">抽選: ${lottery}</div>` : "") +
     `<div class="store-card__desc">${hours}</div>` +
     (store.memo ? `<div class="store-card__memo">${store.memo}</div>` : "") +
