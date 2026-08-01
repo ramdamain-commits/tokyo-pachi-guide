@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-20",
+  "updated": "2026-08-01",
   "stores": [
     {
       "id": "pia-ueno",
@@ -31,9 +31,9 @@
       ],
       "lottery": {
         "type": "onsite",
-        "random": null,
+        "random": true,
         "tool": null,
-        "method": "整理券(会員カード不要)",
+        "method": "整理券配布(抽選・会員カード不要)",
         "draw": "9:40",
         "auth": null,
         "lineup": "9:50"
@@ -41,15 +41,15 @@
       "open": "10:00",
       "close": "22:45",
       "exchange": "非等価（4円28玉/スロ21.73円5.2枚）",
-      "memo": "GO1994-01-17。PIAはデータをアプリ内表示のみで外部サイト非提供。⚠みんパチ本文は「7のつく日」のみ明記でパターン欠落の可能性→アナスロ照合(403で未実施)要。",
+      "memo": "GO1994-01-17。PIAはデータをアプリ内表示のみで外部サイト非提供。⚠みんパチ本文は「7のつく日」のみ明記でパターン欠落の可能性→アナスロ照合(403で未実施)要。 みんパチの配布方法は「並び順」ではなく「抽選」区分と確認、random=trueへ修正(2026-08-01確認)。",
       "sources": [
         {
           "url": "https://manmai.club/?p=5615",
-          "checkedAt": "2026-07-16"
+          "checkedAt": "2026-08-01"
         },
         {
           "url": "https://minpachi.com/pia-u/",
-          "checkedAt": "2026-07-16"
+          "checkedAt": "2026-08-01"
         }
       ]
     },
@@ -83,11 +83,11 @@
       "sources": [
         {
           "url": "https://manmai.club/?p=5615",
-          "checkedAt": "2026-07-16"
+          "checkedAt": "2026-08-01"
         },
         {
           "url": "https://minpachi.com/espace-ueno/",
-          "checkedAt": "2026-07-16"
+          "checkedAt": "2026-08-01"
         }
       ]
     },
@@ -106,26 +106,39 @@
         }
       ],
       "lottery": {
-        "type": "app",
-        "random": true,
+        "type": null,
+        "random": null,
         "tool": null,
-        "method": "モバイル抽選(スロ)",
-        "draw": "9:30",
-        "auth": "9:45",
-        "lineup": "9:55"
+        "method": "スロット:コンパス777アプリでモバイル抽選(9:30抽選/9:45認証/9:55整列/10:00入場)。パチンコ:9:50抽選(手段不明)/即整列/10:00入場",
+        "draw": null,
+        "auth": null,
+        "lineup": null,
+        "pachinko": {
+          "type": null,
+          "random": true,
+          "draw": "9:50"
+        },
+        "slot": {
+          "type": "app",
+          "random": true,
+          "tool": "コンパス777",
+          "draw": "9:30",
+          "auth": "9:45",
+          "lineup": "9:55"
+        }
       },
       "open": "10:00",
       "close": "23:00",
       "exchange": "非等価（4円28玉/スロ21.73円5.15枚）",
-      "memo": "⚠パターン食い違い: すろざんまいは7の付く日のみだが、みんパチは5・7の付く日＋毎月14日(周年)＋ゾロ目を記載→アナスロ照合(403で未実施)で要再検証。",
+      "memo": "⚠パターン食い違い: すろざんまいは7の付く日のみだが、みんパチは5・7の付く日＋毎月14日(周年)＋ゾロ目を記載→アナスロ照合(403で未実施)で要再検証。 アプリ名はみんパチ原文表記「コンパス777」(通称「777コンパス」とは語順が逆、断定回避のため原文優先)。パチンコ側は抽選の語はあるが手段(モバイル/店頭)不明のためtype=null維持(2026-08-01確認)。",
       "sources": [
         {
           "url": "https://manmai.club/?p=5615",
-          "checkedAt": "2026-07-16"
+          "checkedAt": "2026-08-01"
         },
         {
           "url": "https://minpachi.com/espace-ueno-ameyoko/",
-          "checkedAt": "2026-07-16"
+          "checkedAt": "2026-08-01"
         }
       ]
     },
@@ -160,9 +173,9 @@
       ],
       "lottery": {
         "type": "onsite",
-        "random": null,
+        "random": true,
         "tool": null,
-        "method": "整理券(会員カード不要)",
+        "method": "整理券配布(抽選・会員カード不要)",
         "draw": "9:40",
         "auth": null,
         "lineup": "9:50"
@@ -170,15 +183,15 @@
       "open": "10:00",
       "close": "22:40",
       "exchange": "非等価（4円28玉/スロ21.73円5.15枚）",
-      "memo": "GO2023-01-06。※すろざんまい未掲載のため特定日ルールはみんパチ由来(毎月1日/6日周年/15日/11・22ゾロ目/月日ゾロ)。第1ソース欠のため他店より確度低め。",
+      "memo": "GO2023-01-06。※すろざんまい未掲載のため特定日ルールはみんパチ由来(毎月1日/6日周年/15日/11・22ゾロ目/月日ゾロ)。第1ソース欠のため他店より確度低め。 パチンコ260名/スロット450名で打ち切り、整列位置は線路側(パチンコは店側、スロットは御徒町駅方面)(2026-08-01確認)。",
       "sources": [
         {
           "url": "https://manmai.club/?p=5615",
-          "checkedAt": "2026-07-16"
+          "checkedAt": "2026-08-01"
         },
         {
           "url": "https://minpachi.com/rakuen-ameyoko/",
-          "checkedAt": "2026-07-16"
+          "checkedAt": "2026-08-01"
         }
       ]
     },
@@ -249,26 +262,38 @@
         }
       ],
       "lottery": {
-        "type": "app",
-        "random": true,
+        "type": null,
+        "random": null,
         "tool": null,
-        "method": "モバイル抽選(スロ)",
-        "draw": "9:45",
-        "auth": "9:30",
-        "lineup": "9:50"
+        "method": "パチンコ:並び順(先着)。スロット:入場くんオンラインによるモバイル抽選(9:00受付終了/9:15仮番号/9:30認証締切/9:45本番号/9:50整列/10:00入場)",
+        "draw": null,
+        "auth": null,
+        "lineup": null,
+        "pachinko": {
+          "type": "lineup",
+          "random": false
+        },
+        "slot": {
+          "type": "app",
+          "random": true,
+          "tool": "入場くんオンライン",
+          "draw": "9:45",
+          "auth": "9:30",
+          "lineup": "9:50"
+        }
       },
       "open": "10:00",
       "close": "22:40",
       "exchange": "非等価（4円28玉/スロ21.73円5.15枚）",
-      "memo": "GO2003-06-06。秋葉原最大級。⚠みんパチは「6のつく日/毎月20日/月末最終日」で2の付く日・月日重なる・ゾロ目の言及なし→照合(403で未実施)要。",
+      "memo": "GO2003-06-06。秋葉原最大級。⚠みんパチは「6のつく日/毎月20日/月末最終日」で2の付く日・月日重なる・ゾロ目の言及なし→照合(403で未実施)要。 パチンコは並び順(先着、抽選要素なし)、スロットのみ入場くんオンラインでモバイル抽選と判明。アプリ名は「入場くんオンライン」(「∞」表記は原文になし)。既存の店全体type=appは実態と不一致のため分割(2026-08-01確認)。",
       "sources": [
         {
           "url": "https://manmai.club/?p=5615",
-          "checkedAt": "2026-07-16"
+          "checkedAt": "2026-08-01"
         },
         {
           "url": "https://minpachi.com/big-apple/",
-          "checkedAt": "2026-07-16"
+          "checkedAt": "2026-08-01"
         }
       ]
     },
@@ -340,9 +365,9 @@
       ],
       "lottery": {
         "type": "onsite",
-        "random": null,
+        "random": true,
         "tool": null,
-        "method": "整理券(会員カード不要)",
+        "method": "整理券配布(抽選・会員カード不要)",
         "draw": "9:30",
         "auth": null,
         "lineup": null
@@ -350,15 +375,15 @@
       "open": "10:00",
       "close": "22:40",
       "exchange": "非等価（4円28玉/スロ21.27円5.264枚）",
-      "memo": "GO2004-10-20。すろざんまい×みんパチほぼ一致(対象日同一)。みんパチはアニメキャラ誕生日連動の傾向も記載。",
+      "memo": "GO2004-10-20。すろざんまい×みんパチほぼ一致(対象日同一)。みんパチはアニメキャラ誕生日連動の傾向も記載。 混雑時は早期締切の場合あり、朝8時より前の集合禁止(2026-08-01確認)。",
       "sources": [
         {
           "url": "https://manmai.club/?p=5615",
-          "checkedAt": "2026-07-16"
+          "checkedAt": "2026-08-01"
         },
         {
           "url": "https://minpachi.com/island/",
-          "checkedAt": "2026-07-16"
+          "checkedAt": "2026-08-01"
         }
       ]
     },
@@ -460,26 +485,39 @@
         }
       ],
       "lottery": {
-        "type": "app",
-        "random": true,
+        "type": null,
+        "random": null,
         "tool": null,
-        "method": "店頭/モバイル抽選",
+        "method": "パチンコ:店頭抽選(9:30)。スロット:モバイル抽選(9:30、777コンパス)",
         "draw": "9:30",
         "auth": null,
-        "lineup": null
+        "lineup": null,
+        "pachinko": {
+          "type": "onsite",
+          "random": true
+        },
+        "slot": {
+          "type": "app",
+          "random": true,
+          "tool": "777コンパス"
+        }
       },
       "open": "10:00",
       "close": "22:45",
       "exchange": "非等価（4円28玉/スロ21.73円5.15枚）",
-      "memo": "⚠みんパチは土曜(店推し日)・日曜(全台系)も旧イベ日として記載(すろざんまいになし)。逆に6の付く日/24日/11・22はみんパチ本文になし→照合(403で未実施)要。",
+      "memo": "⚠みんパチは土曜(店推し日)・日曜(全台系)も旧イベ日として記載(すろざんまいになし)。逆に6の付く日/24日/11・22はみんパチ本文になし→照合(403で未実施)要。 みんパチ本文でパチンコ=店頭抽選・スロット=モバイル抽選と判明、分割(2026-08-01確認)。スロットのtool=777コンパスは第三者稼働ブログ1件のみが根拠(みんパチ本文に明記なし)、確度は参考情報レベルで次回精査時に要再確認。",
       "sources": [
         {
           "url": "https://manmai.club/?p=5615",
-          "checkedAt": "2026-07-16"
+          "checkedAt": "2026-08-01"
         },
         {
           "url": "https://minpachi.com/espace-kabuki/",
-          "checkedAt": "2026-07-16"
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://kurobaku080.com/espace-sinjukukabukicho/",
+          "checkedAt": "2026-08-01"
         }
       ]
     },
@@ -559,23 +597,23 @@
         "type": "app",
         "random": true,
         "tool": null,
-        "method": "モバイル抽選(会員カード不要)",
+        "method": "モバイル抽選(会員カード不要、予約締切は前日23:59・当日08:59まで抽選申込み)",
         "draw": "9:00",
-        "auth": null,
-        "lineup": null
+        "auth": "9:00〜9:14 入場番号確認・本人認証",
+        "lineup": "9:45 確保券配布"
       },
       "open": "10:00",
       "close": "22:40",
       "exchange": "非等価（4円28玉/スロ21.73円5.2枚）",
-      "memo": "1969年創業の老舗。みんパチは同日数＋「月末」を追加記載(要検討: 月末=monthday last)。",
+      "memo": "1969年創業の老舗。みんパチは同日数＋「月末」を追加記載(要検討: 月末=monthday last)。 ツール名は未確認のためtool=null維持。09:00-09:14入場番号確認・本人認証、09:15確定、09:45確保券配布の詳細をみんパチで確認(2026-08-01)。",
       "sources": [
         {
           "url": "https://manmai.club/?p=5615",
-          "checkedAt": "2026-07-16"
+          "checkedAt": "2026-08-01"
         },
         {
           "url": "https://minpachi.com/aladdin/",
-          "checkedAt": "2026-07-16"
+          "checkedAt": "2026-08-01"
         }
       ]
     },
@@ -613,25 +651,36 @@
       ],
       "lottery": {
         "type": null,
-        "random": true,
+        "random": null,
         "tool": null,
-        "method": "抽選(会員カード不要)",
-        "draw": "9:45",
+        "method": "パチンコ:9:20順番券配布→9:55再整列(抽選有無不明)。スロット:9:45抽選→即再整列",
+        "draw": null,
         "auth": null,
-        "lineup": "9:55"
+        "lineup": null,
+        "pachinko": {
+          "type": "onsite",
+          "random": null,
+          "draw": "9:20",
+          "lineup": "9:55"
+        },
+        "slot": {
+          "type": "onsite",
+          "random": true,
+          "draw": "9:45"
+        }
       },
       "open": "10:00",
       "close": "22:45",
       "exchange": "非等価（4円28玉/スロ21.73円5.2枚）",
-      "memo": "GO2014-11-26。すろざんまい×みんパチほぼ一致。みんパチは7の付く日の明記なし(他は一致)。",
+      "memo": "GO2014-11-26。すろざんまい×みんパチほぼ一致。みんパチは7の付く日の明記なし(他は一致)。 みんパチでパチンコ/スロットの手順が異なると判明、分割(2026-08-01確認)。パチンコ側は「順番券配布」のみで抽選の語なし、先着かランダムか本文から断定不可のためrandom=null維持。",
       "sources": [
         {
           "url": "https://manmai.club/?p=5615",
-          "checkedAt": "2026-07-16"
+          "checkedAt": "2026-08-01"
         },
         {
           "url": "https://minpachi.com/espace-shinjuku/",
-          "checkedAt": "2026-07-16"
+          "checkedAt": "2026-08-01"
         }
       ]
     },
@@ -699,10 +748,10 @@
         }
       ],
       "lottery": {
-        "type": null,
+        "type": "app",
         "random": true,
-        "tool": null,
-        "method": "抽選方式",
+        "tool": "777コンパス",
+        "method": "モバイル抽選(777コンパス、前日24:00予約締切)。09:45抽選開始/09:55再整列/10:00入場開始",
         "draw": "9:45",
         "auth": null,
         "lineup": "9:55"
@@ -710,15 +759,19 @@
       "open": "10:00",
       "close": "22:45",
       "exchange": "非等価（4円28玉/スロ21.73円5.16枚）",
-      "memo": "GO2015-11-25。新宿三丁目エリア唯一のパチンコ店。⚠みんパチは8のつく日のみで3・9の付く日の記載なし→照合(403で未実施)要。",
+      "memo": "GO2015-11-25。新宿三丁目エリア唯一のパチンコ店。⚠みんパチは8のつく日のみで3・9の付く日の記載なし→照合(403で未実施)要。 みんパチ本体は「整理券の配布方法:抽選」のみでモバイル/アプリの明記なし。type=app・tool=777コンパスはみんパチユーザーコメント(2022-11-02)+第三者ブログ1件の独立した一致が根拠、確度は参考情報レベル(2026-08-01確認)。",
       "sources": [
         {
           "url": "https://manmai.club/?p=5615",
-          "checkedAt": "2026-07-16"
+          "checkedAt": "2026-08-01"
         },
         {
           "url": "https://minpachi.com/kicona-shin/",
-          "checkedAt": "2026-07-16"
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://ryomemoblog.com/",
+          "checkedAt": "2026-08-01"
         }
       ]
     },
@@ -751,9 +804,9 @@
         "type": "app",
         "random": true,
         "tool": null,
-        "method": "モバイル抽選(会員カード不要)",
+        "method": "モバイル抽選(会員カード不要)。0:00予約開始→9:40予約締切→9:40仮番号発表→9:40〜9:50仮番号認証(未認証は9:40〜再抽選)→9:51入場番号確定。パチンコは9:50抽選開始。",
         "draw": "9:40",
-        "auth": null,
+        "auth": "9:40〜9:50 仮番号認証",
         "lineup": null
       },
       "open": "10:00",
@@ -763,11 +816,11 @@
       "sources": [
         {
           "url": "https://manmai.club/?p=5615",
-          "checkedAt": "2026-07-16"
+          "checkedAt": "2026-08-01"
         },
         {
           "url": "https://minpachi.com/espace-shibuya-n/",
-          "checkedAt": "2026-07-16"
+          "checkedAt": "2026-08-01"
         }
       ]
     },
@@ -789,10 +842,10 @@
         }
       ],
       "lottery": {
-        "type": null,
+        "type": "onsite",
         "random": true,
         "tool": null,
-        "method": "抽選(会員カード不要)",
+        "method": "整理券配布(抽選・会員カード不要)。配布時間9:45。",
         "draw": "9:45",
         "auth": null,
         "lineup": null
@@ -805,11 +858,11 @@
       "sources": [
         {
           "url": "https://manmai.club/?p=5615",
-          "checkedAt": "2026-07-16"
+          "checkedAt": "2026-08-01"
         },
         {
           "url": "https://minpachi.com/espace-shibuya/",
-          "checkedAt": "2026-07-16"
+          "checkedAt": "2026-08-01"
         }
       ]
     },
@@ -831,9 +884,9 @@
       ],
       "lottery": {
         "type": "onsite",
-        "random": null,
+        "random": true,
         "tool": null,
-        "method": "整理券(会員カード不要)",
+        "method": "整理券配布(抽選・会員カード不要)。配布時間9:40。",
         "draw": "9:40",
         "auth": null,
         "lineup": null
@@ -845,11 +898,11 @@
       "sources": [
         {
           "url": "https://manmai.club/?p=5615",
-          "checkedAt": "2026-07-16"
+          "checkedAt": "2026-08-01"
         },
         {
           "url": "https://minpachi.com/rakuen-shibuya/",
-          "checkedAt": "2026-07-16"
+          "checkedAt": "2026-08-01"
         }
       ]
     },
@@ -871,9 +924,9 @@
       ],
       "lottery": {
         "type": "onsite",
-        "random": null,
+        "random": true,
         "tool": null,
-        "method": "整理券(会員カード不要)",
+        "method": "整理券配布(抽選・会員カード不要)。9:30入場抽選→9:50再整列→10:00入場開始(パチンコ200名/スロット400名で打ち切りあり)。",
         "draw": "9:30",
         "auth": null,
         "lineup": "9:50"
@@ -881,15 +934,15 @@
       "open": "10:00",
       "close": "22:45",
       "exchange": "非等価（4円28玉/スロ21.73円5.16枚）",
-      "memo": "GO2020-07-01。すろざんまい×みんパチ一致。",
+      "memo": "GO2020-07-01。すろざんまい×みんパチ一致。 パチンコ200名/スロット400名で打ち切りあり(2026-08-01確認)。",
       "sources": [
         {
           "url": "https://manmai.club/?p=5615",
-          "checkedAt": "2026-07-16"
+          "checkedAt": "2026-08-01"
         },
         {
           "url": "https://minpachi.com/rakuen-shibuyaekimae/",
-          "checkedAt": "2026-07-16"
+          "checkedAt": "2026-08-01"
         }
       ]
     },
@@ -1010,7 +1063,7 @@
         "type": "onsite",
         "random": true,
         "tool": null,
-        "method": "整理券(パチ/スロ別抽選)",
+        "method": "整理券(パチ/スロ別抽選)。9:40抽選-9:50再整列-10:00入場。パチンコはGU側入口、スロットは有楽町線側入口",
         "draw": "9:40",
         "auth": null,
         "lineup": "9:50"
@@ -1018,15 +1071,15 @@
       "open": "10:00",
       "close": "22:40",
       "exchange": "非等価（4円28玉/1円112玉/スロ21.73円5.2枚/5円22.4枚）",
-      "memo": "大型店。みんパチは7のつく日も追加記載(すろざんまいになし)。",
+      "memo": "大型店。みんパチは7のつく日も追加記載(すろざんまいになし)。 パチンコ/スロットで入口が異なる(パチンコ=GU側、スロット=有楽町線側)(2026-08-01確認)。",
       "sources": [
         {
           "url": "https://manmai.club/?p=5615",
-          "checkedAt": "2026-07-16"
+          "checkedAt": "2026-08-01"
         },
         {
           "url": "https://minpachi.com/rakuen-ikebukuro/",
-          "checkedAt": "2026-07-16"
+          "checkedAt": "2026-08-01"
         }
       ]
     },
@@ -1046,9 +1099,9 @@
       ],
       "lottery": {
         "type": "onsite",
-        "random": null,
+        "random": true,
         "tool": null,
-        "method": "整理券(会員カード不要)",
+        "method": "整理券(会員カード不要)。9:40頃並び確認整理券配布-9:50抽選開始-10:00入場開始",
         "draw": "9:50",
         "auth": null,
         "lineup": null
@@ -1056,15 +1109,15 @@
       "open": "10:00",
       "close": "22:45",
       "exchange": "非等価（スロ21.73円5.2枚）",
-      "memo": "スロット専門店。すろざんまい×みんパチ一致(4のつく日)。",
+      "memo": "スロット専門店。すろざんまい×みんパチ一致(4のつく日)。 みんパチ本文に「抽選開始」と明記、random=trueへ修正(2026-08-01確認)。",
       "sources": [
         {
           "url": "https://manmai.club/?p=5615",
-          "checkedAt": "2026-07-16"
+          "checkedAt": "2026-08-01"
         },
         {
           "url": "https://minpachi.com/toho-ikebukuro/",
-          "checkedAt": "2026-07-16"
+          "checkedAt": "2026-08-01"
         }
       ]
     },
@@ -1166,7 +1219,7 @@
         "type": "app",
         "random": true,
         "tool": "777コンパス",
-        "method": "モバイル抽選(コンパス、2024-12-15方式変更)",
+        "method": "モバイル抽選(777コンパス、2024-12-15方式変更)",
         "draw": "9:30",
         "auth": "9:39",
         "lineup": "9:50"
@@ -1174,15 +1227,19 @@
       "open": "10:00",
       "close": "22:40",
       "exchange": "非等価（パチ4.38円25.5玉/1円112玉/スロ21.73円5.2枚）",
-      "memo": "⚠パターン食い違い: すろざんまいは5の付く日＋毎月11日だが、みんパチは5のつく日のみで毎月11日の記載なし。照合(403で未実施)要再検証。",
+      "memo": "⚠パターン食い違い: すろざんまいは5の付く日＋毎月11日だが、みんパチは5のつく日のみで毎月11日の記載なし。照合(403で未実施)要再検証。 tool=777コンパスの直接記載はプレゴEX本体ページになし(「コンパスによるモバイル抽選」表記のみ)。姉妹店(スマートプレゴ池袋)のみんパチ本文で777コンパスと明記、同一運営との言及もあり根拠として維持(2026-08-01確認)。",
       "sources": [
         {
           "url": "https://manmai.club/?p=5615",
-          "checkedAt": "2026-07-16"
+          "checkedAt": "2026-08-01"
         },
         {
           "url": "https://minpachi.com/prego-ex/",
-          "checkedAt": "2026-07-16"
+          "checkedAt": "2026-08-01"
+        },
+        {
+          "url": "https://minpachi.com/smart-prego/",
+          "checkedAt": "2026-08-01"
         }
       ]
     },
@@ -1289,25 +1346,33 @@
       ],
       "lottery": {
         "type": "onsite",
-        "random": true,
+        "random": null,
         "tool": null,
-        "method": "抽選券配布(スロ)",
-        "draw": "9:45",
+        "method": "スロット:抽選券配布9:15→抽選開始9:45。パチンコ:券配布9:15→整列開始9:50→入場開始10:00(抽選有無不明)",
+        "draw": null,
         "auth": null,
-        "lineup": "9:50"
+        "lineup": null,
+        "pachinko": {
+          "random": null,
+          "lineup": "9:50"
+        },
+        "slot": {
+          "random": true,
+          "draw": "9:45"
+        }
       },
       "open": "10:00",
       "close": "22:50",
       "exchange": "非等価（4円28玉/スロ21.73円5.2枚）",
-      "memo": "一致(5・7のつく日/16日生誕祭/月ゾロ目)。みんパチは多数追加(毎月1/4/17/22日・月末・8のつく日・0のつく日=沖スロ)。",
+      "memo": "一致(5・7のつく日/16日生誕祭/月ゾロ目)。みんパチは多数追加(毎月1/4/17/22日・月末・8のつく日・0のつく日=沖スロ)。 パチンコとスロットで入場フローが異なる(スロットのみ明示的な抽選、パチンコは券配布→整列)。パチンコ側に「抽選」の語なくrandom=null維持(2026-08-01確認)。",
       "sources": [
         {
           "url": "https://manmai.club/?p=5615",
-          "checkedAt": "2026-07-16"
+          "checkedAt": "2026-08-01"
         },
         {
           "url": "https://minpachi.com/big-dipper1/",
-          "checkedAt": "2026-07-16"
+          "checkedAt": "2026-08-01"
         }
       ]
     },
@@ -1338,9 +1403,9 @@
       ],
       "lottery": {
         "type": "onsite",
-        "random": null,
+        "random": true,
         "tool": null,
-        "method": "整理券",
+        "method": "整理券配布(抽選・会員カード不要)。抽選券配布9:30〜9:55、配布時間9:55。",
         "draw": "9:55",
         "auth": null,
         "lineup": null
@@ -1352,11 +1417,11 @@
       "sources": [
         {
           "url": "https://manmai.club/?p=5615",
-          "checkedAt": "2026-07-16"
+          "checkedAt": "2026-08-01"
         },
         {
           "url": "https://minpachi.com/big-dipper2/",
-          "checkedAt": "2026-07-16"
+          "checkedAt": "2026-08-01"
         }
       ]
     },
@@ -1466,7 +1531,7 @@
       "open": "10:00",
       "close": "22:40",
       "exchange": "非等価（4円パチンコ28玉／21.73円スロット5.2枚）",
-      "memo": "下北沢駅前・あずま通り商店街に立地する現存唯一のホール（2021年のミナミ本店休業後は実質1軒とされる）。旧イベント日は「0のつく日」「毎月16日」とされる（第三者サイトの過去傾向推定であり公式情報ではない）。GO1997-12-21（周年イベント日の可能性あり、要現地確認）。景品交換所は店を出てすぐ左、ラーメン屋隣の階段を上って2階とされる。",
+      "memo": "下北沢駅前・あずま通り商店街に立地する現存唯一のホール（2021年のミナミ本店休業後は実質1軒とされる）。旧イベント日は「0のつく日」「毎月16日」とされる（第三者サイトの過去傾向推定であり公式情報ではない）。GO1997-12-21（周年イベント日の可能性あり、要現地確認）。景品交換所は店を出てすぐ左、ラーメン屋隣の階段を上って2階とされる。 モバイル抽選(777コンパス)と整理券配布は同一フロー内の表現であり、店頭独自の並行抽選ではないことを確認、ハイブリッド疑いは解消(2026-08-01確認)。",
       "sources": [
         {
           "url": "https://www.p-world.co.jp/tokyo/kaleido-shimokita.htm",
@@ -1474,7 +1539,7 @@
         },
         {
           "url": "https://minpachi.com/kaleido-shimokita/",
-          "checkedAt": "2026-07-20"
+          "checkedAt": "2026-08-01"
         },
         {
           "url": "https://p-town.dmm.com/shops/station/2400605",
@@ -1551,7 +1616,7 @@
       "close": null,
       "exchange": null,
       "closed": "2017",
-      "memo": "1996年開業、2017年閉店（約21年営業）。跡地はスーパーオオゼキ本社ビルとして再利用。閉店済みのため台数・時刻・換金率の一次データは現存せず未取得。⚠住所はWebSearch要約経由で一次資料未裏取り（信頼度低・次回精査時に照合推奨）。",
+      "memo": "1996年開業、2017年閉店（約21年営業）。跡地はスーパーオオゼキ本社ビルとして再利用。閉店済みのため台数・時刻・換金率の一次データは現存せず未取得。⚠住所はWebSearch要約経由で一次資料未裏取り（信頼度低・次回精査時に照合推奨）。 抽選方式の一次情報は現存する情報源に見当たらず確認不能(2017年閉店。みんパチ・パチビー記事に入場方式の記載なし。hall-navi.comはHTTP403でアクセス不可)(2026-08-01確認)。",
       "sources": [
         {
           "url": "https://www.pachibee.jp/ivent/view/1888",
@@ -1560,6 +1625,10 @@
         {
           "url": "https://willstage.jp/member/?p=78220",
           "checkedAt": "2026-07-20"
+        },
+        {
+          "url": "https://hall-navi.com/hole_view?hid=155003100000029210",
+          "checkedAt": "2026-08-01"
         }
       ]
     },

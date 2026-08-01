@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## 2026-08-01
+
+v3拡張 Phase 2②（既存21店の抽選方式・出典再確認）。設計書: `docs/superpowers/specs/2026-07-31-v3-expansion-design.md`
+
+### 変更
+- `data/stores.json` — Phase1で要確認扱いだった既存21店（上野・秋葉原・新宿・渋谷・池袋・新橋・下北沢）をみんパチ店舗ページで再訪問し `lottery.type`／`random`／`tool` を確定。パチンコ/スロットで方式が異なると判明した7店は `lottery.pachinko`／`lottery.slot` サブオブジェクトへ分割（例: ビッグアップル秋葉原=パチンコ並び順/スロットのみモバイル抽選）。出典で確認できなかった項目はnullのまま維持し理由をmemoに記録（AI推測補完の禁止を継続適用）。ミナミ10号店（2017年閉店）は一次情報が現存せず確認不能と結論
+- `scripts/migrate-lottery.mjs` — 要確認リスト生成ロジックのバグ修正。従来はmethod自由文をキーワード再解析していたため、pachinko/slotサブオブジェクトで既に解決済みの店でも「パチ/スロ差分疑い」等が機械的に残っていた。現在の構造化フィールド（pachinko/slot含む）が実際にnullかどうかで判定するよう変更し、要確認21→7店（+他エリアの既存未解決5店）に減少
+
+### 収集メモ
+- researcher 3並列worktree分離で実行したところ、`_staging/` がgitignore対象のため完了直後にworktreeが自動クリーンアップされ、書き込み済みファイルが3班とも消失。SendMessageでエージェントを再開し全文をテキスト応答として再送させて復旧（次回以降、researcherの`_staging`直書きタスクはworktree分離を使わない）
+
 ## 2026-07-31
 
 v3拡張の Phase 1（データ基盤整備）。設計書: `docs/superpowers/specs/2026-07-31-v3-expansion-design.md`、実装計画: `docs/superpowers/plans/2026-07-31-v3-phase1-schema.md`

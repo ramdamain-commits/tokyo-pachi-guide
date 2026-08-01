@@ -6,7 +6,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { deriveChannel, deriveTool, deriveRandom, reviewFlags } from "../lottery.mjs";
+import { deriveChannel, deriveTool, deriveRandom } from "../lottery.mjs";
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const dataPath = path.join(root, "data", "stores.json");
@@ -38,9 +38,39 @@ for (const store of data.stores) {
 
 // 要確認リストは移行の有無と関係なく全店から作り直す。
 // 移行済みの店だけを対象にすると、2回目以降の実行でリストが空になってしまうため。
+//
+// method文言の再解析ではなく、現在のtype/random/tool（pachinko/slotサブオブジェクトが
+// あればそちらを優先）が実際にnullのままかどうかで要確認判定する。文言だけを見る旧実装は
+// 「パチ/スロで方式が異なる」旨をmethodに書いた時点で、値が既にサブオブジェクトで
+// 解決済みでも機械的に要確認フラグを立ててしまっていた。
+function fieldFlags(entry, prefix) {
+  const flags = [];
+  if (entry.type == null) flags.push(`${prefix}チャネル不明`);
+  if (entry.random == null) flags.push(`${prefix}抽選有無不明`);
+  if (entry.type === "app") {
+    if (!entry.tool) flags.push(`${prefix}ツール名不明`);
+    else if (entry.tool.includes("コンパス") && !entry.tool.includes("777")) {
+      flags.push(`${prefix}ツール名要確認(略称一致)`);
+    }
+  }
+  return flags;
+}
+
+function structuralFlags(lottery) {
+  if (!lottery.method) return ["方式未記載"];
+  const { pachinko, slot, ...common } = lottery;
+  if (pachinko || slot) {
+    const flags = [];
+    if (pachinko) flags.push(...fieldFlags({ ...common, ...pachinko }, "パチンコ:"));
+    if (slot) flags.push(...fieldFlags({ ...common, ...slot }, "スロット:"));
+    return flags;
+  }
+  return fieldFlags(common, "");
+}
+
 for (const store of data.stores) {
   if (!store.lottery) continue;
-  const flags = reviewFlags(store.lottery.method || null);
+  const flags = structuralFlags(store.lottery);
   if (flags.length) {
     reviewRows.push({
       id: store.id,
