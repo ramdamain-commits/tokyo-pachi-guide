@@ -1,0 +1,23 @@
+name: probe
+
+# 各取得元に GitHub Actions から届くかの確認（手動実行、または確認用ブランチへの関連ファイル push）
+on:
+  workflow_dispatch:
+  push:
+    branches: [feat/hot-events]
+    paths:
+      - .github/workflows/probe.yml
+      - scripts/probe-sources.mjs
+      - collect/http.mjs
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Tokyo
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: node scripts/probe-sources.mjs
