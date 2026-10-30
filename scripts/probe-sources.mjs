@@ -5,8 +5,6 @@ import { createFetcher, FetchError } from "../collect/http.mjs";
 
 export const TARGETS = [
   { url: "https://p-town.dmm.com/schedules/tokyo", needle: "実施日：" },
-  { url: "https://hall-navi.com/serch_hole_result?k=1&c=all&area=kanto", needle: "hole_view?hid=" },
-  { url: "https://hall-navi.com/hole_view?hid=194001300000613210", needle: "並び人数の集計" },
   { url: "https://min-repo.com/category/%e6%9d%b1%e4%ba%ac%e9%83%bd/", needle: "min-repo.com/tag/" },
   {
     url: "https://min-repo.com/tag/%e3%82%ab%e3%83%ac%e3%82%a4%e3%83%89%e6%96%b0%e5%ae%bf%e5%ba%97/",
