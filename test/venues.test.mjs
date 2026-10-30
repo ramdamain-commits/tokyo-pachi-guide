@@ -55,7 +55,14 @@ test("municipality: 区・市・郡部の町村を取り出す", () => {
   assert.equal(municipality("東京都町田市原町田6-13-21"), "町田市");
   assert.equal(municipality("東京都西多摩郡瑞穂町箱根ケ崎1"), "西多摩郡瑞穂町");
   assert.equal(municipality("東京都檜原村1"), "檜原村");
+  assert.equal(municipality("東京都西多摩郡檜原村数馬1"), "西多摩郡檜原村");
+  assert.equal(municipality("東京都千代田区外神田1-16-1"), "千代田区");
   assert.equal(municipality("神奈川県横浜市1-1"), null);
+});
+
+test("municipality: 市名に「村」を含む武蔵村山市・東村山市を途中で切らない", () => {
+  assert.equal(municipality("東京都武蔵村山市学園4-5-1"), "武蔵村山市");
+  assert.equal(municipality("東京都東村山市本町2-1-1"), "東村山市");
 });
 
 test("buildVenues: 正規化店名が一致するみんレポのタグを付ける", () => {
@@ -148,21 +155,72 @@ test("buildVenues: previous の minrepoTag は今回見つからなくても残�
   assert.deepEqual(unmatchedMinrepo, ["店八"]); // 残した店は対応が付いた扱い
 });
 
-test("buildVenues: 同じ住所に stores.json の店が複数あるときは店名が一致した店だけ対応付ける", () => {
-  const stores = [
-    { id: "a", name: "スマートプレゴ池袋", area: "池袋", address: "東京都豊島区南池袋1-21-2 地下1F", sns: null },
-    { id: "b", name: "プレゴEX池袋", area: "池袋", address: "東京都豊島区南池袋1-21-2", sns: null },
-  ];
+const PREGO_STORES = [
+  { id: "smart-prego-ikebukuro", name: "スマートプレゴ池袋", area: "池袋", address: "東京都豊島区南池袋1-21-2 地下1F", sns: { x: "https://x.com/smart" } },
+  { id: "prego-ex-ikebukuro", name: "プレゴEX池袋南口店(PREGO)", area: "池袋", address: "東京都豊島区南池袋1-21-2", sns: { x: "https://x.com/prego_ex" } },
+];
+
+function pregoVenue(shopName, stores = PREGO_STORES) {
   const { venues } = buildVenues({
-    dmmEvents: [
-      ev("10", "プレゴEX池袋", "東京都豊島区南池袋1-21-2"),
-      ev("11", "名前の違う店", "東京都豊島区南池袋1-21-2"),
-    ],
+    dmmEvents: [ev("10", shopName, "東京都豊島区南池袋1-21-2")],
     minrepoTags: [],
     stores,
     previous: {},
   });
-  assert.equal(venues["dmm:10"].storeId, "b");
-  assert.equal(venues["dmm:11"].storeId, null);
-  assert.equal(venues["dmm:11"].area, "豊島区");
+  return venues["dmm:10"];
+}
+
+test("buildVenues: 同じ住所に複数の店があるとき、一方の名前が他方の先頭と一致する店に付ける", () => {
+  const v = pregoVenue("プレゴEX池袋南口店");
+  assert.equal(v.storeId, "prego-ex-ikebukuro");
+  assert.equal(v.x, "https://x.com/prego_ex");
+});
+
+test("buildVenues: 同じ住所に複数の店があるとき、正規化名の完全一致の店に付ける", () => {
+  const v = pregoVenue("スマートプレゴ池袋");
+  assert.equal(v.storeId, "smart-prego-ikebukuro");
+  assert.equal(v.x, "https://x.com/smart");
+});
+
+test("buildVenues: 同じ住所で店が決まらないときは storeId・x を付けず、area は候補が共通ならその値", () => {
+  const v = pregoVenue("プレゴ池袋");
+  assert.equal(v.storeId, null);
+  assert.equal(v.x, null);
+  assert.equal(v.area, "池袋"); // municipality（豊島区）に落とさない
+});
+
+test("buildVenues: 同じ住所で店が決まらず候補の area も食い違うときは municipality", () => {
+  const stores = [
+    { ...PREGO_STORES[0], area: "池袋" },
+    { ...PREGO_STORES[1], area: "南池袋" },
+  ];
+  const v = pregoVenue("プレゴ池袋", stores);
+  assert.equal(v.storeId, null);
+  assert.equal(v.area, "豊島区");
+});
+
+test("buildVenues: previous にだけある店は venues に残る", () => {
+  const prevOnly = {
+    name: "閉店した店", address: "東京都新宿区9-9", municipality: "新宿区", area: "新宿",
+    storeId: null, dmmShopId: "99", minrepoTag: "閉店した店", x: null,
+  };
+  const { venues, unmatchedMinrepo } = buildVenues({
+    dmmEvents: [ev("1", "今回の店", "東京都新宿区1-1")],
+    minrepoTags: [],
+    stores: [],
+    previous: { "dmm:99": prevOnly, "dmm:1": { ...prevOnly, name: "古い名前", dmmShopId: "1", minrepoTag: "旧タグ" } },
+  });
+  assert.deepEqual(venues["dmm:99"], prevOnly); // 値はそのまま
+  assert.equal(venues["dmm:1"].name, "今回の店"); // 今回の DMM に現れた店は作り直す
+  assert.equal(venues["dmm:1"].minrepoTag, "旧タグ"); // minrepoTag は今回の一致が無ければ previous
+  assert.deepEqual(unmatchedMinrepo, []);
+});
+
+test("buildVenues: 同じ住所で先頭一致する店が複数あっても、正規化名が完全一致する店を優先する", () => {
+  const stores = [
+    { id: "short", name: "プレゴ", area: "池袋", address: "東京都豊島区南池袋1-21-2", sns: null },
+    { id: "long", name: "プレゴ池袋", area: "池袋", address: "東京都豊島区南池袋1-21-2", sns: null },
+  ];
+  assert.equal(pregoVenue("プレゴ", stores).storeId, "short");
+  assert.equal(pregoVenue("プレゴ池袋", stores).storeId, "long");
 });

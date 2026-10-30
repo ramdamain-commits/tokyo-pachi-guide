@@ -53,23 +53,58 @@ export function normalizeAddress(s) {
 
 /**
  * `東京都` の直後の「…区|…市|…町|…村」（郡部は「…郡…町」まで）を返す。取れなければ null。
+ * 「武蔵村山市」「東村山市」のように市名に「村」を含むため、区・市 → 郡つきの町村 → 町村 の順に探す。
  * @param {string} address
  * @returns {string | null}
  */
 export function municipality(address) {
   const a = String(address ?? "").normalize("NFKC").trim();
-  const m = /^東京都((?:\S+?郡)?\S+?[区市町村])/.exec(a);
-  return m ? m[1] : null;
+  const m = /^東京都(?:([^\s郡]+?[区市])|(\S+?郡\S+?[町村])|(\S+?[町村]))/.exec(a);
+  return m ? (m[1] ?? m[2] ?? m[3]) : null;
+}
+
+/**
+ * 同じ正規化住所の stores.json の店の中から、DMM の店名に対応する店を選ぶ。
+ * 候補が1件ならそれ。複数なら (a) 正規化名の完全一致 → (b) 一方がもう一方の先頭と一致 を、
+ * それぞれ1件だけ見つかったときに採る。決まらないときは store=null で、候補の area がすべて同じならその値を返す。
+ * @param {Array<{ name: string, area: string }>} sameAddress
+ * @param {string} shopName
+ * @returns {{ store: (typeof sameAddress)[number] | null, area: string | null }}
+ */
+function matchStore(sameAddress, shopName) {
+  if (sameAddress.length === 0) return { store: null, area: null };
+  let store = null;
+  if (sameAddress.length === 1) {
+    store = sameAddress[0];
+  } else {
+    const n = normalizeName(shopName);
+    const exact = sameAddress.filter((st) => normalizeName(st.name) === n);
+    if (exact.length === 1) {
+      store = exact[0];
+    } else if (exact.length === 0) {
+      const part = sameAddress.filter((st) => {
+        const sn = normalizeName(st.name);
+        return n !== "" && (sn.startsWith(n) || n.startsWith(sn));
+      });
+      if (part.length === 1) store = part[0];
+    }
+  }
+  if (store) return { store, area: store.area };
+  const areas = new Set(sameAddress.map((st) => st.area));
+  return { store: null, area: areas.size === 1 ? [...areas][0] : null };
 }
 
 /**
  * DMM の店ごとに venues を作り、みんレポのタグ・stores.json の店と対応付ける。
  * - みんレポ: 正規化店名の完全一致。一致が複数ならあいまいとして付けない
- * - previous の minrepoTag は、今回の一致が無ければそのまま残す
- * - stores.json: 正規化住所の一致（同じ住所に複数の店があるときは正規化店名も一致した店だけ）
+ * - previous の店は今回の DMM に現れなくてもすべて引き継ぐ（過去日の凍結イベントが店キーを参照し続けるため）。
+ *   今回の DMM に現れた店は今回の情報で作り直し、minrepoTag は「今回の一致 → 無ければ previous の値」
+ * - stores.json: 正規化住所の一致。同じ住所に複数の店があるときは
+ *   (a) 正規化名の完全一致が1件ならそれ、(b) 無ければ一方の正規化名がもう一方の先頭と一致する店が1件だけならそれ、
+ *   (c) 決まらなければ storeId・x は付けない（候補の area がすべて同じなら area はその値）
  * @param {{ dmmEvents: import("./dmm.mjs").DmmEvent[], minrepoTags: string[],
- *           stores: Array<{ id: string, area: string, address: string, sns?: { x?: string | null } | null }>,
- *           previous?: Record<string, { minrepoTag?: string | null }> }} args
+ *           stores: Array<{ id: string, name: string, area: string, address: string, sns?: { x?: string | null } | null }>,
+ *           previous?: Record<string, any> }} args
  * @returns {{ venues: Record<string, Venue>, unmatchedMinrepo: string[] }}
  */
 export function buildVenues({ dmmEvents, minrepoTags, stores, previous = {} }) {
@@ -93,32 +128,31 @@ export function buildVenues({ dmmEvents, minrepoTags, stores, previous = {} }) {
     storesByAddress.set(key, list);
   }
 
-  /** @type {Record<string, Venue>} */
+  /** @type {Record<string, Venue>} previous の店を先に引き継ぎ、今回の DMM の店で上書きする */
   const venues = {};
+  for (const [k, v] of Object.entries(previous)) venues[k] = { ...v };
+  /** @type {Set<string>} 今回の DMM で作った店 */
+  const built = new Set();
   /** @type {string[]} */
   const unmatchedMinrepo = [];
 
   for (const e of dmmEvents) {
     const key = `dmm:${e.dmmShopId}`;
-    if (venues[key]) continue; // 同じ店は最初の1件で作る
+    if (built.has(key)) continue; // 同じ店は最初の1件で作る
+    built.add(key);
 
     const candidates = tagsByName.get(normalizeName(e.shopName)) ?? [];
     let minrepoTag = candidates.length === 1 ? candidates[0] : null;
     if (minrepoTag === null) minrepoTag = previous[key]?.minrepoTag ?? null;
     if (minrepoTag === null) unmatchedMinrepo.push(e.shopName);
 
-    // 住所が一致する店が複数あるときは、正規化店名が一致する店だけを採る（無ければ付けない）
-    const sameAddress = storesByAddress.get(normalizeAddress(e.address)) ?? [];
-    const store =
-      sameAddress.length === 1
-        ? sameAddress[0]
-        : (sameAddress.find((st) => normalizeName(st.name) === normalizeName(e.shopName)) ?? null);
+    const { store, area: storeArea } = matchStore(storesByAddress.get(normalizeAddress(e.address)) ?? [], e.shopName);
     const muni = municipality(e.address);
     venues[key] = {
       name: e.shopName,
       address: e.address,
       municipality: muni,
-      area: store ? store.area : muni,
+      area: storeArea ?? muni,
       storeId: store ? store.id : null,
       dmmShopId: e.dmmShopId,
       minrepoTag,
