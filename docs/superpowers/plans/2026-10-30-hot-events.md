@@ -2,11 +2,11 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** 東京都全体の来店・取材予定を DMMぱちタウンから自動収集し、みんレポの日別実績（平均G・平均差枚）と自前で貯めた過去イベントから熱さを点数化して、ビューワの新タブ「熱いイベント」に熱い順で出す。GitHub Actions で毎月1日と毎週自動更新する。
+**Goal:** 東京都全体の来店・取材予定を DMMぱちタウンから自動収集し、みんレポの日別実績（平均G・平均差枚）と自前で貯めた過去イベントから熱さを点数化して、ビューワの新タブ「熱いイベント」に熱い順で出す。ユーザーのPCのタスクスケジューラで毎月1日と毎週自動更新し、データを main に push して GitHub Pages を更新する。
 
 **Architecture:** 収集は Node.js の素のスクリプト（依存パッケージなし・組み込み `fetch`）。取得（`collect/http.mjs`）、サイト別のパーサ（`collect/dmm.mjs` 等）、突き合わせ、統計、点数化を純粋関数に分け、`scripts/collect-events.mjs` がつなぐ。過去日になったイベントは凍結し、その日のみんレポ実績（店の通常日との差）を「結果」として書き込んで履歴にする。取材の強さはこの履歴から計算する。成果物は `data/` 配下の JSON で、ビューワ（既存の静的 HTML + ES module）がそれを読む。
 
-**Tech Stack:** Node.js 24（ローカル v24.14.0）、`node:test`、素の HTML/JS、GitHub Actions、GitHub Pages
+**Tech Stack:** Node.js 24（ローカル v24.14.0）、`node:test`、素の HTML/JS、Windows タスクスケジューラ（PowerShell）、GitHub Pages
 
 **Spec:** `docs/superpowers/specs/2026-10-30-hot-events-design.md`（2026-10-30 ホールナビ除外の改訂を含む）
 
@@ -18,7 +18,7 @@
 - 公開するのは事実情報（日付・店名・住所・媒体名・企画名・数値）と元ページへのリンクだけ。取得元の説明文・画像は保存も表示もしない。みんレポの日別データも丸ごとは保存せず、計算結果（中央値・差・回数）だけを保存する。**テスト用フィクスチャも同じ扱い**で、実ページから構造に必要な部分を2〜3件分だけ切り出し、1ファイル 5KB 以下にする（空白・不要属性を落としても収まらないときだけ 8KB まで）
 - 欠測を0や平均で埋めない。欠けた要素は `missing` に名前を入れ、画面に「データなし」と出す
 - 平均G・平均差枚は「その店の通常日との差」にしてから使う。店どうしで生の値を比べてよいのは「店の普段のにぎわい」（通常日の平均G の順位）だけ
-- 日付はすべて日本時間で扱う。Actions では環境変数 `TZ=Asia/Tokyo` を設定する。日付の生成は既存 `match.mjs` と同じく `new Date(y, m-1, d)` 形式で行い、`new Date("YYYY-MM-DD")` は使わない
+- 日付はすべて日本時間で扱う。基準日は `jstToday()`（`Intl` で Asia/Tokyo を指定）で求め、実行環境のタイムゾーンに頼らない。日付の生成は既存 `match.mjs` と同じく `new Date(y, m-1, d)` 形式で行い、`new Date("YYYY-MM-DD")` は使わない
 - 周年は加点しない（バッジ表示のみ）。「○のつく日」型の企画も加点しない
 - 取得したデータには出典 URL と取得日（`checkedAt`、`YYYY-MM-DD`）を付ける。自前の計算結果（取材の強さ）は計算日（`computedAt`）を付ける
 - 失敗時は公開データを上書きせず、終了コード1で終える
@@ -37,7 +37,7 @@
 1. **年をまたぐ日付**: みんレポは年なしの日付で、12月から1月にかけて年の補い方を誤りやすい。上から新しい順に並ぶ表で正しい年を付けること
 2. **DMM の重複掲載**: 同じ店・同じ日・同じ企画が2回並ぶ実例がある（2026-10-30 のクリエ府中西原店）。1件にまとめること
 3. **一部ページの取得失敗**: みんレポの店ページ1件の 5xx やタイムアウトで実行全体を止めない。その店は欠測扱いで残す。ただし DMM の予定一覧が取れないときは全体を失敗にする
-4. **Actions のタイムゾーン**: UTC で動くと「今日」が1日ずれ、凍結や7日間表示がずれる。基準日は `jstToday()` で求め、引数でも渡せるようにすること
+4. **実行環境のタイムゾーン**: UTC の環境で動くと「今日」が1日ずれ、凍結や7日間表示がずれる。基準日は `jstToday()` で求め、引数でも渡せるようにすること
 5. **履歴ゼロからの立ち上がり**: 初回は履歴が無く、全イベントが「強さ不明」になる。このとき画面が空にならず、強さ不明の枠に並ぶこと。結果は過去日になった後の実行で一度だけ書き込まれ、二度目以降は変わらないこと
 
 各項目のテストは、担当タスクの中に入れてある。
@@ -62,7 +62,8 @@
 | `scripts/probe-sources.mjs` | 各サイトに届くかの確認（Task 1 で作成済み） |
 | `scripts/collect-events.mjs` | 収集の本体（つなぎ役） |
 | `scripts/validate-data.mjs` | 既存。新データの検証を追加 |
-| `.github/workflows/probe.yml` / `collect.yml` | Actions |
+| `.github/workflows/probe.yml` | 到達確認（Task 1。Task 11 で削除） |
+| `scripts/run-collect.ps1` / `scripts/register-collect-task.ps1` | PC での定期実行と、その登録 |
 | `data/venues.json` / `data/media-strength.json` / `data/store-stats.json` / `data/events/YYYY-MM.json` / `data/collect-meta.json` | 成果物 |
 | `test/fixtures/*.html` | 切り出したフィクスチャ |
 
@@ -433,22 +434,37 @@
 
 ---
 
-### Task 11: 自動実行とドキュメント
+### Task 11: PC での定期実行とドキュメント
+
+**改訂（2026-10-30・ユーザー決定）**: Actions からは DMM が 403 を返したため、ユーザーの PC のタスクスケジューラで動かす。
 
 **Files:**
-- Create: `.github/workflows/collect.yml`, `docs/熱いイベントの自動更新.md`
-- Modify: `README.md`, `CHANGELOG.md`
+- Create: `scripts/run-collect.ps1`, `scripts/register-collect-task.ps1`, `docs/熱いイベントの自動更新.md`
+- Modify: `README.md`, `CHANGELOG.md`, `.gitignore`（`logs/` を追加）
 - Delete: `.github/workflows/probe.yml`
 
-- [ ] **Step 1: `.github/workflows/collect.yml` を書く**
-  - トリガー: `schedule` に `"0 0 1 * *"`（毎月1日 9:00 JST）と `"0 21 * * 0"`（毎週月曜 6:00 JST）、それと `workflow_dispatch`
-  - `permissions: contents: write`、`concurrency: { group: collect, cancel-in-progress: false }`、`timeout-minutes: 60`
-  - `env: TZ: Asia/Tokyo`
-  - 手順: checkout → setup-node（24）→ `node --test test/*.test.mjs` → `node scripts/collect-events.mjs` → `node scripts/validate-data.mjs` → `data/` に差分があれば `git add data/` だけをしてコミット（`chore(data): 熱いイベントを自動更新 YYYY-MM-DD`、author は `github-actions[bot]`）して push。差分が無ければ何もしない
-  - どの手順が失敗してもジョブを失敗させる（失敗通知メールで気づけるようにする）
-- [ ] **Step 2: `docs/熱いイベントの自動更新.md` を書く** — いつ動くか／何を取るか（DMM・みんレポと取得間隔。ホールナビを使わない理由）／点数の式（Task 6 の表）／立ち上がり直後は全件が強さ不明になること／失敗したときの見方（Actions の画面・よくある原因: サイトの構造変更、遮断）／手で動かす方法（`gh workflow run collect.yml`）／止め方（ワークフローの無効化）
-- [ ] **Step 3: README と CHANGELOG を更新する** — README は構成表に新ファイル・新データ、閲覧方法に新タブ、更新方法に自動更新を足す。テスト件数を実数に直す。CHANGELOG に日付の節を足す
-- [ ] **Step 4: `.github/workflows/probe.yml` を削除する**（`scripts/probe-sources.mjs` は障害時の切り分け用に残す）
-- [ ] **Step 5: 全テストを通す** — Run: `node --test test/*.test.mjs` / Expected: 全件 PASS
-- [ ] **Step 6: コミット** — `git commit -m "feat: 熱いイベントの自動更新ワークフローを追加"`
-- [ ] **Step 7（コントローラー・マージ後）: `gh workflow run collect.yml` で1回動かし、`chore(data): …` のコミットが main に入り、公開ページ（https://ramdamain-commits.github.io/tokyo-pachi-guide/ ）で熱いイベントタブが出ることを確かめる**
+PowerShell スクリプトの決まり（このPCの環境の制約）:
+- 本文・コメントは英語だけで書く（Windows PowerShell 5.1 は非ASCIIを含む `.ps1` で誤動作する）。日本語の説明は `docs/熱いイベントの自動更新.md` に書く
+- Windows PowerShell 5.1 で動くこと（`&&`・三項演算子・`??` を使わない）
+- `$ErrorActionPreference = "Stop"` のまま外部コマンドを `2>&1` で取り込まない（標準エラーの1行目で止まる）。外部コマンドの呼び出しの間だけ `Continue` にし、終了コードは `$LASTEXITCODE` で見る
+- ログは `Out-File -Encoding utf8 -Append` で書く（`Tee-Object` は使わない）
+- `node.exe` と `git.exe` はフルパスで呼ぶ（`(Get-Command node).Source` で登録時に解決してスクリプトの引数に渡すか、スクリプト内で解決する）
+
+- [ ] **Step 1: `scripts/run-collect.ps1` を書く** — 引数 `-RepoDir`（既定はスクリプトの1つ上のフォルダ）。手順:
+  1. ログファイル `logs/collect-<yyyyMMdd-HHmm>.log` を開く
+  2. `git branch --show-current` が `main` でない、または `git status --porcelain` が空でない（`logs/` は `.gitignore` 済みなので出ない）なら、理由をログに書いて終了コード 2 で終える
+  3. `git pull --ff-only` 。失敗したら終了コード 1
+  4. `node --test test/*.test.mjs` → `node scripts/collect-events.mjs` → `node scripts/validate-data.mjs`。どれかが 0 以外なら、その終了コードで終える（`data/` はスクリプト側が失敗時に書かないので、そのまま）
+  5. `git status --porcelain data` が空なら「変更なし」で終了コード 0
+  6. `git add data` → `git commit -m "chore(data): 熱いイベントを自動更新 <yyyy-MM-dd>"`（メッセージは日本語でよい。`.ps1` の本文に日本語を書かないため、メッセージ文字列は `[char]` の連結ではなく、`scripts/commit-message.txt` を `-F` で渡す形にし、そのファイルの日付部分だけ置換して一時ファイルに書く）→ `git push`。push の失敗は終了コード 1（コミットは残す。次回の push で一緒に上がる）
+  7. 最後に `exit $code` で終了コードを返す
+- [ ] **Step 2: `scripts/commit-message.txt` を作る** — 中身は `chore(data): 熱いイベントを自動更新 {DATE}` の1行（UTF-8）
+- [ ] **Step 3: `scripts/register-collect-task.ps1` を書く** — タスク名 `tokyo-pachi-guide-collect`。トリガーは「毎週月曜 6:00」と「ログオン時（`-User "$env:USERDOMAIN\$env:USERNAME"` 付き）」。毎月1日 9:00 は `New-ScheduledTaskTrigger` に月次が無いので、同じアクションの2つ目のタスク `tokyo-pachi-guide-collect-monthly` を `schtasks.exe /Create /SC MONTHLY /D 1 /ST 09:00` で登録する。設定は `-WakeToRun -StartWhenAvailable -MultipleInstances IgnoreNew -ExecutionTimeLimit (New-TimeSpan -Hours 1)`。アクションは `powershell.exe -NoProfile -ExecutionPolicy Bypass -File <run-collect.ps1の絶対パス>`。登録直後に `Get-ScheduledTask` で2つとも存在を確かめ、無ければ `throw`。既にあれば上書きせず「登録済み」と出して終える（上書きは管理者権限が要ることがある）
+  - ログオン時トリガーは、直前の成功から6日以内なら何もしないで終える判定を `run-collect.ps1` 側に入れる（`data/collect-meta.json` の `lastSuccessAt` を見る。ログオンのたびに収集しないため）。この判定は引数 `-Trigger logon` のときだけ働く。ログオン用のタスクは週次と別に `tokyo-pachi-guide-collect-logon` として登録し、引数 `-Trigger logon` を付ける
+- [ ] **Step 4: `docs/熱いイベントの自動更新.md` を書く** — いつ動くか（週次・月次・ログオン時の取りこぼし分）／何を取るか（DMM・みんレポと取得間隔。ホールナビと Actions を使わない理由）／点数の式（Task 6 の表）／立ち上がり直後は全件が強さ不明になること／PC 側の前提（電源が入っているかスリープ中であること・ログオンしていること・作業用チェックアウトが main で未コミットの変更が無いこと）／失敗したときの見方（`logs/` のログ・`Get-ScheduledTaskInfo` ではなく公開ページの最終更新日で判断する）／手で動かす方法（`Start-ScheduledTask -TaskName tokyo-pachi-guide-collect`）／止め方（`Disable-ScheduledTask`。拒否されたら管理者の PowerShell で）
+- [ ] **Step 5: README と CHANGELOG を更新する** — README は構成表に新ファイル・新データ、閲覧方法に新タブ、更新方法に自動更新を足す。テスト件数を実数に直す。CHANGELOG に日付の節を足す
+- [ ] **Step 6: `.github/workflows/probe.yml` を削除し、`.gitignore` に `logs/` を足す**（`scripts/probe-sources.mjs` は障害時の切り分け用に残す）
+- [ ] **Step 7: 構文を確かめる** — Run: `powershell.exe -NoProfile -Command "$null = [System.Management.Automation.PSParser]::Tokenize((Get-Content -Raw scripts/run-collect.ps1), [ref]$null); 'ok'"`（`register-collect-task.ps1` も同様）/ Expected: `ok`。`.ps1` に非ASCIIが無いことを `grep -nP '[^\x00-\x7F]' scripts/*.ps1` で確かめる（出力なし）
+- [ ] **Step 8: 全テストを通す** — Run: `node --test test/*.test.mjs` / Expected: 全件 PASS
+- [ ] **Step 9: コミット** — `git commit -m "feat: 熱いイベントのPC定期実行を追加"`
+- [ ] **Step 10（コントローラー・マージ後）: ユーザーの了承を得て `scripts/register-collect-task.ps1` を実行し、`Start-ScheduledTask -TaskName tokyo-pachi-guide-collect` で1回動かす。ログと、`chore(data): …` のコミットが main に入ること、公開ページ（https://ramdamain-commits.github.io/tokyo-pachi-guide/ ）で熱いイベントタブが出ることを確かめる**
