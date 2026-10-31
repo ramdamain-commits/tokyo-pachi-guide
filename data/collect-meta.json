@@ -1,0 +1,17 @@
+{
+  "lastSuccessAt": "2026-11-01T01:37:18+09:00",
+  "months": [
+    "2026-11",
+    "2026-12"
+  ],
+  "sources": [
+    "dmm"
+  ],
+  "rates": {
+    "minrepoMatched": null
+  },
+  "counts": {
+    "events": 567,
+    "history": 0
+  }
+}

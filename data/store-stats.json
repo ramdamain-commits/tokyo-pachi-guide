@@ -1,0 +1,1418 @@
+{
+  "updated": "2026-11-01",
+  "stats": {
+    "dmm:721": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:622": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:775": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:276": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:12578": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:74": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:106": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:12142": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:13394": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:13118": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:12283": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:22": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:41": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:885": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:977": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:126": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:12101": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:12670": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:154": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:1018": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:12143": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:353": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:336": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:343": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:598": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:990": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:973": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:970": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:301": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:386": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:728": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:619": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:346": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:905": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:364": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:824": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:13202": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:720": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:786": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:554": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:83": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:12913": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:44": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:569": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:12231": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:770": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:867": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:2": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:332": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:975": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:449": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:13328": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:853": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:196": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:13228": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:13235": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:277": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:426": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:13417": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:13281": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:12550": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:111": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:102": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:266": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:59": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:744": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:532": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:49": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:685": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:210": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:231": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:208": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:201": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:199": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:363": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:829": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:807": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:112": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:494": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:583": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:292": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:265": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:255": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:26": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:12605": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:12322": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:14": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:366": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:176": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:798": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:826": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:790": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:868": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:776": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:57": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:682": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:852": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:968": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:635": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:12310": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:577": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:467": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:12606": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:740": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:169": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:921": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:713": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:12164": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:130": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:13219": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:823": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:13121": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:1020": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:13262": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:398": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:527": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:894": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:456": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:13057": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:994": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:871": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:315": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:316": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:352": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:275": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:145": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:216": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:238": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:249": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:13347": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:648": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:496": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:866": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:12227": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:12545": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:12988": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:602": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:535": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:12383": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:903": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:359": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:560": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:12211": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:175": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:855": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:981": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:1004": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:5": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:879": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:7": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:437": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:13201": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:12459": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:12060": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:12382": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:12565": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:13128": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    }
+  }
+}

@@ -1,0 +1,294 @@
+{
+  "month": "2026-12",
+  "generatedAt": "2026-11-01T01:37:18+09:00",
+  "events": [
+    {
+      "id": "2026-12-01|dmm:622||スロセレ",
+      "date": "2026-12-01",
+      "venue": "dmm:622",
+      "media": null,
+      "title": "スロセレ",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/622",
+          "checkedAt": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-06|dmm:255|スロパチステーション|れんじろう来店実践",
+      "date": "2026-12-06",
+      "venue": "dmm:255",
+      "media": "スロパチステーション",
+      "title": "れんじろう来店実践",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/255",
+          "checkedAt": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-13|dmm:467||通常稼働",
+      "date": "2026-12-13",
+      "venue": "dmm:467",
+      "media": null,
+      "title": "通常稼働",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/467",
+          "checkedAt": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-14|dmm:496||ギブアップ大西",
+      "date": "2026-12-14",
+      "venue": "dmm:496",
+      "media": null,
+      "title": "ギブアップ大西",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/496",
+          "checkedAt": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-16|dmm:583||タレント・ライター",
+      "date": "2026-12-16",
+      "venue": "dmm:583",
+      "media": null,
+      "title": "タレント・ライター",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/583",
+          "checkedAt": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-19|dmm:12606||タレント・ライター",
+      "date": "2026-12-19",
+      "venue": "dmm:12606",
+      "media": null,
+      "title": "タレント・ライター",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/12606",
+          "checkedAt": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-26|dmm:292|スロパチステーション|スロパチステーション来店取材",
+      "date": "2026-12-26",
+      "venue": "dmm:292",
+      "media": "スロパチステーション",
+      "title": "スロパチステーション来店取材",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/292",
+          "checkedAt": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-27|dmm:13128||周年情報",
+      "date": "2026-12-27",
+      "venue": "dmm:13128",
+      "media": null,
+      "title": "周年情報",
+      "anniversary": true,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/13128",
+          "checkedAt": "2026-11-01"
+        }
+      ]
+    }
+  ]
+}
