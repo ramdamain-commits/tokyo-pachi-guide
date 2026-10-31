@@ -20,7 +20,7 @@
 - `validate.mjs` — `data/stores.json` のスキーマ検証（v3フィールド: lottery.type/random/tool・sns・crowd・annual+label）
 - `scripts/` — `validate-data.mjs`（検証CLI。新データも検証）・`migrate-lottery.mjs`（既存店のlottery派生付与）・`collect-events.mjs`（熱いイベントの収集本体）・`probe-sources.mjs`（取得元に届くかの切り分け用）・`run-collect.ps1` / `register-collect-task.ps1` / `commit-message.txt`（PCでの定期実行と登録）
 - `index.html` / `app.js` — ビューワ（近日のイベント/今日/明日/日付指定/エリア別一覧/取材傾向の6タブ。「近日のイベント」が最初に開く）。エリア別一覧の店舗カードに取材実績バッジ・抽選方式バッジ（パチ/スロで異なる場合は両方併記）・SNSリンク・混雑参考を表示、媒体カードに実績店一覧と公式スケジュールリンクを表示
-- `test/` — `node --test test/*.test.mjs` で実行（全297件。match 18・coverage 5・lottery 26・validate 20、熱いイベント関連 collect-events 48・dates 8・dmm 13・hot 44・http 9・merge 4・minrepo 12・rule-text 7・score 11・stats 16・validate-events 37・venues 19）
+- `test/` — `node --test test/*.test.mjs` で実行（全304件。match 18・coverage 5・lottery 26・validate 20、熱いイベント関連 collect-events 54・dates 8・dmm 13・hot 44・http 9・merge 4・minrepo 12・rule-text 7・score 11・stats 16・validate-events 38・venues 19）
 - `docs/取材予定の確認手順.md` — 「今週どこに取材が入るか」を調べる巡回手順とリンク集
 - `docs/示唆・イベントの確認手順.md` — SNS示唆・周年・混雑傾向を確認する手順とリンク集
 - `docs/収集手順_v3.md` — 特定日・抽選・周年・SNS・混雑を1パスで集める収集手順とソース序列

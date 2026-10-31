@@ -232,8 +232,8 @@ test("validateEventsData: sources に minrepo が無いときは、みんレポ�
 const goodReports = () => ({
   updated: "2026-11-01",
   reports: [
-    { reportId: "563472", venue: "dmm:102", date: "2026-11-01", title: "スロセレ", media: null },
-    { reportId: "560028", venue: null, date: "2026-10-25", title: "VEPPAN", media: "媒体" },
+    { reportId: "563472", venue: "dmm:102", addressKey: "台東区上野1-1-1", date: "2026-11-01", title: "スロセレ", media: null },
+    { reportId: "560028", venue: null, addressKey: "新宿区西新宿9-9-9", date: "2026-10-25", title: "VEPPAN", media: "媒体" },
   ],
 });
 
@@ -271,6 +271,12 @@ test("validateEventsData: dmmReports の reportId が空・title が文字列で
   assertOneError(withReports((r) => { r.reports[0].reportId = ""; }), /reportId/);
   assertOneError(withReports((r) => { r.reports[0].title = null; }), /title/);
   assertOneError(withReports((r) => { r.reports = {}; }), /reports/);
+});
+
+test("validateEventsData: dmmReports の addressKey が無い・文字列でないとエラー（空文字は可）", () => {
+  assertOneError(withReports((r) => { delete r.reports[0].addressKey; }), /addressKey/);
+  assertOneError(withReports((r) => { r.reports[0].addressKey = null; }), /addressKey/);
+  assert.deepEqual(withReports((r) => { r.reports[0].addressKey = ""; }).errors, []);
 });
 
 test("validateEventsData: venues の形が壊れているときは dmmReports の venue 参照を検査しない（二重に報告しない）", () => {

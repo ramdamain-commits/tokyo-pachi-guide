@@ -398,20 +398,20 @@ test("reportSummary: 同じ日に2件あるときは reportId の大きい方（
 
 test("dmmReportRow: 「DMM取材実績（直近1年）: N回・直近 YYYY-MM-DD「取材名」」を出す", () => {
   const reports = [rep("1", "dmm:1", "2026-10-01"), rep("2", "dmm:1", "2026-10-20", "スロセレ")];
-  const html = dmmReportRow({ reports, venueKey: "dmm:1", venue: { dmmShopId: "102" }, today: TODAY });
+  const html = dmmReportRow({ reports, venueKey: "dmm:1", today: TODAY });
   assert.ok(html.includes("DMM取材実績（直近1年）: 2回・直近 2026-10-20「スロセレ」"), html);
 });
 
 test("dmmReportRow: 0回なら「なし」。reports が読めない（null）ときは行を出さない", () => {
-  const html = dmmReportRow({ reports: [], venueKey: "dmm:1", venue: {}, today: TODAY });
+  const html = dmmReportRow({ reports: [], venueKey: "dmm:1", today: TODAY });
   assert.ok(html.includes("DMM取材実績（直近1年）: なし"), html);
   assert.ok(!html.includes("0回"));
-  assert.equal(dmmReportRow({ reports: null, venueKey: "dmm:1", venue: { dmmShopId: "102" }, today: TODAY }), "");
-  assert.equal(dmmReportRow({ reports: undefined, venueKey: "dmm:1", venue: {}, today: TODAY }), "");
+  assert.equal(dmmReportRow({ reports: null, venueKey: "dmm:1", today: TODAY }), "");
+  assert.equal(dmmReportRow({ reports: undefined, venueKey: "dmm:1", today: TODAY }), "");
 });
 
 test("dmmReportRow: 取材名はエスケープする", () => {
-  const html = dmmReportRow({ reports: [rep("1", "dmm:1", "2026-10-20", "<b>x</b>")], venueKey: "dmm:1", venue: {}, today: TODAY });
+  const html = dmmReportRow({ reports: [rep("1", "dmm:1", "2026-10-20", "<b>x</b>")], venueKey: "dmm:1", today: TODAY });
   assert.ok(html.includes("&lt;b&gt;x&lt;/b&gt;"));
   assert.ok(!html.includes("<b>"));
 });

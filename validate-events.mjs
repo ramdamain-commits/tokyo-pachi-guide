@@ -87,7 +87,7 @@ function checkEvent(e, label, month, venues, errors) {
 
 /**
  * dmm-reports.json（DMM 取材実績。参考表示用）を検証する。
- * reportId の重複・実施日の形式と実在・venue が null か venues のキーか、を見る。
+ * reportId の重複・実施日の形式と実在・addressKey（正規化した住所。venue の付け直しに使う）が文字列か・venue が null か venues のキーか、を見る。
  * venueMap が null のときは venue の参照検査を飛ばす（形の誤りは別に報告済み）。
  * @param {unknown} file dmm-reports.json の中身（{ updated, reports }）
  * @param {Record<string, unknown>|null} venueMap venues.json の `venues`
@@ -117,6 +117,7 @@ export function validateDmmReports(file, venueMap) {
     }
     if (!isRealDate(r.date)) errors.push(`${label}: 日付が YYYY-MM-DD の実在日でない "${r.date}"`);
     if (typeof r.title !== "string" || r.title === "") errors.push(`${label}: title が空、または文字列でない`);
+    if (typeof r.addressKey !== "string") errors.push(`${label}: addressKey が文字列でない`);
     if (r.media != null && typeof r.media !== "string") errors.push(`${label}: media が null か文字列でない`);
     if (r.venue !== null && (typeof r.venue !== "string" || (venueMap && !Object.hasOwn(venueMap, r.venue)))) {
       errors.push(`${label}: venue "${r.venue}" が null でも venues のキーでもない`);

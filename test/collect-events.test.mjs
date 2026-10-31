@@ -903,7 +903,7 @@ const reportUrlsOf = (env) => env.urls.filter((u) => u.includes("/shop_reports")
 
 /** 前回の dmm-reports.json */
 const prevReportsFile = (reports) => ({ updated: "2026-11-01", reports });
-const prevReport = (reportId, date, venue = "dmm:1", title = "前回の取材") => ({ reportId, venue, date, title, media: null });
+const prevReport = (reportId, date, venue = "dmm:1", title = "前回の取材", addressKey = "台東区上野1-1-1") => ({ reportId, venue, addressKey, date, title, media: null });
 
 test("runCollect(取材実績): 初回は365日前より古い実施日が出たページで止まり、境界（365日前ちょうど）は残す", async () => {
   // TODAY=2026-11-05 の365日前は 2025-11-05。2ページ目の最も古い日がちょうど境界（止まらない）、3ページ目で境界より古くなって止まる
@@ -1008,7 +1008,7 @@ test("runCollect(取材実績): 365日より古いものは前回のファイル
   assert.deepEqual(env.written("dmm-reports.json").reports.map((x) => x.reportId).sort(), ["2", "3"]);
 });
 
-test("runCollect(取材実績): 住所の正規化一致で venue が付き、付かなければ null。venues は増やさない・店名と住所は保存しない", async () => {
+test("runCollect(取材実績): 住所の正規化一致で venue が付き、付かなければ null。venues は増やさない・店名は保存せず住所は正規化したキーだけ", async () => {
   const env = makeEnv({
     pages: reportsEnvPages({
       [reportsUrl(1)]: reportsPage([
@@ -1025,8 +1025,10 @@ test("runCollect(取材実績): 住所の正規化一致で venue が付き、�
   assert.equal(byId["2"].venue, "dmm:2");
   assert.equal(byId["3"].venue, null);
   assert.deepEqual(Object.keys(env.written("venues.json").venues).sort(), ["dmm:1", "dmm:2"], "予定に出ない店は venues に足さない");
-  assert.deepEqual(Object.keys(byId["1"]).sort(), ["date", "media", "reportId", "title", "venue"], "店名・住所は保存しない");
-  assert.deepEqual(byId["1"], { reportId: "1", venue: "dmm:1", date: "2026-11-01", title: "取材", media: null });
+  assert.deepEqual(Object.keys(byId["1"]).sort(), ["addressKey", "date", "media", "reportId", "title", "venue"], "店名は保存しない");
+  assert.deepEqual(byId["1"], { reportId: "1", venue: "dmm:1", addressKey: "台東区上野1-1-1", date: "2026-11-01", title: "取材", media: null });
+  assert.equal(byId["2"].addressKey, "台東区上野2-1-1", "建物名を落として正規化した住所");
+  assert.equal(byId["3"].addressKey, "新宿区西新宿9-9-9");
 });
 
 test("runCollect(取材実績): 同じ住所に店が複数あるときは店名の一致で選び、決まらなければ null", async () => {
@@ -1062,5 +1064,99 @@ test("runCollect(取材実績): 予定の取得に失敗した回は取材実績
   const env = makeEnv({ pages: { [DMM1]: new FetchError(DMM1, 503), [reportsUrl(1)]: reportsPage([rpt(1, "2026-11-01")]) } });
   const r = await runR(env);
   assert.equal(r.ok, false);
+  assert.deepEqual(env.writes, []);
+});
+
+// ---- 取材実績の安全策（壊れたファイル・想定外の例外・付け直し・404 の扱い・実行順） ----
+
+test("runCollect(取材実績): dmm-reports.json が読めなくても（壊れている）ok:true で予定データは書き、取材実績は書かず初回の取得もしない", async () => {
+  const env = makeEnv({ pages: reportsEnvPages({ [reportsUrl(1)]: reportsPage([rpt(1, "2026-11-01")]) }) });
+  const base = env.readJson;
+  env.readJson = async (rel) => {
+    if (rel === "dmm-reports.json") throw new SyntaxError("Unexpected token");
+    return base(rel);
+  };
+  const r = await runR(env);
+  assert.equal(r.ok, true, r.reasons.join(" / "));
+  assert.ok(env.written("collect-meta.json"));
+  assert.ok(env.written("events/2026-11.json").events.length > 0);
+  assert.equal(env.written("dmm-reports.json"), undefined);
+  assert.deepEqual(reportUrlsOf(env), [], "壊れたファイルを初回扱い（100ページ取得）にしない");
+  assert.ok(env.logs.some((m) => m.includes("dmm-reports") && m.includes("前回のまま")), env.logs.join("\n"));
+});
+
+test("runCollect(取材実績): reports が配列でない形のファイルも壊れた扱いで、初回の取得をしない", async () => {
+  const env = makeEnv({
+    files: { "dmm-reports.json": { updated: "2026-11-01", reports: {} } },
+    pages: reportsEnvPages({ [reportsUrl(1)]: reportsPage([rpt(1, "2026-11-01")]) }),
+  });
+  const r = await runR(env);
+  assert.equal(r.ok, true, r.reasons.join(" / "));
+  assert.equal(env.written("dmm-reports.json"), undefined);
+  assert.deepEqual(reportUrlsOf(env), []);
+});
+
+test("runCollect(取材実績): 収集中に想定外の例外（FetchError 以外）が出ても ok:true で、取材実績だけ書かない", async () => {
+  const env = makeEnv({ pages: reportsEnvPages({ [reportsUrl(1)]: new TypeError("boom") }) });
+  const r = await runR(env);
+  assert.equal(r.ok, true, r.reasons.join(" / "));
+  assert.ok(env.written("collect-meta.json"));
+  assert.equal(env.written("dmm-reports.json"), undefined);
+  assert.ok(env.logs.some((m) => m.includes("想定外") && m.includes("boom")), env.logs.join("\n"));
+});
+
+test("runCollect(取材実績): 前回 venue が null だったレポートは、その店が venues に入った回で venue が付く（同じ住所に複数の店があれば付かないまま）", async () => {
+  const sameAddr = "東京都台東区上野7-7-7";
+  const v3 = { ...VENUE1, name: "丙店", address: sameAddr, dmmShopId: "3", minrepoTag: null };
+  const v4 = { ...VENUE1, name: "丁店", address: sameAddr, dmmShopId: "4", minrepoTag: null };
+  const files = {
+    "venues.json": { updated: "2026-10-20", venues: { "dmm:3": v3, "dmm:4": v4 } },
+    "dmm-reports.json": prevReportsFile([
+      prevReport("1", "2026-10-30", null, "付け直す", "台東区上野1-1-1"), // 今回の予定で dmm:1 が venues に入る
+      prevReport("2", "2026-10-29", null, "どの店にも付かない", "新宿区西新宿9-9-9"),
+      prevReport("3", "2026-10-28", null, "同じ住所に2店", "台東区上野7-7-7"),
+      prevReport("4", "2026-10-27", "dmm:2", "付いているものは変えない", "台東区上野2-1-1"),
+      prevReport("5", "2026-10-26", "dmm:2", "1ページ目の既知", "台東区上野2-1-1"),
+    ]),
+  };
+  // 1ページ目は既知（5）だけで止まる。1〜3 は取得し直さないので、付け直しの経路だけで venue が付く
+  const env = makeEnv({
+    files,
+    pages: reportsEnvPages({ [reportsUrl(1)]: reportsPage([rpt(5, "2026-10-26", 2)]) }),
+  });
+  const r = await runR(env);
+  assert.equal(r.ok, true, r.reasons.join(" / "));
+  const byId = Object.fromEntries(env.written("dmm-reports.json").reports.map((x) => [x.reportId, x.venue]));
+  assert.deepEqual(byId, { 1: "dmm:1", 2: null, 3: null, 4: "dmm:2", 5: "dmm:2" });
+});
+
+test("runCollect(取材実績): ページ送りで存在が分かっているページの 404 は前回のまま。最終ページを過ぎた 404 だけを終端にする", async () => {
+  // 1ページ目が「次は2ページ」と示しているのに 2 ページ目が 404（一時的な遮断の可能性）
+  const files = { "dmm-reports.json": prevReportsFile([prevReport("100", "2026-10-30")]) };
+  const blocked = makeEnv({ files, pages: reportsEnvPages({ [reportsUrl(1)]: reportsPage([rpt(900, "2026-11-04")], 3) }) });
+  const r1 = await runR(blocked);
+  assert.equal(r1.ok, true, r1.reasons.join(" / "));
+  assert.equal(blocked.written("dmm-reports.json"), undefined, "途中で保存しない");
+  assert.ok(blocked.logs.some((m) => m.includes("来店レポート") && m.includes("404")), blocked.logs.join("\n"));
+
+  // ページ送りが無い（lastPage 不明）とき、2ページ目の 404 は終端
+  const ended = makeEnv({ files, pages: reportsEnvPages({ [reportsUrl(1)]: reportsPage([rpt(900, "2026-11-04")]) }) });
+  const r2 = await runR(ended);
+  assert.equal(r2.ok, true, r2.reasons.join(" / "));
+  assert.deepEqual(ended.written("dmm-reports.json").reports.map((x) => x.reportId).sort(), ["100", "900"]);
+});
+
+test("runCollect(取材実績): 全体が失敗する回は来店レポートを1ページも取らない", async () => {
+  const files = {
+    "collect-meta.json": { lastSuccessAt: "2026-11-01T09:00:00+09:00", months: [], rates: { minrepoMatched: 0.9 }, counts: { events: 2, history: 0 } },
+  };
+  const items = [shop(1, "テスト店1", "2026-11-07"), shop(2, "テスト店2", "2026-11-07")];
+  const env = makeEnv({
+    files,
+    pages: { [DMM1]: dmmPage(items), [minrepoCategoryUrl(1)]: categoryPage([]), [reportsUrl(1)]: reportsPage([rpt(1, "2026-11-01")]) },
+  });
+  const r = await run(env, { useMinrepo: true }); // みんレポ対応率の急落で失敗
+  assert.equal(r.ok, false);
+  assert.deepEqual(reportUrlsOf(env), []);
   assert.deepEqual(env.writes, []);
 });

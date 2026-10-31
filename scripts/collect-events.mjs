@@ -89,19 +89,37 @@ function endOfNextMonth(today) {
 }
 
 /**
- * 来店レポートの店を venues のキーに対応付ける。正規化した住所の一致で引き、同じ住所に店が複数あるときは
- * 正規化した店名の完全一致が1件だけならそれを採る。決まらなければ null（venues は増やさない）。
- * @param {{ shopName: string, address: string }} report
+ * 正規化した住所 → その住所の店（venues のキーと店）の索引。取材実績の venue の対応付けに使う。
  * @param {Record<string, { name?: string, address?: string }>} venues
+ * @returns {Map<string, Array<[string, { name?: string }]>>}
+ */
+function buildAddressIndex(venues) {
+  const index = new Map();
+  for (const [key, v] of Object.entries(venues)) {
+    const addr = normalizeAddress(v.address);
+    if (!addr) continue;
+    const list = index.get(addr) ?? [];
+    list.push([key, v]);
+    index.set(addr, list);
+  }
+  return index;
+}
+
+/**
+ * 来店レポートの店を venues のキーに対応付ける。正規化した住所（addressKey。建物名は落として比べる）の一致で引き、
+ * 同じ住所に店が複数あるときは正規化した店名の完全一致が1件だけならそれを採る（shopName が無ければ決められない）。
+ * 決まらなければ null（venues は増やさない）。
+ * @param {string} addressKey normalizeAddress の結果
+ * @param {string | null} shopName
+ * @param {Map<string, Array<[string, { name?: string }]>>} index buildAddressIndex の結果
  * @returns {string | null}
  */
-function matchReportVenue(report, venues) {
-  const addr = normalizeAddress(report.address);
-  if (!addr) return null;
-  const sameAddress = Object.entries(venues).filter(([, v]) => normalizeAddress(v.address) === addr);
+function matchReportVenue(addressKey, shopName, index) {
+  if (!addressKey) return null;
+  const sameAddress = index.get(addressKey) ?? [];
   if (sameAddress.length === 1) return sameAddress[0][0];
-  if (sameAddress.length === 0) return null;
-  const n = normalizeName(report.shopName);
+  if (sameAddress.length === 0 || shopName == null) return null;
+  const n = normalizeName(shopName);
   const byName = sameAddress.filter(([, v]) => n !== "" && normalizeName(v.name) === n);
   return byName.length === 1 ? byName[0][0] : null;
 }
@@ -110,8 +128,10 @@ function matchReportVenue(report, venues) {
  * DMM 来店レポート一覧（東京都）から取材実績を集める（参考表示用。失敗しても収集全体は失敗にしない）。
  * - 初回（前回のファイルが無い）: 1ページ目から順に取り、そのページの最も古い実施日が基準日の365日前より古くなったら止める（上限 MAX_REPORT_PAGES_INITIAL）
  * - 2回目以降: 1ページ目から取り、既知の reportId だけのページに当たったら止める（上限 MAX_REPORT_PAGES_UPDATE）
- * - 取得に失敗したページがあれば、そこまでの分も反映せず null を返す（前回のまま。途中までの反映は、次回の差分取得で取り残しを作る）
- * - 365日より古いものは前回の分も含めて捨てる
+ * - 取得に失敗したページがあれば、そこまでの分も反映せず null を返す（前回のまま。途中までの反映は、次回の差分取得で取り残しを作る）。
+ *   ページ送りで存在が分かっているページ（lastPage 以下）の 404/410 も一時的な遮断の可能性があるので失敗として扱い、最終ページを過ぎた 404/410 だけを終端とする
+ * - 前回のファイルが壊れている（reports が配列でない）ときは初回扱いにせず null を返す
+ * - 365日より古いものは前回の分も含めて捨てる。venue が null のものは今の venues で付け直す（addressKey で引く）
  * @param {object} args
  * @param {(url: string) => Promise<{ status: number, text: string }>} args.get
  * @param {string} args.today
@@ -122,13 +142,19 @@ function matchReportVenue(report, venues) {
  */
 async function collectDmmReports({ get, today, prevFile, venues, log }) {
   const cutoff = addDaysStr(today, -DMM_REPORT_KEEP_DAYS);
-  const prevReports = Array.isArray(prevFile?.reports) ? prevFile.reports : null;
+  if (prevFile != null && !Array.isArray(prevFile.reports)) {
+    log("dmm-reports.json の形が不正（reports が配列でない）ため、取材実績は前回のまま");
+    return null;
+  }
+  const prevReports = prevFile == null ? null : prevFile.reports;
   const initial = prevReports === null;
   const maxPages = initial ? MAX_REPORT_PAGES_INITIAL : MAX_REPORT_PAGES_UPDATE;
   const known = new Set((prevReports ?? []).map((r) => r.reportId));
+  const addressIndex = buildAddressIndex(venues);
 
   /** @type {Map<string, object>} */
   const fetched = new Map();
+  let lastPage = null;
   for (let page = 1; page <= maxPages; page++) {
     let res;
     try {
@@ -139,8 +165,9 @@ async function collectDmmReports({ get, today, prevFile, venues, log }) {
       return null;
     }
     if (res.status === 404 || res.status === 410) {
-      if (page > 1) break; // 最終ページを過ぎた
-      log(`DMM 来店レポート 1 ページ目が HTTP ${res.status}（取材実績は前回のまま）`);
+      // 最終ページを過ぎた 404/410 だけが終端。存在するはずのページの 404 は遮断の可能性があるので前回のまま
+      if (page > 1 && (lastPage === null || page > lastPage)) break;
+      log(`DMM 来店レポート ${page} ページ目が HTTP ${res.status}（取材実績は前回のまま）`);
       return null;
     }
     if (res.status !== 200) {
@@ -155,11 +182,14 @@ async function collectDmmReports({ get, today, prevFile, venues, log }) {
       }
       break;
     }
+    if (parsed.lastPage !== null && (lastPage === null || parsed.lastPage > lastPage)) lastPage = parsed.lastPage;
     for (const r of parsed.reports) {
       if (fetched.has(r.reportId)) continue;
+      const addressKey = normalizeAddress(r.address);
       fetched.set(r.reportId, {
         reportId: r.reportId,
-        venue: matchReportVenue(r, venues),
+        venue: matchReportVenue(addressKey, r.shopName, addressIndex),
+        addressKey,
         date: r.date,
         title: r.title,
         media: r.media,
@@ -168,18 +198,53 @@ async function collectDmmReports({ get, today, prevFile, venues, log }) {
     const oldest = parsed.reports.map((r) => r.date).sort()[0];
     if (initial && oldest < cutoff) break;
     if (!initial && parsed.reports.every((r) => known.has(r.reportId))) break;
-    if (parsed.lastPage !== null && page >= parsed.lastPage) break;
+    if (lastPage !== null && page >= lastPage) break;
     if (page === maxPages) log(`DMM 来店レポート: ${maxPages} ページで打ち切り（${initial ? "初回" : "差分"}）`);
   }
 
+  // 前回の分: 古いものを捨て、venue が null のものは今の venues で付け直す（店名は保存していないので、同じ住所に複数の店があれば付かないまま）
   /** @type {Map<string, object>} */
-  const merged = new Map((prevReports ?? []).map((r) => [r.reportId, r]));
+  const merged = new Map();
+  let reattached = 0;
+  for (const r of prevReports ?? []) {
+    const addressKey = typeof r.addressKey === "string" ? r.addressKey : "";
+    let venue = r.venue ?? null;
+    if (venue === null) {
+      venue = matchReportVenue(addressKey, null, addressIndex);
+      if (venue !== null) reattached++;
+    }
+    merged.set(r.reportId, { ...r, venue, addressKey });
+  }
   for (const [id, r] of fetched) merged.set(id, r);
   const reports = [...merged.values()]
     .filter((r) => r.date >= cutoff)
     .sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : Number(b.reportId) - Number(a.reportId)));
-  log(`DMM 来店レポート: 取得 ${fetched.size}件 / 保存 ${reports.length}件（${initial ? "初回" : "差分"}）`);
+  log(`DMM 来店レポート: 取得 ${fetched.size}件 / 保存 ${reports.length}件 / venue 付け直し ${reattached}件（${initial ? "初回" : "差分"}）`);
   return { updated: today, reports };
+}
+
+/**
+ * 取材実績の収集・検証を、何が起きても収集全体を止めない形で行う。
+ * 前回のファイルが読めない（壊れている）・想定外の例外・検証エラーのときは、ログに1行出して null（書かない＝前回のまま）。
+ * 壊れたファイルを「無い」扱いにして初回の取得（最大100ページ）をやり直すことはしない。
+ * @returns {Promise<{ updated: string, reports: object[] } | null>}
+ */
+async function collectDmmReportsSafely({ get, today, readJson, venues, log }) {
+  try {
+    const prevFile = await readJson("dmm-reports.json");
+    const file = await collectDmmReports({ get, today, prevFile, venues, log });
+    if (!file) return null;
+    // 取材実績の検証エラーは全体を失敗にしない（書かずに前回のまま）
+    const reportErrors = validateDmmReports(file, venues);
+    if (reportErrors.length > 0) {
+      log(`警告: dmm-reports.json の検証エラー ${reportErrors.length}件のため書かない（前回のまま）: ${reportErrors.slice(0, 3).join(" / ")}`);
+      return null;
+    }
+    return file;
+  } catch (e) {
+    log(`警告: 取材実績（dmm-reports.json）の収集で想定外のエラー。前回のまま: ${e?.message ?? e}`);
+    return null;
+  }
 }
 
 /**
@@ -276,15 +341,6 @@ export async function runCollect({ fetcher, today = jstToday(), now = new Date()
   }
   const { venues } = buildVenues({ dmmEvents, minrepoTags, stores, previous: prevVenues });
   counts.venues = Object.keys(venues).length;
-
-  // 3a. DMM 来店レポート（取材実績。参考表示用なので、取れなくても全体は失敗にしない）
-  let dmmReports = await collectDmmReports({
-    get,
-    today,
-    prevFile: await readJson("dmm-reports.json"),
-    venues,
-    log,
-  });
   // buildVenues は今回の店を作り直すので、直接引きの確認日（minrepoCheckedAt）は前回から引き継ぐ
   for (const key of Object.keys(venues)) venues[key].minrepoCheckedAt = prevVenues[key]?.minrepoCheckedAt ?? null;
 
@@ -498,15 +554,6 @@ export async function runCollect({ fetcher, today = jstToday(), now = new Date()
   const { errors, warnings } = validateEventsData({ venues, storeStats: stats, months: monthFiles, meta: { sources } });
   warnings.forEach((w) => log(`警告: ${w}`));
 
-  // 取材実績の検証エラーは全体を失敗にしない（書かずに前回のまま）
-  if (dmmReports) {
-    const reportErrors = validateDmmReports(dmmReports, venues);
-    if (reportErrors.length > 0) {
-      log(`警告: dmm-reports.json の検証エラー ${reportErrors.length}件のため書かない（前回のまま）: ${reportErrors.slice(0, 3).join(" / ")}`);
-      dmmReports = null;
-    }
-  }
-
   // 10. 失敗の判定
   const reasons = [];
   if (errors.length > 0) {
@@ -517,6 +564,10 @@ export async function runCollect({ fetcher, today = jstToday(), now = new Date()
     reasons.push(`みんレポ対応率が前回 ${prevRate} から ${rate} に ${RATE_DROP_LIMIT} 以上下がった`);
   }
   if (reasons.length > 0) return fail(...reasons);
+
+  // 10b. DMM 来店レポート（取材実績。参考表示用なので、取れなくても・壊れていても全体は失敗にしない）。
+  //      全体が失敗する回に最大100ページを無駄に取らないよう、失敗の判定のあと・書き出しの直前に行う
+  const dmmReports = await collectDmmReportsSafely({ get, today, readJson, venues, log });
 
   // 11. 書き出し（collect-meta は最後。これが新しければ全ファイルがそろっている）
   await writeJson("venues.json", { updated: today, venues });
