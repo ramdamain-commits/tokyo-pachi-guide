@@ -226,3 +226,55 @@ test("validateEventsData: sources に minrepo が無いときは、みんレポ�
   assert.deepEqual(validateEventsData({ ...input, meta: { sources: ["dmm"] } }).warnings, []);
   assert.equal(validateEventsData({ ...input, meta: { sources: ["dmm", "minrepo"] } }).warnings.length, 1);
 });
+
+// ---- dmm-reports.json（取材実績。無ければ検証を飛ばす） ----
+
+const goodReports = () => ({
+  updated: "2026-11-01",
+  reports: [
+    { reportId: "563472", venue: "dmm:102", date: "2026-11-01", title: "スロセレ", media: null },
+    { reportId: "560028", venue: null, date: "2026-10-25", title: "VEPPAN", media: "媒体" },
+  ],
+});
+
+function withReports(mutate) {
+  const input = minimal();
+  const dmmReports = goodReports();
+  mutate(dmmReports, input);
+  return validateEventsData({ ...input, dmmReports });
+}
+
+test("validateEventsData: dmmReports が無ければ飛ばす（null・省略どちらもエラー0）", () => {
+  assert.deepEqual(validateEventsData({ ...minimal(), dmmReports: null }).errors, []);
+  assert.deepEqual(validateEventsData(minimal()).errors, []);
+});
+
+test("validateEventsData: 正しい dmmReports（venue は venues のキーか null）はエラー0", () => {
+  assert.deepEqual(validateEventsData({ ...minimal(), dmmReports: goodReports() }).errors, []);
+});
+
+test("validateEventsData: dmmReports の reportId 重複はエラー", () => {
+  assertOneError(withReports((r) => { r.reports[1].reportId = "563472"; }), /reportId.*重複/);
+});
+
+test("validateEventsData: dmmReports の日付形式違い・実在しない日付はエラー", () => {
+  assertOneError(withReports((r) => { r.reports[0].date = "2026-11-1"; }), /日付/);
+  assertOneError(withReports((r) => { r.reports[0].date = "2026-11-31"; }), /日付/);
+});
+
+test("validateEventsData: dmmReports の venue が venues に無いキーだとエラー（null は正常）", () => {
+  assertOneError(withReports((r) => { r.reports[0].venue = "dmm:999"; }), /venue/);
+  assert.deepEqual(withReports((r) => { r.reports[0].venue = null; }).errors, []);
+});
+
+test("validateEventsData: dmmReports の reportId が空・title が文字列でないとエラー、reports が配列でないとエラー", () => {
+  assertOneError(withReports((r) => { r.reports[0].reportId = ""; }), /reportId/);
+  assertOneError(withReports((r) => { r.reports[0].title = null; }), /title/);
+  assertOneError(withReports((r) => { r.reports = {}; }), /reports/);
+});
+
+test("validateEventsData: venues の形が壊れているときは dmmReports の venue 参照を検査しない（二重に報告しない）", () => {
+  const input = minimal();
+  const r = validateEventsData({ ...input, venues: null, dmmReports: goodReports() });
+  assert.ok(r.errors.every((e) => !/dmm-reports/.test(e)), r.errors.join(" / "));
+});

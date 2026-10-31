@@ -86,18 +86,59 @@ function checkEvent(e, label, month, venues, errors) {
 }
 
 /**
+ * dmm-reports.json（DMM 取材実績。参考表示用）を検証する。
+ * reportId の重複・実施日の形式と実在・venue が null か venues のキーか、を見る。
+ * venueMap が null のときは venue の参照検査を飛ばす（形の誤りは別に報告済み）。
+ * @param {unknown} file dmm-reports.json の中身（{ updated, reports }）
+ * @param {Record<string, unknown>|null} venueMap venues.json の `venues`
+ * @returns {string[]} エラーの一覧
+ */
+export function validateDmmReports(file, venueMap) {
+  const errors = [];
+  if (!isPlainObject(file) || !Array.isArray(file.reports)) {
+    return ["dmm-reports: reports が配列でない"];
+  }
+  if (file.updated !== undefined && !isRealDate(file.updated)) {
+    errors.push(`dmm-reports: updated が YYYY-MM-DD の実在日でない "${file.updated}"`);
+  }
+  const seen = new Set();
+  file.reports.forEach((r, i) => {
+    const label = `dmm-reports[${i}] ${r?.reportId ?? "(reportIdなし)"}`;
+    if (!isPlainObject(r)) {
+      errors.push(`${label}: レポートがオブジェクトでない`);
+      return;
+    }
+    if (typeof r.reportId !== "string" || r.reportId === "") {
+      errors.push(`${label}: reportId が空、または文字列でない`);
+    } else if (seen.has(r.reportId)) {
+      errors.push(`${label}: reportId 重複`);
+    } else {
+      seen.add(r.reportId);
+    }
+    if (!isRealDate(r.date)) errors.push(`${label}: 日付が YYYY-MM-DD の実在日でない "${r.date}"`);
+    if (typeof r.title !== "string" || r.title === "") errors.push(`${label}: title が空、または文字列でない`);
+    if (r.media != null && typeof r.media !== "string") errors.push(`${label}: media が null か文字列でない`);
+    if (r.venue !== null && (typeof r.venue !== "string" || (venueMap && !Object.hasOwn(venueMap, r.venue)))) {
+      errors.push(`${label}: venue "${r.venue}" が null でも venues のキーでもない`);
+    }
+  });
+  return errors;
+}
+
+/**
  * 収集結果を検証する。
  * @param {object} data
  * @param {object} data.venues venues.json の `venues`（店キー → 店。ファイル全体ではなく中身）
  * @param {object} data.mediaStrength media-strength.json（現状は形式の追加検証なし）
  * @param {object} data.storeStats store-stats.json の `stats`（店キー → 統計。中身）
  * @param {Record<string, {month: string, events: object[]}>} data.months 月ファイル（キーは YYYY-MM）
+ * @param {object|null} [data.dmmReports] dmm-reports.json（任意。無い・null なら飛ばす）。
  * @param {{sources?: string[], rates?: {minrepoMatched?: number|null}}} [data.meta] collect-meta.json（任意）。
  *   sources があれば dmm / minrepo の文字列配列、rates.minrepoMatched は null か 0〜1 の数。
  *   sources に minrepo が無いとき（みんレポを取っていない回）は「みんレポ未対応の店が多い」警告を出さない。
  * @returns {{errors: string[], warnings: string[]}}
  */
-export function validateEventsData({ venues, storeStats, months, meta }) {
+export function validateEventsData({ venues, storeStats, months, meta, dmmReports }) {
   const errors = [];
   const warnings = [];
   // 形が違うと以降の検査が空回りして素通りするので、先に形を固定する
@@ -167,6 +208,8 @@ export function validateEventsData({ venues, storeStats, months, meta }) {
       checkEvent(e, label, month, venueMap, errors);
     });
   }
+
+  if (dmmReports != null) errors.push(...validateDmmReports(dmmReports, venueMap));
 
   return { errors, warnings };
 }

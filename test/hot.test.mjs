@@ -13,6 +13,10 @@ import {
   minrepoLink,
   minrepoTagUrl,
   usesMinrepo,
+  reportSummary,
+  dmmReportRow,
+  dmmReportsLinkUrl,
+  dmmReportLinkHtml,
 } from "../hot.mjs";
 
 const TODAY = "2026-11-01";
@@ -358,4 +362,73 @@ test("selectUpcomingEvents: 同日で予定数も同じなら店名順（店キ�
   const v = { "dmm:1": { name: "ゼット店", area: "上野" }, "dmm:2": { name: "あ店", area: "上野" } };
   const events = [ev("z", "2026-11-02", "unrated", 0, "dmm:1"), ev("a", "2026-11-02", "unrated", 0, "dmm:2")];
   assert.deepEqual(ids(selectUpcomingEvents(events, { today: TODAY, venues: v })), ["a", "z"]);
+});
+
+// ---- DMM 取材実績（参考表示） ----
+
+const rep = (reportId, venue, date, title = "取材") => ({ reportId, venue, date, title, media: null });
+
+test("reportSummary: 直近365日・店が一致するものを数え、いちばん新しい取材を last にする", () => {
+  const reports = [
+    rep("1", "dmm:1", "2026-10-01", "古い方"),
+    rep("2", "dmm:1", "2026-10-20", "新しい方"),
+    rep("3", "dmm:2", "2026-10-25", "他店"),
+    rep("4", "dmm:1", null, "日付なし"),
+  ];
+  assert.deepEqual(reportSummary(reports, "dmm:1", TODAY), { count: 2, last: { date: "2026-10-20", title: "新しい方" } });
+});
+
+test("reportSummary: 365日前の当日は数え、366日前は数えない（今日の分は数える・未来は数えない）", () => {
+  // TODAY=2026-11-01 の365日前は 2025-11-01
+  assert.equal(reportSummary([rep("1", "dmm:1", "2025-11-01")], "dmm:1", TODAY).count, 1);
+  assert.equal(reportSummary([rep("1", "dmm:1", "2025-10-31")], "dmm:1", TODAY).count, 0);
+  assert.equal(reportSummary([rep("1", "dmm:1", "2026-11-01")], "dmm:1", TODAY).count, 1);
+  assert.equal(reportSummary([rep("1", "dmm:1", "2026-11-02")], "dmm:1", TODAY).count, 0);
+});
+
+test("reportSummary: 該当が無ければ count 0・last null。reports が配列でなくても落ちない", () => {
+  assert.deepEqual(reportSummary([rep("1", "dmm:2", "2026-10-01")], "dmm:1", TODAY), { count: 0, last: null });
+  assert.deepEqual(reportSummary(undefined, "dmm:1", TODAY), { count: 0, last: null });
+});
+
+test("reportSummary: 同じ日に2件あるときは reportId の大きい方（後から載った方）を last にする", () => {
+  const reports = [rep("10", "dmm:1", "2026-10-20", "A"), rep("20", "dmm:1", "2026-10-20", "B")];
+  assert.equal(reportSummary(reports, "dmm:1", TODAY).last.title, "B");
+});
+
+test("dmmReportRow: 「DMM取材実績（直近1年）: N回・直近 YYYY-MM-DD「取材名」」を出す", () => {
+  const reports = [rep("1", "dmm:1", "2026-10-01"), rep("2", "dmm:1", "2026-10-20", "スロセレ")];
+  const html = dmmReportRow({ reports, venueKey: "dmm:1", venue: { dmmShopId: "102" }, today: TODAY });
+  assert.ok(html.includes("DMM取材実績（直近1年）: 2回・直近 2026-10-20「スロセレ」"), html);
+});
+
+test("dmmReportRow: 0回なら「なし」。reports が読めない（null）ときは行を出さない", () => {
+  const html = dmmReportRow({ reports: [], venueKey: "dmm:1", venue: {}, today: TODAY });
+  assert.ok(html.includes("DMM取材実績（直近1年）: なし"), html);
+  assert.ok(!html.includes("0回"));
+  assert.equal(dmmReportRow({ reports: null, venueKey: "dmm:1", venue: { dmmShopId: "102" }, today: TODAY }), "");
+  assert.equal(dmmReportRow({ reports: undefined, venueKey: "dmm:1", venue: {}, today: TODAY }), "");
+});
+
+test("dmmReportRow: 取材名はエスケープする", () => {
+  const html = dmmReportRow({ reports: [rep("1", "dmm:1", "2026-10-20", "<b>x</b>")], venueKey: "dmm:1", venue: {}, today: TODAY });
+  assert.ok(html.includes("&lt;b&gt;x&lt;/b&gt;"));
+  assert.ok(!html.includes("<b>"));
+});
+
+test("dmmReportsLinkUrl: dmmShopId が数字だけのときだけ /shops/tokyo/<id>/reports を返す", () => {
+  assert.equal(dmmReportsLinkUrl({ dmmShopId: "102" }), "https://p-town.dmm.com/shops/tokyo/102/reports");
+  assert.equal(dmmReportsLinkUrl({ dmmShopId: "10a" }), null);
+  assert.equal(dmmReportsLinkUrl({ dmmShopId: "../x" }), null);
+  assert.equal(dmmReportsLinkUrl({ dmmShopId: "" }), null);
+  assert.equal(dmmReportsLinkUrl({}), null);
+  assert.equal(dmmReportsLinkUrl(undefined), null);
+  assert.ok(safeUrl(dmmReportsLinkUrl({ dmmShopId: "102" })).startsWith("https://"));
+});
+
+test("dmmReportLinkHtml: 数字の店IDならリンク「DMMの来店レポート」、そうでなければ空", () => {
+  const a = dmmReportLinkHtml({ dmmShopId: "102" });
+  assert.ok(a.includes('href="https://p-town.dmm.com/shops/tokyo/102/reports"'));
+  assert.ok(a.includes(">DMMの来店レポート</a>"));
+  assert.equal(dmmReportLinkHtml({ dmmShopId: "x" }), "");
 });

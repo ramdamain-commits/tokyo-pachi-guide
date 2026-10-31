@@ -51,6 +51,9 @@ function validateNewData() {
     const file = readJson(path.join("events", `${month}.json`));
     if (file) months[month] = file;
   }
+  // dmm-reports.json（取材実績・参考表示）は任意。無ければ飛ばし、あるのに読めなければエラー
+  const reportsPath = path.join(eventsDir, "dmm-reports.json");
+  const dmmReports = fs.existsSync(reportsPath) ? readJson("dmm-reports.json") : null;
   if (!meta || !venuesFile || !statsFile) return;
 
   // ラッパー（updated 等）を外した中身を渡す。キーが無ければ undefined になり、形の誤りとして報告される
@@ -60,6 +63,7 @@ function validateNewData() {
     storeStats: statsFile.stats,
     months,
     meta,
+    dmmReports,
   });
   errors.push(...result.errors);
   warnings.push(...result.warnings);

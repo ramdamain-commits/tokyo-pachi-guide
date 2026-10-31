@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
-import { parseDmmSchedulePage, dedupeDmmEvents } from "../collect/dmm.mjs";
+import { parseDmmSchedulePage, dedupeDmmEvents, parseDmmReportsPage, dmmReportsUrl } from "../collect/dmm.mjs";
 
 const html = fs.readFileSync(new URL("./fixtures/dmm-schedule.html", import.meta.url), "utf8");
 
@@ -69,4 +69,56 @@ test("dedupeDmmEvents: 媒体・日付・店が違うものは残し、先に出
   ]);
   assert.equal(out.length, 4);
   assert.equal(out[0].shopName, "A");
+});
+
+// ---- 来店イベントレポート一覧 ----
+
+const reportsHtml = fs.readFileSync(new URL("./fixtures/dmm-reports.html", import.meta.url), "utf8");
+
+test("dmmReportsUrl: 1ページ目は page なし、2ページ目以降は &page=N", () => {
+  assert.equal(dmmReportsUrl(1), "https://p-town.dmm.com/shop_reports?prefecture=13");
+  assert.equal(dmmReportsUrl(2), "https://p-town.dmm.com/shop_reports?prefecture=13&page=2");
+});
+
+test("parseDmmReportsPage: レポートID・店名・住所・実施日・取材名を取り出す（店舗IDは無い）", () => {
+  const { reports } = parseDmmReportsPage(reportsHtml);
+  assert.equal(reports.length, 3);
+  assert.deepEqual(reports[0], {
+    reportId: "563472",
+    shopName: "ジャラン水元店",
+    address: "東京都葛飾区南水元4-18-7",
+    date: "2026-11-01",
+    media: null,
+    title: "スロセレ",
+  });
+  assert.deepEqual(reports.map((r) => r.reportId), ["563472", "560028", "564106"]);
+  assert.deepEqual(reports.map((r) => r.date), ["2026-11-01", "2026-10-25", "2026-10-24"]);
+});
+
+test("parseDmmReportsPage: lastPage は &amp;page=N のリンクの最大値", () => {
+  assert.equal(parseDmmReportsPage(reportsHtml).lastPage, 253);
+});
+
+test("parseDmmReportsPage: span.text-icon が2つなら 媒体・取材名 の順", () => {
+  const li = (icons) =>
+    `<ul><li class="unit"><a href=/shop_reports/9><p class="title">A店</p><p class="lead">東京都</p>` +
+    `<p class="date">実施日：2026/10/01</p><div class="right">${icons}</div></a></li></ul>`;
+  const two = parseDmmReportsPage(li(`<span class="text-icon">媒体M</span><span class="text-icon">取材T</span>`));
+  assert.equal(two.reports[0].media, "媒体M");
+  assert.equal(two.reports[0].title, "取材T");
+});
+
+test("parseDmmReportsPage: span が無くても画像 alt の「…」から取材名を読む。どちらも無ければ対象外", () => {
+  const li = (inner) =>
+    `<ul><li class="unit"><a href=/shop_reports/9>${inner}<p class="title">A店</p><p class="lead">東京都</p>` +
+    `<p class="date">実施日：2026/10/01</p></a></li></ul>`;
+  const alt = parseDmmReportsPage(li(`<img alt="A店 2026/10/1/（木）の来店イベントレポート「取材T」">`));
+  assert.equal(alt.reports[0].title, "取材T");
+  assert.equal(alt.reports[0].media, null);
+  assert.deepEqual(parseDmmReportsPage(li("")).reports, []);
+});
+
+test("parseDmmReportsPage: 予定一覧のリンク（/shops/tokyo/…）は対象外。ページ送りが無ければ lastPage は null", () => {
+  assert.deepEqual(parseDmmReportsPage(html).reports, []);
+  assert.deepEqual(parseDmmReportsPage("<html></html>"), { reports: [], lastPage: null });
 });

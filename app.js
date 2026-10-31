@@ -11,6 +11,8 @@ import {
   missingLabels,
   areaOptions,
   buildRuleEffectIndex,
+  dmmReportRow,
+  dmmReportLinkHtml,
   esc,
   safeUrl,
 } from "./hot.mjs";
@@ -337,10 +339,20 @@ async function loadHotData(todayStr) {
   } catch (e) {
     console.warn(`store-stats読み込みスキップ: ${e.message}`);
   }
-  return { meta, venues: venuesData.venues, events, stats };
+
+  // DMM 取材実績（参考表示）。読めなければ null（カードに取材実績の行を出さない）
+  let dmmReports = null;
+  try {
+    const reportsData = await loadJSON("data/dmm-reports.json");
+    dmmReports = Array.isArray(reportsData.reports) ? reportsData.reports : null;
+  } catch (e) {
+    console.warn(`dmm-reports読み込みスキップ: ${e.message}`);
+  }
+  return { meta, venues: venuesData.venues, events, stats, dmmReports };
 }
 
-function hotEventCard(ev, venues, withScore, showMissing = true) {
+// dmm: { reports, today }（取材実績の参考表示用。reports が null なら取材実績の行とリンクを出さない）
+function hotEventCard(ev, venues, withScore, showMissing = true, dmm = null) {
   const venue = venues[ev.venue];
   const wrap = el("div", "store-card");
   const [y, m, d] = ev.date.split("-").map(Number);
@@ -358,7 +370,12 @@ function hotEventCard(ev, venues, withScore, showMissing = true) {
   // 熱さは各予定から店の出玉データを手で確かめてもらう（みんレポは自動取得できないため）
   const minrepoUrl = safeUrl(minrepoLink(venue));
   const minrepoAnchor = minrepoUrl ? `<a href="${minrepoUrl}" target="_blank" rel="noopener">みんレポで見る</a>` : "";
-  const links = [minrepoAnchor, sourceLinks, xLink].filter(Boolean).join(" ・ ");
+  const dmmReportsReady = Array.isArray(dmm?.reports);
+  const dmmReportLink = dmmReportsReady ? dmmReportLinkHtml(venue) : "";
+  const links = [minrepoAnchor, dmmReportLink, sourceLinks, xLink].filter(Boolean).join(" ・ ");
+  const dmmReportHtml = dmmReportsReady
+    ? dmmReportRow({ reports: dmm.reports, venueKey: ev.venue, today: dmm.today })
+    : "";
   const scoreHtml =
     withScore && typeof ev.score === "number"
       ? ` <span class="hot-card__score">熱さ ${ev.score.toFixed(1)}点</span>`
@@ -370,6 +387,7 @@ function hotEventCard(ev, venues, withScore, showMissing = true) {
     `<div class="hot-card__title">${esc(ev.title)}${scoreHtml}</div>` +
     (ev.anniversary ? `<div class="store-card__badges"><span class="badge badge--anniv">周年</span></div>` : "") +
     (evidence ? `<ul class="hot-card__evidence">${evidence}</ul>` : "") +
+    dmmReportHtml +
     (showMissing && missing.length ? `<div class="hot-card__missing">データなし: ${esc(missing.join("・"))}</div>` : "") +
     (links ? `<div class="store-card__links">${links}</div>` : "");
   return wrap;
@@ -386,6 +404,7 @@ function renderHotUnavailable(body, reason) {
 function renderHotTab(body, hot, todayStr) {
   body.innerHTML = "";
   const { meta, venues, events } = hot;
+  const dmm = { reports: hot.dmmReports ?? null, today: todayStr };
 
   const st = staleness(meta.lastSuccessAt, todayStr);
   const status = el("p", st.stale ? "hot-status hot-status--stale" : "hot-status");
@@ -449,7 +468,7 @@ function renderHotTab(body, hot, todayStr) {
         );
         return;
       }
-      shown.forEach((ev) => list.appendChild(hotEventCard(ev, venues, false, false)));
+      shown.forEach((ev) => list.appendChild(hotEventCard(ev, venues, false, false, dmm)));
       return;
     }
     const { rated, unrated, total } = selectHotEvents(events, {
@@ -479,13 +498,13 @@ function renderHotTab(body, hot, todayStr) {
       );
     } else {
       list.appendChild(el("h2", "hot-section-heading", "熱い順"));
-      rated.forEach((ev) => list.appendChild(hotEventCard(ev, venues, true)));
+      rated.forEach((ev) => list.appendChild(hotEventCard(ev, venues, true, true, dmm)));
     }
 
     if (unrated.length) {
       list.appendChild(el("h2", "hot-section-heading", "強さ不明（過去の開催データがまだ無い予定）"));
       list.appendChild(el("p", "hot-section-note", "点数は付けていません。日付の早い順に並べています。"));
-      unrated.forEach((ev) => list.appendChild(hotEventCard(ev, venues, false)));
+      unrated.forEach((ev) => list.appendChild(hotEventCard(ev, venues, false, true, dmm)));
     }
   }
 
