@@ -8,6 +8,7 @@
 
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 const URL_RE = /^https?:\/\//;
+const MONTH_RE = /^\d{4}-\d{2}$/;
 const GROUPS = new Set(["rated", "unrated"]);
 /** score.mjs の points のキー。missing に入りうる名前もこの中だけ。 */
 const POINT_KEYS = ["mediaG", "mediaSamai", "venueG", "venueSamai", "busy", "overlap"];
@@ -30,11 +31,7 @@ function isRealDate(s) {
   return dt.getFullYear() === y && dt.getMonth() === m - 1 && dt.getDate() === d;
 }
 
-/** ファイル全体（{ venues: {...} }）でも中身だけでも受け付ける。 */
-function unwrap(v, key) {
-  return isPlainObject(v) && isPlainObject(v[key]) ? v[key] : v;
-}
-
+/** venues が null のときは venue の参照検査を飛ばす（形の誤りは別に報告済み） */
 function checkEvent(e, label, month, venues, errors) {
   if (!isRealDate(e.date)) {
     errors.push(`${label}: 日付が YYYY-MM-DD の実在日でない "${e.date}"`);
@@ -42,7 +39,7 @@ function checkEvent(e, label, month, venues, errors) {
     errors.push(`${label}: 日付 ${e.date} が月ファイルの月 ${month} と違う`);
   }
 
-  if (!Object.hasOwn(venues, e.venue)) {
+  if (venues && !Object.hasOwn(venues, e.venue)) {
     errors.push(`${label}: venue "${e.venue}" が venues に無い`);
   }
 
@@ -89,27 +86,30 @@ function checkEvent(e, label, month, venues, errors) {
 /**
  * 収集結果を検証する。
  * @param {object} data
- * @param {object} data.venues venues.json の venues（ファイル全体でも可）
+ * @param {object} data.venues venues.json の `venues`（店キー → 店。ファイル全体ではなく中身）
  * @param {object} data.mediaStrength media-strength.json（現状は形式の追加検証なし）
- * @param {object} data.storeStats store-stats.json の stats（ファイル全体でも可）
+ * @param {object} data.storeStats store-stats.json の `stats`（店キー → 統計。中身）
  * @param {Record<string, {month: string, events: object[]}>} data.months 月ファイル（キーは YYYY-MM）
  * @returns {{errors: string[], warnings: string[]}}
  */
 export function validateEventsData({ venues, storeStats, months }) {
   const errors = [];
   const warnings = [];
-  const venueMap = unwrap(venues, "venues") ?? {};
-  const statsMap = unwrap(storeStats, "stats") ?? {};
+  // 形が違うと以降の検査が空回りして素通りするので、先に形を固定する
+  const venueMap = isPlainObject(venues) ? venues : null;
+  const statsMap = isPlainObject(storeStats) ? storeStats : null;
+  if (!venueMap) errors.push("venues がオブジェクト（店キー → 店）でない");
+  if (!statsMap) errors.push("store-stats の stats がオブジェクト（店キー → 統計）でない");
 
   // store-stats: baseline があるなら出典 URL が要る
-  for (const [key, st] of Object.entries(statsMap)) {
+  for (const [key, st] of Object.entries(statsMap ?? {})) {
     if (st?.baseline != null && !isUrl(st.baseline.sourceUrl)) {
       errors.push(`store-stats ${key}: baseline に sourceUrl が無い、または http(s):// でない`);
     }
   }
 
   // みんレポ未対応の店の割合
-  const venueList = Object.values(venueMap);
+  const venueList = Object.values(venueMap ?? {});
   if (venueList.length > 0) {
     const unsupported = venueList.filter((v) => v?.minrepoTag == null).length;
     const ratio = unsupported / venueList.length;
@@ -127,7 +127,11 @@ export function validateEventsData({ venues, storeStats, months }) {
       errors.push(`events/${month}: events が配列でない`);
       continue;
     }
-    const fileMonth = file.month;
+    if (typeof file.month !== "string" || !MONTH_RE.test(file.month)) {
+      errors.push(`events/${month}: month が YYYY-MM でない "${file.month}"`);
+    } else if (file.month !== month) {
+      errors.push(`events/${month}: month "${file.month}" が月キーと違う`);
+    }
     file.events.forEach((e, i) => {
       const label = `events/${month}[${i}] ${e?.id ?? "(idなし)"}`;
       if (!isPlainObject(e)) {
@@ -138,7 +142,7 @@ export function validateEventsData({ venues, storeStats, months }) {
         errors.push(`${label}: id重複`);
       }
       seenIds.add(e.id);
-      checkEvent(e, label, fileMonth, venueMap, errors);
+      checkEvent(e, label, month, venueMap, errors);
     });
   }
 

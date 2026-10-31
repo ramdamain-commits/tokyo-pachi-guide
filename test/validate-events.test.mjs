@@ -68,7 +68,7 @@ test("validateEventsData: 正しい最小データはエラー0", () => {
 });
 
 test("validateEventsData: 日付が YYYY-MM-DD でないとエラー", () => {
-  assertOneError(withEvent((e) => { e.date = "2026/11/07"; }), /日付/);
+  assertOneError(withEvent((e) => { e.date = "2026-11-7"; }), /日付/);
 });
 
 test("validateEventsData: 実在しない日付はエラー", () => {
@@ -145,10 +145,6 @@ test("validateEventsData: store-stats の baseline に sourceUrl が無いとエ
   assertOneError(validateEventsData(input), /sourceUrl/);
 });
 
-test("validateEventsData: baseline が null の店は正常", () => {
-  assert.deepEqual(validateEventsData(minimal()).errors, []);
-});
-
 test("validateEventsData: みんレポ未対応の店が5割を超えると警告", () => {
   const input = minimal();
   input.venues["dmm:102"].minrepoTag = null;
@@ -165,14 +161,32 @@ test("validateEventsData: みんレポ未対応の店がちょうど5割なら�
   assert.deepEqual(validateEventsData(input).warnings, []);
 });
 
-test("validateEventsData: ファイル全体の形（venues / stats のラッパー）でも同じ結果になる", () => {
+test("validateEventsData: storeStats が配列だとエラー（検査が空回りしない）", () => {
   const input = minimal();
-  const wrapped = {
-    ...input,
-    venues: { updated: "2026-11-01", venues: input.venues },
-    storeStats: { updated: "2026-11-01", stats: input.storeStats },
-  };
-  assert.deepEqual(validateEventsData(wrapped), validateEventsData(input));
-  delete wrapped.storeStats.stats["dmm:102"].baseline.sourceUrl;
-  assertOneError(validateEventsData(wrapped), /sourceUrl/);
+  input.storeStats = [];
+  assertOneError(validateEventsData(input), /stats/);
+});
+
+test("validateEventsData: storeStats が undefined だとエラー", () => {
+  const input = minimal();
+  input.storeStats = undefined;
+  assertOneError(validateEventsData(input), /stats/);
+});
+
+test("validateEventsData: venues が undefined だとエラー1件（イベントごとの参照エラーは重ねない）", () => {
+  const input = minimal();
+  input.venues = undefined;
+  assertOneError(validateEventsData(input), /venues/);
+});
+
+test("validateEventsData: 月ファイルの month が YYYY-MM でないとエラー", () => {
+  const input = minimal();
+  input.months["2026-11"].month = "2026-11-01";
+  assertOneError(validateEventsData(input), /YYYY-MM/);
+});
+
+test("validateEventsData: 月ファイルの month が月キーと違うとエラー", () => {
+  const input = minimal();
+  input.months["2026-11"].month = "2026-12";
+  assertOneError(validateEventsData(input), /月キー/);
 });

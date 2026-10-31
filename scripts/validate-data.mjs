@@ -1,7 +1,7 @@
 // data/stores.json と、熱いイベント関連の収集データをスキーマ検証する CLI。
 // 実行: node scripts/validate-data.mjs [--dir=<新データのディレクトリ>]
 // --dir を省略すると新データは data/ から読む。stores.json は常に data/ から読む。
-// 新データは collect-meta.json が無ければ「未生成」として飛ばす。
+// 新データは collect-meta.json が無ければ「未生成」として飛ばす（--dir を明示したときはエラー）。
 // errors があれば終了コード1、warnings のみなら0を返す。
 
 import fs from "node:fs";
@@ -22,7 +22,11 @@ const { errors, warnings } = validateStores(data.stores);
 function validateNewData() {
   const metaPath = path.join(eventsDir, "collect-meta.json");
   if (!fs.existsSync(metaPath)) {
-    console.log(`熱いイベントのデータ: 未生成（${metaPath} が無いので検証を飛ばす）`);
+    if (dirArg) {
+      errors.push(`collect-meta.json: --dir で指定した ${eventsDir} に無い`);
+    } else {
+      console.log(`熱いイベントのデータ: 未生成（${metaPath} が無いので検証を飛ばす）`);
+    }
     return;
   }
   const readJson = (rel) => {
@@ -36,20 +40,24 @@ function validateNewData() {
   };
 
   const meta = readJson("collect-meta.json");
-  const venues = readJson("venues.json");
+  const venuesFile = readJson("venues.json");
   const mediaStrength = readJson("media-strength.json");
-  const storeStats = readJson("store-stats.json");
+  const statsFile = readJson("store-stats.json");
+  if (meta && (!Array.isArray(meta.months) || meta.months.length === 0)) {
+    errors.push("collect-meta.json: months が空、または配列でない");
+  }
   const months = {};
   for (const month of Array.isArray(meta?.months) ? meta.months : []) {
     const file = readJson(path.join("events", `${month}.json`));
     if (file) months[month] = file;
   }
-  if (!meta || !venues || !storeStats) return;
+  if (!meta || !venuesFile || !statsFile) return;
 
+  // ラッパー（updated 等）を外した中身を渡す。キーが無ければ undefined になり、形の誤りとして報告される
   const result = validateEventsData({
-    venues: venues.venues,
+    venues: venuesFile.venues,
     mediaStrength,
-    storeStats: storeStats.stats,
+    storeStats: statsFile.stats,
     months,
   });
   errors.push(...result.errors);
