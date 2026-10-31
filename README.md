@@ -9,17 +9,22 @@
 - `data/stores.json` — 店舗マスタ（エリア・台数・特定日ルール・抽選方式・SNS・混雑参考・閉店時刻・換金率・概要・出典・確認日）。2026-08-01 時点で全83店・16エリア（上野4/秋葉原5/新宿6/渋谷4/下北沢3/池袋8/新橋3/京橋銀座2/中野5/吉祥寺2/立川5/町田4/蒲田10/錦糸町10/北千住3/赤羽9）
 - `data/media.json` — 取材媒体マスタ（媒体名・取材傾向・対象ジャンル・確度・公式スケジュールURL・出典）。2026-07-20 に17媒体へ拡充。店舗単位ではなく媒体単位の一般的傾向（伝聞情報、公式公約ではない）
 - `data/coverage.json` — 店舗×媒体の取材実績（storeId・mediaName・頻度・直近確認月・確度・出典）。過去実績に基づく推定・伝聞であり公式情報ではない。掲載が無い＝実績なし、ではない（欠測）
+- `data/venues.json` / `data/store-stats.json` / `data/media-strength.json` / `data/events/YYYY-MM.json` / `data/collect-meta.json` — 熱いイベント一覧用の自動生成データ（`scripts/collect-events.mjs` が作る。手で編集しない）。店の対応表（東京都全体）・店の実績（通常日の基準・特定日の実効性）・取材の強さ・月ごとの予定と熱さの点数と根拠・最終成功日時を持つ。みんレポの日別データそのものは保存せず、計算結果だけを保存する
 - `match.mjs` — 日付マッチングロジック本体（`rules[].type` 全7種の判定・`ruleLabel` によるバッジ用日本語ラベル生成）
 - `coverage.mjs` — coverage.json の参照整合検証と店舗/媒体からの結合ロジック
+- `hot.mjs` — 熱いイベントタブの絞り込み・並べ替え（今日から7日・上位30件・強さ不明の枠・古さの判定）
+- `validate-events.mjs` — 熱いイベント関連データの検証（欠測を0で埋めていないか・日付の範囲・出典URLなど）
+- `collect/` — 収集の部品（取得・DMM と みんレポの解析・店の突き合わせ・統計・熱さの点数・月ファイルの更新）
 - `lottery.mjs` — 抽選方式の派生（method文言→type/random/tool）・パチ/スロ差分の解決・バッジ用ラベル生成
 - `validate.mjs` — `data/stores.json` のスキーマ検証（v3フィールド: lottery.type/random/tool・sns・crowd・annual+label）
-- `scripts/` — `validate-data.mjs`（検証CLI）・`migrate-lottery.mjs`（既存店のlottery派生付与）
-- `index.html` / `app.js` — ビューワ（今日/明日/日付指定/エリア別一覧/取材傾向の5タブ）。エリア別一覧の店舗カードに取材実績バッジ・抽選方式バッジ（パチ/スロで異なる場合は両方併記）・SNSリンク・混雑参考を表示、媒体カードに実績店一覧と公式スケジュールリンクを表示
-- `test/` — `node --test test/*.test.mjs` で実行（match 18件 + coverage 5件 + lottery 26件 + validate 20件 = 69件）
+- `scripts/` — `validate-data.mjs`（検証CLI。新データも検証）・`migrate-lottery.mjs`（既存店のlottery派生付与）・`collect-events.mjs`（熱いイベントの収集本体）・`probe-sources.mjs`（取得元に届くかの切り分け用）・`run-collect.ps1` / `register-collect-task.ps1` / `commit-message.txt`（PCでの定期実行と登録）
+- `index.html` / `app.js` — ビューワ（熱いイベント/今日/明日/日付指定/エリア別一覧/取材傾向の6タブ。「熱いイベント」が最初に開く）。エリア別一覧の店舗カードに取材実績バッジ・抽選方式バッジ（パチ/スロで異なる場合は両方併記）・SNSリンク・混雑参考を表示、媒体カードに実績店一覧と公式スケジュールリンクを表示
+- `test/` — `node --test test/*.test.mjs` で実行（全240件。match 18・coverage 5・lottery 26・validate 20、熱いイベント関連 collect-events 30・dates 8・dmm 7・hot 23・http 9・merge 4・minrepo 12・rule-text 7・score 11・stats 16・validate-events 25・venues 19）
 - `docs/取材予定の確認手順.md` — 「今週どこに取材が入るか」を調べる巡回手順とリンク集
 - `docs/示唆・イベントの確認手順.md` — SNS示唆・周年・混雑傾向を確認する手順とリンク集
 - `docs/収集手順_v3.md` — 特定日・抽選・周年・SNS・混雑を1パスで集める収集手順とソース序列
 - `docs/抽選方式の要確認リスト.md` — `scripts/migrate-lottery.mjs` が生成。出典の文言だけでは抽選方式を確定できなかった店の一覧（手で編集しない）
+- `docs/熱いイベントの自動更新.md` — 熱いイベントの定期実行（いつ動くか・取得元・点数の式・既知の制約・失敗時の見方・止め方）
 - `docs/superpowers/specs/` — 設計書
 
 ## 閲覧方法
@@ -32,6 +37,10 @@
 python3 -m http.server 8099
 ```
 
+### 熱いイベントタブ
+
+「熱いイベント」タブは、今日以降の東京都の来店・取材・周年イベントを日付つきで、熱さの点数が高い順に並べる。既定は今日から7日間の上位30件で、「もっと見る」で全件を出す。点数の横に根拠の数字（過去の開催での平均G・差枚の上振れ、店の普段の平均G の順位など）が並び、データが無い要素は「データなし」と出る。過去の開催データがまだ無く強さを測れない予定は、一覧の下の「強さ不明」の枠に並ぶ。周年はバッジを付けるだけで加点しない。点数は推定であり公式情報ではない。
+
 ## 対象エリア
 
 上野・秋葉原・新宿・渋谷・下北沢・池袋・新橋・京橋/銀座・中野・吉祥寺・立川・町田・蒲田・錦糸町・北千住・赤羽（16エリア、全83店）
@@ -43,3 +52,9 @@ python3 -m http.server 8099
 ## 更新方法
 
 特定日はパターンルール（「5のつく日」等）のため原則更新不要。店舗の閉店・リニューアル・傾向変化があれば `data/stores.json` を修正する。`data/coverage.json`（取材実績）は鮮度が落ちやすいため、stores.json と同じ四半期棚卸しの対象とする。媒体の追加・スケジュールURL変更は `data/media.json` を先に直し、`docs/取材予定の確認手順.md` のリンク集を追随させる。
+
+### 熱いイベントの自動更新
+
+`data/` の熱いイベント関連データは、PC（Windows）のタスクスケジューラが `scripts/run-collect.ps1` を毎週月曜 6:00・毎月1日 9:00・ログオン時（取りこぼし分）に動かし、DMMぱちタウン（予定）とみんレポ（店の日別の平均G・平均差枚）から集めて main へ push する。ホールナビは収集を拒否している（403）ため使わず、GitHub Actions からは DMM が 403 を返すため PC で動かす。登録は `scripts/register-collect-task.ps1` を一度実行する。詳細・失敗時の見方・止め方は `docs/熱いイベントの自動更新.md`。
+
+現状の制約（2026-10-31 時点）: みんレポが収集に空ページしか返しておらず、その間は全件が「強さ不明」になる。
