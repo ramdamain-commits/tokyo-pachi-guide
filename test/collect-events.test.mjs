@@ -723,3 +723,51 @@ test("runCollect: 取得した店ページが10件以上で8割を超えて空�
   await run(few);
   assert.ok(!warned(few));
 });
+
+/**
+ * 直接引きの確認日の記録を調べる環境。店1〜emptyCount は直接引きで「200 だが日別表なし」、
+ * 続く filledCount 店はカテゴリで対応して日別表あり、最後の1店は 404（タグなし）。
+ * 店1 は前回 2026-09-01 に確認済み（30日より古いので引き直す）。
+ */
+function directLookupEnv(emptyCount, filledCount) {
+  const items = [];
+  const pages = {};
+  const tags = [];
+  const total = emptyCount + filledCount + 1;
+  for (let i = 1; i <= total; i++) {
+    items.push(shop(i, `ジャム店${i}`, "2026-11-07"));
+    if (i <= emptyCount) pages[minrepoTagUrl(`ジャム店${i}`)] = EMPTY_TAG_PAGE;
+    else if (i < total) {
+      pages[minrepoTagUrl(`ジャム店${i}`)] = storePage(days("2026-11-04", 30));
+      tags.push(`ジャム店${i}`);
+    }
+  }
+  pages[DMM1] = dmmPage(items);
+  pages[minrepoCategoryUrl(1)] = categoryPage(tags);
+  const prev = { ...VENUE1, name: "ジャム店1", minrepoTag: null, minrepoCheckedAt: "2026-09-01" };
+  return { env: makeEnv({ pages, files: { "venues.json": { updated: "2026-11-01", venues: { "dmm:1": prev } } } }), total };
+}
+
+test("runCollect: 取得した店ページの8割超が空なら、直接引きで見つからなかった店の minrepoCheckedAt を記録しない（前回値に戻す）", async () => {
+  const warned = (env) => env.logs.some((l) => l.includes("警告: みんレポの日別表がほとんど読めない（構造変更の可能性）"));
+  // 空9 + 日別表あり1 = 取得10ページ中9ページが空（90%）+ 404 の店1つ
+  const { env, total } = directLookupEnv(9, 1);
+  const r = await run(env);
+  assert.equal(r.ok, true, r.reasons.join(" / "));
+  assert.ok(warned(env), JSON.stringify(env.logs));
+  const v = env.written("venues.json").venues;
+  assert.equal(v["dmm:1"].minrepoCheckedAt, "2026-09-01", "前回値に戻る");
+  for (let i = 2; i <= total; i++) assert.equal(v[`dmm:${i}`].minrepoCheckedAt, null, `dmm:${i}（空ページ・404 とも記録しない）`);
+});
+
+test("runCollect: 取得した店ページの空が8割以下なら、直接引きで見つからなかった店は minrepoCheckedAt に今日が入る", async () => {
+  const warned = (env) => env.logs.some((l) => l.includes("警告: みんレポの日別表がほとんど読めない（構造変更の可能性）"));
+  // 空8 + 日別表あり2 = 取得10ページ中8ページが空（ちょうど80%で警告なし）+ 404 の店1つ
+  const { env, total } = directLookupEnv(8, 2);
+  const r = await run(env);
+  assert.equal(r.ok, true, r.reasons.join(" / "));
+  assert.ok(!warned(env), JSON.stringify(env.logs));
+  const v = env.written("venues.json").venues;
+  for (let i = 1; i <= 8; i++) assert.equal(v[`dmm:${i}`].minrepoCheckedAt, TODAY, `dmm:${i}`);
+  assert.equal(v[`dmm:${total}`].minrepoCheckedAt, TODAY, "404 の店");
+});

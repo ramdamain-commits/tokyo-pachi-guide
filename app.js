@@ -434,7 +434,7 @@ function renderHotTab(body, hot, todayStr) {
 
     if (rated.length === 0) {
       list.appendChild(
-        el("p", "none-notice", "強さを測れる予定はまだありません。収集を続けると、過去の開催データがたまって点数が付きます")
+        el("p", "none-notice", "強さを測れる予定はまだありません。過去の開催データがたまると点数が付きます（データの取得元の状況によっては時間がかかります）")
       );
     } else {
       list.appendChild(el("h2", "hot-section-heading", "熱い順"));

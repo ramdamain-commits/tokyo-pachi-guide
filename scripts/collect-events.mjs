@@ -183,6 +183,8 @@ export async function runCollect({ fetcher, today = jstToday(), now = new Date()
   /** @type {Map<string, boolean>} 取得して読んだ店ページ（URL → 日別表が空か）。空ページの割合の警告に使う */
   const pageEmpty = new Map();
   const emptyTableMessage = (tag) => `みんレポ ${tag}: スロットの日別データなし（タグページに表が無い）`;
+  /** @type {Map<string, string | null>} この実行で minrepoCheckedAt を書いた店と、書く前の値。空ページ警告のときに戻す */
+  const checkedAtWritten = new Map();
   const lookupBefore = addDaysStr(today, -MINREPO_RETRY_DAYS);
   for (const key of currentKeys) {
     const venue = venues[key];
@@ -214,6 +216,7 @@ export async function runCollect({ fetcher, today = jstToday(), now = new Date()
       break;
     }
     if (!found && !uncertain) {
+      checkedAtWritten.set(key, venue.minrepoCheckedAt ?? null);
       venue.minrepoCheckedAt = today;
       log(`みんレポの直接引きで見つからない: ${venue.name}（${MINREPO_RETRY_DAYS}日は再び試さない）`);
     }
@@ -287,6 +290,9 @@ export async function runCollect({ fetcher, today = jstToday(), now = new Date()
   const emptyPages = [...pageEmpty.values()].filter(Boolean).length;
   if (pageEmpty.size >= EMPTY_WARN_MIN_PAGES && emptyPages / pageEmpty.size > EMPTY_WARN_RATIO) {
     log(`警告: みんレポの日別表がほとんど読めない（構造変更の可能性）: ${emptyPages}/${pageEmpty.size}ページが空`);
+    // 空ページしか返らない状態で「見つからない」と記録すると、実在する店まで30日間探し直されない。記録を取り消す
+    for (const [key, before] of checkedAtWritten) venues[key].minrepoCheckedAt = before;
+    if (checkedAtWritten.size > 0) log(`直接引きで見つからなかった ${checkedAtWritten.size} 店の確認日を取り消した（次回また試す）`);
   }
 
   // 6. 結果待ちの過去日イベントに outcome を当てる

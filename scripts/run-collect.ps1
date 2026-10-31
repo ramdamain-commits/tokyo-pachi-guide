@@ -215,11 +215,18 @@ try {
 
         $r = Invoke-Native $git @("add", "data")
         Write-Native $r
-        if ($r.Code -ne 0) { Stop-Run 1 "git add data failed" }
+        if ($r.Code -ne 0) {
+            Restore-Data $git
+            Stop-Run 1 "git add data failed"
+        }
 
         $r = Invoke-Native $git @("commit", "-F", $messageFile)
         Write-Native $r
-        if ($r.Code -ne 0) { Stop-Run 1 "git commit failed" }
+        if ($r.Code -ne 0) {
+            # Leave data/ clean; otherwise the staged files make every later run exit 2 (skipped).
+            Restore-Data $git
+            Stop-Run 1 "git commit failed"
+        }
     }
     else {
         Write-Log "no changes in data"
