@@ -59,6 +59,7 @@ function validateNewData() {
     mediaStrength,
     storeStats: statsFile.stats,
     months,
+    meta,
   });
   errors.push(...result.errors);
   warnings.push(...result.warnings);
