@@ -1,0 +1,232 @@
+// 熱いイベントタブ用の絞り込み・並べ替え（ビューワ側）。app.js から import する。
+// 日付は "YYYY-MM-DD" 文字列で受け取り、new Date("YYYY-MM-DD")（UTC解釈）は使わない。
+
+/** 最終更新からこの日数を超えたら古いデータとして警告する */
+const STALE_DAYS = 35;
+
+/** missing の要素名 → 画面に出す日本語名 */
+const MISSING_LABELS = {
+  mediaG: "企画の過去の開催",
+  mediaSamai: "企画の過去の開催",
+  venueG: "この店の過去のイベント日",
+  venueSamai: "この店の過去のイベント日",
+  busy: "この店の普段のにぎわい",
+};
+
+/**
+ * "YYYY-MM-DD"（先頭10文字）を、実行環境のタイムゾーンに依らない通し日数へ変換する。
+ * 読めなければ NaN。
+ */
+function dayNumber(dateStr) {
+  const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(String(dateStr ?? ""));
+  if (!m) return NaN;
+  const [y, mo, d] = [Number(m[1]), Number(m[2]), Number(m[3])];
+  return Date.UTC(y, mo - 1, d) / 86400000;
+}
+
+/**
+ * 今日以降 days 日以内（days が null なら全件）の予定を、rated / unrated に分けて返す。
+ * rated は score の高い順（同点は日付の早い順）、unrated は日付の早い順（同日は score の高い順）。
+ * limit は rated と unrated それぞれに掛け、total は絞り込み後（limit 前）の件数。
+ * area を指定するときは venues（venueキー → 店）が必要。引けない店の予定は除く。
+ * @param {object[]} events
+ * @param {{ today: string, days?: number|null, limit?: number, area?: string|null, venues?: object }} opts
+ * @returns {{ rated: object[], unrated: object[], total: number }}
+ */
+export function selectHotEvents(events, { today, days = 7, limit = 30, area = null, venues = {} }) {
+  const start = dayNumber(today);
+  const inRange = (events || []).filter((e) => {
+    const n = dayNumber(e.date);
+    if (Number.isNaN(n) || n < start) return false;
+    if (days !== null && n > start + days) return false;
+    if (area !== null && venues?.[e.venue]?.area !== area) return false;
+    return true;
+  });
+  const byDate = (a, b) => dayNumber(a.date) - dayNumber(b.date);
+  const rated = inRange
+    .filter((e) => e.group === "rated")
+    .sort((a, b) => (b.score ?? 0) - (a.score ?? 0) || byDate(a, b));
+  const unrated = inRange
+    .filter((e) => e.group !== "rated")
+    .sort((a, b) => byDate(a, b) || (b.score ?? 0) - (a.score ?? 0));
+  return {
+    rated: rated.slice(0, limit),
+    unrated: unrated.slice(0, limit),
+    total: inRange.length,
+  };
+}
+
+/**
+ * 今日以降 days 日以内（days が null なら全件）の予定を、点数に関係なく日付の早い順に並べる。
+ * みんレポを取っていない回（点数なし）の一覧用。同日は「同じ店のその日の予定数」が多い店が先、同数なら店名順。
+ * limit は並べた後に掛け、total は絞り込み後（limit 前）の件数。
+ * area を指定するときは venues（venueキー → 店）が必要。引けない店の予定は除く。
+ * @param {object[]} events
+ * @param {{ today: string, days?: number|null, limit?: number, area?: string|null, venues?: object }} opts
+ * @returns {{ events: object[], total: number }}
+ */
+export function selectUpcomingEvents(events, { today, days = 7, limit = 30, area = null, venues = {} }) {
+  const start = dayNumber(today);
+  const inRange = (events || []).filter((e) => {
+    const n = dayNumber(e.date);
+    if (Number.isNaN(n) || n < start) return false;
+    if (days !== null && n > start + days) return false;
+    if (area !== null && venues?.[e.venue]?.area !== area) return false;
+    return true;
+  });
+  const perVenueDay = new Map();
+  for (const e of inRange) {
+    const k = `${e.venue}|${e.date}`;
+    perVenueDay.set(k, (perVenueDay.get(k) ?? 0) + 1);
+  }
+  const countOf = (e) => perVenueDay.get(`${e.venue}|${e.date}`);
+  const nameOf = (e) => venues?.[e.venue]?.name ?? "";
+  const sorted = [...inRange].sort(
+    (a, b) =>
+      dayNumber(a.date) - dayNumber(b.date) ||
+      countOf(b) - countOf(a) ||
+      nameOf(a).localeCompare(nameOf(b), "ja") ||
+      String(a.venue).localeCompare(String(b.venue)),
+  );
+  return { events: sorted.slice(0, limit), total: inRange.length };
+}
+
+/**
+ * みんレポも取った回のデータか（collect-meta の sources に minrepo がある）。
+ * sources が無い・壊れているときは false（点数は出さず、日付順の一覧にする）。
+ * @param {{ sources?: unknown }|null|undefined} meta
+ * @returns {boolean}
+ */
+export function usesMinrepo(meta) {
+  return Array.isArray(meta?.sources) && meta.sources.includes("minrepo");
+}
+
+/**
+ * みんレポの店タグページの URL。collect/minrepo.mjs の minrepoTagUrl と同じ形
+ * （%表記は小文字。ビューワはその収集コードを読み込まないので同じ関数をここに置く）。
+ * @param {string} tag
+ * @returns {string}
+ */
+export function minrepoTagUrl(tag) {
+  return `https://min-repo.com/tag/${encodeURIComponent(tag).replace(/%[0-9A-F]{2}/g, (m) => m.toLowerCase())}/`;
+}
+
+/**
+ * 「みんレポで見る」リンクの URL。minrepoTag があればタグページ、無ければ店名のサイト内検索。
+ * 店名もタグも無くリンクを作れないときは null。href に入れる前に safeUrl を通すこと。
+ * @param {{ name?: string, minrepoTag?: string|null }|null|undefined} venue
+ * @returns {string|null}
+ */
+export function minrepoLink(venue) {
+  if (venue?.minrepoTag) return minrepoTagUrl(venue.minrepoTag);
+  if (venue?.name) return `https://min-repo.com/?s=${encodeURIComponent(venue.name)}`;
+  return null;
+}
+
+/**
+ * 最終成功日（ISO文字列でも日付文字列でもよい）から today までの日数と、古いかどうか。
+ * 読めない値は stale 扱い（days は NaN）。
+ * @param {string} lastSuccessAt
+ * @param {string} today "YYYY-MM-DD"
+ * @returns {{ days: number, stale: boolean }}
+ */
+export function staleness(lastSuccessAt, today) {
+  const days = dayNumber(today) - dayNumber(lastSuccessAt);
+  if (Number.isNaN(days)) return { days: NaN, stale: true };
+  return { days, stale: days > STALE_DAYS };
+}
+
+/**
+ * 特定日の実効性の表示文。例: 通常日比 +18枚（9日）
+ * diff が数値でない（欠測）ときは 0 で埋めず null を返す（呼び出し側はバッジを付けない）。
+ * days が数値でないときは「（N日）」を省く。
+ * @param {{ diff: number, days?: number }} effect
+ * @returns {string|null}
+ */
+export function ruleEffectLabel(effect) {
+  if (!Number.isFinite(effect?.diff)) return null;
+  const diff = Math.round(effect.diff);
+  const signed = diff > 0 ? `+${diff}` : diff < 0 ? `-${Math.abs(diff)}` : "±0";
+  const span = Number.isFinite(effect.days) ? `（${effect.days}日）` : "";
+  return `通常日比 ${signed}枚${span}`;
+}
+
+/**
+ * innerHTML に入れる前のエスケープ（自動収集データ用）。
+ * @param {unknown} value
+ * @returns {string}
+ */
+export function esc(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+/**
+ * href に入れてよい URL だけをエスケープして返す。許可は http(s) のみで、
+ * スキームの大文字小文字は区別しない（HTTP://… は通す）。先頭の空白は取り除かず、通さない。
+ * 通さないときは空文字（リンクを出さない）。
+ * @param {unknown} url
+ * @returns {string}
+ */
+export function safeUrl(url) {
+  return /^https?:\/\//i.test(String(url ?? "")) ? esc(url) : "";
+}
+
+/**
+ * missing（欠測の要素名）を画面用の日本語名にする。同じ名前は1回だけ。
+ * 未知の要素名はそのまま残す（黙って捨てない）。
+ * @param {string[]|undefined} missing
+ * @returns {string[]}
+ */
+export function missingLabels(missing) {
+  const out = [];
+  for (const key of missing || []) {
+    const label = MISSING_LABELS[key] ?? key;
+    if (!out.includes(label)) out.push(label);
+  }
+  return out;
+}
+
+/**
+ * 絞り込みの選択肢。予定がある店のエリアだけを、areaOrder の順 → 残りは五十音順で返す。
+ * @param {object[]} events
+ * @param {object} venues venueキー → 店
+ * @param {string[]} areaOrder
+ * @returns {string[]}
+ */
+export function areaOptions(events, venues, areaOrder) {
+  const present = new Set();
+  for (const e of events || []) {
+    const area = venues?.[e.venue]?.area;
+    if (area) present.add(area);
+  }
+  const ordered = areaOrder.filter((a) => present.has(a));
+  const rest = [...present]
+    .filter((a) => !areaOrder.includes(a))
+    .sort((a, b) => a.localeCompare(b, "ja"));
+  return [...ordered, ...rest];
+}
+
+/**
+ * stores.json の店 id → (特定日ルールのラベル → { label, diff, days }) の索引。
+ * venues の storeId で店を結び付け、store-stats の ruleEffects を引く。
+ * 引けない・壊れている場合は空の索引を返す。
+ * @param {object|null} venues venueキー → 店
+ * @param {object|null} stats venueキー → { ruleEffects }
+ * @returns {Map<string, Map<string, object>>}
+ */
+export function buildRuleEffectIndex(venues, stats) {
+  const index = new Map();
+  if (!venues || !stats) return index;
+  for (const [key, venue] of Object.entries(venues)) {
+    const effects = stats[key]?.ruleEffects;
+    if (!venue?.storeId || !Array.isArray(effects) || !effects.length) continue;
+    if (index.has(venue.storeId)) continue;
+    index.set(venue.storeId, new Map(effects.map((e) => [e.label, e])));
+  }
+  return index;
+}

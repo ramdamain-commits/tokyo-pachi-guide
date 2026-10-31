@@ -1,5 +1,46 @@
 # CHANGELOG
 
+## 2026-11-01
+
+みんレポの自動収集を外し、DMM の予定一覧で公開する形に切り替え（ブランチ `feat/hot-events`）。みんレポが日別レポート・店ページの前に JS のボット確認を入れて自動取得できなくなり、これを再現するのは回避にあたるため行わない（ユーザー決定）。
+
+### 変更
+- `scripts/collect-events.mjs` — `runCollect` に `useMinrepo`（既定 `false`）を追加。CLI は `--with-minrepo` のときだけ `true`。`false` のときはみんレポ（カテゴリ・直接引き・店ページ）に一切アクセスせず、`minrepoTag`・`minrepoCheckedAt`・`store-stats.json` は前回のまま、`rates.minrepoMatched` は `null`（対応率の急落判定もしない）。`collect-meta.json` に `sources`（`["dmm"]`、`useMinrepo` なら `["dmm", "minrepo"]`）を書く
+- `validate-events.mjs` — `validateEventsData` が任意の `meta` を受け取り、`sources`（`dmm`・`minrepo` の文字列配列）と `rates.minrepoMatched`（`null` か 0〜1）を検証。`sources` に `minrepo` が無いときは「みんレポ未対応の店が多い」警告を出さない
+- 「熱いイベント」タブを「近日のイベント」に改名（最初に開くタブのまま）。`collect-meta.json` の `sources` に `minrepo` が無いときは、今日から7日の予定を日付順（同日は同じ店の同日の予定数が多い店→店名順）に既定30件・「もっと見る」で全件。「強さ不明」の見出し・「データなし」・点数の案内は出さず、熱さの点数が停止中である注記を足す。`sources` に `minrepo` があれば従来の表示。`hot.mjs` / `app.js` / `index.html`
+- `docs/熱いイベントの自動更新.md`・`README.md` — 現状（点数停止中・みんレポを回避しない理由・`--with-minrepo` は再開用）を反映。テスト件数を実数（263件）に更新
+
+### 追加
+- 各予定に「みんレポで見る」リンク（店のタグページ。タグが無い店は店名のサイト内検索）。`hot.mjs` に `selectUpcomingEvents`・`usesMinrepo`・`minrepoLink`・`minrepoTagUrl`
+
+## 2026-10-31
+
+熱いイベント一覧と自動収集（ブランチ `feat/hot-events`）。設計書: `docs/superpowers/specs/2026-10-30-hot-events-design.md`、実装計画: `docs/superpowers/plans/2026-10-30-hot-events.md`
+
+### 追加
+- 「熱いイベント」タブ（最初に開くタブ）— 今日以降の東京都の来店・取材・周年イベントを熱さの点数順に表示。既定は今日から7日・上位30件、「もっと見る」で全件。点数の根拠の数字、データのない要素の「データなし」、強さを測れない予定の「強さ不明」の枠、周年バッジ、最終更新日と古さ（35日超）の警告を表示。特定日（○のつく日）の実効性を測れた店には通常日比の差枚を添える。`hot.mjs` / `app.js` / `index.html`
+- `collect/` — 収集の部品（取得・DMM と みんレポの解析・日付補完・文言の変換・店の突き合わせ・統計・熱さの点数・月ファイルの更新）
+- `scripts/collect-events.mjs` — 収集の本体。DMMぱちタウンの東京都の予定を取り、みんレポの日別実績（平均G・平均差枚）と突き合わせて、`data/venues.json`・`store-stats.json`・`media-strength.json`・`events/YYYY-MM.json`・`collect-meta.json` を作る。過去日のイベントは凍結して結果を一度だけ書き込む。失敗時は `data/` を書き換えず終了コード1。みんレポのカテゴリ一覧に出ない店は店名から店ページを直接引く。取得した店ページの8割超が空なら「構造変更の可能性」を警告
+- `validate-events.mjs` / `scripts/validate-data.mjs` — 新データの検証（欠測を0で埋めていないか・日付の範囲・出典URLなど）
+- `scripts/run-collect.ps1` / `scripts/register-collect-task.ps1` / `scripts/commit-message.txt` — PC のタスクスケジューラでの定期実行（毎週月曜 6:00・毎月1日 9:00・ログオン時の取りこぼし分）。main 以外・未コミットの変更ありなら何もせず終了コード2。テスト・収集・検証が通ったときだけ `data/` をコミットして main へ push
+- `docs/熱いイベントの自動更新.md` — 定期実行の説明（動く時刻・取得元と間隔・点数の式・既知の制約・失敗時の見方・止め方）
+- `scripts/probe-sources.mjs` — 取得元に届くかの切り分け用
+
+### 変更
+- `README.md` — 構成・閲覧方法（6タブ）・更新方法に熱いイベントを追加。テスト件数を実数（240件）に更新
+- `.gitignore` — `logs/` を追加
+
+### 削除
+- `.github/workflows/probe.yml` — 到達確認用の Actions を削除
+
+### 取得元の判断
+- ホールナビは使わない — 収集用の User-Agent に 403 を返す（自動収集の拒否）。User-Agent を偽装した回避はしない。そのため熱さの点数は DMM とみんレポだけで組み、並び人数の代わりにみんレポの平均G（稼働）を使う
+- GitHub Actions は使わない — Actions の実行環境からは DMM が 403 を返した（家庭回線からは 200）。回避せず PC で動かす
+- 周年は加点しない（バッジ表示のみ）
+
+### 既知の制約
+- 2026-10-31 の実データ確認で、みんレポが収集に表の無い空ページしか返さなかった（167ページ中166ページ）。2026-11-01 の再確認で JS のボット確認の導入が分かったため、回避はせず、みんレポの自動収集を外した（上の 2026-11-01 の節）
+
 ## 2026-08-01
 
 v3拡張 Phase 2②（既存21店の抽選方式・出典再確認）＋ Phase 3（ビューワー配線）。設計書: `docs/superpowers/specs/2026-07-31-v3-expansion-design.md`

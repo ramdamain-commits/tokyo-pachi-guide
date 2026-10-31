@@ -4,3 +4,4 @@ _staging/
 # scratch
 *.tmp
 .DS_Store
+logs/

@@ -73,6 +73,22 @@
     .badge--confidence-低 { background: #451a1a; color: #fecaca; }
     .badge--coverage { background: #1e3a5f; color: #bfdbfe; }
     .badge--lottery { background: #134e4a; color: #5eead4; }
+    .badge--effect { background: #3b2f63; color: #ddd6fe; }
+    .badge--anniv { background: #7c2d12; color: #fed7aa; }
+    .hot-status { font-size: .85rem; margin-bottom: .8rem; color: var(--text-muted); }
+    .hot-status--stale { color: #f87171; font-weight: 700; }
+    .hot-filter { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; margin-bottom: 1rem; }
+    .hot-filter select, .hot-more {
+      background: var(--card-bg); color: var(--text); border: 1px solid var(--text-muted);
+      border-radius: 6px; padding: .4rem .6rem; font-size: .95rem;
+    }
+    .hot-more { cursor: pointer; color: var(--accent); border-color: var(--accent); }
+    .hot-section-heading { font-size: 1.05rem; margin: 1.2rem 0 .3rem; border-left: 4px solid var(--accent); padding-left: .6rem; }
+    .hot-section-note { color: var(--text-muted); font-size: .82rem; margin-bottom: .6rem; }
+    .hot-card__score { font-weight: 700; color: #fbbf24; white-space: nowrap; }
+    .hot-card__title { font-size: .95rem; margin-top: .2rem; }
+    .hot-card__evidence { font-size: .85rem; margin: .4rem 0 0 1.1rem; }
+    .hot-card__missing { font-size: .8rem; margin-top: .3rem; color: var(--text-muted); }
     .media-card__tendency { font-size: .9rem; margin-top: .4rem; }
     .media-card__stores { font-size: .85rem; margin-top: .3rem; }
     .media-card__genre { font-size: .85rem; margin-top: .3rem; color: var(--text-muted); }
@@ -90,14 +106,22 @@
   <p class="updated" id="updated"></p>
 
   <nav class="tabs" id="tabs">
-    <button class="tab-btn active" data-tab="today">今日</button>
+    <button class="tab-btn active" data-tab="hot">近日のイベント</button>
+    <button class="tab-btn" data-tab="today">今日</button>
     <button class="tab-btn" data-tab="tomorrow">明日</button>
     <button class="tab-btn" data-tab="custom">日付指定</button>
     <button class="tab-btn" data-tab="area">エリア別一覧</button>
     <button class="tab-btn" data-tab="media">取材傾向</button>
   </nav>
 
-  <section id="tab-today" class="tab-panel"></section>
+  <section id="tab-hot" class="tab-panel">
+    <p class="disclaimer">
+      近日のイベントは第三者サイト由来の情報（過去傾向からの推定・伝聞を含む）であり、公式情報ではありません。
+    </p>
+    <div id="hot-body"></div>
+  </section>
+
+  <section id="tab-today" class="tab-panel" hidden></section>
 
   <section id="tab-tomorrow" class="tab-panel" hidden></section>
 
