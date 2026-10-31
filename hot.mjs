@@ -71,13 +71,42 @@ export function staleness(lastSuccessAt, today) {
 
 /**
  * 特定日の実効性の表示文。例: 通常日比 +18枚（9日）
- * @param {{ diff: number, days: number }} effect
- * @returns {string}
+ * diff が数値でない（欠測）ときは 0 で埋めず null を返す（呼び出し側はバッジを付けない）。
+ * days が数値でないときは「（N日）」を省く。
+ * @param {{ diff: number, days?: number }} effect
+ * @returns {string|null}
  */
 export function ruleEffectLabel(effect) {
+  if (!Number.isFinite(effect?.diff)) return null;
   const diff = Math.round(effect.diff);
   const signed = diff > 0 ? `+${diff}` : diff < 0 ? `-${Math.abs(diff)}` : "±0";
-  return `通常日比 ${signed}枚（${effect.days}日）`;
+  const span = Number.isFinite(effect.days) ? `（${effect.days}日）` : "";
+  return `通常日比 ${signed}枚${span}`;
+}
+
+/**
+ * innerHTML に入れる前のエスケープ（自動収集データ用）。
+ * @param {unknown} value
+ * @returns {string}
+ */
+export function esc(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+/**
+ * href に入れてよい URL だけをエスケープして返す。許可は http(s) のみで、
+ * スキームの大文字小文字は区別しない（HTTP://… は通す）。先頭の空白は取り除かず、通さない。
+ * 通さないときは空文字（リンクを出さない）。
+ * @param {unknown} url
+ * @returns {string}
+ */
+export function safeUrl(url) {
+  return /^https?:\/\//i.test(String(url ?? "")) ? esc(url) : "";
 }
 
 /**

@@ -8,6 +8,8 @@ import {
   missingLabels,
   areaOptions,
   buildRuleEffectIndex,
+  esc,
+  safeUrl,
 } from "./hot.mjs";
 
 // エリア表示順（固定）
@@ -21,21 +23,6 @@ async function loadJSON(path) {
   const res = await fetch(path);
   if (!res.ok) throw new Error(`fetch failed: ${path}`);
   return res.json();
-}
-
-// 自動収集データ（企画名など）を innerHTML に入れる前のエスケープ。
-function esc(value) {
-  return String(value ?? "")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
-}
-
-// href に入れてよいのは http(s) だけ。それ以外は空文字（リンクを出さない）。
-function safeUrl(url) {
-  return /^https?:\/\//.test(String(url ?? "")) ? esc(url) : "";
 }
 
 function el(tag, cls, html) {
@@ -95,9 +82,11 @@ function ruleBadges(rules, effectsByLabel) {
     .map((r) => {
       const label = ruleLabel(r);
       const effect = effectsByLabel?.get(label);
+      // diff が欠測（数値でない）なら null が返る → バッジを付けず従来表示
+      const effectText = effect ? ruleEffectLabel(effect) : null;
       return (
         `<span class="badge badge--rule">${label}</span>` +
-        (effect ? ` <span class="badge badge--effect">${esc(ruleEffectLabel(effect))}</span>` : "")
+        (effectText ? ` <span class="badge badge--effect">${esc(effectText)}</span>` : "")
       );
     })
     .join(" ");
@@ -317,20 +306,26 @@ async function loadHotData(todayStr) {
   }
   // 今月より前の月ファイルには表示対象が無いので読まない
   const thisMonth = todayStr.slice(0, 7);
-  const months = meta.months.filter((m) => m >= thisMonth);
-  const events = [];
-  let loaded = 0;
-  for (const month of months) {
-    try {
-      const data = await loadJSON(`data/events/${month}.json`);
-      if (!Array.isArray(data.events)) throw new Error("events が配列でない");
-      events.push(...data.events);
-      loaded += 1;
-    } catch (e) {
-      console.warn(`events/${month} 読み込みスキップ: ${e.message}`);
-    }
+  // 月の形（YYYY-MM）に合わないものはパスに使わず飛ばす
+  const months = meta.months.filter(
+    (m) => typeof m === "string" && /^\d{4}-\d{2}$/.test(m) && m >= thisMonth
+  );
+  const results = await Promise.all(
+    months.map(async (month) => {
+      try {
+        const data = await loadJSON(`data/events/${month}.json`);
+        if (!Array.isArray(data.events)) throw new Error("events が配列でない");
+        return data.events;
+      } catch (e) {
+        console.warn(`events/${month} 読み込みスキップ: ${e.message}`);
+        return null;
+      }
+    })
+  );
+  const events = results.filter(Boolean).flat();
+  if (months.length > 0 && results.every((r) => r === null)) {
+    throw new Error("月ファイルが1件も読めない");
   }
-  if (months.length > 0 && loaded === 0) throw new Error("月ファイルが1件も読めない");
 
   let stats = null;
   try {

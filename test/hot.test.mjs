@@ -7,6 +7,8 @@ import {
   missingLabels,
   areaOptions,
   buildRuleEffectIndex,
+  esc,
+  safeUrl,
 } from "../hot.mjs";
 
 const TODAY = "2026-11-01";
@@ -146,6 +148,68 @@ test("ruleEffectLabel: 正の差は '+18枚'、負の差は '-12枚' と出す",
   assert.equal(ruleEffectLabel({ label: "5のつく日", diff: 18, days: 9 }), "通常日比 +18枚（9日）");
   assert.equal(ruleEffectLabel({ label: "ゾロ目", diff: -12, days: 4 }), "通常日比 -12枚（4日）");
   assert.equal(ruleEffectLabel({ label: "x", diff: 0, days: 3 }), "通常日比 ±0枚（3日）");
+});
+
+test("ruleEffectLabel: diff が欠測（undefined・NaN・非数）なら 0 で埋めず null", () => {
+  assert.equal(ruleEffectLabel({ label: "x", days: 3 }), null);
+  assert.equal(ruleEffectLabel({ label: "x", diff: undefined, days: 3 }), null);
+  assert.equal(ruleEffectLabel({ label: "x", diff: NaN, days: 3 }), null);
+  assert.equal(ruleEffectLabel({ label: "x", diff: null, days: 3 }), null);
+  assert.equal(ruleEffectLabel({ label: "x", diff: "18", days: 3 }), null);
+  assert.equal(ruleEffectLabel({ label: "x", diff: Infinity, days: 3 }), null);
+  assert.equal(ruleEffectLabel(undefined), null);
+});
+
+test("ruleEffectLabel: days が欠落・非数なら日数を省く", () => {
+  assert.equal(ruleEffectLabel({ label: "x", diff: 18 }), "通常日比 +18枚");
+  assert.equal(ruleEffectLabel({ label: "x", diff: -12, days: NaN }), "通常日比 -12枚");
+  assert.equal(ruleEffectLabel({ label: "x", diff: 5, days: null }), "通常日比 +5枚");
+  // days が 0 は欠測でなく 0日として出す
+  assert.equal(ruleEffectLabel({ label: "x", diff: 5, days: 0 }), "通常日比 +5枚（0日）");
+});
+
+test("esc: <script> と引用符・アンパサンドをエスケープする", () => {
+  assert.equal(
+    esc("<script>alert(1)</script>"),
+    "&lt;script&gt;alert(1)&lt;/script&gt;"
+  );
+  assert.equal(esc(`a"b'c&d`), "a&quot;b&#39;c&amp;d");
+  // 二重エスケープしない順序（& を最初に処理）
+  assert.equal(esc("<&>"), "&lt;&amp;&gt;");
+  assert.equal(esc(null), "");
+  assert.equal(esc(undefined), "");
+  assert.equal(esc(123), "123");
+});
+
+test("safeUrl: http(s) は通し、属性を壊す文字はエスケープする", () => {
+  assert.equal(safeUrl("https://p-town.dmm.com/shops/tokyo/102"), "https://p-town.dmm.com/shops/tokyo/102");
+  assert.equal(safeUrl("http://example.com/?a=1&b=2"), "http://example.com/?a=1&amp;b=2");
+  assert.equal(
+    safeUrl('https://a.example/" onmouseover="alert(1)'),
+    "https://a.example/&quot; onmouseover=&quot;alert(1)"
+  );
+});
+
+test("safeUrl: javascript: と data: は通さない", () => {
+  assert.equal(safeUrl("javascript:alert(1)"), "");
+  assert.equal(safeUrl("JavaScript:alert(1)"), "");
+  assert.equal(safeUrl("data:text/html,<script>alert(1)</script>"), "");
+  assert.equal(safeUrl("//example.com/"), "");
+  assert.equal(safeUrl("example.com"), "");
+  assert.equal(safeUrl(null), "");
+  assert.equal(safeUrl(undefined), "");
+});
+
+test("safeUrl: スキームの大文字小文字は区別せず通す（HTTP://EXAMPLE.COM は通す）", () => {
+  assert.equal(safeUrl("HTTP://EXAMPLE.COM"), "HTTP://EXAMPLE.COM");
+  assert.equal(safeUrl("Https://Example.com/x"), "Https://Example.com/x");
+});
+
+test("safeUrl: 先頭に空白・制御文字がある URL は通さない", () => {
+  assert.equal(safeUrl(" https://example.com/"), "");
+  assert.equal(safeUrl("\thttps://example.com/"), "");
+  assert.equal(safeUrl("\nhttps://example.com/"), "");
+  assert.equal(safeUrl(" javascript:alert(1)"), "");
 });
 
 test("missingLabels: 日本語名にして、同じ名前は1回だけ出す", () => {
