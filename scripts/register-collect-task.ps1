@@ -20,6 +20,7 @@ $weeklyName = "tokyo-pachi-guide-collect"
 $logonName = "tokyo-pachi-guide-collect-logon"
 $monthlyName = "tokyo-pachi-guide-collect-monthly"
 $allNames = @($weeklyName, $logonName, $monthlyName)
+$monthlySettingsApplied = $true
 
 function Test-TaskExists {
     param([string]$Name)
@@ -83,6 +84,7 @@ else {
         Write-Host ("registered: " + $monthlyName)
     }
     catch {
+        $monthlySettingsApplied = $false
         Write-Warning ("registered " + $monthlyName + " but could not apply the settings (WakeToRun etc.): " + $_.Exception.Message)
         Write-Warning "Set the wake / run-when-missed options of this task in Task Scheduler, or run Set-ScheduledTask from an administrator PowerShell."
     }
@@ -92,4 +94,9 @@ else {
 foreach ($n in $allNames) {
     if (-not (Test-TaskExists $n)) { throw ("task was not registered: " + $n) }
 }
-Write-Host "ok: all tasks exist"
+if ($monthlySettingsApplied) {
+    Write-Host "ok: all tasks exist"
+}
+else {
+    Write-Host "ok (monthly settings not applied: WakeToRun off)"
+}

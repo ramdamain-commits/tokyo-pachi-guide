@@ -80,6 +80,34 @@ function Write-Native {
     foreach ($l in $Result.Lines) { Write-Log ("  " + $l) }
 }
 
+# Throw away everything the collect step left in data/ (the tree was clean before the run, so the
+# differences are all from this run). Without this, the next run would be skipped (exit 2) forever.
+function Restore-Data {
+    param([string]$GitExe)
+    $r1 = Invoke-Native $GitExe @("restore", "--worktree", "--staged", "data")
+    Write-Native $r1
+    $r2 = Invoke-Native $GitExe @("clean", "-fd", "data")
+    Write-Native $r2
+    if ($r1.Code -ne 0 -or $r2.Code -ne 0) {
+        Write-Log "WARNING: could not restore data/ completely; fix it by hand"
+    }
+    else {
+        Write-Log "data/ restored to the committed state"
+    }
+}
+
+# Exclusive lock so that only one run is active at a time (several tasks can fire at once).
+# Held until the process ends. If another run holds it, skip with exit code 0.
+$LockFile = Join-Path $LogDir "collect.lock"
+$lockStream = $null
+try {
+    $lockStream = [System.IO.File]::Open($LockFile, [System.IO.FileMode]::OpenOrCreate, [System.IO.FileAccess]::ReadWrite, [System.IO.FileShare]::None)
+}
+catch {
+    try { Write-Log "skip: another run is in progress (lock held) (exit 0)" } catch { }
+    exit 0
+}
+
 try {
     Write-Log ("start: repo=" + $RepoDir + " trigger=" + $Trigger)
 
@@ -138,9 +166,17 @@ try {
     }
 
     # Step 3: fast-forward pull only.
-    $r = Invoke-Native $git @("pull", "--ff-only")
-    Write-Native $r
-    if ($r.Code -ne 0) { Stop-Run 1 "git pull --ff-only failed" }
+    # Retry up to 2 more times, 60 seconds apart (the network may not be up right after a resume).
+    $pullAttempt = 0
+    while ($true) {
+        $pullAttempt++
+        $r = Invoke-Native $git @("pull", "--ff-only")
+        Write-Native $r
+        if ($r.Code -eq 0) { break }
+        if ($pullAttempt -ge 3) { Stop-Run 1 "git pull --ff-only failed" }
+        Write-Log ("git pull --ff-only failed (attempt " + $pullAttempt + "), retry in 60 seconds")
+        Start-Sleep -Seconds 60
+    }
 
     # Step 4: tests, collect, validate. Stop with the failing exit code.
     $testFiles = @(Get-ChildItem -LiteralPath (Join-Path $RepoDir "test") -Filter "*.test.mjs" | Sort-Object Name | ForEach-Object { "test/" + $_.Name })
@@ -150,11 +186,17 @@ try {
 
     $r = Invoke-Native $node @("scripts/collect-events.mjs")
     Write-Native $r
-    if ($r.Code -ne 0) { Stop-Run $r.Code "collect-events.mjs failed" }
+    if ($r.Code -ne 0) {
+        Restore-Data $git
+        Stop-Run $r.Code "collect-events.mjs failed"
+    }
 
     $r = Invoke-Native $node @("scripts/validate-data.mjs")
     Write-Native $r
-    if ($r.Code -ne 0) { Stop-Run $r.Code "validate-data.mjs failed" }
+    if ($r.Code -ne 0) {
+        Restore-Data $git
+        Stop-Run $r.Code "validate-data.mjs failed"
+    }
 
     # Step 5: nothing to commit?
     $r = Invoke-Native $git @("status", "--porcelain", "data")
@@ -186,8 +228,14 @@ try {
     # Push when there are local commits not on the remote (a commit left by a failed push is pushed here).
     $r = Invoke-Native $git @("rev-list", "--count", "@{u}..HEAD")
     if ($r.Code -ne 0) { Write-Native $r; Stop-Run 1 "git rev-list failed" }
+    $countLines = @($r.Lines | Where-Object { ([string]$_).Trim() -ne "" })
     $ahead = 0
-    if (-not [int]::TryParse((($r.Lines -join "").Trim()), [ref]$ahead)) { $ahead = 0 }
+    $countText = ""
+    if ($countLines.Count -gt 0) { $countText = ([string]$countLines[$countLines.Count - 1]).Trim() }
+    if (-not [int]::TryParse($countText, [ref]$ahead)) {
+        Write-Native $r
+        Stop-Run 1 ("could not read the number of unpushed commits: '" + $countText + "'")
+    }
     if ($ahead -eq 0) {
         Stop-Run 0 "nothing to push"
     }
@@ -202,4 +250,7 @@ try {
 catch {
     Write-Log ("unexpected error: " + $_.Exception.Message)
     exit 1
+}
+finally {
+    if ($lockStream -ne $null) { $lockStream.Close() }
 }
