@@ -36,10 +36,27 @@ const MAX_CATEGORY_PAGES = 10;
 const BASELINE_MAX_AGE_DAYS = 7;
 /** 結果待ち（outcome が null の過去日イベント）のために店ページを取り直す期間。これより古い日は追わない */
 const PENDING_LOOKBACK_DAYS = 30;
+/** 店名からの直接引きで見つからなかった店を、再び試すまでの日数 */
+const MINREPO_RETRY_DAYS = 30;
+/** 空ページの割合を警告するのに必要な取得ページ数と、警告する割合（これを超えたら警告） */
+const EMPTY_WARN_MIN_PAGES = 10;
+const EMPTY_WARN_RATIO = 0.8;
 /** 対応率がこれ以上下がったら失敗 */
 const RATE_DROP_LIMIT = 0.3;
 
 const isNum = (v) => typeof v === "number" && Number.isFinite(v);
+
+/**
+ * 店名からみんレポのタグの候補を作る（重複は除く）。
+ * (a) NFKC → 英字小文字化 → 空白（全角含む）除去、(b) (a) からさらに記号 + ＋ ・ ' ’ & ＆ . ． - を除去。
+ * @param {string} name
+ * @returns {string[]}
+ */
+function slugCandidates(name) {
+  const a = String(name ?? "").normalize("NFKC").toLowerCase().replace(/\s/g, "");
+  const b = a.replace(/[+＋・'’&＆.．-]/g, "");
+  return [...new Set([a, b])].filter((x) => x !== "");
+}
 
 /** 日本時間の ISO 文字列（2026-11-01T09:04:00+09:00） */
 function jstIso(now) {
@@ -156,8 +173,52 @@ export async function runCollect({ fetcher, today = jstToday(), now = new Date()
   }
   const { venues } = buildVenues({ dmmEvents, minrepoTags, stores, previous: prevVenues });
   counts.venues = Object.keys(venues).length;
+  // buildVenues は今回の店を作り直すので、直接引きの確認日（minrepoCheckedAt）は前回から引き継ぐ
+  for (const key of Object.keys(venues)) venues[key].minrepoCheckedAt = prevVenues[key]?.minrepoCheckedAt ?? null;
 
   const currentKeys = [...new Set(dmmEvents.map((e) => `dmm:${e.dmmShopId}`))];
+
+  // 3b. カテゴリ（最近レポートされた店だけが出る）で対応が付かなかった今回の店は、店名から作ったタグを直接引く。
+  //     見つからなかった店は minrepoCheckedAt を記録し、MINREPO_RETRY_DAYS 日は再び試さない
+  /** @type {Map<string, boolean>} 取得して読んだ店ページ（URL → 日別表が空か）。空ページの割合の警告に使う */
+  const pageEmpty = new Map();
+  const emptyTableMessage = (tag) => `みんレポ ${tag}: スロットの日別データなし（タグページに表が無い）`;
+  const lookupBefore = addDaysStr(today, -MINREPO_RETRY_DAYS);
+  for (const key of currentKeys) {
+    const venue = venues[key];
+    if (venue.minrepoTag != null) continue;
+    if (venue.minrepoCheckedAt && venue.minrepoCheckedAt >= lookupBefore) continue;
+    let found = false;
+    let uncertain = false; // 取得に失敗した候補がある（見つからないと断定できない）
+    for (const candidate of slugCandidates(venue.name)) {
+      const url = minrepoTagUrl(candidate);
+      let res;
+      try {
+        res = await get(url);
+      } catch (e) {
+        if (!(e instanceof FetchError)) throw e;
+        log(`みんレポの直接引きで取得できない（次回また試す）: ${candidate} ${e.message}`);
+        uncertain = true;
+        continue;
+      }
+      if (res.status !== 200) continue; // 404 / 410: その候補のタグは無い
+      const days = parseMinrepoStorePage(res.text, today).days;
+      pageEmpty.set(url, days.length === 0);
+      if (days.length === 0) {
+        log(emptyTableMessage(candidate));
+        continue;
+      }
+      venue.minrepoTag = candidate;
+      found = true;
+      log(`みんレポの直接引きで対応: ${venue.name} → ${candidate}`);
+      break;
+    }
+    if (!found && !uncertain) {
+      venue.minrepoCheckedAt = today;
+      log(`みんレポの直接引きで見つからない: ${venue.name}（${MINREPO_RETRY_DAYS}日は再び試さない）`);
+    }
+  }
+
   const matched = currentKeys.filter((k) => venues[k]?.minrepoTag != null).length;
   const rate = Math.round((matched / currentKeys.length) * 1000) / 1000;
 
@@ -199,8 +260,9 @@ export async function runCollect({ fetcher, today = jstToday(), now = new Date()
     }
     counts.minrepoFetched++;
     const page = parseMinrepoStorePage(res.text, today);
+    pageEmpty.set(url, page.days.length === 0);
     if (page.days.length === 0) {
-      log(`みんレポ ${venue.minrepoTag}: 日別実績の表を読めなかった（見出しの構造が変わった可能性）。baseline は作らず前回値を使う`);
+      log(emptyTableMessage(venue.minrepoTag)); // baseline は作らず前回値を使う
       continue;
     }
     const store = venue.storeId ? stores.find((s) => s.id === venue.storeId) : null;
@@ -219,6 +281,12 @@ export async function runCollect({ fetcher, today = jstToday(), now = new Date()
       log(`みんレポ ${venue.minrepoTag}: 通常日が足りず baseline を作れない（前回値を使う）`);
     }
     dailyByVenue.set(key, { days: page.days, base: base ?? prevStats[key]?.baseline ?? null });
+  }
+
+  // 空ページがほとんどなら、見出しの構造が変わった可能性がある（失敗にはしない）
+  const emptyPages = [...pageEmpty.values()].filter(Boolean).length;
+  if (pageEmpty.size >= EMPTY_WARN_MIN_PAGES && emptyPages / pageEmpty.size > EMPTY_WARN_RATIO) {
+    log(`警告: みんレポの日別表がほとんど読めない（構造変更の可能性）: ${emptyPages}/${pageEmpty.size}ページが空`);
   }
 
   // 6. 結果待ちの過去日イベントに outcome を当てる

@@ -588,3 +588,138 @@ test("CLI: 実在しない --today は通信せず終了コード1", () => {
   assert.equal(r.status, 1);
   assert.match(r.stderr, /--today/);
 });
+
+// ---- 追加作業（R20）: 店名からの直接引き ----
+
+const EMPTY_TAG_PAGE = "<html><body><h1>店ページ</h1><p>スロットの記録はありません</p></body></html>";
+
+test("runCollect: カテゴリに無い店は店名から作ったタグ（a: NFKC・小文字化・空白除去）を直接引いて対応が付く", async () => {
+  const items = [shop(1, "ベガスベガス国分寺恋ヶ窪店", "2026-11-07"), shop(2, "ＰＬＡＺＡ　ABC店", "2026-11-07"), shop(3, "テスト店3", "2026-11-07")];
+  const env = makeEnv({
+    pages: {
+      [DMM1]: dmmPage(items),
+      [minrepoCategoryUrl(1)]: categoryPage(["テスト店3"]),
+      [minrepoTagUrl("ベガスベガス国分寺恋ヶ窪店")]: storePage(days("2026-11-04", 30)),
+      [minrepoTagUrl("plazaabc店")]: storePage(days("2026-11-04", 30)),
+      [minrepoTagUrl("テスト店3")]: storePage(days("2026-11-04", 30)),
+    },
+  });
+  const r = await run(env);
+  assert.equal(r.ok, true, r.reasons.join(" / "));
+  const v = env.written("venues.json").venues;
+  assert.equal(v["dmm:1"].minrepoTag, "ベガスベガス国分寺恋ヶ窪店");
+  assert.equal(v["dmm:2"].minrepoTag, "plazaabc店");
+  assert.equal(v["dmm:3"].minrepoTag, "テスト店3", "カテゴリで付いた店は直接引きしない");
+  // 直接引きで取ったページを基準づくりにそのまま使う（同じ URL を2回取らない）
+  assert.equal(new Set(env.urls).size, env.urls.length);
+  assert.equal(env.written("store-stats.json").stats["dmm:1"].baseline.daysG, 30);
+  // 対応率は直接引きの分を含む（3店すべて対応）
+  assert.equal(env.written("collect-meta.json").rates.minrepoMatched, 1);
+  // 全体の検証（validateEventsData）も、minrepoCheckedAt のある venues で通っている
+  assert.ok("minrepoCheckedAt" in v["dmm:1"]);
+});
+
+test("runCollect: (a) で見つからなければ記号を除いた (b) を引き、b で対応が付く", async () => {
+  const name = "ジャム・アンド&ジャム店"; // (a) は記号を含む。(b) は ・ と & を除く
+  const urlB = minrepoTagUrl("ジャムアンドジャム店");
+  const env = makeEnv({
+    pages: {
+      [DMM1]: dmmPage([shop(1, name, "2026-11-07")]),
+      [minrepoCategoryUrl(1)]: categoryPage([]),
+      [urlB]: storePage(days("2026-11-04", 30)),
+    },
+  });
+  const r = await run(env);
+  assert.equal(r.ok, true, r.reasons.join(" / "));
+  assert.deepEqual(
+    env.urls.filter((u) => u.includes("min-repo.com/tag/")),
+    [minrepoTagUrl(name.normalize("NFKC").toLowerCase()), urlB],
+    "(a) を先に引き、404 なら (b)",
+  );
+  assert.equal(env.written("venues.json").venues["dmm:1"].minrepoTag, "ジャムアンドジャム店");
+});
+
+test("runCollect: どちらの候補も空か 404 なら minrepoCheckedAt に今日が入り tag は null のまま", async () => {
+  const name = "ジャム・アンド&ジャム店";
+  const env = makeEnv({
+    pages: {
+      [DMM1]: dmmPage([shop(1, name, "2026-11-07")]),
+      [minrepoCategoryUrl(1)]: categoryPage([]),
+      [minrepoTagUrl(name.normalize("NFKC").toLowerCase())]: EMPTY_TAG_PAGE, // (a) は日別表なし
+      // (b) は 404
+    },
+  });
+  const r = await run(env);
+  assert.equal(r.ok, true, r.reasons.join(" / "));
+  const v = env.written("venues.json").venues["dmm:1"];
+  assert.equal(v.minrepoTag, null);
+  assert.equal(v.minrepoCheckedAt, TODAY);
+  assert.ok(env.logs.includes(`みんレポ ${name.normalize("NFKC").toLowerCase()}: スロットの日別データなし（タグページに表が無い）`), JSON.stringify(env.logs));
+});
+
+test("runCollect: minrepoCheckedAt が30日以内の店は直接引きしない。30日より古ければ引き直す", async () => {
+  const name = "ジャム店";
+  const url = minrepoTagUrl(name);
+  const venue = { ...VENUE1, name, minrepoTag: null };
+  // 今日 2026-11-05 の 30日前 = 10-06（30日以内）、31日前 = 10-05（古い）
+  for (const [checkedAt, fetched] of [["2026-11-04", false], ["2026-10-06", false], ["2026-10-05", true], [null, true]]) {
+    const env = makeEnv({
+      files: { "venues.json": { updated: "2026-11-01", venues: { "dmm:1": { ...venue, minrepoCheckedAt: checkedAt } } } },
+      pages: { [DMM1]: dmmPage([shop(1, name, "2026-11-07")]), [minrepoCategoryUrl(1)]: categoryPage([]) },
+    });
+    const r = await run(env);
+    assert.equal(r.ok, true, r.reasons.join(" / "));
+    assert.equal(env.urls.includes(url), fetched, `minrepoCheckedAt=${checkedAt}`);
+    const v = env.written("venues.json").venues["dmm:1"];
+    // 引かなかった店の確認日は前回のまま、引いて見つからなかった店は今日になる
+    assert.equal(v.minrepoCheckedAt, fetched ? TODAY : checkedAt);
+  }
+});
+
+test("runCollect: 直接引きで取得に失敗した店は minrepoCheckedAt を記録せず、次回また試す", async () => {
+  const name = "ジャム店";
+  const env = makeEnv({
+    pages: {
+      [DMM1]: dmmPage([shop(1, name, "2026-11-07")]),
+      [minrepoCategoryUrl(1)]: categoryPage([]),
+      [minrepoTagUrl(name)]: new FetchError(minrepoTagUrl(name), 503),
+    },
+  });
+  const r = await run(env);
+  assert.equal(r.ok, true, r.reasons.join(" / "));
+  assert.equal(env.written("venues.json").venues["dmm:1"].minrepoCheckedAt, null);
+});
+
+test("runCollect: 日別表の無いタグページは「スロットの日別データなし」を log に出す", async () => {
+  const { pages } = baseScenario();
+  pages[minrepoTagUrl("テスト店1")] = EMPTY_TAG_PAGE;
+  const env = makeEnv({ pages });
+  const r = await run(env);
+  assert.equal(r.ok, true, r.reasons.join(" / "));
+  assert.ok(env.logs.includes("みんレポ テスト店1: スロットの日別データなし（タグページに表が無い）"), JSON.stringify(env.logs));
+});
+
+/** 10店すべてがカテゴリで対応し、空の店ページが emptyCount 店ぶんの環境 */
+function emptyRatioEnv(shopCount, emptyCount) {
+  const items = [];
+  const pages = {};
+  for (let i = 1; i <= shopCount; i++) {
+    items.push(shop(i, `テスト店${i}`, "2026-11-07"));
+    pages[minrepoTagUrl(`テスト店${i}`)] = i <= emptyCount ? EMPTY_TAG_PAGE : storePage(days("2026-11-04", 30));
+  }
+  pages[DMM1] = dmmPage(items);
+  pages[minrepoCategoryUrl(1)] = categoryPage(items.map((it) => it.name));
+  return makeEnv({ pages });
+}
+
+test("runCollect: 取得した店ページが10件以上で8割を超えて空なら警告を log に出す（失敗にはしない）", async () => {
+  const warned = (env) => env.logs.some((l) => l.includes("警告: みんレポの日別表がほとんど読めない（構造変更の可能性）"));
+  const over = emptyRatioEnv(10, 9); // 9/10 = 90%
+  const r = await run(over);
+  assert.equal(r.ok, true, r.reasons.join(" / "));
+  assert.ok(warned(over), JSON.stringify(over.logs));
+  assert.ok(!warned((await (async () => { const e = emptyRatioEnv(10, 8); await run(e); return e; })())), "8/10 = 80% はちょうどで、超えていない");
+  const few = emptyRatioEnv(9, 9); // 全部空でも9件では警告しない
+  await run(few);
+  assert.ok(!warned(few));
+});
