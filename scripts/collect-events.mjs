@@ -93,7 +93,9 @@ export async function runCollect({ fetcher, today = jstToday(), now = new Date()
   const prevFiles = {};
   for (const m of prevMonths) {
     const f = await readJson(`events/${m}.json`);
-    if (f) prevFiles[m] = f;
+    // 月ファイルが欠けたまま進むと、その月の凍結イベントと履歴が静かに消える
+    if (!f) return fail(`collect-meta.json の months にある ${m} の月ファイル（events/${m}.json）が無い`);
+    prevFiles[m] = f;
   }
   const prevVenues = (await readJson("venues.json"))?.venues ?? {};
   const prevStats = (await readJson("store-stats.json"))?.stats ?? {};
@@ -329,15 +331,25 @@ export async function runCollect({ fetcher, today = jstToday(), now = new Date()
 
 // ---- CLI ----
 
-function parseArgs(argv) {
+/** YYYY-MM-DD の形で、かつ実在する日付か（new Date("YYYY-MM-DD") は使わない） */
+function isRealDate(str) {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(str);
+  if (!m) return false;
+  const [y, mo, d] = [Number(m[1]), Number(m[2]), Number(m[3])];
+  const dt = new Date(y, mo - 1, d);
+  return dt.getFullYear() === y && dt.getMonth() === mo - 1 && dt.getDate() === d;
+}
+
+/** CLI の引数を読む。不正なら Error を投げる */
+export function parseArgs(argv) {
   const args = { dryRun: false, today: null };
   for (const a of argv) {
     if (a === "--dry-run") args.dryRun = true;
     else if (a.startsWith("--today=")) args.today = a.slice("--today=".length);
     else throw new Error(`知らない引数: ${a}`);
   }
-  if (args.today !== null && !/^\d{4}-\d{2}-\d{2}$/.test(args.today)) {
-    throw new Error(`--today は YYYY-MM-DD で指定する: ${args.today}`);
+  if (args.today !== null && !isRealDate(args.today)) {
+    throw new Error(`--today は YYYY-MM-DD の実在日で指定する: ${args.today}`);
   }
   return args;
 }

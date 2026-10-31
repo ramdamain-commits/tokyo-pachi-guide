@@ -1,6 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { runCollect } from "../scripts/collect-events.mjs";
+import { spawnSync } from "node:child_process";
+import { runCollect, parseArgs } from "../scripts/collect-events.mjs";
 import { FetchError } from "../collect/http.mjs";
 import { minrepoCategoryUrl, minrepoTagUrl } from "../collect/minrepo.mjs";
 import { addDaysStr } from "../collect/dates.mjs";
@@ -442,4 +443,148 @@ test("runCollect: みんレポの日別表が空（見出し構造の変化）�
   assert.equal(r.ok, true, r.reasons.join(" / "));
   assert.equal(env.written("store-stats.json").stats["dmm:1"].baseline, null);
   assert.ok(env.logs.some((l) => l.includes("テスト店1") && l.includes("日別")), JSON.stringify(env.logs));
+});
+
+// ---- 修正ラウンド1 ----
+
+/** 前回の月ファイル用の、結果つき（凍結済み）の過去日イベント */
+function pastEvent(date, outcome = { g: 7000, samai: 0 }, venue = "dmm:1") {
+  return {
+    id: `${date}|${venue}|媒体X|企画1`, date, venue, media: "媒体X", title: "企画1", anniversary: false,
+    group: "unrated", score: 1, points: { mediaG: null, mediaSamai: null, venueG: null, venueSamai: null, busy: null, overlap: 0 },
+    evidence: [], missing: ["mediaG", "mediaSamai", "venueG", "venueSamai", "busy"], frozen: true, outcome,
+    sources: [{ url: "https://p-town.dmm.com/shops/tokyo/1", checkedAt: "2026-10-01" }],
+  };
+}
+
+const VENUE1 = { name: "テスト店1", address: "東京都台東区上野1-1-1", municipality: "台東区", area: "台東区", storeId: null, dmmShopId: "1", minrepoTag: "テスト店1", x: null };
+
+/** 店1の前回データ。baselineCheckedAt を与えると基準つきの store-stats も付く。events は { "2026-11": [...] } */
+function prevFilesFor({ baselineCheckedAt = null, events = {} } = {}) {
+  const months = Object.keys(events).sort();
+  const files = {
+    "collect-meta.json": { lastSuccessAt: "2026-11-01T09:00:00+09:00", months, rates: { minrepoMatched: 1 }, counts: { events: 0, history: 0 } },
+    "venues.json": { updated: "2026-11-01", venues: { "dmm:1": VENUE1 } },
+  };
+  for (const m of months) files[`events/${m}.json`] = { month: m, generatedAt: "2026-11-01T09:00:00+09:00", events: events[m] };
+  if (baselineCheckedAt) {
+    files["store-stats.json"] = {
+      updated: baselineCheckedAt,
+      stats: { "dmm:1": { baseline: { medianG: 2000, medianSamai: 0, daysG: 30, daysSamai: 30, sourceUrl: minrepoTagUrl("テスト店1"), checkedAt: baselineCheckedAt }, busyPct: null, ruleEffects: [], lift: { g: null, samai: null } } },
+    };
+  }
+  return files;
+}
+
+const median = (xs) => {
+  const s = [...xs].sort((a, b) => a - b);
+  const m = s.length >> 1;
+  return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2;
+};
+
+test("runCollect: 前回・今回のイベント日は基準（daysG・medianG）から除かれる", async () => {
+  const today = "2026-11-20";
+  // 前回のイベント日 11-01〜11-12（12日）と、今回の予定の日 11-20（今日の行）は極端な 9000。
+  // 通常日は 10-10〜10-31 と 11-13〜11-19（29日）で、日ごとに値が違う（除外を忘れると中央値が動く）
+  const dayValues = [];
+  const normalG = [];
+  for (let i = 0; i <= 41; i++) {
+    const date = addDaysStr(today, -i);
+    const isPrevEvent = date >= "2026-11-01" && date <= "2026-11-12";
+    const isCurrentEvent = date === today;
+    if (isPrevEvent || isCurrentEvent) {
+      dayValues.push({ date, g: 9000, samai: 500 });
+    } else {
+      const g = 2000 + i * 10;
+      normalG.push(g);
+      dayValues.push({ date, g, samai: 0 });
+    }
+  }
+  assert.equal(normalG.length, 29);
+  const prevEvents = [];
+  for (let d = 1; d <= 12; d++) prevEvents.push(pastEvent(`2026-11-${String(d).padStart(2, "0")}`));
+  const env = makeEnv({
+    files: prevFilesFor({ events: { "2026-11": prevEvents } }),
+    pages: {
+      [DMM1]: dmmPage([shop(1, "テスト店1", today)]),
+      [minrepoCategoryUrl(1)]: categoryPage(["テスト店1"]),
+      [minrepoTagUrl("テスト店1")]: storePage(dayValues),
+    },
+  });
+  const r = await runCollect({ fetcher: env.fetcher, today, now: NOW, readJson: env.readJson, writeJson: env.writeJson, log: env.log });
+  assert.equal(r.ok, true, r.reasons.join(" / "));
+  const base = env.written("store-stats.json").stats["dmm:1"].baseline;
+  assert.equal(base.daysG, 29, "前回のイベント日12日と今回の予定の日1日を除いた件数");
+  assert.equal(base.medianG, median(normalG));
+  assert.equal(base.medianSamai, 0);
+});
+
+test("runCollect: collect-meta の months にある月のファイルが無ければ ok:false で何も書かない", async () => {
+  const files = prevFilesFor({ events: { "2026-11": [pastEvent("2026-11-01")] } });
+  delete files["events/2026-11.json"];
+  const env = makeEnv({
+    files,
+    pages: { [DMM1]: dmmPage([shop(1, "テスト店1", "2026-11-07")]), [minrepoCategoryUrl(1)]: categoryPage(["テスト店1"]) },
+  });
+  const r = await run(env);
+  assert.equal(r.ok, false);
+  assert.ok(r.reasons.some((x) => x.includes("2026-11")), r.reasons.join(" / "));
+  assert.deepEqual(env.writes, []);
+});
+
+test("runCollect: 基準が7日以内で結果待ちも無い店は店ページを取らず、7日より古ければ取る", async () => {
+  const tagUrl = minrepoTagUrl("テスト店1");
+  const pagesFor = () => ({
+    [DMM1]: dmmPage([shop(1, "テスト店1", "2026-11-07")]),
+    [minrepoCategoryUrl(1)]: categoryPage(["テスト店1"]),
+    [tagUrl]: storePage(days("2026-11-04", 30)),
+  });
+  // 今日 2026-11-05 の 7日前 = 10-29（ちょうど7日は「古い」に入らない）、8日前 = 10-28
+  for (const [checkedAt, fetched] of [["2026-11-04", false], ["2026-10-29", false], ["2026-10-28", true]]) {
+    const env = makeEnv({ files: prevFilesFor({ baselineCheckedAt: checkedAt }), pages: pagesFor() });
+    const r = await run(env);
+    assert.equal(r.ok, true, r.reasons.join(" / "));
+    assert.equal(env.urls.includes(tagUrl), fetched, `checkedAt=${checkedAt}`);
+    const base = env.written("store-stats.json").stats["dmm:1"].baseline;
+    assert.equal(base.checkedAt, fetched ? TODAY : checkedAt, "取らなかった店は前回の基準のまま");
+  }
+  // 基準が無い店は取る
+  const env0 = makeEnv({ files: prevFilesFor(), pages: pagesFor() });
+  await run(env0);
+  assert.ok(env0.urls.includes(tagUrl));
+});
+
+test("runCollect: 結果待ちの過去日イベントは30日前までなら基準が新しくても取り直し、31日前は対象外", async () => {
+  const tagUrl = minrepoTagUrl("テスト店1");
+  const pagesFor = () => ({
+    [DMM1]: dmmPage([shop(1, "テスト店1", "2026-11-07")]),
+    [minrepoCategoryUrl(1)]: categoryPage(["テスト店1"]),
+    [tagUrl]: storePage(days("2026-11-04", 30)),
+  });
+  // 今日 2026-11-05 の 30日前 = 10-06、31日前 = 10-05。どちらも outcome が null
+  for (const [date, fetched] of [["2026-10-06", true], ["2026-10-05", false]]) {
+    const env = makeEnv({
+      files: prevFilesFor({ baselineCheckedAt: "2026-11-04", events: { "2026-10": [pastEvent(date, null)] } }),
+      pages: pagesFor(),
+    });
+    const r = await run(env);
+    assert.equal(r.ok, true, r.reasons.join(" / "));
+    assert.equal(env.urls.includes(tagUrl), fetched, `結果待ちの日付=${date}`);
+  }
+});
+
+test("parseArgs: --today は形式だけでなく実在日であることも確かめる", () => {
+  assert.deepEqual(parseArgs(["--dry-run", "--today=2026-11-05"]), { dryRun: true, today: "2026-11-05" });
+  assert.deepEqual(parseArgs([]), { dryRun: false, today: null });
+  assert.equal(parseArgs(["--today=2028-02-29"]).today, "2028-02-29");
+  for (const bad of ["2026-13-45", "2026-02-30", "2027-02-29", "2026-11-5", "abc"]) {
+    assert.throws(() => parseArgs([`--today=${bad}`]), /--today/, bad);
+  }
+  assert.throws(() => parseArgs(["--unknown"]));
+});
+
+test("CLI: 実在しない --today は通信せず終了コード1", () => {
+  const r = spawnSync(process.execPath, ["scripts/collect-events.mjs", "--dry-run", "--today=2026-13-45"], { encoding: "utf8", timeout: 20000 });
+  assert.equal(r.status, 1);
+  assert.match(r.stderr, /--today/);
 });
