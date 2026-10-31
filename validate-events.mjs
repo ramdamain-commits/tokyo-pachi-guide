@@ -10,6 +10,8 @@ const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 const URL_RE = /^https?:\/\//;
 const MONTH_RE = /^\d{4}-\d{2}$/;
 const GROUPS = new Set(["rated", "unrated"]);
+/** collect-meta の sources に書いてよい取得元 */
+const SOURCE_NAMES = ["dmm", "minrepo"];
 /** score.mjs の points のキー。missing に入りうる名前もこの中だけ。 */
 const POINT_KEYS = ["mediaG", "mediaSamai", "venueG", "venueSamai", "busy", "overlap"];
 /** みんレポ未対応の店の割合がこれを超えたら警告 */
@@ -90,9 +92,12 @@ function checkEvent(e, label, month, venues, errors) {
  * @param {object} data.mediaStrength media-strength.json（現状は形式の追加検証なし）
  * @param {object} data.storeStats store-stats.json の `stats`（店キー → 統計。中身）
  * @param {Record<string, {month: string, events: object[]}>} data.months 月ファイル（キーは YYYY-MM）
+ * @param {{sources?: string[], rates?: {minrepoMatched?: number|null}}} [data.meta] collect-meta.json（任意）。
+ *   sources があれば dmm / minrepo の文字列配列、rates.minrepoMatched は null か 0〜1 の数。
+ *   sources に minrepo が無いとき（みんレポを取っていない回）は「みんレポ未対応の店が多い」警告を出さない。
  * @returns {{errors: string[], warnings: string[]}}
  */
-export function validateEventsData({ venues, storeStats, months }) {
+export function validateEventsData({ venues, storeStats, months, meta }) {
   const errors = [];
   const warnings = [];
   // 形が違うと以降の検査が空回りして素通りするので、先に形を固定する
@@ -100,6 +105,23 @@ export function validateEventsData({ venues, storeStats, months }) {
   const statsMap = isPlainObject(storeStats) ? storeStats : null;
   if (!venueMap) errors.push("venues がオブジェクト（店キー → 店）でない");
   if (!statsMap) errors.push("store-stats の stats がオブジェクト（店キー → 統計）でない");
+
+  // collect-meta（任意）: sources は dmm / minrepo だけ、minrepoMatched は null か 0〜1
+  let usesMinrepo = true;
+  if (meta != null) {
+    if (meta.sources !== undefined) {
+      const ok = Array.isArray(meta.sources) && meta.sources.every((s) => typeof s === "string" && SOURCE_NAMES.includes(s));
+      if (!ok) {
+        errors.push(`collect-meta: sources は ${SOURCE_NAMES.join(" / ")} の文字列配列でなければならない "${JSON.stringify(meta.sources)}"`);
+      } else {
+        usesMinrepo = meta.sources.includes("minrepo");
+      }
+    }
+    const matched = meta.rates?.minrepoMatched;
+    if (matched !== undefined && matched !== null && !(typeof matched === "number" && Number.isFinite(matched) && matched >= 0 && matched <= 1)) {
+      errors.push(`collect-meta: rates.minrepoMatched は null か 0〜1 の数でなければならない "${matched}"`);
+    }
+  }
 
   // store-stats: baseline があるなら出典 URL が要る
   for (const [key, st] of Object.entries(statsMap ?? {})) {
@@ -110,7 +132,7 @@ export function validateEventsData({ venues, storeStats, months }) {
 
   // みんレポ未対応の店の割合
   const venueList = Object.values(venueMap ?? {});
-  if (venueList.length > 0) {
+  if (usesMinrepo && venueList.length > 0) {
     const unsupported = venueList.filter((v) => v?.minrepoTag == null).length;
     const ratio = unsupported / venueList.length;
     if (ratio > MINREPO_UNSUPPORTED_WARN_RATIO) {

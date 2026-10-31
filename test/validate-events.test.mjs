@@ -190,3 +190,39 @@ test("validateEventsData: 月ファイルの month が月キーと違うとエ�
   input.months["2026-11"].month = "2026-12";
   assertOneError(validateEventsData(input), /月キー/);
 });
+
+// ---- collect-meta の sources・rates.minrepoMatched ----
+
+const withMeta = (meta) => ({ ...minimal(), meta });
+
+test("validateEventsData: meta が無い・sources が無いのは正常（任意）", () => {
+  assert.deepEqual(validateEventsData(minimal()).errors, []);
+  assert.deepEqual(validateEventsData(withMeta({})).errors, []);
+});
+
+test("validateEventsData: meta.sources が dmm / minrepo の文字列配列ならエラー0", () => {
+  assert.deepEqual(validateEventsData(withMeta({ sources: ["dmm"] })).errors, []);
+  assert.deepEqual(validateEventsData(withMeta({ sources: ["dmm", "minrepo"] })).errors, []);
+});
+
+test("validateEventsData: meta.sources が配列でない・未知の要素・文字列でない要素はエラー", () => {
+  assertOneError(validateEventsData(withMeta({ sources: "dmm" })), /sources/);
+  assertOneError(validateEventsData(withMeta({ sources: ["dmm", "holenavi"] })), /sources/);
+  assertOneError(validateEventsData(withMeta({ sources: ["dmm", 1] })), /sources/);
+  assertOneError(validateEventsData(withMeta({ sources: null })), /sources/);
+});
+
+test("validateEventsData: rates.minrepoMatched は null と 0〜1 の数を許し、それ以外はエラー", () => {
+  assert.deepEqual(validateEventsData(withMeta({ rates: { minrepoMatched: null } })).errors, []);
+  assert.deepEqual(validateEventsData(withMeta({ rates: { minrepoMatched: 0.41 } })).errors, []);
+  assertOneError(validateEventsData(withMeta({ rates: { minrepoMatched: "0.4" } })), /minrepoMatched/);
+  assertOneError(validateEventsData(withMeta({ rates: { minrepoMatched: 1.5 } })), /minrepoMatched/);
+});
+
+test("validateEventsData: sources に minrepo が無いときは、みんレポ未対応の店が多くても警告しない", () => {
+  const input = minimal();
+  input.venues["dmm:102"].minrepoTag = null;
+  input.venues["dmm:103"].minrepoTag = null;
+  assert.deepEqual(validateEventsData({ ...input, meta: { sources: ["dmm"] } }).warnings, []);
+  assert.equal(validateEventsData({ ...input, meta: { sources: ["dmm", "minrepo"] } }).warnings.length, 1);
+});

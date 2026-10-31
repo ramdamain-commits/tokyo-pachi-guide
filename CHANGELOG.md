@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## 2026-11-01
+
+みんレポの自動収集を外し、DMM の予定一覧で公開する形に切り替え（ブランチ `feat/hot-events`）。みんレポが日別レポート・店ページの前に JS のボット確認を入れて自動取得できなくなり、これを再現するのは回避にあたるため行わない（ユーザー決定）。
+
+### 変更
+- `scripts/collect-events.mjs` — `runCollect` に `useMinrepo`（既定 `false`）を追加。CLI は `--with-minrepo` のときだけ `true`。`false` のときはみんレポ（カテゴリ・直接引き・店ページ）に一切アクセスせず、`minrepoTag`・`minrepoCheckedAt`・`store-stats.json` は前回のまま、`rates.minrepoMatched` は `null`（対応率の急落判定もしない）。`collect-meta.json` に `sources`（`["dmm"]`、`useMinrepo` なら `["dmm", "minrepo"]`）を書く
+- `validate-events.mjs` — `validateEventsData` が任意の `meta` を受け取り、`sources`（`dmm`・`minrepo` の文字列配列）と `rates.minrepoMatched`（`null` か 0〜1）を検証。`sources` に `minrepo` が無いときは「みんレポ未対応の店が多い」警告を出さない
+- 「熱いイベント」タブを「近日のイベント」に改名（最初に開くタブのまま）。`collect-meta.json` の `sources` に `minrepo` が無いときは、今日から7日の予定を日付順（同日は同じ店の同日の予定数が多い店→店名順）に既定30件・「もっと見る」で全件。「強さ不明」の見出し・「データなし」・点数の案内は出さず、熱さの点数が停止中である注記を足す。`sources` に `minrepo` があれば従来の表示。`hot.mjs` / `app.js` / `index.html`
+- `docs/熱いイベントの自動更新.md`・`README.md` — 現状（点数停止中・みんレポを回避しない理由・`--with-minrepo` は再開用）を反映。テスト件数を実数（263件）に更新
+
+### 追加
+- 各予定に「みんレポで見る」リンク（店のタグページ。タグが無い店は店名のサイト内検索）。`hot.mjs` に `selectUpcomingEvents`・`usesMinrepo`・`minrepoLink`・`minrepoTagUrl`
+
 ## 2026-10-31
 
 熱いイベント一覧と自動収集（ブランチ `feat/hot-events`）。設計書: `docs/superpowers/specs/2026-10-30-hot-events-design.md`、実装計画: `docs/superpowers/plans/2026-10-30-hot-events.md`

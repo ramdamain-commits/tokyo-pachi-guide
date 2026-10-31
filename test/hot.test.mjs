@@ -9,6 +9,10 @@ import {
   buildRuleEffectIndex,
   esc,
   safeUrl,
+  selectUpcomingEvents,
+  minrepoLink,
+  minrepoTagUrl,
+  usesMinrepo,
 } from "../hot.mjs";
 
 const TODAY = "2026-11-01";
@@ -253,4 +257,105 @@ test("buildRuleEffectIndex: stats が無い・壊れていても空で返る", (
   assert.equal(buildRuleEffectIndex(venues, null).size, 0);
   assert.equal(buildRuleEffectIndex(null, {}).size, 0);
   assert.equal(buildRuleEffectIndex(venues, { "dmm:1": {} }).size, 0);
+});
+
+// ---- 近日の予定一覧（DMM だけで公開する形） ----
+
+const ids = (r) => r.events.map((e) => e.id);
+
+test("selectUpcomingEvents: 今日から7日までを日付の早い順に並べ、過去日と8日後は除く", () => {
+  const events = [
+    ev("d8", "2026-11-09", "unrated", 0),
+    ev("d7", "2026-11-08", "unrated", 0),
+    ev("today", "2026-11-01", "unrated", 0),
+    ev("past", "2026-10-31", "unrated", 0),
+    ev("d3", "2026-11-04", "unrated", 0),
+  ];
+  const r = selectUpcomingEvents(events, { today: TODAY });
+  assert.deepEqual(ids(r), ["today", "d3", "d7"]);
+  assert.equal(r.total, 3);
+});
+
+test("selectUpcomingEvents: rated と unrated を分けず、score に関係なく日付順（点数停止中の表示）", () => {
+  const events = [ev("b", "2026-11-03", "rated", 9), ev("a", "2026-11-02", "unrated", 0)];
+  assert.deepEqual(ids(selectUpcomingEvents(events, { today: TODAY })), ["a", "b"]);
+});
+
+test("selectUpcomingEvents: 同日は同じ店の同日の予定数が多い店が先、同数なら店名順", () => {
+  const events = [
+    ev("a1", "2026-11-02", "unrated", 0, "dmm:1"), // A店 1件
+    ev("b1", "2026-11-02", "unrated", 0, "dmm:2"), // B店 2件
+    ev("b2", "2026-11-02", "unrated", 0, "dmm:2"),
+    ev("c1", "2026-11-02", "unrated", 0, "dmm:3"), // C店 1件
+  ];
+  assert.deepEqual(ids(selectUpcomingEvents(events, { today: TODAY, venues })), ["b1", "b2", "a1", "c1"]);
+});
+
+test("selectUpcomingEvents: 同日の予定数は日ごとに数える（別の日の件数は混ぜない）", () => {
+  const events = [
+    ev("b-d3", "2026-11-03", "unrated", 0, "dmm:2"),
+    ev("a-d2", "2026-11-02", "unrated", 0, "dmm:1"),
+    ev("c-d3", "2026-11-03", "unrated", 0, "dmm:3"),
+    ev("b-d2", "2026-11-02", "unrated", 0, "dmm:2"),
+    ev("b2-d2", "2026-11-02", "unrated", 0, "dmm:2"),
+  ];
+  assert.deepEqual(ids(selectUpcomingEvents(events, { today: TODAY, venues })), ["b-d2", "b2-d2", "a-d2", "b-d3", "c-d3"]);
+});
+
+test("selectUpcomingEvents: limit で切り、total は切る前の件数。days:null / limit:Infinity で全件", () => {
+  const events = Array.from({ length: 35 }, (_, i) => ev(`e${i}`, "2026-11-02", "unrated", 0));
+  events.push(ev("far", "2026-12-20", "unrated", 0));
+  const r = selectUpcomingEvents(events, { today: TODAY });
+  assert.equal(r.events.length, 30);
+  assert.equal(r.total, 35);
+  const all = selectUpcomingEvents(events, { today: TODAY, days: null, limit: Infinity });
+  assert.equal(all.events.length, 36);
+  assert.equal(all.total, 36);
+});
+
+test("selectUpcomingEvents: area で絞る。店を引けない予定は除く", () => {
+  const events = [ev("u", "2026-11-02", "unrated", 0, "dmm:1"), ev("h", "2026-11-02", "unrated", 0, "dmm:2"), ev("x", "2026-11-02", "unrated", 0, "dmm:99")];
+  assert.deepEqual(ids(selectUpcomingEvents(events, { today: TODAY, area: "上野", venues })), ["u"]);
+  assert.equal(selectUpcomingEvents(events, { today: TODAY }).total, 3);
+});
+
+test("selectUpcomingEvents: 入力を並べ替えない", () => {
+  const events = [ev("b", "2026-11-03", "unrated", 0), ev("a", "2026-11-02", "unrated", 0)];
+  selectUpcomingEvents(events, { today: TODAY });
+  assert.deepEqual(events.map((e) => e.id), ["b", "a"]);
+});
+
+test("usesMinrepo: sources に minrepo があるときだけ true（無い・sources 無し・壊れた値は false）", () => {
+  assert.equal(usesMinrepo({ sources: ["dmm", "minrepo"] }), true);
+  assert.equal(usesMinrepo({ sources: ["dmm"] }), false);
+  assert.equal(usesMinrepo({}), false);
+  assert.equal(usesMinrepo(null), false);
+  assert.equal(usesMinrepo({ sources: "minrepo" }), false);
+});
+
+test("minrepoTagUrl: collect/minrepo.mjs の minrepoTagUrl と同じ形（%表記は小文字）", async () => {
+  const { minrepoTagUrl: original } = await import("../collect/minrepo.mjs");
+  for (const tag of ["エスパス日拓上野新館", "ABC店", "a b&c", "ＤＡＭ"]) {
+    assert.equal(minrepoTagUrl(tag), original(tag), tag);
+  }
+  assert.equal(minrepoTagUrl("店"), "https://min-repo.com/tag/%e5%ba%97/");
+});
+
+test("minrepoLink: minrepoTag があればタグページ、無ければ店名検索", () => {
+  assert.equal(minrepoLink({ name: "A店", minrepoTag: "タグ名" }), minrepoTagUrl("タグ名"));
+  assert.equal(minrepoLink({ name: "A 店&", minrepoTag: null }), `https://min-repo.com/?s=${encodeURIComponent("A 店&")}`);
+  assert.equal(minrepoLink({ name: "A店" }), `https://min-repo.com/?s=${encodeURIComponent("A店")}`);
+  assert.equal(minrepoLink({ name: "A店", minrepoTag: "" }), `https://min-repo.com/?s=${encodeURIComponent("A店")}`);
+});
+
+test("minrepoLink: リンクを作れないとき（店不明・店名なし）は null。結果は safeUrl を通る", () => {
+  assert.equal(minrepoLink(undefined), null);
+  assert.equal(minrepoLink({ name: "" }), null);
+  assert.ok(safeUrl(minrepoLink({ name: "<script>", minrepoTag: null })).startsWith("https://min-repo.com/?s="));
+});
+
+test("selectUpcomingEvents: 同日で予定数も同じなら店名順（店キーの順ではない）", () => {
+  const v = { "dmm:1": { name: "ゼット店", area: "上野" }, "dmm:2": { name: "あ店", area: "上野" } };
+  const events = [ev("z", "2026-11-02", "unrated", 0, "dmm:1"), ev("a", "2026-11-02", "unrated", 0, "dmm:2")];
+  assert.deepEqual(ids(selectUpcomingEvents(events, { today: TODAY, venues: v })), ["a", "z"]);
 });

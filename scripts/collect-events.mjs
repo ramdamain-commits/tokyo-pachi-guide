@@ -1,7 +1,8 @@
 // 熱いイベントの収集本体。DMM ぱちタウンの予定とみんレポの日別実績をつなぎ、
 // 店の対応表・店の実績・取材の強さ・月ファイルを作る。
-// 実行: node scripts/collect-events.mjs [--dry-run] [--today=YYYY-MM-DD]
+// 実行: node scripts/collect-events.mjs [--dry-run] [--today=YYYY-MM-DD] [--with-minrepo]
 //   --dry-run は _staging/collect/ に書き、data/ には触れない（前回データの読み込みは data/ から）。
+//   --with-minrepo はみんレポも取る（将来の再開用。既定ではみんレポにアクセスしない）。
 // 失敗時（DMM が取れない・検証エラー・みんレポ対応率の急落）は何も書かず、終了コード1で終える。
 import fs from "node:fs";
 import path from "node:path";
@@ -90,9 +91,10 @@ function endOfNextMonth(today) {
  * @param {(rel: string) => Promise<any> | any} args.readJson data/ からの相対パス → 中身（無ければ null）
  * @param {(rel: string, obj: any) => Promise<void> | void} args.writeJson 書き出し先の相対パス → 中身
  * @param {(msg: string) => void} [args.log]
+ * @param {boolean} [args.useMinrepo] みんレポも取るか（既定 false）。false のときみんレポには1件もアクセスしない
  * @returns {Promise<{ ok: boolean, reasons: string[], counts: object }>}
  */
-export async function runCollect({ fetcher, today = jstToday(), now = new Date(), readJson, writeJson, log = () => {} }) {
+export async function runCollect({ fetcher, today = jstToday(), now = new Date(), readJson, writeJson, log = () => {}, useMinrepo = false }) {
   const counts = { events: 0, history: 0, venues: 0, minrepoFetched: 0 };
   const fail = (...reasons) => ({ ok: false, reasons, counts });
 
@@ -151,9 +153,10 @@ export async function runCollect({ fetcher, today = jstToday(), now = new Date()
   if (dmmEvents.length === 0) return fail(`DMM 一覧に ${today} 〜 ${windowEnd} の予定が1件も無い`);
 
   // 3. みんレポのカテゴリ（東京都）→ 店の対応表
+  //    useMinrepo が false のときは何も取らない（カテゴリ・直接引き・店ページのどれも）
   const minrepoTags = [];
   let categoryLast = null;
-  for (let page = 1; page <= (categoryLast ?? MAX_CATEGORY_PAGES) && page <= MAX_CATEGORY_PAGES; page++) {
+  for (let page = 1; useMinrepo && page <= (categoryLast ?? MAX_CATEGORY_PAGES) && page <= MAX_CATEGORY_PAGES; page++) {
     let res;
     try {
       res = await get(minrepoCategoryUrl(page));
@@ -188,6 +191,7 @@ export async function runCollect({ fetcher, today = jstToday(), now = new Date()
   const lookupBefore = addDaysStr(today, -MINREPO_RETRY_DAYS);
   for (const key of currentKeys) {
     const venue = venues[key];
+    if (!useMinrepo) break;
     if (venue.minrepoTag != null) continue;
     if (venue.minrepoCheckedAt && venue.minrepoCheckedAt >= lookupBefore) continue;
     let found = false;
@@ -233,6 +237,7 @@ export async function runCollect({ fetcher, today = jstToday(), now = new Date()
   );
   const staleBefore = addDaysStr(today, -BASELINE_MAX_AGE_DAYS);
   const targets = [...new Set([...currentKeys, ...pendingKeys])].filter((k) => {
+    if (!useMinrepo) return false;
     if (!venues[k]?.minrepoTag) return false;
     const checkedAt = prevStats[k]?.baseline?.checkedAt;
     // 基準が新しくても、結果待ちの店は日別実績が要るので取り直す（日別実績は保存しないため）
@@ -321,6 +326,11 @@ export async function runCollect({ fetcher, today = jstToday(), now = new Date()
   const busy = busyPercentiles(baselines);
   const stats = {};
   for (const key of Object.keys(venues)) {
+    if (!useMinrepo) {
+      // みんレポを取らない回は店の実績を前回のまま持ち越す（再計算しない。前回に無い店は空）
+      stats[key] = prevStats[key] ?? { baseline: null, busyPct: null, ruleEffects: [], lift: { g: null, samai: null } };
+      continue;
+    }
     stats[key] = {
       baseline: baselines[key],
       busyPct: busy[key] ?? null,
@@ -375,7 +385,8 @@ export async function runCollect({ fetcher, today = jstToday(), now = new Date()
   const monthFiles = {};
   for (const m of monthKeys) monthFiles[m] = mergeMonth(prevFiles[m] ?? null, fresh, today, m, outcomes, generatedAt);
 
-  const { errors, warnings } = validateEventsData({ venues, storeStats: stats, months: monthFiles });
+  const sources = useMinrepo ? ["dmm", "minrepo"] : ["dmm"];
+  const { errors, warnings } = validateEventsData({ venues, storeStats: stats, months: monthFiles, meta: { sources } });
   warnings.forEach((w) => log(`警告: ${w}`));
 
   // 10. 失敗の判定
@@ -384,7 +395,7 @@ export async function runCollect({ fetcher, today = jstToday(), now = new Date()
     reasons.push(`検証エラー ${errors.length}件: ${errors.slice(0, 5).join(" / ")}`);
   }
   const prevRate = prevMeta?.rates?.minrepoMatched;
-  if (isNum(prevRate) && prevRate - rate >= RATE_DROP_LIMIT - 1e-9) {
+  if (useMinrepo && isNum(prevRate) && prevRate - rate >= RATE_DROP_LIMIT - 1e-9) {
     reasons.push(`みんレポ対応率が前回 ${prevRate} から ${rate} に ${RATE_DROP_LIMIT} 以上下がった`);
   }
   if (reasons.length > 0) return fail(...reasons);
@@ -397,7 +408,9 @@ export async function runCollect({ fetcher, today = jstToday(), now = new Date()
   await writeJson("collect-meta.json", {
     lastSuccessAt: generatedAt,
     months: monthKeys,
-    rates: { minrepoMatched: rate },
+    sources,
+    // みんレポを取らない回は対応率を測っていないので null（前回値を持ち越さない）
+    rates: { minrepoMatched: useMinrepo ? rate : null },
     counts: { events: counts.events, history: counts.history },
   });
   return { ok: true, reasons: [], counts };
@@ -416,9 +429,10 @@ function isRealDate(str) {
 
 /** CLI の引数を読む。不正なら Error を投げる */
 export function parseArgs(argv) {
-  const args = { dryRun: false, today: null };
+  const args = { dryRun: false, today: null, withMinrepo: false };
   for (const a of argv) {
     if (a === "--dry-run") args.dryRun = true;
+    else if (a === "--with-minrepo") args.withMinrepo = true;
     else if (a.startsWith("--today=")) args.today = a.slice("--today=".length);
     else throw new Error(`知らない引数: ${a}`);
   }
@@ -429,7 +443,7 @@ export function parseArgs(argv) {
 }
 
 async function main() {
-  const { dryRun, today } = parseArgs(process.argv.slice(2));
+  const { dryRun, today, withMinrepo } = parseArgs(process.argv.slice(2));
   const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
   const dataDir = path.join(root, "data");
   const outDir = dryRun ? path.join(root, "_staging", "collect") : dataDir;
@@ -452,6 +466,7 @@ async function main() {
   const result = await runCollect({
     fetcher: createFetcher(),
     today: today ?? jstToday(),
+    useMinrepo: withMinrepo,
     readJson,
     writeJson,
     log: (m) => console.log(m),

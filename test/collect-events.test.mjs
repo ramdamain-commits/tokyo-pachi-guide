@@ -97,8 +97,8 @@ function makeEnv({ files = {}, pages = {} } = {}) {
   };
 }
 
-const run = (env) =>
-  runCollect({ fetcher: env.fetcher, today: TODAY, now: NOW, readJson: env.readJson, writeJson: env.writeJson, log: env.log });
+const run = (env, opts = {}) =>
+  runCollect({ fetcher: env.fetcher, today: TODAY, now: NOW, readJson: env.readJson, writeJson: env.writeJson, log: env.log, useMinrepo: true, ...opts });
 
 /** 3店・各1件の標準シナリオ。店1〜3それぞれにみんレポの店ページがある */
 function baseScenario({ g = { 1: 1500, 2: 2000, 3: 2500 } } = {}) {
@@ -378,7 +378,7 @@ test("runCollect: 二度目の実行で入った outcome は変わらない", as
       [minrepoTagUrl("テスト店1")]: storePage(days("2026-11-05", 30, { g: 2000, samai: 0 }, { "2026-11-01": { g: 9999, samai: 9999 } })),
     },
   });
-  const r = await runCollect({ fetcher: second.fetcher, today: "2026-11-06", now: NOW, readJson: second.readJson, writeJson: second.writeJson, log: second.log });
+  const r = await runCollect({ fetcher: second.fetcher, today: "2026-11-06", now: NOW, readJson: second.readJson, writeJson: second.writeJson, log: second.log, useMinrepo: true });
   assert.equal(r.ok, true, r.reasons.join(" / "));
   const again = second.written("events/2026-11.json").events.find((e) => e.date === "2026-11-01");
   assert.deepEqual(again.outcome, { g: 600, samai: 100 });
@@ -511,7 +511,7 @@ test("runCollect: 前回・今回のイベント日は基準（daysG・medianG�
       [minrepoTagUrl("テスト店1")]: storePage(dayValues),
     },
   });
-  const r = await runCollect({ fetcher: env.fetcher, today, now: NOW, readJson: env.readJson, writeJson: env.writeJson, log: env.log });
+  const r = await runCollect({ fetcher: env.fetcher, today, now: NOW, readJson: env.readJson, writeJson: env.writeJson, log: env.log, useMinrepo: true });
   assert.equal(r.ok, true, r.reasons.join(" / "));
   const base = env.written("store-stats.json").stats["dmm:1"].baseline;
   assert.equal(base.daysG, 29, "前回のイベント日12日と今回の予定の日1日を除いた件数");
@@ -574,8 +574,9 @@ test("runCollect: 結果待ちの過去日イベントは30日前までなら基
 });
 
 test("parseArgs: --today は形式だけでなく実在日であることも確かめる", () => {
-  assert.deepEqual(parseArgs(["--dry-run", "--today=2026-11-05"]), { dryRun: true, today: "2026-11-05" });
-  assert.deepEqual(parseArgs([]), { dryRun: false, today: null });
+  assert.deepEqual(parseArgs(["--dry-run", "--today=2026-11-05"]), { dryRun: true, today: "2026-11-05", withMinrepo: false });
+  assert.deepEqual(parseArgs([]), { dryRun: false, today: null, withMinrepo: false });
+  assert.equal(parseArgs(["--with-minrepo"]).withMinrepo, true);
   assert.equal(parseArgs(["--today=2028-02-29"]).today, "2028-02-29");
   for (const bad of ["2026-13-45", "2026-02-30", "2027-02-29", "2026-11-5", "abc"]) {
     assert.throws(() => parseArgs([`--today=${bad}`]), /--today/, bad);
@@ -770,4 +771,98 @@ test("runCollect: 取得した店ページの空が8割以下なら、直接引�
   const v = env.written("venues.json").venues;
   for (let i = 1; i <= 8; i++) assert.equal(v[`dmm:${i}`].minrepoCheckedAt, TODAY, `dmm:${i}`);
   assert.equal(v[`dmm:${total}`].minrepoCheckedAt, TODAY, "404 の店");
+});
+
+// ---- useMinrepo: false（DMM だけで公開する形） ----
+
+const MINREPO_HOST = "min-repo.com";
+
+test("runCollect: useMinrepo 省略時の既定は false で、みんレポにアクセスしない", async () => {
+  const { pages } = baseScenario();
+  const env = makeEnv({ pages });
+  const r = await runCollect({ fetcher: env.fetcher, today: TODAY, now: NOW, readJson: env.readJson, writeJson: env.writeJson, log: env.log });
+  assert.equal(r.ok, true, r.reasons.join(" / "));
+  assert.deepEqual(env.urls.filter((u) => u.includes(MINREPO_HOST)), []);
+  assert.deepEqual(env.written("collect-meta.json").sources, ["dmm"]);
+});
+
+test("runCollect: useMinrepo:false はみんレポへ1件もアクセスせず、前回の minrepoTag・minrepoCheckedAt・store-stats を残し、sources は dmm だけ", async () => {
+  // 店1: 前回タグあり＋基準が古い（true なら取り直す）＋結果待ちの過去日イベントあり（true なら取り直す）
+  // 店2: タグ無し＋確認日が古い（true なら直接引きする）
+  const prevStatsFile = {
+    updated: "2026-10-20",
+    stats: {
+      "dmm:1": { baseline: { medianG: 2100, medianSamai: 5, daysG: 30, daysSamai: 30, sourceUrl: minrepoTagUrl("テスト店1"), checkedAt: "2026-10-20" }, busyPct: 0.5, ruleEffects: [{ label: "5のつく日", diff: 10, days: 3 }], lift: { g: null, samai: null } },
+    },
+  };
+  const pendingEvent = {
+    id: "2026-11-02|dmm:1|媒体X|企画1", date: "2026-11-02", venue: "dmm:1", media: "媒体X", title: "企画1", anniversary: false,
+    group: "unrated", score: 0, points: { mediaG: null, mediaSamai: null, venueG: null, venueSamai: null, busy: null, overlap: null },
+    evidence: [], missing: ["mediaG", "mediaSamai", "venueG", "venueSamai", "busy", "overlap"], frozen: false, outcome: null,
+    sources: [{ url: "https://p-town.dmm.com/shops/tokyo/1", checkedAt: "2026-11-01" }],
+  };
+  const venue2 = { ...VENUE1, name: "テスト店2", dmmShopId: "2", minrepoTag: null, minrepoCheckedAt: "2026-09-01" };
+  const venue1 = { ...VENUE1, minrepoCheckedAt: "2026-10-01" };
+  const files = {
+    "venues.json": { updated: "2026-10-20", venues: { "dmm:1": venue1, "dmm:2": venue2 } },
+    "store-stats.json": prevStatsFile,
+    "collect-meta.json": { lastSuccessAt: "2026-11-01T09:00:00+09:00", months: ["2026-11"], rates: { minrepoMatched: 1 }, counts: { events: 1, history: 0 } },
+    "events/2026-11.json": { month: "2026-11", generatedAt: "2026-11-01T09:00:00+09:00", events: [pendingEvent] },
+  };
+  const items = [shop(1, "テスト店1", "2026-11-07"), shop(2, "テスト店2", "2026-11-08")];
+  // みんレポのページも置いておく（アクセスすれば取れてしまう状況でも触らないことを確かめる）
+  const pages = {
+    [DMM1]: dmmPage(items),
+    [minrepoCategoryUrl(1)]: categoryPage(["テスト店1", "テスト店2"]),
+    [minrepoTagUrl("テスト店1")]: storePage(days("2026-11-04", 30)),
+    [minrepoTagUrl("テスト店2")]: storePage(days("2026-11-04", 30)),
+  };
+  const env = makeEnv({ files, pages });
+  const r = await run(env, { useMinrepo: false });
+  assert.equal(r.ok, true, r.reasons.join(" / "));
+  assert.deepEqual(env.urls.filter((u) => u.includes(MINREPO_HOST)), [], "min-repo.com へのアクセスが1件も無い");
+  assert.ok(env.urls.some((u) => u.startsWith("https://p-town.dmm.com/")), "DMM は取る");
+
+  const v = env.written("venues.json").venues;
+  assert.equal(v["dmm:1"].minrepoTag, "テスト店1", "前回のタグを引き継ぐ");
+  assert.equal(v["dmm:1"].minrepoCheckedAt, "2026-10-01", "前回の確認日を引き継ぐ");
+  assert.equal(v["dmm:2"].minrepoTag, null);
+  assert.equal(v["dmm:2"].minrepoCheckedAt, "2026-09-01", "直接引きしないので確認日は動かない");
+  assert.deepEqual(env.written("store-stats.json").stats["dmm:1"], prevStatsFile.stats["dmm:1"], "store-stats は前回のまま（busyPct も再計算しない）");
+  assert.deepEqual(env.written("store-stats.json").stats["dmm:2"], { baseline: null, busyPct: null, ruleEffects: [], lift: { g: null, samai: null } }, "前回に無い店は空");
+  assert.equal(env.written("store-stats.json").stats["dmm:1"].baseline.checkedAt, "2026-10-20");
+
+  const meta = env.written("collect-meta.json");
+  assert.deepEqual(meta.sources, ["dmm"]);
+  assert.equal(meta.rates.minrepoMatched, null);
+  // みんレポ由来の要素は欠測、overlap だけが残る
+  for (const e of env.written("events/2026-11.json").events.filter((x) => !x.frozen)) {
+    assert.equal(e.group, "unrated");
+    assert.equal(e.points.mediaG, null);
+    assert.equal(e.points.venueG, null);
+  }
+});
+
+test("runCollect: useMinrepo:false は前回の対応率が高くても対応率の急落で失敗しない", async () => {
+  const items = [shop(1, "テスト店1", "2026-11-07"), shop(2, "テスト店2", "2026-11-07")];
+  const files = {
+    "collect-meta.json": { lastSuccessAt: "2026-11-01T09:00:00+09:00", months: [], rates: { minrepoMatched: 0.9 }, counts: { events: 2, history: 0 } },
+  };
+  const env = makeEnv({ files, pages: { [DMM1]: dmmPage(items) } });
+  const r = await run(env, { useMinrepo: false });
+  assert.equal(r.ok, true, r.reasons.join(" / "));
+  assert.equal(env.written("collect-meta.json").rates.minrepoMatched, null);
+  // 比較: useMinrepo:true なら同じ状況は急落で失敗する（ガードが効いている側の対照）
+  const env2 = makeEnv({ files, pages: { [DMM1]: dmmPage(items), [minrepoCategoryUrl(1)]: categoryPage([]) } });
+  const r2 = await run(env2, { useMinrepo: true });
+  assert.equal(r2.ok, false);
+});
+
+test("runCollect: useMinrepo:true は collect-meta の sources が dmm と minrepo", async () => {
+  const { pages } = baseScenario();
+  const env = makeEnv({ pages });
+  const r = await run(env);
+  assert.equal(r.ok, true, r.reasons.join(" / "));
+  assert.deepEqual(env.written("collect-meta.json").sources, ["dmm", "minrepo"]);
+  assert.ok(env.urls.some((u) => u.includes(MINREPO_HOST)));
 });

@@ -3,6 +3,9 @@ import { resolveLottery, lotteryLabel } from "./lottery.mjs";
 import { validateCoverage, mediaForStore, storesForMedia } from "./coverage.mjs";
 import {
   selectHotEvents,
+  selectUpcomingEvents,
+  usesMinrepo,
+  minrepoLink,
   staleness,
   ruleEffectLabel,
   missingLabels,
@@ -288,7 +291,7 @@ function renderMediaList(container, mediaList, coverage, storesById) {
   );
 }
 
-// ---- 熱いイベントタブ ----
+// ---- 近日のイベントタブ（旧・熱いイベント） ----
 
 // 新データ（collect-meta / events / venues / store-stats）を読む。
 // meta・venues が読めない、または必要な月ファイルが1件も読めなければ throw
@@ -337,7 +340,7 @@ async function loadHotData(todayStr) {
   return { meta, venues: venuesData.venues, events, stats };
 }
 
-function hotEventCard(ev, venues, withScore) {
+function hotEventCard(ev, venues, withScore, showMissing = true) {
   const venue = venues[ev.venue];
   const wrap = el("div", "store-card");
   const [y, m, d] = ev.date.split("-").map(Number);
@@ -352,7 +355,10 @@ function hotEventCard(ev, venues, withScore) {
     venue?.x && safeUrl(venue.x)
       ? `<a href="${safeUrl(venue.x)}" target="_blank" rel="noopener">店の公式X</a>`
       : "";
-  const links = [sourceLinks, xLink].filter(Boolean).join(" ・ ");
+  // 熱さは各予定から店の出玉データを手で確かめてもらう（みんレポは自動取得できないため）
+  const minrepoUrl = safeUrl(minrepoLink(venue));
+  const minrepoAnchor = minrepoUrl ? `<a href="${minrepoUrl}" target="_blank" rel="noopener">みんレポで見る</a>` : "";
+  const links = [minrepoAnchor, sourceLinks, xLink].filter(Boolean).join(" ・ ");
   const scoreHtml =
     withScore && typeof ev.score === "number"
       ? ` <span class="hot-card__score">熱さ ${ev.score.toFixed(1)}点</span>`
@@ -364,7 +370,7 @@ function hotEventCard(ev, venues, withScore) {
     `<div class="hot-card__title">${esc(ev.title)}${scoreHtml}</div>` +
     (ev.anniversary ? `<div class="store-card__badges"><span class="badge badge--anniv">周年</span></div>` : "") +
     (evidence ? `<ul class="hot-card__evidence">${evidence}</ul>` : "") +
-    (missing.length ? `<div class="hot-card__missing">データなし: ${esc(missing.join("・"))}</div>` : "") +
+    (showMissing && missing.length ? `<div class="hot-card__missing">データなし: ${esc(missing.join("・"))}</div>` : "") +
     (links ? `<div class="store-card__links">${links}</div>` : "");
   return wrap;
 }
@@ -372,9 +378,9 @@ function hotEventCard(ev, venues, withScore) {
 function renderHotUnavailable(body, reason) {
   body.innerHTML = "";
   body.appendChild(
-    el("p", "none-notice", "データ未生成（熱いイベントのデータがまだ作られていないか、読み込めませんでした）")
+    el("p", "none-notice", "データ未生成（近日のイベントのデータがまだ作られていないか、読み込めませんでした）")
   );
-  console.warn(`熱いイベント: ${reason}`);
+  console.warn(`近日のイベント: ${reason}`);
 }
 
 function renderHotTab(body, hot, todayStr) {
@@ -389,6 +395,18 @@ function renderHotTab(body, hot, todayStr) {
       : `データが古くなっています（最終更新 ${st.days} 日前）`
     : `最終更新: ${meta.lastSuccessAt.slice(0, 10)}`;
   body.appendChild(status);
+
+  // みんレポも取った回のデータなら点数つきの表示、そうでなければ日付順の予定一覧（点数は停止中）
+  const scored = usesMinrepo(meta);
+  if (!scored) {
+    body.appendChild(
+      el(
+        "p",
+        "hot-section-note",
+        "熱さの点数は停止中です（データの取得元が自動取得を受け付けないため）。各予定の「みんレポで見る」から、店の出玉データを手で確かめられます"
+      )
+    );
+  }
 
   const upcoming = events.filter((e) => e.date >= todayStr);
   const areas = areaOptions(upcoming, venues, AREA_ORDER);
@@ -411,6 +429,29 @@ function renderHotTab(body, hot, todayStr) {
   function renderList() {
     list.innerHTML = "";
     const range = state.showAll ? { days: null, limit: Infinity } : {};
+    if (!scored) {
+      const { events: shown, total } = selectUpcomingEvents(events, {
+        today: todayStr,
+        area: state.area || null,
+        venues,
+        ...range,
+      });
+      moreBtn.hidden = state.showAll;
+      if (total === 0) {
+        list.appendChild(
+          el(
+            "p",
+            "none-notice",
+            state.showAll
+              ? "該当する予定はありません。"
+              : "今後7日間に該当する予定はありません。「もっと見る」で先の予定も確認できます。"
+          )
+        );
+        return;
+      }
+      shown.forEach((ev) => list.appendChild(hotEventCard(ev, venues, false, false)));
+      return;
+    }
     const { rated, unrated, total } = selectHotEvents(events, {
       today: todayStr,
       area: state.area || null,

@@ -57,6 +57,73 @@ export function selectHotEvents(events, { today, days = 7, limit = 30, area = nu
 }
 
 /**
+ * 今日以降 days 日以内（days が null なら全件）の予定を、点数に関係なく日付の早い順に並べる。
+ * みんレポを取っていない回（点数なし）の一覧用。同日は「同じ店のその日の予定数」が多い店が先、同数なら店名順。
+ * limit は並べた後に掛け、total は絞り込み後（limit 前）の件数。
+ * area を指定するときは venues（venueキー → 店）が必要。引けない店の予定は除く。
+ * @param {object[]} events
+ * @param {{ today: string, days?: number|null, limit?: number, area?: string|null, venues?: object }} opts
+ * @returns {{ events: object[], total: number }}
+ */
+export function selectUpcomingEvents(events, { today, days = 7, limit = 30, area = null, venues = {} }) {
+  const start = dayNumber(today);
+  const inRange = (events || []).filter((e) => {
+    const n = dayNumber(e.date);
+    if (Number.isNaN(n) || n < start) return false;
+    if (days !== null && n > start + days) return false;
+    if (area !== null && venues?.[e.venue]?.area !== area) return false;
+    return true;
+  });
+  const perVenueDay = new Map();
+  for (const e of inRange) {
+    const k = `${e.venue}|${e.date}`;
+    perVenueDay.set(k, (perVenueDay.get(k) ?? 0) + 1);
+  }
+  const countOf = (e) => perVenueDay.get(`${e.venue}|${e.date}`);
+  const nameOf = (e) => venues?.[e.venue]?.name ?? "";
+  const sorted = [...inRange].sort(
+    (a, b) =>
+      dayNumber(a.date) - dayNumber(b.date) ||
+      countOf(b) - countOf(a) ||
+      nameOf(a).localeCompare(nameOf(b), "ja") ||
+      String(a.venue).localeCompare(String(b.venue)),
+  );
+  return { events: sorted.slice(0, limit), total: inRange.length };
+}
+
+/**
+ * みんレポも取った回のデータか（collect-meta の sources に minrepo がある）。
+ * sources が無い・壊れているときは false（点数は出さず、日付順の一覧にする）。
+ * @param {{ sources?: unknown }|null|undefined} meta
+ * @returns {boolean}
+ */
+export function usesMinrepo(meta) {
+  return Array.isArray(meta?.sources) && meta.sources.includes("minrepo");
+}
+
+/**
+ * みんレポの店タグページの URL。collect/minrepo.mjs の minrepoTagUrl と同じ形
+ * （%表記は小文字。ビューワはその収集コードを読み込まないので同じ関数をここに置く）。
+ * @param {string} tag
+ * @returns {string}
+ */
+export function minrepoTagUrl(tag) {
+  return `https://min-repo.com/tag/${encodeURIComponent(tag).replace(/%[0-9A-F]{2}/g, (m) => m.toLowerCase())}/`;
+}
+
+/**
+ * 「みんレポで見る」リンクの URL。minrepoTag があればタグページ、無ければ店名のサイト内検索。
+ * 店名もタグも無くリンクを作れないときは null。href に入れる前に safeUrl を通すこと。
+ * @param {{ name?: string, minrepoTag?: string|null }|null|undefined} venue
+ * @returns {string|null}
+ */
+export function minrepoLink(venue) {
+  if (venue?.minrepoTag) return minrepoTagUrl(venue.minrepoTag);
+  if (venue?.name) return `https://min-repo.com/?s=${encodeURIComponent(venue.name)}`;
+  return null;
+}
+
+/**
  * 最終成功日（ISO文字列でも日付文字列でもよい）から today までの日数と、古いかどうか。
  * 読めない値は stale 扱い（days は NaN）。
  * @param {string} lastSuccessAt
