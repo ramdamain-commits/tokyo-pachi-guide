@@ -109,3 +109,19 @@ test("get: User-Agent ヘッダに UA を付ける", async () => {
   assert.equal(f.calls[0].options.headers["User-Agent"], UA);
   assert.ok(UA.length > 0);
 });
+
+test("get: 通信にタイムアウト用の signal を付け、タイムアウト（AbortError 相当）は再試行して最後は FetchError", async () => {
+  const timeout = Object.assign(new Error("The operation was aborted due to timeout"), { name: "TimeoutError" });
+  const f = fakeFetch([timeout]);
+  const s = fakeSleep();
+  const fetcher = createFetcher({ fetchImpl: f.fn, sleep: s.fn, maxRetries: 2 });
+  await assert.rejects(fetcher.get("https://example.test/slow"), (err) => {
+    assert.ok(err instanceof FetchError);
+    assert.equal(err.status, 0);
+    return true;
+  });
+  assert.equal(f.calls.length, 3, "タイムアウトも一時エラーとして再試行する");
+  for (const c of f.calls) {
+    assert.ok(c.options.signal instanceof AbortSignal, "fetch に AbortSignal を渡す");
+  }
+});

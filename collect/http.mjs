@@ -20,9 +20,10 @@ const defaultSleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
  * - 通信と通信の間は delayMs あける（最初の通信の前だけは待たない。再試行の前は待つ）
  * - 同じ URL は1つの取得器の中で1度しか通信しない（200・404・410 の結果をキャッシュする）
  * - 404/410 は再試行せず { status, text: "" } を返す
- * - 403・429・5xx・ネットワーク例外は maxRetries 回まで再試行し、だめなら FetchError を投げる
+ * - 403・429・5xx・ネットワーク例外・タイムアウトは maxRetries 回まで再試行し、だめなら FetchError を投げる
  *   （403 を「存在しない」扱いにしない。遮断でも返るため）
- * @param {{ delayMs?: number, userAgent?: string, maxRetries?: number,
+ * - 1回の通信（本文の読み取りまで）は timeoutMs（既定 30秒）で打ち切る。打ち切りは再試行対象の一時エラー
+ * @param {{ delayMs?: number, userAgent?: string, maxRetries?: number, timeoutMs?: number,
  *           fetchImpl?: typeof fetch, sleep?: (ms: number) => Promise<void> }} [opts]
  * @returns {{ get: (url: string) => Promise<{ status: number, text: string }> }}
  */
@@ -30,6 +31,7 @@ export function createFetcher({
   delayMs = 2000,
   userAgent = UA,
   maxRetries = 2,
+  timeoutMs = 30000,
   fetchImpl = fetch,
   sleep = defaultSleep,
 } = {}) {
@@ -39,7 +41,7 @@ export function createFetcher({
   async function request(url) {
     if (requested) await sleep(delayMs);
     requested = true;
-    return fetchImpl(url, { headers: { "User-Agent": userAgent } });
+    return fetchImpl(url, { headers: { "User-Agent": userAgent }, signal: AbortSignal.timeout(timeoutMs) });
   }
 
   async function get(url) {
