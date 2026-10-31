@@ -9,17 +9,18 @@
 - `data/stores.json` — 店舗マスタ（エリア・台数・特定日ルール・抽選方式・SNS・混雑参考・閉店時刻・換金率・概要・出典・確認日）。2026-08-01 時点で全83店・16エリア（上野4/秋葉原5/新宿6/渋谷4/下北沢3/池袋8/新橋3/京橋銀座2/中野5/吉祥寺2/立川5/町田4/蒲田10/錦糸町10/北千住3/赤羽9）
 - `data/media.json` — 取材媒体マスタ（媒体名・取材傾向・対象ジャンル・確度・公式スケジュールURL・出典）。2026-07-20 に17媒体へ拡充。店舗単位ではなく媒体単位の一般的傾向（伝聞情報、公式公約ではない）
 - `data/coverage.json` — 店舗×媒体の取材実績（storeId・mediaName・頻度・直近確認月・確度・出典）。過去実績に基づく推定・伝聞であり公式情報ではない。掲載が無い＝実績なし、ではない（欠測）
+- `data/dmm-reports.json` — DMM の来店レポートから数えた取材実績（直近1年。レポートID・店・実施日・取材名）。予定カードの「DMM取材実績（直近1年）」に使う参考表示で、点数には使わない（`scripts/collect-events.mjs` が作る。手で編集しない）
 - `data/venues.json` / `data/store-stats.json` / `data/media-strength.json` / `data/events/YYYY-MM.json` / `data/collect-meta.json` — 熱いイベント一覧用の自動生成データ（`scripts/collect-events.mjs` が作る。手で編集しない）。店の対応表（東京都全体）・店の実績（通常日の基準・特定日の実効性）・取材の強さ・月ごとの予定と熱さの点数と根拠・最終成功日時を持つ。みんレポの日別データそのものは保存せず、計算結果だけを保存する
 - `match.mjs` — 日付マッチングロジック本体（`rules[].type` 全7種の判定・`ruleLabel` によるバッジ用日本語ラベル生成）
 - `coverage.mjs` — coverage.json の参照整合検証と店舗/媒体からの結合ロジック
-- `hot.mjs` — 近日のイベントタブの絞り込み・並べ替え（今日から7日・上位30件・日付順の一覧・「みんレポで見る」リンク・点数つき表示の強さ不明の枠・古さの判定）
+- `hot.mjs` — 近日のイベントタブの絞り込み・並べ替え（今日から7日・上位30件・日付順の一覧・「みんレポで見る」リンク・点数つき表示の強さ不明の枠・古さの判定・DMM取材実績の集計と表示）
 - `validate-events.mjs` — 熱いイベント関連データの検証（欠測を0で埋めていないか・日付の範囲・出典URLなど）
 - `collect/` — 収集の部品（取得・DMM と みんレポの解析・店の突き合わせ・統計・熱さの点数・月ファイルの更新）
 - `lottery.mjs` — 抽選方式の派生（method文言→type/random/tool）・パチ/スロ差分の解決・バッジ用ラベル生成
 - `validate.mjs` — `data/stores.json` のスキーマ検証（v3フィールド: lottery.type/random/tool・sns・crowd・annual+label）
 - `scripts/` — `validate-data.mjs`（検証CLI。新データも検証）・`migrate-lottery.mjs`（既存店のlottery派生付与）・`collect-events.mjs`（熱いイベントの収集本体）・`probe-sources.mjs`（取得元に届くかの切り分け用）・`run-collect.ps1` / `register-collect-task.ps1` / `commit-message.txt`（PCでの定期実行と登録）
 - `index.html` / `app.js` — ビューワ（近日のイベント/今日/明日/日付指定/エリア別一覧/取材傾向の6タブ。「近日のイベント」が最初に開く）。エリア別一覧の店舗カードに取材実績バッジ・抽選方式バッジ（パチ/スロで異なる場合は両方併記）・SNSリンク・混雑参考を表示、媒体カードに実績店一覧と公式スケジュールリンクを表示
-- `test/` — `node --test test/*.test.mjs` で実行（全263件。match 18・coverage 5・lottery 26・validate 20、熱いイベント関連 collect-events 36・dates 8・dmm 7・hot 35・http 9・merge 4・minrepo 12・rule-text 7・score 11・stats 16・validate-events 30・venues 19）
+- `test/` — `node --test test/*.test.mjs` で実行（全304件。match 18・coverage 5・lottery 26・validate 20、熱いイベント関連 collect-events 54・dates 8・dmm 13・hot 44・http 9・merge 4・minrepo 12・rule-text 7・score 11・stats 16・validate-events 38・venues 19）
 - `docs/取材予定の確認手順.md` — 「今週どこに取材が入るか」を調べる巡回手順とリンク集
 - `docs/示唆・イベントの確認手順.md` — SNS示唆・周年・混雑傾向を確認する手順とリンク集
 - `docs/収集手順_v3.md` — 特定日・抽選・周年・SNS・混雑を1パスで集める収集手順とソース序列
@@ -39,7 +40,7 @@ python3 -m http.server 8099
 
 ### 近日のイベントタブ
 
-「近日のイベント」タブ（旧・熱いイベント）は、DMMぱちタウンの東京都の予定を、今日から7日間・日付の早い順（同日は同じ店の同日の予定数が多い店→店名順）に既定30件並べ、「もっと見る」で全件を出す。周年はバッジを付けるだけで加点しない。各予定の「みんレポで見る」リンクから、店の出玉データを手で確かめられる。
+「近日のイベント」タブ（旧・熱いイベント）は、DMMぱちタウンの東京都の予定を、今日から7日間・日付の早い順（同日は同じ店の同日の予定数が多い店→店名順）に既定30件並べ、「もっと見る」で全件を出す。周年はバッジを付けるだけで加点しない。各予定の「みんレポで見る」リンクから、店の出玉データを手で確かめられる。各予定のカードには「DMM取材実績（直近1年）: N回・直近 YYYY-MM-DD「取材名」」も参考として出す（DMM 自身の企画だけで、他媒体の取材や出玉の結果は含まない。点数・並び順には使わない）。
 
 現状（2026-11-01 から）: 熱さの点数は停止中。みんレポが日別レポートの前に JS のボット確認を入れて自動取得できなくなり、回避はしないため、みんレポの自動収集を外した（`collect-meta.json` の `sources` が `["dmm"]`）。`sources` に `minrepo` がある回のデータなら、従来どおり熱さの点数順・根拠の数字・「データなし」・「強さ不明」の枠で表示する（再開用）。点数は推定であり公式情報ではない。
 

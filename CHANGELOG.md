@@ -11,6 +11,12 @@
 - `docs/熱いイベントの自動更新.md`・`README.md` — 現状（点数停止中・みんレポを回避しない理由・`--with-minrepo` は再開用）を反映。テスト件数を実数（263件）に更新
 
 ### 追加
+- 予定カードに DMM の取材実績（直近1年）を参考表示（ブランチ `feat/dmm-reports`・ユーザー決定「参考表示にとどめる」）。「DMM取材実績（直近1年）: N回・直近 YYYY-MM-DD「取材名」」（0回は「なし」）と「DMMの来店レポート」リンクを各予定に出す。DMM の来店レポート（`shop_reports?prefecture=13`）は DMM 自身の取材班の企画だけで、本文に数値があるのは一部のため、点数・並び順には使わない
+  - `collect/dmm.mjs` — `parseDmmReportsPage`・`dmmReportsUrl`（予定一覧と共通の部分は `readCommon`・`splitIcons` に切り出し。`parseDmmSchedulePage` の挙動は変えない）
+  - `scripts/collect-events.mjs` — 予定の取得後に来店レポートを集めて `data/dmm-reports.json` を作る。初回は 365 日前より古い実施日のページまで（上限 100 ページ）、以後は既知の `reportId` だけのページまで（上限 10 ページ）。365 日より古いものは捨てる。住所の正規化一致で `venue` を付け、付かなければ `null`（venues は増やさない）。正規化した住所 `addressKey` も保存し、`venue` が `null` のものは毎回今の venues で付け直す。一覧の取得失敗・ページ送りで存在が分かっているページの 404・ファイルの破損・想定外の例外・検証エラーでも全体は失敗にせず、その回は前回のファイルのまま。収集は失敗の判定のあと・書き出しの直前に行う
+  - `validate-events.mjs` / `scripts/validate-data.mjs` — `dmm-reports.json` があれば `reportId` 重複・日付・`venue` を検証（無ければ飛ばす）
+  - `hot.mjs` / `app.js` — `reportSummary`（直近365日・店の一致。365日前の当日を含む）・取材実績の1行・リンク。`dmm-reports.json` が読めなければ行とリンクを出さない
+  - `docs/熱いイベントの自動更新.md`・`README.md` — 取材実績の範囲（DMM 自身の企画だけ・点数に使わない）と取得の範囲を追記
 - 各予定に「みんレポで見る」リンク（店のタグページ。タグが無い店は店名のサイト内検索）。`hot.mjs` に `selectUpcomingEvents`・`usesMinrepo`・`minrepoLink`・`minrepoTagUrl`
 
 ## 2026-10-31

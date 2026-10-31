@@ -230,3 +230,67 @@ export function buildRuleEffectIndex(venues, stats) {
   }
   return index;
 }
+
+// ---- DMM 取材実績（参考表示。点数・並び順には使わない） ----
+
+/** 取材実績を数える期間（日）。今日からさかのぼって、この日数前の当日までを含む */
+const REPORT_WINDOW_DAYS = 365;
+
+/**
+ * 店の DMM 取材実績（直近365日）を数える。数えるのは venue が店キーに一致し、
+ * 実施日が「今日の365日前（当日を含む）から今日まで」のもの。未来の日付と日付の読めないものは数えない。
+ * last は最も新しい実施日の取材（同日なら reportId の大きい方）。
+ * @param {Array<{ reportId?: string, venue?: string|null, date?: string, title?: string }>|null|undefined} reports
+ * @param {string} venueKey
+ * @param {string} today "YYYY-MM-DD"
+ * @returns {{ count: number, last: { date: string, title: string }|null }}
+ */
+export function reportSummary(reports, venueKey, today) {
+  const t = dayNumber(today);
+  let count = 0;
+  let last = null;
+  for (const r of Array.isArray(reports) ? reports : []) {
+    if (r?.venue !== venueKey) continue;
+    const age = t - dayNumber(r.date);
+    if (!(age >= 0 && age <= REPORT_WINDOW_DAYS)) continue; // NaN も除く
+    count++;
+    const newer =
+      !last || r.date > last.date || (r.date === last.date && Number(r.reportId) > Number(last.reportId));
+    if (newer) last = { date: r.date, title: r.title ?? "", reportId: r.reportId };
+  }
+  return { count, last: last ? { date: last.date, title: last.title } : null };
+}
+
+/**
+ * カードに出す取材実績の1行（HTML）。reports が配列でない（ファイルが読めない）ときは空文字。
+ * 例: DMM取材実績（直近1年）: 2回・直近 2026-10-20「スロセレ」 / DMM取材実績（直近1年）: なし
+ * @param {{ reports: unknown, venueKey: string, today: string }} args
+ * @returns {string}
+ */
+export function dmmReportRow({ reports, venueKey, today }) {
+  if (!Array.isArray(reports)) return "";
+  const { count, last } = reportSummary(reports, venueKey, today);
+  const body = count === 0 || !last ? "なし" : `${count}回・直近 ${esc(last.date)}「${esc(last.title)}」`;
+  return `<div class="store-card__meta">DMM取材実績（直近1年）: ${body}</div>`;
+}
+
+/**
+ * 店の DMM 来店レポート一覧の URL。dmmShopId が数字だけのときだけ返す（それ以外は null）。
+ * href に入れる前に safeUrl を通すこと。
+ * @param {{ dmmShopId?: unknown }|null|undefined} venue
+ * @returns {string|null}
+ */
+export function dmmReportsLinkUrl(venue) {
+  const id = venue?.dmmShopId;
+  return typeof id === "string" && /^\d+$/.test(id) ? `https://p-town.dmm.com/shops/tokyo/${id}/reports` : null;
+}
+
+/**
+ * 「DMMの来店レポート」リンク（HTML）。作れないときは空文字。
+ * @param {{ dmmShopId?: unknown }|null|undefined} venue
+ * @returns {string}
+ */
+export function dmmReportLinkHtml(venue) {
+  const url = safeUrl(dmmReportsLinkUrl(venue));
+  return url ? `<a href="${url}" target="_blank" rel="noopener">DMMの来店レポート</a>` : "";
+}
