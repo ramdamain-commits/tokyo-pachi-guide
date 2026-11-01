@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-01",
+  "updated": "2026-11-02",
   "reports": [
     {
       "reportId": "563473",
@@ -10951,118 +10951,6 @@
       "addressKey": "八王子市四谷町651-八王子四谷ビル1,2階",
       "date": "2025-11-02",
       "title": "スロセレ",
-      "media": null
-    },
-    {
-      "reportId": "444513",
-      "venue": null,
-      "addressKey": "府中市片町2-21-14",
-      "date": "2025-11-01",
-      "title": "ぱちタウンコレクション",
-      "media": null
-    },
-    {
-      "reportId": "442765",
-      "venue": null,
-      "addressKey": "小平市花小金井1-11-3TCビル",
-      "date": "2025-11-01",
-      "title": "BIGディッパー特集",
-      "media": null
-    },
-    {
-      "reportId": "442764",
-      "venue": "dmm:49",
-      "addressKey": "港区新橋3-12-3",
-      "date": "2025-11-01",
-      "title": "BIGディッパー特集",
-      "media": null
-    },
-    {
-      "reportId": "442763",
-      "venue": null,
-      "addressKey": "江東区門前仲町2-3-4",
-      "date": "2025-11-01",
-      "title": "BIGディッパー特集",
-      "media": null
-    },
-    {
-      "reportId": "442762",
-      "venue": "dmm:12605",
-      "addressKey": "品川区平塚1-8-5",
-      "date": "2025-11-01",
-      "title": "BIGディッパー特集",
-      "media": null
-    },
-    {
-      "reportId": "442761",
-      "venue": "dmm:12781",
-      "addressKey": "港区新橋2-8-12",
-      "date": "2025-11-01",
-      "title": "BIGディッパー特集",
-      "media": null
-    },
-    {
-      "reportId": "442760",
-      "venue": "dmm:13057",
-      "addressKey": "品川区東大井5-15-4",
-      "date": "2025-11-01",
-      "title": "BIGディッパー特集",
-      "media": null
-    },
-    {
-      "reportId": "440719",
-      "venue": "dmm:721",
-      "addressKey": "葛飾区南水元4-18-7",
-      "date": "2025-11-01",
-      "title": "スロセレ",
-      "media": null
-    },
-    {
-      "reportId": "440183",
-      "venue": "dmm:13202",
-      "addressKey": "墨田区江東橋4-25-5",
-      "date": "2025-11-01",
-      "title": "KING OF D'STATION",
-      "media": null
-    },
-    {
-      "reportId": "440182",
-      "venue": "dmm:12787",
-      "addressKey": "八王子市北野町588-1",
-      "date": "2025-11-01",
-      "title": "KING OF D'STATION",
-      "media": null
-    },
-    {
-      "reportId": "440124",
-      "venue": "dmm:682",
-      "addressKey": "葛飾区新小岩1-41-4",
-      "date": "2025-11-01",
-      "title": "KING OF D'STATION",
-      "media": null
-    },
-    {
-      "reportId": "440123",
-      "venue": "dmm:823",
-      "addressKey": "立川市曙町2-4-5",
-      "date": "2025-11-01",
-      "title": "KING OF D'STATION",
-      "media": null
-    },
-    {
-      "reportId": "439182",
-      "venue": "dmm:12578",
-      "addressKey": "府中市宮西町1-2",
-      "date": "2025-11-01",
-      "title": "ONE SPARK",
-      "media": null
-    },
-    {
-      "reportId": "439180",
-      "venue": "dmm:74",
-      "addressKey": "新宿区新宿3-6-7",
-      "date": "2025-11-01",
-      "title": "ONE SPARK",
       "media": null
     }
   ]
