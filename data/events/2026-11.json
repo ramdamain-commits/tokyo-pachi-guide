@@ -1,6 +1,6 @@
 {
   "month": "2026-11",
-  "generatedAt": "2026-11-01T02:03:36+09:00",
+  "generatedAt": "2026-11-01T09:00:02+09:00",
   "events": [
     {
       "id": "2026-11-01|dmm:1018|スロパチステーション|スロぱちガール来店PS",
@@ -2163,11 +2163,47 @@
       ]
     },
     {
-      "id": "2026-11-03|dmm:12550|パチ＆スロ必勝本|天誅～灼＆閃＆斬～",
+      "id": "2026-11-03|dmm:12545|パチ＆スロ必勝本|裏天下無双",
+      "date": "2026-11-03",
+      "venue": "dmm:12545",
+      "media": "パチ＆スロ必勝本",
+      "title": "裏天下無双",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/12545",
+          "checkedAt": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-03|dmm:12550|パチ＆スロ必勝本|裏天下無双",
       "date": "2026-11-03",
       "venue": "dmm:12550",
       "media": "パチ＆スロ必勝本",
-      "title": "天誅～灼＆閃＆斬～",
+      "title": "裏天下無双",
       "anniversary": false,
       "group": "unrated",
       "score": 0,
@@ -2410,6 +2446,42 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/13417",
+          "checkedAt": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-03|dmm:14|パチ＆スロ必勝本|SS・ビッグボム&紫冥の判沢取材",
+      "date": "2026-11-03",
+      "venue": "dmm:14",
+      "media": "パチ＆スロ必勝本",
+      "title": "SS・ビッグボム&紫冥の判沢取材",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/14",
           "checkedAt": "2026-11-01"
         }
       ]
@@ -3034,53 +3106,17 @@
       "title": "天下無双滅",
       "anniversary": false,
       "group": "unrated",
-      "score": 3.3,
+      "score": 0,
       "points": {
         "mediaG": null,
         "mediaSamai": null,
         "venueG": null,
         "venueSamai": null,
         "busy": null,
-        "overlap": 1
+        "overlap": 0
       },
       "evidence": [
-        "同日にほか1件"
-      ],
-      "missing": [
-        "mediaG",
-        "mediaSamai",
-        "venueG",
-        "venueSamai",
-        "busy"
-      ],
-      "frozen": false,
-      "outcome": null,
-      "sources": [
-        {
-          "url": "https://p-town.dmm.com/shops/tokyo/12550",
-          "checkedAt": "2026-11-01"
-        }
-      ]
-    },
-    {
-      "id": "2026-11-04|dmm:12550|パチ＆スロ必勝本|戦極～威風堂々～",
-      "date": "2026-11-04",
-      "venue": "dmm:12550",
-      "media": "パチ＆スロ必勝本",
-      "title": "戦極～威風堂々～",
-      "anniversary": false,
-      "group": "unrated",
-      "score": 3.3,
-      "points": {
-        "mediaG": null,
-        "mediaSamai": null,
-        "venueG": null,
-        "venueSamai": null,
-        "busy": null,
-        "overlap": 1
-      },
-      "evidence": [
-        "同日にほか1件"
+        "同日のほかの予定なし"
       ],
       "missing": [
         "mediaG",
@@ -5511,6 +5547,42 @@
       ]
     },
     {
+      "id": "2026-11-07|dmm:720|パチ＆スロ必勝本|天下無双",
+      "date": "2026-11-07",
+      "venue": "dmm:720",
+      "media": "パチ＆スロ必勝本",
+      "title": "天下無双",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/720",
+          "checkedAt": "2026-11-01"
+        }
+      ]
+    },
+    {
       "id": "2026-11-07|dmm:776|BASHtv|動画収録(友希人)",
       "date": "2026-11-07",
       "venue": "dmm:776",
@@ -6154,6 +6226,42 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/12606",
+          "checkedAt": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-08|dmm:12787|フェスメディアX|ナインピース",
+      "date": "2026-11-08",
+      "venue": "dmm:12787",
+      "media": "フェスメディアX",
+      "title": "ナインピース",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/12787",
           "checkedAt": "2026-11-01"
         }
       ]
@@ -6879,6 +6987,42 @@
       ]
     },
     {
+      "id": "2026-11-08|dmm:720|パチ＆スロ必勝本|SS・ビッグボム取材",
+      "date": "2026-11-08",
+      "venue": "dmm:720",
+      "media": "パチ＆スロ必勝本",
+      "title": "SS・ビッグボム取材",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/720",
+          "checkedAt": "2026-11-01"
+        }
+      ]
+    },
+    {
       "id": "2026-11-08|dmm:740|スロパチステーション|スロパチガール来店S",
       "date": "2026-11-08",
       "venue": "dmm:740",
@@ -7167,11 +7311,11 @@
       ]
     },
     {
-      "id": "2026-11-09|dmm:12550|パチ＆スロ必勝本|天下無双滅",
+      "id": "2026-11-09|dmm:12550|パチ＆スロ必勝本|戦極～威風堂々～",
       "date": "2026-11-09",
       "venue": "dmm:12550",
       "media": "パチ＆スロ必勝本",
-      "title": "天下無双滅",
+      "title": "戦極～威風堂々～",
       "anniversary": false,
       "group": "unrated",
       "score": 0,
@@ -7455,6 +7599,42 @@
       ]
     },
     {
+      "id": "2026-11-10|dmm:494|パチ＆スロ必勝本|SS・蓮二郎取材",
+      "date": "2026-11-10",
+      "venue": "dmm:494",
+      "media": "パチ＆スロ必勝本",
+      "title": "SS・蓮二郎取材",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/494",
+          "checkedAt": "2026-11-01"
+        }
+      ]
+    },
+    {
       "id": "2026-11-10|dmm:685||スロセレ",
       "date": "2026-11-10",
       "venue": "dmm:685",
@@ -7486,6 +7666,42 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/685",
+          "checkedAt": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-10|dmm:720|パチ＆スロ必勝本|スーパースター・昇くん来店",
+      "date": "2026-11-10",
+      "venue": "dmm:720",
+      "media": "パチ＆スロ必勝本",
+      "title": "スーパースター・昇くん来店",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/720",
           "checkedAt": "2026-11-01"
         }
       ]
@@ -7918,6 +8134,42 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/126",
+          "checkedAt": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-11|dmm:12781|パチ＆スロ必勝本|天下無双",
+      "date": "2026-11-11",
+      "venue": "dmm:12781",
+      "media": "パチ＆スロ必勝本",
+      "title": "天下無双",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/12781",
           "checkedAt": "2026-11-01"
         }
       ]
@@ -10587,6 +10839,42 @@
       ]
     },
     {
+      "id": "2026-11-14|dmm:720|パチ＆スロ必勝本|SS・ビッグボム取材",
+      "date": "2026-11-14",
+      "venue": "dmm:720",
+      "media": "パチ＆スロ必勝本",
+      "title": "SS・ビッグボム取材",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/720",
+          "checkedAt": "2026-11-01"
+        }
+      ]
+    },
+    {
       "id": "2026-11-14|dmm:744||極誓取材",
       "date": "2026-11-14",
       "venue": "dmm:744",
@@ -11127,6 +11415,78 @@
       ]
     },
     {
+      "id": "2026-11-15|dmm:231|パチ＆スロ必勝本|エヴァCUP",
+      "date": "2026-11-15",
+      "venue": "dmm:231",
+      "media": "パチ＆スロ必勝本",
+      "title": "エヴァCUP",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 3.3,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 1
+      },
+      "evidence": [
+        "同日にほか1件"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/231",
+          "checkedAt": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-15|dmm:231|パチ＆スロ必勝本|戦極～電光石火～",
+      "date": "2026-11-15",
+      "venue": "dmm:231",
+      "media": "パチ＆スロ必勝本",
+      "title": "戦極～電光石火～",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 3.3,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 1
+      },
+      "evidence": [
+        "同日にほか1件"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/231",
+          "checkedAt": "2026-11-01"
+        }
+      ]
+    },
+    {
       "id": "2026-11-15|dmm:292|パチ＆スロ必勝本|戦極～電光石火～",
       "date": "2026-11-15",
       "venue": "dmm:292",
@@ -11343,6 +11703,42 @@
       ]
     },
     {
+      "id": "2026-11-15|dmm:720|パチ＆スロ必勝本|SS・ヒカルくん取材",
+      "date": "2026-11-15",
+      "venue": "dmm:720",
+      "media": "パチ＆スロ必勝本",
+      "title": "SS・ヒカルくん取材",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/720",
+          "checkedAt": "2026-11-01"
+        }
+      ]
+    },
+    {
       "id": "2026-11-15|dmm:807|パチ＆スロ必勝本|戦極～獅子奮迅～",
       "date": "2026-11-15",
       "venue": "dmm:807",
@@ -11518,6 +11914,42 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/83",
+          "checkedAt": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-15|dmm:867||みぃこ",
+      "date": "2026-11-15",
+      "venue": "dmm:867",
+      "media": null,
+      "title": "みぃこ",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/867",
           "checkedAt": "2026-11-01"
         }
       ]
@@ -11806,6 +12238,42 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/14",
+          "checkedAt": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-16|dmm:494|パチ＆スロ必勝本|SS・蓮くん取材",
+      "date": "2026-11-16",
+      "venue": "dmm:494",
+      "media": "パチ＆スロ必勝本",
+      "title": "SS・蓮くん取材",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/494",
           "checkedAt": "2026-11-01"
         }
       ]
@@ -16563,6 +17031,42 @@
       ]
     },
     {
+      "id": "2026-11-23|dmm:720|パチ＆スロ必勝本|天下無双",
+      "date": "2026-11-23",
+      "venue": "dmm:720",
+      "media": "パチ＆スロ必勝本",
+      "title": "天下無双",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/720",
+          "checkedAt": "2026-11-01"
+        }
+      ]
+    },
+    {
       "id": "2026-11-23|dmm:7|パチ＆スロ必勝本|天下無双滅",
       "date": "2026-11-23",
       "venue": "dmm:7",
@@ -17247,6 +17751,42 @@
       ]
     },
     {
+      "id": "2026-11-25|dmm:720|パチ＆スロ必勝本|SS・ヒカルくん取材",
+      "date": "2026-11-25",
+      "venue": "dmm:720",
+      "media": "パチ＆スロ必勝本",
+      "title": "SS・ヒカルくん取材",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/720",
+          "checkedAt": "2026-11-01"
+        }
+      ]
+    },
+    {
       "id": "2026-11-25|dmm:807||ギブアップ大西",
       "date": "2026-11-25",
       "venue": "dmm:807",
@@ -17674,6 +18214,42 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/49",
+          "checkedAt": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-26|dmm:720|パチ＆スロ必勝本|SS・蓮くん取材",
+      "date": "2026-11-26",
+      "venue": "dmm:720",
+      "media": "パチ＆スロ必勝本",
+      "title": "SS・蓮くん取材",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/720",
           "checkedAt": "2026-11-01"
         }
       ]
@@ -18790,6 +19366,42 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/682",
+          "checkedAt": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-28|dmm:720|パチ＆スロ必勝本|SS・ビッグボム取材",
+      "date": "2026-11-28",
+      "venue": "dmm:720",
+      "media": "パチ＆スロ必勝本",
+      "title": "SS・ビッグボム取材",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/720",
           "checkedAt": "2026-11-01"
         }
       ]

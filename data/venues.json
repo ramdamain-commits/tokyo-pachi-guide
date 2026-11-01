@@ -1727,6 +1727,39 @@
       "minrepoTag": null,
       "x": null,
       "minrepoCheckedAt": null
+    },
+    "dmm:12787": {
+      "name": "D'station八王子北野店",
+      "address": "東京都八王子市北野町588-1",
+      "municipality": "八王子市",
+      "area": "八王子市",
+      "storeId": null,
+      "dmmShopId": "12787",
+      "minrepoTag": null,
+      "x": null,
+      "minrepoCheckedAt": null
+    },
+    "dmm:12781": {
+      "name": "BIGディッパー新橋２号店",
+      "address": "東京都港区新橋2-8-12 ミクニ新橋第2ビル",
+      "municipality": "港区",
+      "area": "新橋",
+      "storeId": "bigdipper-shimbashi2",
+      "dmmShopId": "12781",
+      "minrepoTag": null,
+      "x": null,
+      "minrepoCheckedAt": null
+    },
+    "dmm:262": {
+      "name": "楽園蒲田店",
+      "address": "東京都大田区西蒲田7-46-8蒲田ライトビル1-3Ｆ",
+      "municipality": "大田区",
+      "area": "大田区",
+      "storeId": null,
+      "dmmShopId": "262",
+      "minrepoTag": null,
+      "x": null,
+      "minrepoCheckedAt": null
     }
   }
 }
