@@ -1,6 +1,6 @@
 {
   "month": "2026-12",
-  "generatedAt": "2026-11-02T06:01:04+09:00",
+  "generatedAt": "2026-11-08T16:07:31+09:00",
   "events": [
     {
       "id": "2026-12-01|dmm:622||スロセレ",
@@ -34,7 +34,7 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/622",
-          "checkedAt": "2026-11-02"
+          "checkedAt": "2026-11-08"
         }
       ]
     },
@@ -70,7 +70,7 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/262",
-          "checkedAt": "2026-11-02"
+          "checkedAt": "2026-11-08"
         }
       ]
     },
@@ -106,7 +106,79 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/255",
-          "checkedAt": "2026-11-02"
+          "checkedAt": "2026-11-08"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-10|dmm:12670|パチ＆スロ必勝本|戦極～東京喰種～",
+      "date": "2026-12-10",
+      "venue": "dmm:12670",
+      "media": "パチ＆スロ必勝本",
+      "title": "戦極～東京喰種～",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/12670",
+          "checkedAt": "2026-11-08"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-11|dmm:744|パチ＆スロ必勝本|嵐・くりの銭バカ",
+      "date": "2026-12-11",
+      "venue": "dmm:744",
+      "media": "パチ＆スロ必勝本",
+      "title": "嵐・くりの銭バカ",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/744",
+          "checkedAt": "2026-11-08"
         }
       ]
     },
@@ -142,7 +214,7 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/467",
-          "checkedAt": "2026-11-02"
+          "checkedAt": "2026-11-08"
         }
       ]
     },
@@ -178,7 +250,7 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/496",
-          "checkedAt": "2026-11-02"
+          "checkedAt": "2026-11-08"
         }
       ]
     },
@@ -214,7 +286,43 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/583",
-          "checkedAt": "2026-11-02"
+          "checkedAt": "2026-11-08"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-19|dmm:12578|フェスメディアX|KO取材",
+      "date": "2026-12-19",
+      "venue": "dmm:12578",
+      "media": "フェスメディアX",
+      "title": "KO取材",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/12578",
+          "checkedAt": "2026-11-08"
         }
       ]
     },
@@ -250,7 +358,79 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/12606",
-          "checkedAt": "2026-11-02"
+          "checkedAt": "2026-11-08"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-23|dmm:154||周年情報",
+      "date": "2026-12-23",
+      "venue": "dmm:154",
+      "media": null,
+      "title": "周年情報",
+      "anniversary": true,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/154",
+          "checkedAt": "2026-11-08"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-26|dmm:13170||周年情報",
+      "date": "2026-12-26",
+      "venue": "dmm:13170",
+      "media": null,
+      "title": "周年情報",
+      "anniversary": true,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/13170",
+          "checkedAt": "2026-11-08"
         }
       ]
     },
@@ -286,7 +466,7 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/292",
-          "checkedAt": "2026-11-02"
+          "checkedAt": "2026-11-08"
         }
       ]
     },
@@ -322,7 +502,7 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/13128",
-          "checkedAt": "2026-11-02"
+          "checkedAt": "2026-11-08"
         }
       ]
     }

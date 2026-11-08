@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-02",
+  "updated": "2026-11-08",
   "venues": {
     "dmm:721": {
       "name": "ジャラン水元店",
@@ -1757,6 +1757,116 @@
       "area": "大田区",
       "storeId": null,
       "dmmShopId": "262",
+      "minrepoTag": null,
+      "x": null,
+      "minrepoCheckedAt": null
+    },
+    "dmm:541": {
+      "name": "大山オーシャンスロット専門館",
+      "address": "東京都板橋区大山東町21-5",
+      "municipality": "板橋区",
+      "area": "板橋区",
+      "storeId": null,
+      "dmmShopId": "541",
+      "minrepoTag": null,
+      "x": null,
+      "minrepoCheckedAt": null
+    },
+    "dmm:12585": {
+      "name": "ジャラン浅草店",
+      "address": "東京都台東区浅草2-6-7　東京楽天地浅草ビル地下1F",
+      "municipality": "台東区",
+      "area": "台東区",
+      "storeId": null,
+      "dmmShopId": "12585",
+      "minrepoTag": null,
+      "x": null,
+      "minrepoCheckedAt": null
+    },
+    "dmm:12357": {
+      "name": "ジャラン五反田店",
+      "address": "東京都品川区西五反田2-7-7",
+      "municipality": "品川区",
+      "area": "品川区",
+      "storeId": null,
+      "dmmShopId": "12357",
+      "minrepoTag": null,
+      "x": null,
+      "minrepoCheckedAt": null
+    },
+    "dmm:660": {
+      "name": "ＭＧＭ綾瀬西口店",
+      "address": "東京都足立区綾瀬4丁目-6-30",
+      "municipality": "足立区",
+      "area": "足立区",
+      "storeId": null,
+      "dmmShopId": "660",
+      "minrepoTag": null,
+      "x": null,
+      "minrepoCheckedAt": null
+    },
+    "dmm:440": {
+      "name": "プレゴ池袋南口店",
+      "address": "東京都豊島区南池袋1-21-2",
+      "municipality": "豊島区",
+      "area": "池袋",
+      "storeId": null,
+      "dmmShopId": "440",
+      "minrepoTag": null,
+      "x": null,
+      "minrepoCheckedAt": null
+    },
+    "dmm:422": {
+      "name": "ミリオン高円寺22号店",
+      "address": "東京都杉並区高円寺南3-58-24",
+      "municipality": "杉並区",
+      "area": "杉並区",
+      "storeId": null,
+      "dmmShopId": "422",
+      "minrepoTag": null,
+      "x": null,
+      "minrepoCheckedAt": null
+    },
+    "dmm:658": {
+      "name": "ダイナム綾瀬東口店",
+      "address": "東京都足立区綾瀬三丁目3番2-101号",
+      "municipality": "足立区",
+      "area": "足立区",
+      "storeId": null,
+      "dmmShopId": "658",
+      "minrepoTag": null,
+      "x": null,
+      "minrepoCheckedAt": null
+    },
+    "dmm:942": {
+      "name": "ダイナム東村山店",
+      "address": "東京都東村山市本町二丁目6番1号",
+      "municipality": "東村山市",
+      "area": "東村山市",
+      "storeId": null,
+      "dmmShopId": "942",
+      "minrepoTag": null,
+      "x": null,
+      "minrepoCheckedAt": null
+    },
+    "dmm:299": {
+      "name": "ベルシティザシティ雑色店",
+      "address": "東京都大田区仲六郷2-43-7",
+      "municipality": "大田区",
+      "area": "大田区",
+      "storeId": null,
+      "dmmShopId": "299",
+      "minrepoTag": null,
+      "x": null,
+      "minrepoCheckedAt": null
+    },
+    "dmm:13170": {
+      "name": "メッセ西荻窪店",
+      "address": "東京都杉並区西荻南3-14-7",
+      "municipality": "杉並区",
+      "area": "杉並区",
+      "storeId": null,
+      "dmmShopId": "13170",
       "minrepoTag": null,
       "x": null,
       "minrepoCheckedAt": null
