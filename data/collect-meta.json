@@ -1,5 +1,5 @@
 {
-  "lastSuccessAt": "2026-11-08T16:07:31+09:00",
+  "lastSuccessAt": "2026-11-09T06:01:04+09:00",
   "months": [
     "2026-11",
     "2026-12"
@@ -11,7 +11,7 @@
     "minrepoMatched": null
   },
   "counts": {
-    "events": 473,
+    "events": 431,
     "history": 0
   }
 }

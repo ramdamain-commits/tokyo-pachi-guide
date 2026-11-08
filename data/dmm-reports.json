@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-08",
+  "updated": "2026-11-09",
   "reports": [
     {
       "reportId": "566110",
@@ -47,6 +47,14 @@
       "addressKey": "豊島区南池袋1-26-8",
       "date": "2026-11-03",
       "title": "ぱちタウンコレクション",
+      "media": null
+    },
+    {
+      "reportId": "567651",
+      "venue": "dmm:336",
+      "addressKey": "世田谷区南烏山5-19-9",
+      "date": "2026-11-03",
+      "title": "カラスヤマフルジャック",
       "media": null
     },
     {
@@ -11070,70 +11078,6 @@
       "venue": "dmm:807",
       "addressKey": "八王子市四谷町651-八王子四谷ビル1,2階",
       "date": "2025-11-09",
-      "title": "スロセレ",
-      "media": null
-    },
-    {
-      "reportId": "445884",
-      "venue": null,
-      "addressKey": "江戸川区中葛西5-42-6",
-      "date": "2025-11-08",
-      "title": "BUZZ",
-      "media": null
-    },
-    {
-      "reportId": "445883",
-      "venue": null,
-      "addressKey": "豊島区要町3-44-2",
-      "date": "2025-11-08",
-      "title": "BUZZ",
-      "media": null
-    },
-    {
-      "reportId": "445882",
-      "venue": "dmm:554",
-      "addressKey": "板橋区志村3-7-16",
-      "date": "2025-11-08",
-      "title": "BUZZ",
-      "media": null
-    },
-    {
-      "reportId": "445881",
-      "venue": "dmm:975",
-      "addressKey": "清瀬市野塩5-292-4",
-      "date": "2025-11-08",
-      "title": "BUZZ",
-      "media": null
-    },
-    {
-      "reportId": "442677",
-      "venue": "dmm:13235",
-      "addressKey": "西多摩郡瑞穂町富士山栗原新田233-1",
-      "date": "2025-11-08",
-      "title": "スロセレ",
-      "media": null
-    },
-    {
-      "reportId": "440498",
-      "venue": "dmm:7",
-      "addressKey": "千代田区外神田1-16-1",
-      "date": "2025-11-08",
-      "title": "スロセレ(低貸ver)",
-      "media": null
-    },
-    {
-      "reportId": "439950",
-      "venue": null,
-      "addressKey": "世田谷区経堂2-4-1",
-      "date": "2025-11-08",
-      "title": "スロセレ",
-      "media": null
-    },
-    {
-      "reportId": "439948",
-      "venue": null,
-      "addressKey": "日野市多摩平2-3-12",
-      "date": "2025-11-08",
       "title": "スロセレ",
       "media": null
     }
