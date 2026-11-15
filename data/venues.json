@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-09",
+  "updated": "2026-11-15",
   "venues": {
     "dmm:721": {
       "name": "ジャラン水元店",
@@ -1867,6 +1867,105 @@
       "area": "杉並区",
       "storeId": null,
       "dmmShopId": "13170",
+      "minrepoTag": null,
+      "x": null,
+      "minrepoCheckedAt": null
+    },
+    "dmm:13198": {
+      "name": "PIA町田店",
+      "address": "東京都町田市原町田6-13-21",
+      "municipality": "町田市",
+      "area": "町田",
+      "storeId": "pia-machida-shinkan",
+      "dmmShopId": "13198",
+      "minrepoTag": null,
+      "x": "https://twitter.com/PIA26183663",
+      "minrepoCheckedAt": null
+    },
+    "dmm:12179": {
+      "name": "フォルテ",
+      "address": "東京都西東京市田無町2-11-4",
+      "municipality": "西東京市",
+      "area": "西東京市",
+      "storeId": null,
+      "dmmShopId": "12179",
+      "minrepoTag": null,
+      "x": null,
+      "minrepoCheckedAt": null
+    },
+    "dmm:542": {
+      "name": "YASUDA5（大山駅前5号店）",
+      "address": "東京都板橋区大山東町60-10",
+      "municipality": "板橋区",
+      "area": "板橋区",
+      "storeId": null,
+      "dmmShopId": "542",
+      "minrepoTag": null,
+      "x": null,
+      "minrepoCheckedAt": null
+    },
+    "dmm:711": {
+      "name": "ダイナム金町北口店",
+      "address": "東京都葛飾区東金町一丁目43番8号 アサヒ会館ビル1階・2階",
+      "municipality": "葛飾区",
+      "area": "葛飾区",
+      "storeId": null,
+      "dmmShopId": "711",
+      "minrepoTag": null,
+      "x": null,
+      "minrepoCheckedAt": null
+    },
+    "dmm:303": {
+      "name": "金時蒲田東口店",
+      "address": "東京都大田区蒲田5-16-7",
+      "municipality": "大田区",
+      "area": "蒲田",
+      "storeId": "kintoki-kamata-higashiguchi",
+      "dmmShopId": "303",
+      "minrepoTag": null,
+      "x": null,
+      "minrepoCheckedAt": null
+    },
+    "dmm:512": {
+      "name": "ダイナム西日暮里スロット店",
+      "address": "東京都荒川区西日暮里5丁目21番7号 プルミエールビル1階",
+      "municipality": "荒川区",
+      "area": "荒川区",
+      "storeId": null,
+      "dmmShopId": "512",
+      "minrepoTag": null,
+      "x": null,
+      "minrepoCheckedAt": null
+    },
+    "dmm:411": {
+      "name": "オーパ荻窪",
+      "address": "東京都杉並区天沼３丁目２番７号荻窪ルーフ地下１階・地上１階",
+      "municipality": "杉並区",
+      "area": "杉並区",
+      "storeId": null,
+      "dmmShopId": "411",
+      "minrepoTag": null,
+      "x": null,
+      "minrepoCheckedAt": null
+    },
+    "dmm:691": {
+      "name": "オーパス・ワンアネックス立石店",
+      "address": "東京都葛飾区立石4-27-15",
+      "municipality": "葛飾区",
+      "area": "葛飾区",
+      "storeId": null,
+      "dmmShopId": "691",
+      "minrepoTag": null,
+      "x": null,
+      "minrepoCheckedAt": null
+    },
+    "dmm:524": {
+      "name": "グランドホール西高島平店",
+      "address": "東京都板橋区三園2-5-24",
+      "municipality": "板橋区",
+      "area": "板橋区",
+      "storeId": null,
+      "dmmShopId": "524",
       "minrepoTag": null,
       "x": null,
       "minrepoCheckedAt": null

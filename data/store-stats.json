@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-09",
+  "updated": "2026-11-15",
   "stats": {
     "dmm:721": {
       "baseline": null,
@@ -1523,6 +1523,87 @@
       }
     },
     "dmm:13170": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:13198": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:12179": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:542": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:711": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:303": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:512": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:411": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:691": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:524": {
       "baseline": null,
       "busyPct": null,
       "ruleEffects": [],
