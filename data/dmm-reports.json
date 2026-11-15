@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-15",
+  "updated": "2026-11-16",
   "reports": [
     {
       "reportId": "565214",
@@ -11303,30 +11303,6 @@
       "addressKey": "江東区東雲1-6-13",
       "date": "2025-11-16",
       "title": "スロセレ",
-      "media": null
-    },
-    {
-      "reportId": "447180",
-      "venue": null,
-      "addressKey": "江戸川区中葛西3-34-13",
-      "date": "2025-11-15",
-      "title": "ぱちタウン取材",
-      "media": null
-    },
-    {
-      "reportId": "442678",
-      "venue": "dmm:13235",
-      "addressKey": "西多摩郡瑞穂町富士山栗原新田233-1",
-      "date": "2025-11-15",
-      "title": "スロセレ",
-      "media": null
-    },
-    {
-      "reportId": "441733",
-      "venue": "dmm:346",
-      "addressKey": "渋谷区道玄坂2-6-16",
-      "date": "2025-11-15",
-      "title": "ぱちタウンコレクション",
       "media": null
     }
   ]
