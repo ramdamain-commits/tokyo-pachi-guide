@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-16",
+  "updated": "2026-11-23",
   "venues": {
     "dmm:721": {
       "name": "ジャラン水元店",
@@ -68,7 +68,7 @@
       "minrepoCheckedAt": null
     },
     "dmm:106": {
-      "name": "PIA上野",
+      "name": "PIA上野店",
       "address": "東京都台東区上野6-13-9",
       "municipality": "台東区",
       "area": "上野",
@@ -1966,6 +1966,61 @@
       "area": "板橋区",
       "storeId": null,
       "dmmShopId": "524",
+      "minrepoTag": null,
+      "x": null,
+      "minrepoCheckedAt": null
+    },
+    "dmm:317": {
+      "name": "キングNo.1世田谷店",
+      "address": "東京都世田谷区船橋1-1-18",
+      "municipality": "世田谷区",
+      "area": "世田谷区",
+      "storeId": null,
+      "dmmShopId": "317",
+      "minrepoTag": null,
+      "x": null,
+      "minrepoCheckedAt": null
+    },
+    "dmm:278": {
+      "name": "PIA大森店",
+      "address": "東京都大田区山王2-4-1",
+      "municipality": "大田区",
+      "area": "大田区",
+      "storeId": null,
+      "dmmShopId": "278",
+      "minrepoTag": null,
+      "x": null,
+      "minrepoCheckedAt": null
+    },
+    "dmm:4": {
+      "name": "コーシン神田店",
+      "address": "東京都千代田区内神田3-7-7",
+      "municipality": "千代田区",
+      "area": "千代田区",
+      "storeId": null,
+      "dmmShopId": "4",
+      "minrepoTag": null,
+      "x": null,
+      "minrepoCheckedAt": null
+    },
+    "dmm:600": {
+      "name": "コスモ光が丘店",
+      "address": "東京都練馬区光が丘3-9-1",
+      "municipality": "練馬区",
+      "area": "練馬区",
+      "storeId": null,
+      "dmmShopId": "600",
+      "minrepoTag": null,
+      "x": null,
+      "minrepoCheckedAt": null
+    },
+    "dmm:11": {
+      "name": "サイバーパチンコ秋葉原昭和通り口店",
+      "address": "東京都千代田区神田平河町4-7",
+      "municipality": "千代田区",
+      "area": "秋葉原",
+      "storeId": "cyber-akihabara",
+      "dmmShopId": "11",
       "minrepoTag": null,
       "x": null,
       "minrepoCheckedAt": null

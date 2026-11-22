@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-16",
+  "updated": "2026-11-23",
   "stats": {
     "dmm:721": {
       "baseline": null,
@@ -1604,6 +1604,51 @@
       }
     },
     "dmm:524": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:317": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:278": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:4": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:600": {
+      "baseline": null,
+      "busyPct": null,
+      "ruleEffects": [],
+      "lift": {
+        "g": null,
+        "samai": null
+      }
+    },
+    "dmm:11": {
       "baseline": null,
       "busyPct": null,
       "ruleEffects": [],

@@ -1,7 +1,259 @@
 {
   "month": "2026-12",
-  "generatedAt": "2026-11-16T06:01:04+09:00",
+  "generatedAt": "2026-11-23T06:00:04+09:00",
   "events": [
+    {
+      "id": "2026-12-01|dmm:12101|フェスメディアX|超キノコ狩り2nd",
+      "date": "2026-12-01",
+      "venue": "dmm:12101",
+      "media": "フェスメディアX",
+      "title": "超キノコ狩り2nd",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/12101",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-01|dmm:12283|フェスメディアX|バンカン回胴録",
+      "date": "2026-12-01",
+      "venue": "dmm:12283",
+      "media": "フェスメディアX",
+      "title": "バンカン回胴録",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/12283",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-01|dmm:12578||ONE SPARK",
+      "date": "2026-12-01",
+      "venue": "dmm:12578",
+      "media": null,
+      "title": "ONE SPARK",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/12578",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-01|dmm:126|フェスメディアX|超キノコ狩り2nd",
+      "date": "2026-12-01",
+      "venue": "dmm:126",
+      "media": "フェスメディアX",
+      "title": "超キノコ狩り2nd",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/126",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-01|dmm:22|フェスメディアX|超キノコ狩り2nd",
+      "date": "2026-12-01",
+      "venue": "dmm:22",
+      "media": "フェスメディアX",
+      "title": "超キノコ狩り2nd",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/22",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-01|dmm:276||ONE SPARK",
+      "date": "2026-12-01",
+      "venue": "dmm:276",
+      "media": null,
+      "title": "ONE SPARK",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/276",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-01|dmm:41|フェスメディアX|超キノコ狩り2nd",
+      "date": "2026-12-01",
+      "venue": "dmm:41",
+      "media": "フェスメディアX",
+      "title": "超キノコ狩り2nd",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/41",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
     {
       "id": "2026-12-01|dmm:622||スロセレ",
       "date": "2026-12-01",
@@ -34,7 +286,7 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/622",
-          "checkedAt": "2026-11-16"
+          "checkedAt": "2026-11-23"
         }
       ]
     },
@@ -70,7 +322,439 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/721",
-          "checkedAt": "2026-11-16"
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-01|dmm:74||ONE SPARK",
+      "date": "2026-12-01",
+      "venue": "dmm:74",
+      "media": null,
+      "title": "ONE SPARK",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/74",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-01|dmm:775||ONE SPARK",
+      "date": "2026-12-01",
+      "venue": "dmm:775",
+      "media": null,
+      "title": "ONE SPARK",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/775",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-01|dmm:885|フェスメディアX|超キノコ狩り2nd",
+      "date": "2026-12-01",
+      "venue": "dmm:885",
+      "media": "フェスメディアX",
+      "title": "超キノコ狩り2nd",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/885",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-01|dmm:905|パチ＆スロ必勝本|SS・判沢くん取材",
+      "date": "2026-12-01",
+      "venue": "dmm:905",
+      "media": "パチ＆スロ必勝本",
+      "title": "SS・判沢くん取材",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/905",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-01|dmm:977|フェスメディアX|超キノコ狩り2nd",
+      "date": "2026-12-01",
+      "venue": "dmm:977",
+      "media": "フェスメディアX",
+      "title": "超キノコ狩り2nd",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/977",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-02|dmm:12227|フェスメディアX|ナインピース",
+      "date": "2026-12-02",
+      "venue": "dmm:12227",
+      "media": "フェスメディアX",
+      "title": "ナインピース",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/12227",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-02|dmm:2|フェスメディアX|超キノコ狩り2nd",
+      "date": "2026-12-02",
+      "venue": "dmm:2",
+      "media": "フェスメディアX",
+      "title": "超キノコ狩り2nd",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/2",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-02|dmm:770|フェスメディアX|ドリルスロット",
+      "date": "2026-12-02",
+      "venue": "dmm:770",
+      "media": "フェスメディアX",
+      "title": "ドリルスロット",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/770",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-03|dmm:12605|パチ＆スロ必勝本|裏一刀両断",
+      "date": "2026-12-03",
+      "venue": "dmm:12605",
+      "media": "パチ＆スロ必勝本",
+      "title": "裏一刀両断",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/12605",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-04|dmm:13121||番組収録",
+      "date": "2026-12-04",
+      "venue": "dmm:13121",
+      "media": null,
+      "title": "番組収録",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/13121",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-05|dmm:12670|フェスメディアX|ナインピース",
+      "date": "2026-12-05",
+      "venue": "dmm:12670",
+      "media": "フェスメディアX",
+      "title": "ナインピース",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/12670",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-05|dmm:249||ぱちタウンコレクション",
+      "date": "2026-12-05",
+      "venue": "dmm:249",
+      "media": null,
+      "title": "ぱちタウンコレクション",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/249",
+          "checkedAt": "2026-11-23"
         }
       ]
     },
@@ -106,7 +790,187 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/262",
-          "checkedAt": "2026-11-16"
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-05|dmm:494|パチ＆スロ必勝本|SS・蓮二郎取材",
+      "date": "2026-12-05",
+      "venue": "dmm:494",
+      "media": "パチ＆スロ必勝本",
+      "title": "SS・蓮二郎取材",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/494",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-05|dmm:4|パチ＆スロ必勝本|必勝本WEB-TV生配信　そふぃー",
+      "date": "2026-12-05",
+      "venue": "dmm:4",
+      "media": "パチ＆スロ必勝本",
+      "title": "必勝本WEB-TV生配信　そふぃー",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/4",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-05|dmm:807|スロパチステーション|スロパチ東京あかまる来店取材",
+      "date": "2026-12-05",
+      "venue": "dmm:807",
+      "media": "スロパチステーション",
+      "title": "スロパチ東京あかまる来店取材",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/807",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-05|dmm:867||みぃこ",
+      "date": "2026-12-05",
+      "venue": "dmm:867",
+      "media": null,
+      "title": "みぃこ",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/867",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-05|dmm:868||中条ひとみ",
+      "date": "2026-12-05",
+      "venue": "dmm:868",
+      "media": null,
+      "title": "中条ひとみ",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/868",
+          "checkedAt": "2026-11-23"
         }
       ]
     },
@@ -142,7 +1006,43 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/12322",
-          "checkedAt": "2026-11-16"
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-06|dmm:12578|スロパチステーション|スロパチガール来店S",
+      "date": "2026-12-06",
+      "venue": "dmm:12578",
+      "media": "スロパチステーション",
+      "title": "スロパチガール来店S",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/12578",
+          "checkedAt": "2026-11-23"
         }
       ]
     },
@@ -178,7 +1078,79 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/255",
-          "checkedAt": "2026-11-16"
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-06|dmm:494|パチ＆スロ必勝本|SS・蓮くん取材",
+      "date": "2026-12-06",
+      "venue": "dmm:494",
+      "media": "パチ＆スロ必勝本",
+      "title": "SS・蓮くん取材",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/494",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-07|dmm:343|スロパチステーション|スロぱちガール来店PS",
+      "date": "2026-12-07",
+      "venue": "dmm:343",
+      "media": "スロパチステーション",
+      "title": "スロぱちガール来店PS",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/343",
+          "checkedAt": "2026-11-23"
         }
       ]
     },
@@ -214,7 +1186,115 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/691",
-          "checkedAt": "2026-11-16"
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-08|dmm:853|スロパチステーション|スロパチ東京あかまる来店取材",
+      "date": "2026-12-08",
+      "venue": "dmm:853",
+      "media": "スロパチステーション",
+      "title": "スロパチ東京あかまる来店取材",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/853",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-09|dmm:106|パチ＆スロ必勝本|一刀両断",
+      "date": "2026-12-09",
+      "venue": "dmm:106",
+      "media": "パチ＆スロ必勝本",
+      "title": "一刀両断",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/106",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-10|dmm:106|パチ＆スロ必勝本|天下無双",
+      "date": "2026-12-10",
+      "venue": "dmm:106",
+      "media": "パチ＆スロ必勝本",
+      "title": "天下無双",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/106",
+          "checkedAt": "2026-11-23"
         }
       ]
     },
@@ -250,7 +1330,187 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/12670",
-          "checkedAt": "2026-11-16"
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-11|dmm:12101|フェスメディアX|超キノコ狩り2nd",
+      "date": "2026-12-11",
+      "venue": "dmm:12101",
+      "media": "フェスメディアX",
+      "title": "超キノコ狩り2nd",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/12101",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-11|dmm:126|フェスメディアX|超キノコ狩り2nd",
+      "date": "2026-12-11",
+      "venue": "dmm:126",
+      "media": "フェスメディアX",
+      "title": "超キノコ狩り2nd",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/126",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-11|dmm:22|フェスメディアX|超キノコ狩り2nd",
+      "date": "2026-12-11",
+      "venue": "dmm:22",
+      "media": "フェスメディアX",
+      "title": "超キノコ狩り2nd",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/22",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-11|dmm:41|フェスメディアX|超キノコ狩り2nd",
+      "date": "2026-12-11",
+      "venue": "dmm:41",
+      "media": "フェスメディアX",
+      "title": "超キノコ狩り2nd",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/41",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-11|dmm:496||孔明",
+      "date": "2026-12-11",
+      "venue": "dmm:496",
+      "media": null,
+      "title": "孔明",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/496",
+          "checkedAt": "2026-11-23"
         }
       ]
     },
@@ -286,7 +1546,79 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/744",
-          "checkedAt": "2026-11-16"
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-11|dmm:885|フェスメディアX|超キノコ狩り2nd",
+      "date": "2026-12-11",
+      "venue": "dmm:885",
+      "media": "フェスメディアX",
+      "title": "超キノコ狩り2nd",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/885",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-11|dmm:977|フェスメディアX|超キノコ狩り2nd",
+      "date": "2026-12-11",
+      "venue": "dmm:977",
+      "media": "フェスメディアX",
+      "title": "超キノコ狩り2nd",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/977",
+          "checkedAt": "2026-11-23"
         }
       ]
     },
@@ -322,7 +1654,43 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/12606",
-          "checkedAt": "2026-11-16"
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-12|dmm:12670|フェスメディアX|全集中取材",
+      "date": "2026-12-12",
+      "venue": "dmm:12670",
+      "media": "フェスメディアX",
+      "title": "全集中取材",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/12670",
+          "checkedAt": "2026-11-23"
         }
       ]
     },
@@ -358,7 +1726,43 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/13121",
-          "checkedAt": "2026-11-16"
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-12|dmm:13394||いち花の大返済",
+      "date": "2026-12-12",
+      "venue": "dmm:13394",
+      "media": null,
+      "title": "いち花の大返済",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/13394",
+          "checkedAt": "2026-11-23"
         }
       ]
     },
@@ -394,7 +1798,7 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/231",
-          "checkedAt": "2026-11-16"
+          "checkedAt": "2026-11-23"
         }
       ]
     },
@@ -430,7 +1834,7 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/231",
-          "checkedAt": "2026-11-16"
+          "checkedAt": "2026-11-23"
         }
       ]
     },
@@ -466,7 +1870,295 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/231",
-          "checkedAt": "2026-11-16"
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-12|dmm:2|フェスメディアX|超キノコ狩り2nd",
+      "date": "2026-12-12",
+      "venue": "dmm:2",
+      "media": "フェスメディアX",
+      "title": "超キノコ狩り2nd",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/2",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-12|dmm:494|パチ＆スロ必勝本|天誅~閃~",
+      "date": "2026-12-12",
+      "venue": "dmm:494",
+      "media": "パチ＆スロ必勝本",
+      "title": "天誅~閃~",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/494",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-12|dmm:770|フェスメディアX|ドリルスロット",
+      "date": "2026-12-12",
+      "venue": "dmm:770",
+      "media": "フェスメディアX",
+      "title": "ドリルスロット",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/770",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-12|dmm:807|パチ＆スロ必勝本|天下無双滅",
+      "date": "2026-12-12",
+      "venue": "dmm:807",
+      "media": "パチ＆スロ必勝本",
+      "title": "天下無双滅",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/807",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-13|dmm:106||格付けスピリッツ",
+      "date": "2026-12-13",
+      "venue": "dmm:106",
+      "media": null,
+      "title": "格付けスピリッツ",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/106",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-13|dmm:12670|スロパチステーション|スロパチステーション来店取材",
+      "date": "2026-12-13",
+      "venue": "dmm:12670",
+      "media": "スロパチステーション",
+      "title": "スロパチステーション来店取材",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/12670",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-13|dmm:154||極誓取材",
+      "date": "2026-12-13",
+      "venue": "dmm:154",
+      "media": null,
+      "title": "極誓取材",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/154",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-13|dmm:317||あさくら",
+      "date": "2026-12-13",
+      "venue": "dmm:317",
+      "media": null,
+      "title": "あさくら",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/317",
+          "checkedAt": "2026-11-23"
         }
       ]
     },
@@ -502,7 +2194,115 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/467",
-          "checkedAt": "2026-11-16"
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-13|dmm:569||極誓取材",
+      "date": "2026-12-13",
+      "venue": "dmm:569",
+      "media": null,
+      "title": "極誓取材",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/569",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-14|dmm:12605|パチ＆スロ必勝本|狂鬼の宴",
+      "date": "2026-12-14",
+      "venue": "dmm:12605",
+      "media": "パチ＆スロ必勝本",
+      "title": "狂鬼の宴",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/12605",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-14|dmm:13394||おめぇらなんかスロ！",
+      "date": "2026-12-14",
+      "venue": "dmm:13394",
+      "media": null,
+      "title": "おめぇらなんかスロ！",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/13394",
+          "checkedAt": "2026-11-23"
         }
       ]
     },
@@ -538,7 +2338,79 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/496",
-          "checkedAt": "2026-11-16"
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-15|dmm:12670|フェスメディアX|ナインピース",
+      "date": "2026-12-15",
+      "venue": "dmm:12670",
+      "media": "フェスメディアX",
+      "title": "ナインピース",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/12670",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-16|dmm:12227|スロパチステーション|スロパチ東京あかまる来店取材",
+      "date": "2026-12-16",
+      "venue": "dmm:12227",
+      "media": "スロパチステーション",
+      "title": "スロパチ東京あかまる来店取材",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/12227",
+          "checkedAt": "2026-11-23"
         }
       ]
     },
@@ -574,7 +2446,7 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/12322",
-          "checkedAt": "2026-11-16"
+          "checkedAt": "2026-11-23"
         }
       ]
     },
@@ -610,7 +2482,223 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/583",
-          "checkedAt": "2026-11-16"
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-17|dmm:292|パチ＆スロ必勝本|必勝本WEB-TV生配信　スロカイザー",
+      "date": "2026-12-17",
+      "venue": "dmm:292",
+      "media": "パチ＆スロ必勝本",
+      "title": "必勝本WEB-TV生配信　スロカイザー",
+      "anniversary": true,
+      "group": "unrated",
+      "score": 3.3,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 1
+      },
+      "evidence": [
+        "同日にほか1件"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/292",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-17|dmm:292|パチ＆スロ必勝本|狂鬼の宴",
+      "date": "2026-12-17",
+      "venue": "dmm:292",
+      "media": "パチ＆スロ必勝本",
+      "title": "狂鬼の宴",
+      "anniversary": true,
+      "group": "unrated",
+      "score": 3.3,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 1
+      },
+      "evidence": [
+        "同日にほか1件"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/292",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-17|dmm:343|スロパチステーション|スロぱちガール来店PS",
+      "date": "2026-12-17",
+      "venue": "dmm:343",
+      "media": "スロパチステーション",
+      "title": "スロぱちガール来店PS",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/343",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-18|dmm:12383|フェスメディアX|ナインピース",
+      "date": "2026-12-18",
+      "venue": "dmm:12383",
+      "media": "フェスメディアX",
+      "title": "ナインピース",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/12383",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-18|dmm:12606||通常稼働",
+      "date": "2026-12-18",
+      "venue": "dmm:12606",
+      "media": null,
+      "title": "通常稼働",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/12606",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-19|dmm:12179||闇月リリム",
+      "date": "2026-12-19",
+      "venue": "dmm:12179",
+      "media": null,
+      "title": "闇月リリム",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/12179",
+          "checkedAt": "2026-11-23"
         }
       ]
     },
@@ -646,7 +2734,7 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/12578",
-          "checkedAt": "2026-11-16"
+          "checkedAt": "2026-11-23"
         }
       ]
     },
@@ -682,7 +2770,7 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/12606",
-          "checkedAt": "2026-11-16"
+          "checkedAt": "2026-11-23"
         }
       ]
     },
@@ -718,7 +2806,547 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/13394",
-          "checkedAt": "2026-11-16"
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-19|dmm:343|スロパチステーション|スロぱちガール来店PS",
+      "date": "2026-12-19",
+      "venue": "dmm:343",
+      "media": "スロパチステーション",
+      "title": "スロぱちガール来店PS",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/343",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-20|dmm:145||周年情報",
+      "date": "2026-12-20",
+      "venue": "dmm:145",
+      "media": null,
+      "title": "周年情報",
+      "anniversary": true,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/145",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-21|dmm:12101|フェスメディアX|超キノコ狩り2nd",
+      "date": "2026-12-21",
+      "venue": "dmm:12101",
+      "media": "フェスメディアX",
+      "title": "超キノコ狩り2nd",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/12101",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-21|dmm:126|フェスメディアX|超キノコ狩り2nd",
+      "date": "2026-12-21",
+      "venue": "dmm:126",
+      "media": "フェスメディアX",
+      "title": "超キノコ狩り2nd",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/126",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-21|dmm:22|フェスメディアX|超キノコ狩り2nd",
+      "date": "2026-12-21",
+      "venue": "dmm:22",
+      "media": "フェスメディアX",
+      "title": "超キノコ狩り2nd",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/22",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-21|dmm:359||タレント・ライター",
+      "date": "2026-12-21",
+      "venue": "dmm:359",
+      "media": null,
+      "title": "タレント・ライター",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/359",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-21|dmm:41|フェスメディアX|超キノコ狩り2nd",
+      "date": "2026-12-21",
+      "venue": "dmm:41",
+      "media": "フェスメディアX",
+      "title": "超キノコ狩り2nd",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/41",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-21|dmm:496||ギブアップ大西",
+      "date": "2026-12-21",
+      "venue": "dmm:496",
+      "media": null,
+      "title": "ギブアップ大西",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/496",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-21|dmm:885|フェスメディアX|超キノコ狩り2nd",
+      "date": "2026-12-21",
+      "venue": "dmm:885",
+      "media": "フェスメディアX",
+      "title": "超キノコ狩り2nd",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/885",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-21|dmm:977|フェスメディアX|超キノコ狩り2nd",
+      "date": "2026-12-21",
+      "venue": "dmm:977",
+      "media": "フェスメディアX",
+      "title": "超キノコ狩り2nd",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/977",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-22|dmm:2|フェスメディアX|超キノコ狩り2nd",
+      "date": "2026-12-22",
+      "venue": "dmm:2",
+      "media": "フェスメディアX",
+      "title": "超キノコ狩り2nd",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/2",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-22|dmm:535|スロパチステーション|スロパチ東京あかまる来店取材",
+      "date": "2026-12-22",
+      "venue": "dmm:535",
+      "media": "スロパチステーション",
+      "title": "スロパチ東京あかまる来店取材",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/535",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-22|dmm:770|フェスメディアX|ドリルスロット",
+      "date": "2026-12-22",
+      "venue": "dmm:770",
+      "media": "フェスメディアX",
+      "title": "ドリルスロット",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/770",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-22|dmm:807|パチ＆スロ必勝本|天誅～灼＆閃＆斬～",
+      "date": "2026-12-22",
+      "venue": "dmm:807",
+      "media": "パチ＆スロ必勝本",
+      "title": "天誅～灼＆閃＆斬～",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/807",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-22|dmm:853|スロパチステーション|スロパチ東京あかまる来店取材",
+      "date": "2026-12-22",
+      "venue": "dmm:853",
+      "media": "スロパチステーション",
+      "title": "スロパチ東京あかまる来店取材",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/853",
+          "checkedAt": "2026-11-23"
         }
       ]
     },
@@ -754,7 +3382,7 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/13121",
-          "checkedAt": "2026-11-16"
+          "checkedAt": "2026-11-23"
         }
       ]
     },
@@ -790,7 +3418,7 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/154",
-          "checkedAt": "2026-11-16"
+          "checkedAt": "2026-11-23"
         }
       ]
     },
@@ -826,7 +3454,43 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/524",
-          "checkedAt": "2026-11-16"
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-24|dmm:12142|スロパチステーション|スロパチステーション来店取材",
+      "date": "2026-12-24",
+      "venue": "dmm:12142",
+      "media": "スロパチステーション",
+      "title": "スロパチステーション来店取材",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/12142",
+          "checkedAt": "2026-11-23"
         }
       ]
     },
@@ -862,7 +3526,151 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/196",
-          "checkedAt": "2026-11-16"
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-25|dmm:12310||タレント・ライター",
+      "date": "2026-12-25",
+      "venue": "dmm:12310",
+      "media": null,
+      "title": "タレント・ライター",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/12310",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-25|dmm:12670|フェスメディアX|ナインピース",
+      "date": "2026-12-25",
+      "venue": "dmm:12670",
+      "media": "フェスメディアX",
+      "title": "ナインピース",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/12670",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-25|dmm:600|パチ＆スロ必勝本|天誅~閃&斬~",
+      "date": "2026-12-25",
+      "venue": "dmm:600",
+      "media": "パチ＆スロ必勝本",
+      "title": "天誅~閃&斬~",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/600",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-26|dmm:11|パチ＆スロ必勝本|天下無双",
+      "date": "2026-12-26",
+      "venue": "dmm:11",
+      "media": "パチ＆スロ必勝本",
+      "title": "天下無双",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/11",
+          "checkedAt": "2026-11-23"
         }
       ]
     },
@@ -898,7 +3706,7 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/13118",
-          "checkedAt": "2026-11-16"
+          "checkedAt": "2026-11-23"
         }
       ]
     },
@@ -934,7 +3742,7 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/13170",
-          "checkedAt": "2026-11-16"
+          "checkedAt": "2026-11-23"
         }
       ]
     },
@@ -970,7 +3778,259 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/292",
-          "checkedAt": "2026-11-16"
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-26|dmm:343|スロパチステーション|スロぱちガール来店PS",
+      "date": "2026-12-26",
+      "venue": "dmm:343",
+      "media": "スロパチステーション",
+      "title": "スロぱちガール来店PS",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/343",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-26|dmm:366||中条ひとみ",
+      "date": "2026-12-26",
+      "venue": "dmm:366",
+      "media": null,
+      "title": "中条ひとみ",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/366",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-26|dmm:569||極誓取材",
+      "date": "2026-12-26",
+      "venue": "dmm:569",
+      "media": null,
+      "title": "極誓取材",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/569",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-26|dmm:807|パチ＆スロ必勝本|狂鬼の宴",
+      "date": "2026-12-26",
+      "venue": "dmm:807",
+      "media": "パチ＆スロ必勝本",
+      "title": "狂鬼の宴",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/807",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-27|dmm:12310||タレント・ライター",
+      "date": "2026-12-27",
+      "venue": "dmm:12310",
+      "media": null,
+      "title": "タレント・ライター",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/12310",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-27|dmm:12670|パチ＆スロ必勝本|戦極～電光石火～",
+      "date": "2026-12-27",
+      "venue": "dmm:12670",
+      "media": "パチ＆スロ必勝本",
+      "title": "戦極～電光石火～",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/12670",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-27|dmm:13121||タレント・ライター",
+      "date": "2026-12-27",
+      "venue": "dmm:13121",
+      "media": null,
+      "title": "タレント・ライター",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/13121",
+          "checkedAt": "2026-11-23"
         }
       ]
     },
@@ -1006,7 +4066,187 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/13128",
-          "checkedAt": "2026-11-16"
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-27|dmm:317||あさくら",
+      "date": "2026-12-27",
+      "venue": "dmm:317",
+      "media": null,
+      "title": "あさくら",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/317",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-28|dmm:12578||周年情報",
+      "date": "2026-12-28",
+      "venue": "dmm:12578",
+      "media": null,
+      "title": "周年情報",
+      "anniversary": true,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/12578",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-28|dmm:807|スロパチステーション|スロパチ東京あかまる来店取材",
+      "date": "2026-12-28",
+      "venue": "dmm:807",
+      "media": "スロパチステーション",
+      "title": "スロパチ東京あかまる来店取材",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/807",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-28|dmm:853|スロパチステーション|スロパチ東京あかまる来店取材",
+      "date": "2026-12-28",
+      "venue": "dmm:853",
+      "media": "スロパチステーション",
+      "title": "スロパチ東京あかまる来店取材",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/853",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-29|dmm:13121||チチチチ",
+      "date": "2026-12-29",
+      "venue": "dmm:13121",
+      "media": null,
+      "title": "チチチチ",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/13121",
+          "checkedAt": "2026-11-23"
         }
       ]
     },
@@ -1042,7 +4282,7 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/13394",
-          "checkedAt": "2026-11-16"
+          "checkedAt": "2026-11-23"
         }
       ]
     },
@@ -1078,7 +4318,7 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/12606",
-          "checkedAt": "2026-11-16"
+          "checkedAt": "2026-11-23"
         }
       ]
     },
@@ -1114,7 +4354,223 @@
       "sources": [
         {
           "url": "https://p-town.dmm.com/shops/tokyo/13121",
-          "checkedAt": "2026-11-16"
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-31|dmm:12101|フェスメディアX|超キノコ狩り2nd",
+      "date": "2026-12-31",
+      "venue": "dmm:12101",
+      "media": "フェスメディアX",
+      "title": "超キノコ狩り2nd",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/12101",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-31|dmm:126|フェスメディアX|超キノコ狩り2nd",
+      "date": "2026-12-31",
+      "venue": "dmm:126",
+      "media": "フェスメディアX",
+      "title": "超キノコ狩り2nd",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/126",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-31|dmm:22|フェスメディアX|超キノコ狩り2nd",
+      "date": "2026-12-31",
+      "venue": "dmm:22",
+      "media": "フェスメディアX",
+      "title": "超キノコ狩り2nd",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/22",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-31|dmm:41|フェスメディアX|超キノコ狩り2nd",
+      "date": "2026-12-31",
+      "venue": "dmm:41",
+      "media": "フェスメディアX",
+      "title": "超キノコ狩り2nd",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/41",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-31|dmm:885|フェスメディアX|超キノコ狩り2nd",
+      "date": "2026-12-31",
+      "venue": "dmm:885",
+      "media": "フェスメディアX",
+      "title": "超キノコ狩り2nd",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/885",
+          "checkedAt": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-12-31|dmm:977|フェスメディアX|超キノコ狩り2nd",
+      "date": "2026-12-31",
+      "venue": "dmm:977",
+      "media": "フェスメディアX",
+      "title": "超キノコ狩り2nd",
+      "anniversary": false,
+      "group": "unrated",
+      "score": 0,
+      "points": {
+        "mediaG": null,
+        "mediaSamai": null,
+        "venueG": null,
+        "venueSamai": null,
+        "busy": null,
+        "overlap": 0
+      },
+      "evidence": [
+        "同日のほかの予定なし"
+      ],
+      "missing": [
+        "mediaG",
+        "mediaSamai",
+        "venueG",
+        "venueSamai",
+        "busy"
+      ],
+      "frozen": false,
+      "outcome": null,
+      "sources": [
+        {
+          "url": "https://p-town.dmm.com/shops/tokyo/977",
+          "checkedAt": "2026-11-23"
         }
       ]
     }

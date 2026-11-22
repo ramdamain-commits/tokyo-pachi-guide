@@ -1,12 +1,108 @@
 {
-  "updated": "2026-11-16",
+  "updated": "2026-11-23",
   "reports": [
+    {
+      "reportId": "570699",
+      "venue": "dmm:711",
+      "addressKey": "葛飾区東金町1-43-8",
+      "date": "2026-11-23",
+      "title": "スロセレ(低貸ver)",
+      "media": null
+    },
+    {
+      "reportId": "566111",
+      "venue": "dmm:13235",
+      "addressKey": "西多摩郡瑞穂町富士山栗原新田233-1",
+      "date": "2026-11-22",
+      "title": "スロセレ",
+      "media": null
+    },
+    {
+      "reportId": "570634",
+      "venue": "dmm:942",
+      "addressKey": "東村山市本町2-6-1",
+      "date": "2026-11-21",
+      "title": "スロセレ",
+      "media": null
+    },
+    {
+      "reportId": "570561",
+      "venue": "dmm:658",
+      "addressKey": "足立区綾瀬3-3-2-101",
+      "date": "2026-11-21",
+      "title": "スロセレ",
+      "media": null
+    },
+    {
+      "reportId": "568967",
+      "venue": "dmm:685",
+      "addressKey": "葛飾区金町6-5-8",
+      "date": "2026-11-19",
+      "title": "スロセレ",
+      "media": null
+    },
+    {
+      "reportId": "568616",
+      "venue": "dmm:346",
+      "addressKey": "渋谷区道玄坂2-6-16",
+      "date": "2026-11-14",
+      "title": "ぱちタウンコレクション",
+      "media": null
+    },
+    {
+      "reportId": "566097",
+      "venue": "dmm:744",
+      "addressKey": "江戸川区南葛西4-1-8",
+      "date": "2026-11-14",
+      "title": "極誓取材",
+      "media": null
+    },
+    {
+      "reportId": "565323",
+      "venue": "dmm:867",
+      "addressKey": "府中市府中町1-7-2さくら食品館1F2F",
+      "date": "2026-11-14",
+      "title": "3×3STAR取材",
+      "media": null
+    },
     {
       "reportId": "565214",
       "venue": "dmm:169",
       "addressKey": "江東区東雲1-6-13",
       "date": "2026-11-14",
       "title": "スロセレ",
+      "media": null
+    },
+    {
+      "reportId": "567093",
+      "venue": "dmm:426",
+      "addressKey": "杉並区阿佐谷南2-18-8",
+      "date": "2026-11-13",
+      "title": "VEPPAN",
+      "media": null
+    },
+    {
+      "reportId": "566113",
+      "venue": "dmm:13235",
+      "addressKey": "西多摩郡瑞穂町富士山栗原新田233-1",
+      "date": "2026-11-12",
+      "title": "ぱちタウンコレクション",
+      "media": null
+    },
+    {
+      "reportId": "565321",
+      "venue": "dmm:867",
+      "addressKey": "府中市府中町1-7-2さくら食品館1F2F",
+      "date": "2026-11-12",
+      "title": "極誓取材",
+      "media": null
+    },
+    {
+      "reportId": "573137",
+      "venue": "dmm:660",
+      "addressKey": "足立区綾瀬4-6-30",
+      "date": "2026-11-11",
+      "title": "一六取材",
       "media": null
     },
     {
@@ -106,11 +202,51 @@
       "media": null
     },
     {
+      "reportId": "569621",
+      "venue": "dmm:12231",
+      "addressKey": "府中市西原町1-4-5",
+      "date": "2026-11-11",
+      "title": "VEPPAN",
+      "media": null
+    },
+    {
+      "reportId": "567809",
+      "venue": "dmm:364",
+      "addressKey": "中野区中野5-60-12",
+      "date": "2026-11-11",
+      "title": "Gの衝撃-グランパインパクト-",
+      "media": null
+    },
+    {
+      "reportId": "566112",
+      "venue": "dmm:13235",
+      "addressKey": "西多摩郡瑞穂町富士山栗原新田233-1",
+      "date": "2026-11-11",
+      "title": "ぱちタウンコレクション",
+      "media": null
+    },
+    {
+      "reportId": "566098",
+      "venue": "dmm:905",
+      "addressKey": "町田市南成瀬1-3-5",
+      "date": "2026-11-11",
+      "title": "VEPPAN",
+      "media": null
+    },
+    {
       "reportId": "565938",
       "venue": "dmm:13057",
       "addressKey": "品川区東大井5-15-4",
       "date": "2026-11-11",
       "title": "極誓取材",
+      "media": null
+    },
+    {
+      "reportId": "570763",
+      "venue": "dmm:456",
+      "addressKey": "豊島区西池袋1-22-8",
+      "date": "2026-11-10",
+      "title": "VEPPAN",
       "media": null
     },
     {
@@ -130,6 +266,14 @@
       "media": null
     },
     {
+      "reportId": "571576",
+      "venue": "dmm:398",
+      "addressKey": "杉並区下井草2-44-6",
+      "date": "2026-11-08",
+      "title": "ぱちタウンコレクション",
+      "media": null
+    },
+    {
       "reportId": "570206",
       "venue": "dmm:154",
       "addressKey": "墨田区東墨田2-8-5アリーナビル",
@@ -138,11 +282,27 @@
       "media": null
     },
     {
+      "reportId": "569740",
+      "venue": "dmm:111",
+      "addressKey": "台東区上野4-10-4",
+      "date": "2026-11-08",
+      "title": "格付けスピリッツ",
+      "media": null
+    },
+    {
       "reportId": "568618",
       "venue": "dmm:13219",
       "addressKey": "立川市柴崎町3-1-3",
       "date": "2026-11-08",
       "title": "VEPPAN",
+      "media": null
+    },
+    {
+      "reportId": "567757",
+      "venue": "dmm:598",
+      "addressKey": "練馬区旭丘1-72-1NiKiビル",
+      "date": "2026-11-08",
+      "title": "ぱちタウンコレクション",
       "media": null
     },
     {
@@ -159,6 +319,14 @@
       "addressKey": "西多摩郡瑞穂町富士山栗原新田233-1",
       "date": "2026-11-08",
       "title": "スロセレ",
+      "media": null
+    },
+    {
+      "reportId": "566109",
+      "venue": "dmm:13235",
+      "addressKey": "西多摩郡瑞穂町富士山栗原新田233-1",
+      "date": "2026-11-08",
+      "title": "ぱちタウンコレクション",
       "media": null
     },
     {
@@ -202,6 +370,14 @@
       "media": null
     },
     {
+      "reportId": "570752",
+      "venue": "dmm:968",
+      "addressKey": "狛江市東和泉1-29-21",
+      "date": "2026-11-07",
+      "title": "ぱちタウンコレクション",
+      "media": null
+    },
+    {
       "reportId": "570480",
       "venue": "dmm:569",
       "addressKey": "板橋区高島平8-4-1",
@@ -223,6 +399,22 @@
       "addressKey": "東大和市上北台1-1-4",
       "date": "2026-11-07",
       "title": "回胴アドベンチャー",
+      "media": null
+    },
+    {
+      "reportId": "567756",
+      "venue": "dmm:598",
+      "addressKey": "練馬区旭丘1-72-1NiKiビル",
+      "date": "2026-11-07",
+      "title": "ぱちタウンコレクション",
+      "media": null
+    },
+    {
+      "reportId": "566281",
+      "venue": "dmm:13394",
+      "addressKey": "八王子市東浅川町503デルパラビル",
+      "date": "2026-11-07",
+      "title": "ぱちタウンコレクション",
       "media": null
     },
     {
@@ -266,6 +458,14 @@
       "media": null
     },
     {
+      "reportId": "567751",
+      "venue": "dmm:598",
+      "addressKey": "練馬区旭丘1-72-1NiKiビル",
+      "date": "2026-11-03",
+      "title": "ぱちタウンコレクション",
+      "media": null
+    },
+    {
       "reportId": "567651",
       "venue": "dmm:336",
       "addressKey": "世田谷区南烏山5-19-9",
@@ -279,6 +479,14 @@
       "addressKey": "杉並区阿佐谷南2-18-8",
       "date": "2026-11-03",
       "title": "VEPPAN",
+      "media": null
+    },
+    {
+      "reportId": "566017",
+      "venue": "dmm:13118",
+      "addressKey": "あきる野市小川東1-5-3デルパラビル",
+      "date": "2026-11-03",
+      "title": "ぱちタウンコレクション",
       "media": null
     },
     {
@@ -3067,7 +3275,7 @@
     },
     {
       "reportId": "545872",
-      "venue": null,
+      "venue": "dmm:4",
       "addressKey": "千代田区内神田3-7-7",
       "date": "2026-08-15",
       "title": "ぱちタウンコレクション",
@@ -5523,7 +5731,7 @@
     },
     {
       "reportId": "523186",
-      "venue": null,
+      "venue": "dmm:11",
       "addressKey": "千代田区神田平河町4-7",
       "date": "2026-05-31",
       "title": "スロセレ",
@@ -7091,7 +7299,7 @@
     },
     {
       "reportId": "507201",
-      "venue": null,
+      "venue": "dmm:11",
       "addressKey": "千代田区神田平河町4-7",
       "date": "2026-04-11",
       "title": "スロセレ",
@@ -7699,7 +7907,7 @@
     },
     {
       "reportId": "497446",
-      "venue": null,
+      "venue": "dmm:11",
       "addressKey": "千代田区神田平河町4-7",
       "date": "2026-03-20",
       "title": "スロセレ",
@@ -7707,7 +7915,7 @@
     },
     {
       "reportId": "496691",
-      "venue": null,
+      "venue": "dmm:600",
       "addressKey": "練馬区光が丘3-9-1",
       "date": "2026-03-20",
       "title": "3×3STAR取材",
@@ -8443,7 +8651,7 @@
     },
     {
       "reportId": "476137",
-      "venue": null,
+      "venue": "dmm:600",
       "addressKey": "練馬区光が丘3-9-1",
       "date": "2026-02-23",
       "title": "3×3STAR取材",
@@ -8451,7 +8659,7 @@
     },
     {
       "reportId": "488774",
-      "venue": null,
+      "venue": "dmm:278",
       "addressKey": "大田区山王2-4-1",
       "date": "2026-02-22",
       "title": "ぱちタウンコレクション",
@@ -10331,7 +10539,7 @@
     },
     {
       "reportId": "448329",
-      "venue": null,
+      "venue": "dmm:600",
       "addressKey": "練馬区光が丘3-9-1",
       "date": "2025-12-25",
       "title": "3×3STAR取材",
@@ -11151,158 +11359,6 @@
       "addressKey": "東大和市上北台1-1-4",
       "date": "2025-11-23",
       "title": "回胴アドベンチャー",
-      "media": null
-    },
-    {
-      "reportId": "443486",
-      "venue": "dmm:57",
-      "addressKey": "新宿区高田馬場2-14-11",
-      "date": "2025-11-22",
-      "title": "格付けスピリッツ",
-      "media": null
-    },
-    {
-      "reportId": "442756",
-      "venue": "dmm:973",
-      "addressKey": "東大和市上北台1-1-4",
-      "date": "2025-11-22",
-      "title": "回胴アドベンチャー",
-      "media": null
-    },
-    {
-      "reportId": "442119",
-      "venue": "dmm:994",
-      "addressKey": "多摩市落合1-11-2小田急マルシェ201",
-      "date": "2025-11-22",
-      "title": "スロセレ",
-      "media": null
-    },
-    {
-      "reportId": "440823",
-      "venue": null,
-      "addressKey": "世田谷区経堂2-4-1",
-      "date": "2025-11-22",
-      "title": "スロセレ",
-      "media": null
-    },
-    {
-      "reportId": "440499",
-      "venue": "dmm:7",
-      "addressKey": "千代田区外神田1-16-1",
-      "date": "2025-11-22",
-      "title": "スロセレ(低貸ver)",
-      "media": null
-    },
-    {
-      "reportId": "443489",
-      "venue": "dmm:111",
-      "addressKey": "台東区上野4-10-4",
-      "date": "2025-11-21",
-      "title": "格付けスピリッツ",
-      "media": null
-    },
-    {
-      "reportId": "422792",
-      "venue": "dmm:13328",
-      "addressKey": "豊島区東池袋1-43-6",
-      "date": "2025-11-21",
-      "title": "格付けスピリッツ",
-      "media": null
-    },
-    {
-      "reportId": "447060",
-      "venue": "dmm:199",
-      "addressKey": "品川区上大崎2-27-6",
-      "date": "2025-11-20",
-      "title": "本気のしにせえず",
-      "media": null
-    },
-    {
-      "reportId": "447058",
-      "venue": null,
-      "addressKey": "大田区池上6-2-3",
-      "date": "2025-11-20",
-      "title": "本気のしにせえず",
-      "media": null
-    },
-    {
-      "reportId": "447057",
-      "venue": "dmm:201",
-      "addressKey": "品川区大井1-15-2",
-      "date": "2025-11-20",
-      "title": "本気のしにせえず",
-      "media": null
-    },
-    {
-      "reportId": "447056",
-      "venue": "dmm:208",
-      "addressKey": "品川区東大井5-13-1",
-      "date": "2025-11-20",
-      "title": "本気のしにせえず",
-      "media": null
-    },
-    {
-      "reportId": "447055",
-      "venue": null,
-      "addressKey": "品川区戸越6-23-19",
-      "date": "2025-11-20",
-      "title": "本気のしにせえず",
-      "media": null
-    },
-    {
-      "reportId": "447054",
-      "venue": "dmm:231",
-      "addressKey": "品川区小山3-26-5",
-      "date": "2025-11-20",
-      "title": "本気のしにせえず",
-      "media": null
-    },
-    {
-      "reportId": "447053",
-      "venue": "dmm:210",
-      "addressKey": "品川区小山3-25-3",
-      "date": "2025-11-20",
-      "title": "本気のしにせえず",
-      "media": null
-    },
-    {
-      "reportId": "444978",
-      "venue": "dmm:685",
-      "addressKey": "葛飾区金町6-5-8",
-      "date": "2025-11-20",
-      "title": "スロセレ",
-      "media": null
-    },
-    {
-      "reportId": "439955",
-      "venue": "dmm:456",
-      "addressKey": "豊島区西池袋1-22-8",
-      "date": "2025-11-20",
-      "title": "VEPPAN",
-      "media": null
-    },
-    {
-      "reportId": "444859",
-      "venue": null,
-      "addressKey": "国立市富士見台2-14-6",
-      "date": "2025-11-18",
-      "title": "ぱちタウンコレクション",
-      "media": null
-    },
-    {
-      "reportId": "443490",
-      "venue": "dmm:102",
-      "addressKey": "台東区上野4-7-5",
-      "date": "2025-11-17",
-      "title": "格付けスピリッツ",
-      "media": null
-    },
-    {
-      "reportId": "443471",
-      "venue": "dmm:169",
-      "addressKey": "江東区東雲1-6-13",
-      "date": "2025-11-16",
-      "title": "スロセレ",
       "media": null
     }
   ]
